@@ -9,9 +9,7 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     // MARK: - Properties
-    
     var window: UIWindow?
     
     private var mainFlowController: AppNavigation?
@@ -20,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.navigationBar.isTranslucent = false
         return navigationController
     }()
-    private lazy var eargoDependencies: AppDependencies = AppDependencies(navigationController: navigationController)
+    private lazy var fitmaniaDependencies = AppDependencies(navigationController: navigationController)
     
     // MARK: - UIApplicationDelegate
     
@@ -32,11 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private implementation
     
     private func setupInterface() {
-        mainFlowController = MainFlowController(dependencies: eargoDependencies)
+        mainFlowController = MainFlowController(dependencies: fitmaniaDependencies)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         mainFlowController?.startApplication()
     }
 }
-

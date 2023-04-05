@@ -8,7 +8,6 @@
 import UIKit
 
 struct AppDependencies: MainFlowController.Dependencies {
-    
     // MARK: - Properties
     
     let navigation: Navigation
@@ -18,5 +17,4 @@ struct AppDependencies: MainFlowController.Dependencies {
     init(navigationController: UINavigationController) {
         navigation = MainNavigation(navigationController: navigationController)
     }
-    
 }

@@ -28,12 +28,12 @@ final class WelcomeScreenPresenterImpl: WelcomeScreenPresenter {
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
         let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
-            switch (intent) {
+            switch intent {
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)
             .flatMap { self.middleware.process(result: $0) }
-            .scan(initialViewState, accumulator: { (previousState, result) -> ViewState in
+            .scan(initialViewState, accumulator: { previousState, result -> ViewState in
                 switch result {
                 case .partialState(let partialState):
                     return partialState.reduce(previousState: previousState)

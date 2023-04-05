@@ -29,7 +29,7 @@ enum WelcomeScreenResult: Equatable {
 
 enum WelcomeScreenPartialState: Equatable {
     func reduce(previousState: WelcomeScreenViewState) -> WelcomeScreenViewState {
-        var state = previousState
+        let state = previousState
         switch self {
         }
         return state

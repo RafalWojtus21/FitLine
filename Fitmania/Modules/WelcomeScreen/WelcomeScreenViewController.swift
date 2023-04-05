@@ -48,7 +48,7 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
     }
     
     private func trigger(effect: Effect) {
-        switch (effect) {
+        switch effect {
         }
     }
     

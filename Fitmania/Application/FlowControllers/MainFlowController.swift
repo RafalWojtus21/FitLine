@@ -19,7 +19,6 @@ final class MainFlowController: AppNavigation {
     typealias Dependencies = HasNavigation
     
     struct ExtendedDependencies: Dependencies, HasAppNavigation {
-        
         private let dependencies: Dependencies
         
         let appNavigation: AppNavigation
@@ -34,7 +33,7 @@ final class MainFlowController: AppNavigation {
     // MARK: - Properties
     
     private let dependencies: Dependencies
-    private lazy var extendedDependencies: ExtendedDependencies = ExtendedDependencies(dependencies: dependencies, appNavigation: self)
+    private lazy var extendedDependencies = ExtendedDependencies(dependencies: dependencies, appNavigation: self)
     
     // MARK: - Builders
     

@@ -21,7 +21,6 @@ protocol Navigation {
 }
 
 final class MainNavigation: Navigation {
-    
     // MARK: - Properties
     
     private let navigationController: UINavigationController
@@ -96,5 +95,4 @@ final class MainNavigation: Navigation {
         guard let presentedViewController = activeNavigationController.topViewController else { return }
         presentedViewController.dismiss(animated: animated, completion: completion)
     }
-    
 }
