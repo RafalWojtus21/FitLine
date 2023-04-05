@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
-		8BC151F029DD6EA00007A372 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151EF29DD6EA00007A372 /* SceneDelegate.swift */; };
 		8BC151F229DD6EA00007A372 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151F129DD6EA00007A372 /* ViewController.swift */; };
-		8BC151F529DD6EA00007A372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F329DD6EA00007A372 /* Main.storyboard */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
 		8BC1520529DD6EA20007A372 /* FitmaniaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1520429DD6EA20007A372 /* FitmaniaTests.swift */; };
@@ -38,9 +36,7 @@
 /* Begin PBXFileReference section */
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BC151EF29DD6EA00007A372 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BC151F129DD6EA00007A372 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8BC151F429DD6EA00007A372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC151F929DD6EA20007A372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC151FB29DD6EA20007A372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC151ED29DD6EA00007A372 /* AppDelegate.swift */,
-				8BC151EF29DD6EA00007A372 /* SceneDelegate.swift */,
 				8BC151F129DD6EA00007A372 /* ViewController.swift */,
-				8BC151F329DD6EA00007A372 /* Main.storyboard */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
 				8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */,
 				8BC151FB29DD6EA20007A372 /* Info.plist */,
@@ -233,7 +227,6 @@
 			files = (
 				8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */,
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
-				8BC151F529DD6EA00007A372 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +253,6 @@
 			files = (
 				8BC151F229DD6EA00007A372 /* ViewController.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
-				8BC151F029DD6EA00007A372 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8BC151F329DD6EA00007A372 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC151F429DD6EA00007A372 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +426,7 @@
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +454,7 @@
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
