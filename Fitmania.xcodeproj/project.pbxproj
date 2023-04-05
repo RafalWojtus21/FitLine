@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
-		8BC151F229DD6EA00007A372 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151F129DD6EA00007A372 /* ViewController.swift */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
 		8BC1520529DD6EA20007A372 /* FitmaniaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1520429DD6EA20007A372 /* FitmaniaTests.swift */; };
@@ -20,6 +19,21 @@
 		8BC1523729DD75CF0007A372 /* Configuration-Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523229DD75CF0007A372 /* Configuration-Default.plist */; };
 		8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523929DD75F40007A372 /* generate-configuration.sh */; };
 		8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */; };
+		8BC1524529DD769F0007A372 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524029DD769E0007A372 /* Navigation.swift */; };
+		8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524229DD769E0007A372 /* AppDependencies.swift */; };
+		8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524429DD769E0007A372 /* MainFlowController.swift */; };
+		8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524829DD77030007A372 /* WelcomeScreenContract.swift */; };
+		8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524929DD77030007A372 /* WelcomeScreenPresenter.swift */; };
+		8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524A29DD77030007A372 /* WelcomeScreenMiddleware.swift */; };
+		8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524B29DD77030007A372 /* WelcomeScreenViewController.swift */; };
+		8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524C29DD77030007A372 /* WelcomeScreenBuilder.swift */; };
+		8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524D29DD77030007A372 /* WelcomeScreenInteractor.swift */; };
+		8BC1526129DD79D00007A372 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8BC1526029DD79D00007A372 /* SnapKit */; };
+		8BC1526329DD7A380007A372 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1526229DD7A380007A372 /* Base.swift */; };
+		8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1526529DD7AAC0007A372 /* IntentSubject.swift */; };
+		8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447129DD7B6000288DAB /* RxCocoa */; };
+		8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447329DD7B6000288DAB /* RxRelay */; };
+		8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447529DD7B6000288DAB /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +56,6 @@
 /* Begin PBXFileReference section */
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BC151F129DD6EA00007A372 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC151F929DD6EA20007A372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC151FB29DD6EA20007A372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +70,17 @@
 		8BC1523229DD75CF0007A372 /* Configuration-Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Default.plist"; sourceTree = "<group>"; };
 		8BC1523929DD75F40007A372 /* generate-configuration.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "generate-configuration.sh"; sourceTree = "<group>"; };
 		8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "create-empty-configuration-file.sh"; sourceTree = "<group>"; };
+		8BC1524029DD769E0007A372 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		8BC1524229DD769E0007A372 /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		8BC1524429DD769E0007A372 /* MainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		8BC1524829DD77030007A372 /* WelcomeScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenContract.swift; sourceTree = "<group>"; };
+		8BC1524929DD77030007A372 /* WelcomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenPresenter.swift; sourceTree = "<group>"; };
+		8BC1524A29DD77030007A372 /* WelcomeScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenMiddleware.swift; sourceTree = "<group>"; };
+		8BC1524B29DD77030007A372 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		8BC1524C29DD77030007A372 /* WelcomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenBuilder.swift; sourceTree = "<group>"; };
+		8BC1524D29DD77030007A372 /* WelcomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInteractor.swift; sourceTree = "<group>"; };
+		8BC1526229DD7A380007A372 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		8BC1526529DD7AAC0007A372 /* IntentSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentSubject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +88,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */,
+				8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */,
+				8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */,
+				8BC1526129DD79D00007A372 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,11 +137,12 @@
 			isa = PBXGroup;
 			children = (
 				8BC1522D29DD75CF0007A372 /* Configurations */,
-				8BC151ED29DD6EA00007A372 /* AppDelegate.swift */,
-				8BC151F129DD6EA00007A372 /* ViewController.swift */,
+				8BC1523E29DD769E0007A372 /* Application */,
+				8BC1525529DD77150007A372 /* Modules */,
+				8BE6447729DD7BBC00288DAB /* Common */,
+				8BC151FB29DD6EA20007A372 /* Info.plist */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
 				8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */,
-				8BC151FB29DD6EA20007A372 /* Info.plist */,
 			);
 			path = Fitmania;
 			sourceTree = "<group>";
@@ -155,6 +184,79 @@
 			path = BuildScripts;
 			sourceTree = "<group>";
 		};
+		8BC1523E29DD769E0007A372 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1526229DD7A380007A372 /* Base.swift */,
+				8BC151ED29DD6EA00007A372 /* AppDelegate.swift */,
+				8BC1523F29DD769E0007A372 /* Navigation */,
+				8BC1524129DD769E0007A372 /* Dependencies */,
+				8BC1524329DD769E0007A372 /* FlowControllers */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8BC1523F29DD769E0007A372 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1524029DD769E0007A372 /* Navigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		8BC1524129DD769E0007A372 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1524229DD769E0007A372 /* AppDependencies.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		8BC1524329DD769E0007A372 /* FlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1524429DD769E0007A372 /* MainFlowController.swift */,
+			);
+			path = FlowControllers;
+			sourceTree = "<group>";
+		};
+		8BC1525429DD77070007A372 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1524829DD77030007A372 /* WelcomeScreenContract.swift */,
+				8BC1524929DD77030007A372 /* WelcomeScreenPresenter.swift */,
+				8BC1524A29DD77030007A372 /* WelcomeScreenMiddleware.swift */,
+				8BC1524B29DD77030007A372 /* WelcomeScreenViewController.swift */,
+				8BC1524C29DD77030007A372 /* WelcomeScreenBuilder.swift */,
+				8BC1524D29DD77030007A372 /* WelcomeScreenInteractor.swift */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		8BC1525529DD77150007A372 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1525429DD77070007A372 /* WelcomeScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8BC1526429DD7AAC0007A372 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1526529DD7AAC0007A372 /* IntentSubject.swift */,
+			);
+			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		8BE6447729DD7BBC00288DAB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8BC1526429DD7AAC0007A372 /* PropertyWrappers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +274,12 @@
 			dependencies = (
 			);
 			name = Fitmania;
+			packageProductDependencies = (
+				8BC1526029DD79D00007A372 /* SnapKit */,
+				8BE6447129DD7B6000288DAB /* RxCocoa */,
+				8BE6447329DD7B6000288DAB /* RxRelay */,
+				8BE6447529DD7B6000288DAB /* RxSwift */,
+			);
 			productName = Fitmania;
 			productReference = 8BC151EA29DD6EA00007A372 /* Fitmania.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +352,10 @@
 				Base,
 			);
 			mainGroup = 8BC151E129DD6EA00007A372;
+			packageReferences = (
+				8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 8BC151EB29DD6EA00007A372 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,8 +425,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC151F229DD6EA00007A372 /* ViewController.swift in Sources */,
+				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
+				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
+				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
+				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
+				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
+				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
+				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
+				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
+				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
+				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
+				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1284,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BC1526029DD79D00007A372 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		8BE6447129DD7B6000288DAB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		8BE6447329DD7B6000288DAB /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		8BE6447529DD7B6000288DAB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8BC151E229DD6EA00007A372 /* Project object */;
 }
