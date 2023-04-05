@@ -34,7 +34,14 @@
 		8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447129DD7B6000288DAB /* RxCocoa */; };
 		8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447329DD7B6000288DAB /* RxRelay */; };
 		8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447529DD7B6000288DAB /* RxSwift */; };
-		8BE6447B29DDB64100288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6447A29DDB64100288DAB /* UIColorExtension.swift */; };
+		8BE6448329DDB8D800288DAB /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6447D29DDB8D800288DAB /* OpenSans-SemiBold.ttf */; };
+		8BE6448429DDB8D800288DAB /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6447E29DDB8D800288DAB /* SF-Pro.ttf */; };
+		8BE6448529DDB8D800288DAB /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6447F29DDB8D800288DAB /* SF-Pro-Text-Regular.otf */; };
+		8BE6448629DDB8D800288DAB /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448029DDB8D800288DAB /* SF-Pro-Text-Bold.otf */; };
+		8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448129DDB8D800288DAB /* OpenSans-Regular.ttf */; };
+		8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */; };
+		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
+		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +89,14 @@
 		8BC1524D29DD77030007A372 /* WelcomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInteractor.swift; sourceTree = "<group>"; };
 		8BC1526229DD7A380007A372 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		8BC1526529DD7AAC0007A372 /* IntentSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentSubject.swift; sourceTree = "<group>"; };
-		8BE6447A29DDB64100288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8BE6447D29DDB8D800288DAB /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		8BE6447E29DDB8D800288DAB /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		8BE6447F29DDB8D800288DAB /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		8BE6448029DDB8D800288DAB /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		8BE6448129DDB8D800288DAB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE6447929DDB63000288DAB /* Extensions */,
+				8BE6447C29DDB8D800288DAB /* Fonts */,
 				8BC1526429DD7AAC0007A372 /* PropertyWrappers */,
 			);
 			path = Common;
@@ -263,9 +278,23 @@
 		8BE6447929DDB63000288DAB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6447A29DDB64100288DAB /* UIColorExtension.swift */,
+				8BE6448929DDB96E00288DAB /* UIFontExtension.swift */,
+				8BE6449129DED21600288DAB /* UIColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8BE6447C29DDB8D800288DAB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6447D29DDB8D800288DAB /* OpenSans-SemiBold.ttf */,
+				8BE6447E29DDB8D800288DAB /* SF-Pro.ttf */,
+				8BE6447F29DDB8D800288DAB /* SF-Pro-Text-Regular.otf */,
+				8BE6448029DDB8D800288DAB /* SF-Pro-Text-Bold.otf */,
+				8BE6448129DDB8D800288DAB /* OpenSans-Regular.ttf */,
+				8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,14 +413,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE6448529DDB8D800288DAB /* SF-Pro-Text-Regular.otf in Resources */,
 				8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */,
+				8BE6448629DDB8D800288DAB /* SF-Pro-Text-Bold.otf in Resources */,
+				8BE6448329DDB8D800288DAB /* OpenSans-SemiBold.ttf in Resources */,
 				8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */,
 				8BC1523729DD75CF0007A372 /* Configuration-Default.plist in Resources */,
+				8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */,
 				8BC1523429DD75CF0007A372 /* Configuration-Development.plist in Resources */,
 				8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */,
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
 				8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */,
 				8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */,
+				8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */,
+				8BE6448429DDB8D800288DAB /* SF-Pro.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,13 +492,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
+				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
-				8BE6447B29DDB64100288DAB /* UIColorExtension.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
 				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
