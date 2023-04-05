@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var mainFlowController: AppNavigation?
     private lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
-        navigationController.navigationBar.isTranslucent = false
         return navigationController
     }()
     private lazy var fitmaniaDependencies = AppDependencies(navigationController: navigationController)

@@ -34,6 +34,7 @@
 		8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447129DD7B6000288DAB /* RxCocoa */; };
 		8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447329DD7B6000288DAB /* RxRelay */; };
 		8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447529DD7B6000288DAB /* RxSwift */; };
+		8BE6447B29DDB64100288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6447A29DDB64100288DAB /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		8BC1524D29DD77030007A372 /* WelcomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInteractor.swift; sourceTree = "<group>"; };
 		8BC1526229DD7A380007A372 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		8BC1526529DD7AAC0007A372 /* IntentSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentSubject.swift; sourceTree = "<group>"; };
+		8BE6447A29DDB64100288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,9 +254,18 @@
 		8BE6447729DD7BBC00288DAB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8BE6447929DDB63000288DAB /* Extensions */,
 				8BC1526429DD7AAC0007A372 /* PropertyWrappers */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8BE6447929DDB63000288DAB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6447A29DDB64100288DAB /* UIColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +463,7 @@
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
+				8BE6447B29DDB64100288DAB /* UIColorExtension.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
 				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
