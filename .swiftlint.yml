@@ -16,13 +16,13 @@ disabled_rules:
     - empty_count
     - multiline_function_chains
     - empty_enum_arguments
+    - type_name
     
     # Code style
 opt_in_rules:
     - unused_optional_binding
     - identifier_name
     - array_init
-    - type_name
     - unneeded_parentheses_in_closure_argument
     - closure_end_indentation
     - closure_spacing

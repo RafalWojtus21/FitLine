@@ -14,6 +14,7 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
     typealias ViewState = WelcomeScreenViewState
     typealias Effect = WelcomeScreenEffect
     typealias Intent = WelcomeScreenIntent
+    typealias L = Localization.AuthenticationFlow
     
     @IntentSubject() var intents: Observable<WelcomeScreenIntent>
     
@@ -31,15 +32,13 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
     private lazy var fitmaniaLogo = FitmaniaLogoView()
     
     private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.apply(style: .primary, title: "LOGIN")
+        let button = UIButton().apply(style: .primary, title: L.welcomeScreenLogin)
         button.layer.cornerRadius = 20
         return button
     }()
     
     private lazy var signupButton: UIButton = {
-        let button = UIButton()
-        button.apply(style: .primary, title: "SIGNUP")
+        let button = UIButton().apply(style: .primary, title: L.welcomeScreenSignup)
         button.layer.cornerRadius = 20
         return button
     }()

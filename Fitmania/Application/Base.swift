@@ -14,8 +14,8 @@ class BaseViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(!showNavigationController, animated: animated)
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor.black ]
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor: UIColor.white ]
+        navigationController?.navigationBar.tintColor = .white
     }
     
     deinit {

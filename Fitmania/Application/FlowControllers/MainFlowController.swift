@@ -16,16 +16,21 @@ protocol AppNavigation: AnyObject {
     func showWelcomeScreen()
     func showLoginScreen()
     func showRegisterScreen()
+    func showForgotPasswordScreen()
+    func showAccountSetupScreen()
 }
 
 final class MainFlowController: AppNavigation {
     typealias Dependencies = HasNavigation
     
-    struct ExtendedDependencies: Dependencies, HasAppNavigation {
+    struct ExtendedDependencies: Dependencies, HasAppNavigation, HasAuthManager, HasValidationService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         
+        let authManager: AuthManager = AuthManagerImpl()
+        let validationService: ValidationService = ValidationServiceImpl()
+    
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
             self.dependencies = dependencies
             self.appNavigation = appNavigation
@@ -40,7 +45,9 @@ final class MainFlowController: AppNavigation {
     // MARK: - Builders
     
     private lazy var welcomeScreenBuilder: WelcomeScreenBuilder = WelcomeScreenBuilderImpl(dependencies: extendedDependencies)
-    
+    private lazy var registerScreenBuilder: RegisterScreenBuilder = RegisterScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var loginScreenBuilder: LoginScreenBuilder = LoginScreenBuilderImpl(dependencies: extendedDependencies)
+
     // MARK: - Initialization
     
     init(dependencies: Dependencies) {
@@ -59,8 +66,18 @@ final class MainFlowController: AppNavigation {
     }
     
     func showLoginScreen() {
+        let view = loginScreenBuilder.build(with: .init()).view
+        dependencies.navigation.show(view: view, animated: false)
     }
     
     func showRegisterScreen() {
+        let view = registerScreenBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
+    }
+    
+    func showForgotPasswordScreen() {
+    }
+    
+    func showAccountSetupScreen() {
     }
 }

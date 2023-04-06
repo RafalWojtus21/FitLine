@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
+		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
+		8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */; };
+		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
+		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
+		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
+		8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589029ED43A100E09F5D /* UIViewExtension.swift */; };
+		8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589229ED484F00E09F5D /* ValidationMessage.swift */; };
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
@@ -42,11 +50,30 @@
 		8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */; };
 		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
 		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
-		8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* UIButtonExtension.swift */; };
 		8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449729DEDCD900288DAB /* UIImageExtension.swift */; };
-		8BE6449C29DEE22B00288DAB /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */; };
 		8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */; };
 		8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE644A429DEEE2300288DAB /* FirebaseAuth */; };
+		8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644AF29DEF18F00288DAB /* AuthManager.swift */; };
+		8BE644D029DF06AF00288DAB /* RegisterScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CA29DF06AF00288DAB /* RegisterScreenContract.swift */; };
+		8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CB29DF06AF00288DAB /* RegisterScreenPresenter.swift */; };
+		8BE644D229DF06AF00288DAB /* RegisterScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CC29DF06AF00288DAB /* RegisterScreenMiddleware.swift */; };
+		8BE644D329DF06AF00288DAB /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CD29DF06AF00288DAB /* RegisterScreenViewController.swift */; };
+		8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CE29DF06AF00288DAB /* RegisterScreenBuilder.swift */; };
+		8BE644D529DF06AF00288DAB /* RegisterScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CF29DF06AF00288DAB /* RegisterScreenInteractor.swift */; };
+		8BE644D829DF0EDA00288DAB /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644D729DF0EDA00288DAB /* UITextFieldExtension.swift */; };
+		8BE644DA29DF101D00288DAB /* TextFieldWithTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644D929DF101D00288DAB /* TextFieldWithTitleView.swift */; };
+		8BE644DD29DFFA0100288DAB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644DC29DFFA0100288DAB /* Error.swift */; };
+		8BE644E729DFFDEC00288DAB /* LoginScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E129DFFDEC00288DAB /* LoginScreenContract.swift */; };
+		8BE644E829DFFDEC00288DAB /* LoginScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E229DFFDEC00288DAB /* LoginScreenPresenter.swift */; };
+		8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E329DFFDEC00288DAB /* LoginScreenMiddleware.swift */; };
+		8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E429DFFDEC00288DAB /* LoginScreenViewController.swift */; };
+		8BE644EB29DFFDEC00288DAB /* LoginScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E529DFFDEC00288DAB /* LoginScreenBuilder.swift */; };
+		8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644E629DFFDEC00288DAB /* LoginScreenInteractor.swift */; };
+		8BE644F029E0033900288DAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BE644F229E0033900288DAB /* Localizable.strings */; };
+		8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644F329E0047800288DAB /* LocalizationGeneral.swift */; };
+		8BE644F629E0048900288DAB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644F529E0048900288DAB /* Localization.swift */; };
+		8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */; };
+		8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +94,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
+		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
+		8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
+		8BB5589029ED43A100E09F5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		8BB5589229ED484F00E09F5D /* ValidationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessage.swift; sourceTree = "<group>"; };
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,10 +137,29 @@
 		8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		8BE6449529DED69B00288DAB /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8BE6449729DEDCD900288DAB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 		8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BE644AF29DEF18F00288DAB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		8BE644CA29DF06AF00288DAB /* RegisterScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenContract.swift; sourceTree = "<group>"; };
+		8BE644CB29DF06AF00288DAB /* RegisterScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenPresenter.swift; sourceTree = "<group>"; };
+		8BE644CC29DF06AF00288DAB /* RegisterScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenMiddleware.swift; sourceTree = "<group>"; };
+		8BE644CD29DF06AF00288DAB /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
+		8BE644CE29DF06AF00288DAB /* RegisterScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenBuilder.swift; sourceTree = "<group>"; };
+		8BE644CF29DF06AF00288DAB /* RegisterScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenInteractor.swift; sourceTree = "<group>"; };
+		8BE644D729DF0EDA00288DAB /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		8BE644D929DF101D00288DAB /* TextFieldWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithTitleView.swift; sourceTree = "<group>"; };
+		8BE644DC29DFFA0100288DAB /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8BE644E129DFFDEC00288DAB /* LoginScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenContract.swift; sourceTree = "<group>"; };
+		8BE644E229DFFDEC00288DAB /* LoginScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenPresenter.swift; sourceTree = "<group>"; };
+		8BE644E329DFFDEC00288DAB /* LoginScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenMiddleware.swift; sourceTree = "<group>"; };
+		8BE644E429DFFDEC00288DAB /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		8BE644E529DFFDEC00288DAB /* LoginScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenBuilder.swift; sourceTree = "<group>"; };
+		8BE644E629DFFDEC00288DAB /* LoginScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenInteractor.swift; sourceTree = "<group>"; };
+		8BE644F129E0033900288DAB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8BE644F329E0047800288DAB /* LocalizationGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationGeneral.swift; sourceTree = "<group>"; };
+		8BE644F529E0048900288DAB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationAuthenticationFlow.swift; sourceTree = "<group>"; };
+		8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +218,10 @@
 			children = (
 				8BC1522D29DD75CF0007A372 /* Configurations */,
 				8BC1523E29DD769E0007A372 /* Application */,
+				8BE644AE29DEF18000288DAB /* Services */,
 				8BC1525529DD77150007A372 /* Modules */,
 				8BE6447729DD7BBC00288DAB /* Common */,
+				8BE644ED29E0030200288DAB /* Localization */,
 				8BC151FB29DD6EA20007A372 /* Info.plist */,
 				8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
@@ -214,11 +270,11 @@
 		8BC1523E29DD769E0007A372 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8BC1526229DD7A380007A372 /* Base.swift */,
-				8BC151ED29DD6EA00007A372 /* AppDelegate.swift */,
+				8BC1524329DD769E0007A372 /* FlowControllers */,
 				8BC1523F29DD769E0007A372 /* Navigation */,
 				8BC1524129DD769E0007A372 /* Dependencies */,
-				8BC1524329DD769E0007A372 /* FlowControllers */,
+				8BC151ED29DD6EA00007A372 /* AppDelegate.swift */,
+				8BC1526229DD7A380007A372 /* Base.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -263,8 +319,9 @@
 		8BC1525529DD77150007A372 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6449929DEE21A00288DAB /* Components */,
 				8BC1525429DD77070007A372 /* WelcomeScreen */,
+				8BE644D629DF06B200288DAB /* RegisterScreen */,
+				8BE644E029DFFDD900288DAB /* LoginScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -280,6 +337,8 @@
 		8BE6447729DD7BBC00288DAB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8BE644DB29DFF9F800288DAB /* Helpers */,
+				8BE6449929DEE21A00288DAB /* Components */,
 				8BE6447929DDB63000288DAB /* Extensions */,
 				8BE6447C29DDB8D800288DAB /* Fonts */,
 				8BC1526429DD7AAC0007A372 /* PropertyWrappers */,
@@ -291,9 +350,13 @@
 			isa = PBXGroup;
 			children = (
 				8BE6448929DDB96E00288DAB /* UIFontExtension.swift */,
+				8B815EE829E936A3007EA47C /* UIButtonExtension.swift */,
 				8BE6449129DED21600288DAB /* UIColorExtension.swift */,
-				8BE6449529DED69B00288DAB /* UIButtonExtension.swift */,
 				8BE6449729DEDCD900288DAB /* UIImageExtension.swift */,
+				8BE644D729DF0EDA00288DAB /* UITextFieldExtension.swift */,
+				8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */,
+				8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */,
+				8BB5589029ED43A100E09F5D /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -322,9 +385,67 @@
 		8BE6449A29DEE22200288DAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */,
+				8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */,
+				8BE644D929DF101D00288DAB /* TextFieldWithTitleView.swift */,
+				8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8BE644AE29DEF18000288DAB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644AF29DEF18F00288DAB /* AuthManager.swift */,
+				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8BE644D629DF06B200288DAB /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644CA29DF06AF00288DAB /* RegisterScreenContract.swift */,
+				8BE644CB29DF06AF00288DAB /* RegisterScreenPresenter.swift */,
+				8BE644CC29DF06AF00288DAB /* RegisterScreenMiddleware.swift */,
+				8BE644CD29DF06AF00288DAB /* RegisterScreenViewController.swift */,
+				8BE644CE29DF06AF00288DAB /* RegisterScreenBuilder.swift */,
+				8BE644CF29DF06AF00288DAB /* RegisterScreenInteractor.swift */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		8BE644DB29DFF9F800288DAB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644DC29DFFA0100288DAB /* Error.swift */,
+				8BB5589229ED484F00E09F5D /* ValidationMessage.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8BE644E029DFFDD900288DAB /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644E129DFFDEC00288DAB /* LoginScreenContract.swift */,
+				8BE644E229DFFDEC00288DAB /* LoginScreenPresenter.swift */,
+				8BE644E329DFFDEC00288DAB /* LoginScreenMiddleware.swift */,
+				8BE644E429DFFDEC00288DAB /* LoginScreenViewController.swift */,
+				8BE644E529DFFDEC00288DAB /* LoginScreenBuilder.swift */,
+				8BE644E629DFFDEC00288DAB /* LoginScreenInteractor.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		8BE644ED29E0030200288DAB /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644F229E0033900288DAB /* Localizable.strings */,
+				8BE644F529E0048900288DAB /* Localization.swift */,
+				8BE644F329E0047800288DAB /* LocalizationGeneral.swift */,
+				8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */,
+				8B0C115029E852F10028DCCF /* LocalizationValidation.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +579,7 @@
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
 				8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */,
 				8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */,
+				8BE644F029E0033900288DAB /* Localizable.strings in Resources */,
 				8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */,
 				8BE6448429DDB8D800288DAB /* SF-Pro.ttf in Resources */,
 			);
@@ -525,22 +647,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE644D029DF06AF00288DAB /* RegisterScreenContract.swift in Sources */,
+				8BE644DA29DF101D00288DAB /* TextFieldWithTitleView.swift in Sources */,
+				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
+				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
+				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
-				8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */,
+				8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */,
+				8BE644DD29DFFA0100288DAB /* Error.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
+				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
-				8BE6449C29DEE22B00288DAB /* FitmaniaLogoView.swift in Sources */,
+				8BE644D829DF0EDA00288DAB /* UITextFieldExtension.swift in Sources */,
+				8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */,
+				8BE644D329DF06AF00288DAB /* RegisterScreenViewController.swift in Sources */,
+				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
+				8BE644F629E0048900288DAB /* Localization.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
+				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
+				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
+				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
+				8BE644EB29DFFDEC00288DAB /* LoginScreenBuilder.swift in Sources */,
+				8BE644E729DFFDEC00288DAB /* LoginScreenContract.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
+				8BE644D529DF06AF00288DAB /* RegisterScreenInteractor.swift in Sources */,
+				8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */,
 				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
+				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
+				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
+				8BE644D229DF06AF00288DAB /* RegisterScreenMiddleware.swift in Sources */,
+				8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */,
+				8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */,
+				8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */,
 				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
+				8BE644E829DFFDEC00288DAB /* LoginScreenPresenter.swift in Sources */,
+				8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */,
 				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +732,14 @@
 				8BC151F929DD6EA20007A372 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8BE644F229E0033900288DAB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BE644F129E0033900288DAB /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  Fitmania
+
+  Created by Rafał Wojtuś on 07/04/2023.
+  
+*/
+
+// MARK: General
+
+"General.Fitmania" = "Fitmania";
+"General.Email" = "E-mail";
+"General.Password" = "Password";
+"General.Error" = "Error";
+"General.Ok" = "OK";
+
+// MARK: Welcome Screen
+
+"WelcomeScreen.Signup" = "SIGNUP";
+"WelcomeScreen.Login" = "LOGIN";
+
+// MARK: Register Screen
+
+"RegisterScreen.Register" = "Register";
+
+// MARK: Login Screen
+
+"LoginScreen.Title" = "Login";
+"LoginScreen.RepeatPassword" = "Confirm password";
+"LoginScreen.Subtitle" = "Please sign in to continue";
+"LoginScreen.ForgotPassword" = "Forgot password?";
+"LoginScreen.NoAccountButton" = "Don't have an account? Create account";
+
+// MARK: Account Setup
+
+"AccountSetup.CreateAccount" = "Create account";
+
+// MARK: Validation
+
+"Validation.Email" = "e-mail";
+"Validation.Password" = "password";
+"Validation.Username" = "name";
+"Validation.EmptyField" = "Please enter";
+"Validation.InvalidFieldInput" = "Please enter valid";
+"Validation.InvalidEmailError" = "Please enter a valid e-mail";
+"Validation.RepeatPasswordError" = "The password confirmation doesn't match";
+"Validation.PasswordUppercaseError" = "Password must contain at least one uppercase";
+"Validation.PasswordLowercaseError" = "Password must contain at least one lowercase";
+"Validation.PasswordDigitError" = "Password must contain at least one digit";
+"Validation.PasswordCharacterError" = "Password must contain at least one special character";
+"Validation.PasswordLengthError" = "Password must be between 8 and 256 characters long";

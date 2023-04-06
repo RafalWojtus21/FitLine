@@ -17,6 +17,7 @@ extension UIFont {
     static let openSansSemiBold16 = UIFont(name: "OpenSans-SemiBold", size: 16)
     static let openSansSemiBold24 = UIFont(name: "OpenSans-SemiBold", size: 24)
     static let openSansSemiBold28 = UIFont(name: "OpenSans-SemiBold", size: 28)
+    static let openSansSemiBold32 = UIFont(name: "OpenSans-SemiBold", size: 32)
     static let sfProTextRegular12 = UIFont(name: "SF Pro Text Regular", size: 12)
     static let sfProTextRegular14 = UIFont(name: "SF Pro Text Regular", size: 14)
     static let sfProTextRegular16 = UIFont(name: "SF Pro Text Regular", size: 16)
