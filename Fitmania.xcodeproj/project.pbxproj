@@ -42,6 +42,7 @@
 		8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */; };
 		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
 		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
+		8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8BE6449529DED69B00288DAB /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 			children = (
 				8BE6448929DDB96E00288DAB /* UIFontExtension.swift */,
 				8BE6449129DED21600288DAB /* UIColorExtension.swift */,
+				8BE6449529DED69B00288DAB /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			files = (
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
+				8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
