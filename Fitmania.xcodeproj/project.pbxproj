@@ -42,7 +42,11 @@
 		8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */; };
 		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
 		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
+		8BE6449629DED69B00288DAB /* ButtonsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* ButtonsFactory.swift */; };
+		8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449729DEDCD900288DAB /* UIImageExtension.swift */; };
+		8BE6449C29DEE22B00288DAB /* FitmaniaLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449B29DEE22B00288DAB /* FitmaniaLogo.swift */; };
 		8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* UIButtonExtension.swift */; };
+		8BE6449C29DEE22B00288DAB /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +102,11 @@
 		8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8BE6449529DED69B00288DAB /* ButtonsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsFactory.swift; sourceTree = "<group>"; };
+		8BE6449729DEDCD900288DAB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		8BE6449B29DEE22B00288DAB /* FitmaniaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaLogo.swift; sourceTree = "<group>"; };
 		8BE6449529DED69B00288DAB /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +262,7 @@
 		8BC1525529DD77150007A372 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8BE6449929DEE21A00288DAB /* Components */,
 				8BC1525429DD77070007A372 /* WelcomeScreen */,
 			);
 			path = Modules;
@@ -283,6 +292,7 @@
 				8BE6448929DDB96E00288DAB /* UIFontExtension.swift */,
 				8BE6449129DED21600288DAB /* UIColorExtension.swift */,
 				8BE6449529DED69B00288DAB /* UIButtonExtension.swift */,
+				8BE6449729DEDCD900288DAB /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +308,30 @@
 				8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8BE6449429DED68A00288DAB /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6449529DED69B00288DAB /* ButtonsFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		8BE6449929DEE21A00288DAB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6449A29DEE22200288DAB /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8BE6449A29DEE22200288DAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +535,7 @@
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
+				8BE6449C29DEE22B00288DAB /* FitmaniaLogoView.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
@@ -510,6 +545,7 @@
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
 				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
+				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

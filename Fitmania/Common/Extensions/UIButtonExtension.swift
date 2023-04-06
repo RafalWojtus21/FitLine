@@ -13,8 +13,10 @@ enum ButtonStyle {
 }
 
 extension UIButton {
-    func apply(style: ButtonStyle) -> UIButton {
+    func apply(style: ButtonStyle, title: String) {
+        setTitle(title, for: .normal)
         setTitleColor(.black, for: .normal)
+        titleLabel?.font = .openSansRegular14
         switch style {
         case .primary:
             backgroundColor = .primaryColor
@@ -23,6 +25,5 @@ extension UIButton {
             backgroundColor = .secondaryColor
             layer.cornerRadius = 2
         }
-        return self
     }
 }

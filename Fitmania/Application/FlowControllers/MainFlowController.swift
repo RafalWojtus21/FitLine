@@ -8,11 +8,14 @@
 import Foundation
 
 protocol HasAppNavigation {
-    var appNavigation: AppNavigation { get }
+    var appNavigation: AppNavigation? { get }
 }
 
-protocol AppNavigation {
+protocol AppNavigation: AnyObject {
     func startApplication()
+    func showWelcomeScreen()
+    func showLoginScreen()
+    func showRegisterScreen()
 }
 
 final class MainFlowController: AppNavigation {
@@ -20,8 +23,7 @@ final class MainFlowController: AppNavigation {
     
     struct ExtendedDependencies: Dependencies, HasAppNavigation {
         private let dependencies: Dependencies
-        
-        let appNavigation: AppNavigation
+        weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
@@ -48,7 +50,17 @@ final class MainFlowController: AppNavigation {
     // MARK: - AppNavigation
     
     func startApplication() {
+        showWelcomeScreen()
+    }
+    
+    func showWelcomeScreen() {
         let view = welcomeScreenBuilder.build(with: .init()).view
         dependencies.navigation.set(view: view, animated: false)
-    }    
+    }
+    
+    func showLoginScreen() {
+    }
+    
+    func showRegisterScreen() {
+    }
 }

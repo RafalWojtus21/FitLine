@@ -7,9 +7,7 @@ protocol BasePresenter {}
 protocol BaseInteractor {}
 
 class BaseViewController: UIViewController {
-    // swiftlint:disable: redundant_type_annotation
-    var showNavigationController: Bool = true
-    // swiftlint:enable: redundant_type_annotation
+    var showNavigationController = true
     var animatedTransitioning: UIViewControllerAnimatedTransitioning?
     
     override func viewWillAppear(_ animated: Bool) {

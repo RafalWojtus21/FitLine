@@ -27,8 +27,12 @@ final class WelcomeScreenPresenterImpl: WelcomeScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
             switch intent {
+            case .loginButtonIntent:
+                return .just(.effect(.showLoginScreen))
+            case .signupButtonIntent:
+                return .just(.effect(.showSignupScreen))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

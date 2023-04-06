@@ -23,4 +23,5 @@ extension UIFont {
     static let sfProTextRegular17 = UIFont(name: "SF Pro Text Regular", size: 17)
     static let sfProTextSemiBold17 = UIFont(name: "SF Pro Text Semibold", size: 17)
     static let sfProTextBold17 = UIFont(name: "SF Pro Text Bold", size: 17)
+    static let sfProTextBold52 = UIFont(name: "SF Pro Text Bold", size: 52)
 }

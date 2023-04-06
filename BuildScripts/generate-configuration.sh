@@ -63,6 +63,7 @@ import Foundation
 struct Config {
 \(params.map { "\\\tstatic var \(\$0) = \(\$1)" }.joined(separator: "\\\n"))
 }
+// swiftlint:enable convenience_type
 
 """
 try! configExtension.write(toFile: "$CONFIG_EXTENSION_OUTPUT_PATH", atomically: true, encoding: .utf8)

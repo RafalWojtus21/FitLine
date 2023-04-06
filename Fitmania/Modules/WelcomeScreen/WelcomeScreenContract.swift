@@ -8,12 +8,16 @@
 import RxSwift
 
 enum WelcomeScreenIntent {
+    case loginButtonIntent
+    case signupButtonIntent
 }
 
 struct WelcomeScreenViewState: Equatable {
 }
 
 enum WelcomeScreenEffect: Equatable {
+    case showLoginScreen
+    case showSignupScreen
 }
 
 struct WelcomeScreenBuilderInput {
@@ -30,8 +34,6 @@ enum WelcomeScreenResult: Equatable {
 enum WelcomeScreenPartialState: Equatable {
     func reduce(previousState: WelcomeScreenViewState) -> WelcomeScreenViewState {
         let state = previousState
-        switch self {
-        }
         return state
     }
 }

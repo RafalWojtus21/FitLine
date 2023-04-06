@@ -25,6 +25,10 @@ final class WelcomeScreenMiddlewareImpl: WelcomeScreenMiddleware, WelcomeScreenC
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
+            case .showLoginScreen:
+                dependencies.appNavigation?.showLoginScreen()
+            case .showSignupScreen:
+                dependencies.appNavigation?.showRegisterScreen()
             }
         }
         return .just(result)
