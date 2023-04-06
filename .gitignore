@@ -41,6 +41,9 @@ Icon
 ## Environment Configuration
 Fitmania/Configurations
 
+## Google Service
+Fitmania/GoogleService-Info.plist
+
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd

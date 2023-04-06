@@ -42,11 +42,11 @@
 		8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */; };
 		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
 		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
-		8BE6449629DED69B00288DAB /* ButtonsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* ButtonsFactory.swift */; };
-		8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449729DEDCD900288DAB /* UIImageExtension.swift */; };
-		8BE6449C29DEE22B00288DAB /* FitmaniaLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449B29DEE22B00288DAB /* FitmaniaLogo.swift */; };
 		8BE6449629DED69B00288DAB /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449529DED69B00288DAB /* UIButtonExtension.swift */; };
+		8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449729DEDCD900288DAB /* UIImageExtension.swift */; };
 		8BE6449C29DEE22B00288DAB /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */; };
+		8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */; };
+		8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE644A429DEEE2300288DAB /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,11 +102,10 @@
 		8BE6448229DDB8D800288DAB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		8BE6449529DED69B00288DAB /* ButtonsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsFactory.swift; sourceTree = "<group>"; };
-		8BE6449729DEDCD900288DAB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		8BE6449B29DEE22B00288DAB /* FitmaniaLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaLogo.swift; sourceTree = "<group>"; };
 		8BE6449529DED69B00288DAB /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		8BE6449729DEDCD900288DAB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		8BE6449B29DEE22B00288DAB /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
+		8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +116,7 @@
 				8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */,
 				8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */,
 				8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */,
+				8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */,
 				8BC1526129DD79D00007A372 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +167,7 @@
 				8BC1525529DD77150007A372 /* Modules */,
 				8BE6447729DD7BBC00288DAB /* Common */,
 				8BC151FB29DD6EA20007A372 /* Info.plist */,
+				8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
 				8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */,
 			);
@@ -310,14 +311,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8BE6449429DED68A00288DAB /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				8BE6449529DED69B00288DAB /* ButtonsFactory.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
 		8BE6449929DEE21A00288DAB /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +350,7 @@
 				8BE6447129DD7B6000288DAB /* RxCocoa */,
 				8BE6447329DD7B6000288DAB /* RxRelay */,
 				8BE6447529DD7B6000288DAB /* RxSwift */,
+				8BE644A429DEEE2300288DAB /* FirebaseAuth */,
 			);
 			productName = Fitmania;
 			productReference = 8BC151EA29DD6EA00007A372 /* Fitmania.app */;
@@ -433,6 +427,7 @@
 			packageReferences = (
 				8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 8BC151EB29DD6EA00007A372 /* Products */;
 			projectDirPath = "";
@@ -452,6 +447,7 @@
 			files = (
 				8BE6448529DDB8D800288DAB /* SF-Pro-Text-Regular.otf in Resources */,
 				8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */,
+				8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */,
 				8BE6448629DDB8D800288DAB /* SF-Pro-Text-Bold.otf in Resources */,
 				8BE6448329DDB8D800288DAB /* OpenSans-SemiBold.ttf in Resources */,
 				8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */,
@@ -1411,6 +1407,14 @@
 				kind = branch;
 			};
 		};
+		8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1433,6 +1437,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		8BE644A429DEEE2300288DAB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
