@@ -43,7 +43,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     private lazy var loginSubtitle: UILabel = {
         let label = UILabel()
         label.text = L.loginScreenSubtitle
-        label.font = .openSansSemiBold16
+        label.font = .openSansRegular16
         label.textColor = .white
         label.textAlignment = .left
         return label
@@ -160,6 +160,11 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
                 self?._intents.subject.onNext(intent)
             })
             .disposed(by: bag)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     private func trigger(effect: Effect) {

@@ -11,6 +11,7 @@ import SnapKit
 enum TextFieldStyle {
     case primary
     case secondary
+    case tertiary
 }
 
 class FitmaniaTextField: UIView {
@@ -64,6 +65,15 @@ class FitmaniaTextField: UIView {
             errorLabel.snp.makeConstraints {
                 $0.height.equalTo(16)
             }
+        case .tertiary:
+            textField.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.left.right.equalToSuperview()
+            }
+            
+            errorLabel.snp.makeConstraints {
+                $0.height.equalTo(16)
+            }
         default:
             break
         }
@@ -86,6 +96,17 @@ class FitmaniaTextField: UIView {
             textField.layer.borderColor = UIColor.quinaryColor.cgColor
             textField.layer.cornerRadius = 4
             textField.textColor = .lightGray
+            textField.textColor = .quinaryColor
+        case .tertiary:
+            textField.backgroundColor = .clear
+            textField.placeholder = placeholder
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder,
+                                                                 // swiftlint:disable:next force_unwrapping
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.quaternaryColorTransparent!])
+            textField.layer.borderColor = UIColor.white.cgColor
+            textField.layer.borderWidth = 1
+            textField.layer.cornerRadius = 2
+            textField.textColor = .quinaryColor
         }
     }
 }

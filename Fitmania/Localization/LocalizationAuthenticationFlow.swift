@@ -29,5 +29,10 @@ extension Localization {
         static let height = "AccountSetup.Height".localized
         static let weight = "AccountSetup.Weight".localized
         static let accountSetupButton = "AccountSetup.CreateAccountButton".localized
+        static let resetInstructions = "ForgotPassword.ResetInstructions".localized
+        static let resetPassword = "ForgotPassword.ResetPassword".localized
+        static let enterEmail = "ForgotPassword.EnterEmail".localized
+        static let backToLoginButton = "ForgotPassword.BackToLogin".localized
+        static let emailSentMessage = "ForgotPassword.ResetEmailSentMessage".localized
     }
 }

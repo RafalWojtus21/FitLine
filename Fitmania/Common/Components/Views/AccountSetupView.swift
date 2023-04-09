@@ -11,11 +11,9 @@ import UIKit
 import SnapKit
 
 class AccountSetupView: UIView {
-    private lazy var mainView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
+    // MARK: Properties
+
+    private let mainView: UIView = .init(backgroundColor: .clear)
 
     private lazy var contentView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [leftTextField, rightTextField])
@@ -28,6 +26,8 @@ class AccountSetupView: UIView {
     
     let leftTextField = FitmaniaTextField()
     let rightTextField = FitmaniaTextField()
+
+    // MARK: Public Implementation
 
     convenience init(leftPlaceholder: String, rightPlacerholder: String) {
         self.init()

@@ -64,3 +64,12 @@
 "Validation.InvalidAgeError" = "Invalid age format";
 "Validation.InvalidHeightError" = "Invalid height format";
 "Validation.InvalidWeightError" = "Invalid weight format";
+// MARK: Forgot Password Screen
+
+"ForgotPassword.ResetInstructions" = "No worries, we’ll send you reset instructions";
+"ForgotPassword.EnterEmail" = "Enter your e-mail";
+"ForgotPassword.ResetPassword" = "Reset password";
+"ForgotPassword.BackToLogin" = "Back to log in";
+"ForgotPassword.ResetEmailSentMessage" = "Please check your email for a link to reset your password";
+
+

@@ -19,6 +19,7 @@ protocol AppNavigation: AnyObject {
     func showForgotPasswordScreen()
     func showCreateAccountScreen()
     func showAccountCreatedScreen()
+    func dismiss()
 }
 
 final class MainFlowController: AppNavigation {
@@ -53,6 +54,7 @@ final class MainFlowController: AppNavigation {
     private lazy var registerScreenBuilder: RegisterScreenBuilder = RegisterScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var loginScreenBuilder: LoginScreenBuilder = LoginScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var createAccountScreenBuilder: CreateAccountScreenBuilder = CreateAccountScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var forgotPasswordScreenBuilder: ForgotPasswordScreenBuilder = ForgotPasswordScreenBuilderImpl(dependencies: extendedDependencies)
 
     // MARK: - Initialization
     
@@ -82,6 +84,8 @@ final class MainFlowController: AppNavigation {
     }
     
     func showForgotPasswordScreen() {
+        let view = forgotPasswordScreenBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
     }
     
     func showCreateAccountScreen() {
@@ -90,5 +94,9 @@ final class MainFlowController: AppNavigation {
     }
     
     func showAccountCreatedScreen() {
+    }
+    
+    func dismiss() {
+        dependencies.navigation.dismiss(completion: nil, animated: true)
     }
 }

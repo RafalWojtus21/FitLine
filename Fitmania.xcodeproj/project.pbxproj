@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
+		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
+		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
+		8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */; };
+		8B6FDC6E29E340D80037A8B8 /* ForgotPasswordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6829E340D80037A8B8 /* ForgotPasswordScreenViewController.swift */; };
+		8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6929E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift */; };
+		8B6FDC7029E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6A29E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift */; };
 		8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7229E40E690037A8B8 /* CreateAccountScreenContract.swift */; };
 		8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7329E40E690037A8B8 /* CreateAccountScreenPresenter.swift */; };
 		8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7429E40E690037A8B8 /* CreateAccountScreenMiddleware.swift */; };
@@ -27,8 +33,6 @@
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
 		8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589029ED43A100E09F5D /* UIViewExtension.swift */; };
 		8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589229ED484F00E09F5D /* ValidationMessage.swift */; };
-		8B6FDC9429E6ADA50037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */; };
-		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
@@ -110,6 +114,12 @@
 /* Begin PBXFileReference section */
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
+		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
+		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
+		8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B6FDC6829E340D80037A8B8 /* ForgotPasswordScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenViewController.swift; sourceTree = "<group>"; };
+		8B6FDC6929E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenBuilder.swift; sourceTree = "<group>"; };
+		8B6FDC6A29E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenInteractor.swift; sourceTree = "<group>"; };
 		8B6FDC7229E40E690037A8B8 /* CreateAccountScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC7329E40E690037A8B8 /* CreateAccountScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenPresenter.swift; sourceTree = "<group>"; };
 		8B6FDC7429E40E690037A8B8 /* CreateAccountScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenMiddleware.swift; sourceTree = "<group>"; };
@@ -127,8 +137,6 @@
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 		8BB5589029ED43A100E09F5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8BB5589229ED484F00E09F5D /* ValidationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessage.swift; sourceTree = "<group>"; };
-		8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
-		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +229,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B6FDC7129E340DE0037A8B8 /* ForgotPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */,
+				8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */,
+				8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */,
+				8B6FDC6829E340D80037A8B8 /* ForgotPasswordScreenViewController.swift */,
+				8B6FDC6929E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift */,
+				8B6FDC6A29E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift */,
+			);
+			path = ForgotPasswordScreen;
+			sourceTree = "<group>";
+		};
 		8B6FDC7E29E40E6D0037A8B8 /* CreateAccountScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +402,7 @@
 				8BE644D629DF06B200288DAB /* RegisterScreen */,
 				8BE644E029DFFDD900288DAB /* LoginScreen */,
 				8B6FDC7E29E40E6D0037A8B8 /* CreateAccountScreen */,
+				8B6FDC7129E340DE0037A8B8 /* ForgotPasswordScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -717,10 +739,13 @@
 				8BE644DA29DF101D00288DAB /* TextFieldWithTitleView.swift in Sources */,
 				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
+				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
 				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
 				8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */,
+				8B6FDC6E29E340D80037A8B8 /* ForgotPasswordScreenViewController.swift in Sources */,
+				8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */,
 				8BE644DD29DFFA0100288DAB /* Error.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
@@ -740,12 +765,14 @@
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
 				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
+				8B6FDC7029E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
 				8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */,
 				8B6FDC7B29E40E690037A8B8 /* CreateAccountScreenViewController.swift in Sources */,
 				8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
+				8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */,
 				8BE644EB29DFFDEC00288DAB /* LoginScreenBuilder.swift in Sources */,
 				8BE644E729DFFDEC00288DAB /* LoginScreenContract.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
@@ -757,6 +784,7 @@
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
+				8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
 				8BE644D229DF06AF00288DAB /* RegisterScreenMiddleware.swift in Sources */,
 				8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */,

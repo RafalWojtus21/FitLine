@@ -64,17 +64,8 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         return view
     }()
     
-    private lazy var firstSeparator: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    private lazy var secondSeparator: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
+    private lazy var firstSeparator: UIView = .init(backgroundColor: .white)
+    private lazy var secondSeparator: UIView = .init(backgroundColor: .white)
     
     private lazy var createAccountButton = UIButton.init().apply(style: .primary, title: L.accountSetupButton)
     
