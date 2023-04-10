@@ -14,6 +14,10 @@ enum Validation {
         case email = "e-mail"
         case password = "password"
         case username = "name"
+        case sex
+        case age
+        case height
+        case weight
         
         enum RegexPatterns: String {
             case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -22,6 +26,10 @@ enum Validation {
             case passwordDigit = ".*[0-9].*"
             case passwordCharacter = ".*[^a-zA-Z0-9].*"
             case passwordLength = ".{8,256}"
+            case name = "^[a-zA-Z]{3,40}$"
+            case age = "^(1[0-2][0-9]|[1-9][0-9]|[1-9])$"
+            case height = "^(2[0-2][0-9]|23[0-9]|[1][0-9][0-9]|[2-9][0-9]|[2-9])$"
+            case weight = "^(2[3-4][0-9]|25[0-9]|[3-9][0-9]|[1-2][0-4][0-9]|250|[3-9][0-9]|[1-2][0-9]|30)$"
         }
 
         var predicates: [(NSPredicate, String)] {
@@ -35,6 +43,22 @@ enum Validation {
                     (NSPredicate.matchPredicate(regex: .passwordDigit), L.passwordDigitError),
                     (NSPredicate.matchPredicate(regex: .passwordCharacter), L.passwordCharacterError),
                     (NSPredicate.matchPredicate(regex: .passwordLength), L.passwordLengthError)
+                 ]
+             case .username:
+                 return [
+                    (NSPredicate.matchPredicate(regex: .name), L.invalidNameError)
+                 ]
+             case .age:
+                 return [
+                    (NSPredicate.matchPredicate(regex: .age), L.invalidAgeError)
+                 ]
+             case .height:
+                 return [
+                    (NSPredicate.matchPredicate(regex: .height), L.invalidHeightError)
+                 ]
+             case .weight:
+                 return [
+                    (NSPredicate.matchPredicate(regex: .weight), L.invalidWeightError)
                  ]
              default:
                  return []
@@ -67,7 +91,7 @@ final class ValidationServiceImpl: ValidationService {
     func validate(_ type: Validation.ValidationType, input: String) -> Completable {
         Completable.create { completable in
             if input.isEmpty {
-                completable(.error(Validation.Error(errorDescription: L.emptyFieldError + " " + type.rawValue)))
+                completable(.error(Validation.Error(errorDescription: Localization.Validation.emptyFieldError + " " + type.rawValue)))
             }
             for (predicate, errorMessage) in type.predicates where !predicate.evaluate(with: input) {
                 completable(.error(Validation.Error(errorDescription: errorMessage)))

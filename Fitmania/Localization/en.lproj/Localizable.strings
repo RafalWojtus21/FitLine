@@ -34,6 +34,17 @@
 // MARK: Account Setup
 
 "AccountSetup.CreateAccount" = "Create account";
+"AccountSetup.Male" = "Male";
+"AccountSetup.Female" = "Female";
+"AccountSetup.Other" = "Other";
+"AccountSetup.Title" = "Let's start,";
+"AccountSetup.FirstName" = "First Name";
+"AccountSetup.LastName" = "Last Name";
+"AccountSetup.Sex" = "Sex";
+"AccountSetup.Age" = "Age";
+"AccountSetup.Height" = "Height [cm]";
+"AccountSetup.Weight" = "Weight [cm]";
+"AccountSetup.CreateAccountButton" = "Create account";
 
 // MARK: Validation
 
@@ -49,3 +60,7 @@
 "Validation.PasswordDigitError" = "Password must contain at least one digit";
 "Validation.PasswordCharacterError" = "Password must contain at least one special character";
 "Validation.PasswordLengthError" = "Password must be between 8 and 256 characters long";
+"Validation.InvalidNameError" = "Please enter valid name";
+"Validation.InvalidAgeError" = "Invalid age format";
+"Validation.InvalidHeightError" = "Invalid height format";
+"Validation.InvalidWeightError" = "Invalid weight format";

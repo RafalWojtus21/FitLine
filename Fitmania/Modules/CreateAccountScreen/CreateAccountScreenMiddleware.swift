@@ -1,15 +1,15 @@
 //
-//  RegisterScreenMiddleware.swift
+//  CreateAccountScreenMiddleware.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 06/04/2023.
+//  Created by Rafał Wojtuś on 10/04/2023.
 //
 
 import RxSwift
 
-final class RegisterScreenMiddlewareImpl: RegisterScreenMiddleware, RegisterScreenCallback {
+final class CreateAccountScreenMiddlewareImpl: CreateAccountScreenMiddleware, CreateAccountScreenCallback {
     typealias Dependencies = HasAppNavigation
-    typealias Result = RegisterScreenResult
+    typealias Result = CreateAccountScreenResult
     
     private let dependencies: Dependencies
 
@@ -25,12 +25,11 @@ final class RegisterScreenMiddlewareImpl: RegisterScreenMiddleware, RegisterScre
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
-            case .registerError:
+            case .showAccountCreatedScreen:
+                dependencies.appNavigation?.showAccountCreatedScreen()
+            case .somethingWentWrong:
                 break
-            case .showAccountSetupScreen:
-                dependencies.appNavigation?.showCreateAccountScreen()
-            default:
-                break
+            default: break
             }
         }
         return .just(result)

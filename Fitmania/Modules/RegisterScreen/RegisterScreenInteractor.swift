@@ -17,6 +17,15 @@ final class RegisterScreenInteractorImpl: RegisterScreenInteractor {
         self.dependencies = dependencies
     }
     
+    func register(email: String, password: String) -> Observable<RegisterScreenResult> {
+        return dependencies.authManager.signUp(email: email, password: password)
+            .asCompletable()
+            .andThen(.just(.effect(.showAccountSetupScreen)))
+            .catch({ error -> Observable<RegisterScreenResult> in
+                return .just(.effect(.registerError(error: error.localizedDescription)))
+            })
+    }
+    
     func validateEmail(email: String) -> Observable<RegisterScreenResult> {
         dependencies.validationService.validate(.email, input: email)
             .andThen(.just(.partialState(.emailValidationResult(validationMessage: ValidationMessage(message: nil)))))
@@ -39,14 +48,5 @@ final class RegisterScreenInteractorImpl: RegisterScreenInteractor {
         } else {
             return .just(.partialState(.repeatPasswordValidationResult(validationMessage: ValidationMessage(message: Localization.Validation.repeatPasswordError))))
         }
-    }
-    
-    func register(email: String, password: String) -> Observable<RegisterScreenResult> {
-        return dependencies.authManager.signUp(email: email, password: password)
-            .asCompletable()
-            .andThen(.just(.effect(.showAccountSetupScreen)))
-            .catch({ error -> Observable<RegisterScreenResult> in
-                return .just(.effect(.registerError(error: error.localizedDescription)))
-            })
     }
 }

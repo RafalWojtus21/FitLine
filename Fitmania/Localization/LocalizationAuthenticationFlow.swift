@@ -18,5 +18,16 @@ extension Localization {
         static let forgotPassword = "LoginScreen.ForgotPassword".localized
         static let noAccountButton = "LoginScreen.NoAccountButton".localized
         static let createAccount = "AccountSetup.CreateAccount".localized
+        static let sexMale = "AccountSetup.Male".localized
+        static let sexFemale = "AccountSetup.Female".localized
+        static let sexOther = "AccountSetup.Other".localized
+        static let accountSetupTitle = "AccountSetup.Title".localized
+        static let firstName = "AccountSetup.FirstName".localized
+        static let lastName = "AccountSetup.LastName".localized
+        static let sex = "AccountSetup.Sex".localized
+        static let age = "AccountSetup.Age".localized
+        static let height = "AccountSetup.Height".localized
+        static let weight = "AccountSetup.Weight".localized
+        static let accountSetupButton = "AccountSetup.CreateAccountButton".localized
     }
 }

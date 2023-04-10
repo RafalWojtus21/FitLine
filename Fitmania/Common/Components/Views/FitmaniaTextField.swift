@@ -81,10 +81,11 @@ class FitmaniaTextField: UIView {
         case .secondary:
             textField.backgroundColor = .black
             textField.attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            textField.layer.borderWidth = 1
             textField.layer.borderColor = UIColor.quinaryColor.cgColor
             textField.layer.cornerRadius = 4
-            textField.textColor = .quinaryColor
+            textField.textColor = .lightGray
         }
     }
 }

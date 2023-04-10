@@ -20,5 +20,9 @@ extension Localization {
         static let passwordDigitError = "Validation.PasswordDigitError".localized
         static let passwordCharacterError = "Validation.PasswordCharacterError".localized
         static let passwordLengthError = "Validation.PasswordLengthError".localized
+        static let invalidNameError = "Validation.InvalidNameError".localized
+        static let invalidAgeError = "Validation.InvalidAgeError".localized
+        static let invalidHeightError = "Validation.InvalidHeightError".localized
+        static let invalidWeightError = "Validation.InvalidWeightError".localized
     }
 }

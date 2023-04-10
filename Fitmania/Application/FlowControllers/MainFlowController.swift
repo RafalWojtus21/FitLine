@@ -17,23 +17,28 @@ protocol AppNavigation: AnyObject {
     func showLoginScreen()
     func showRegisterScreen()
     func showForgotPasswordScreen()
-    func showAccountSetupScreen()
+    func showCreateAccountScreen()
+    func showAccountCreatedScreen()
 }
 
 final class MainFlowController: AppNavigation {
     typealias Dependencies = HasNavigation
     
-    struct ExtendedDependencies: Dependencies, HasAppNavigation, HasAuthManager, HasValidationService {
+    struct ExtendedDependencies: Dependencies, HasAppNavigation, HasAuthManager, HasValidationService, HasFirestoreService, HasCloudService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         
         let authManager: AuthManager = AuthManagerImpl()
         let validationService: ValidationService = ValidationServiceImpl()
-    
+        let firestoreService: FirestoreService
+        let cloudService: CloudService
+        
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
             self.dependencies = dependencies
             self.appNavigation = appNavigation
+            self.firestoreService = FirestoreServiceImpl(authManager: authManager)
+            self.cloudService = CloudServiceImpl(authManager: authManager, firestoreService: firestoreService)
         }
     }
     
@@ -47,6 +52,7 @@ final class MainFlowController: AppNavigation {
     private lazy var welcomeScreenBuilder: WelcomeScreenBuilder = WelcomeScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var registerScreenBuilder: RegisterScreenBuilder = RegisterScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var loginScreenBuilder: LoginScreenBuilder = LoginScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var createAccountScreenBuilder: CreateAccountScreenBuilder = CreateAccountScreenBuilderImpl(dependencies: extendedDependencies)
 
     // MARK: - Initialization
     
@@ -78,6 +84,11 @@ final class MainFlowController: AppNavigation {
     func showForgotPasswordScreen() {
     }
     
-    func showAccountSetupScreen() {
+    func showCreateAccountScreen() {
+        let view = createAccountScreenBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
+    }
+    
+    func showAccountCreatedScreen() {
     }
 }

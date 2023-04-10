@@ -9,12 +9,26 @@
 /* Begin PBXBuildFile section */
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
+		8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7229E40E690037A8B8 /* CreateAccountScreenContract.swift */; };
+		8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7329E40E690037A8B8 /* CreateAccountScreenPresenter.swift */; };
+		8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7429E40E690037A8B8 /* CreateAccountScreenMiddleware.swift */; };
+		8B6FDC7B29E40E690037A8B8 /* CreateAccountScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7529E40E690037A8B8 /* CreateAccountScreenViewController.swift */; };
+		8B6FDC7C29E40E690037A8B8 /* CreateAccountScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7629E40E690037A8B8 /* CreateAccountScreenBuilder.swift */; };
+		8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7729E40E690037A8B8 /* CreateAccountScreenInteractor.swift */; };
+		8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7F29E412E30037A8B8 /* AccountSetupView.swift */; };
+		8B6FDC8229E573360037A8B8 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8129E573360037A8B8 /* FirestoreService.swift */; };
+		8B6FDC8529E574E10037A8B8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */; };
+		8B6FDC8729E574E80037A8B8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */; };
+		8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */; };
 		8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */; };
+		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
 		8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589029ED43A100E09F5D /* UIViewExtension.swift */; };
 		8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589229ED484F00E09F5D /* ValidationMessage.swift */; };
+		8B6FDC9429E6ADA50037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */; };
+		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
@@ -96,12 +110,25 @@
 /* Begin PBXFileReference section */
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
+		8B6FDC7229E40E690037A8B8 /* CreateAccountScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenContract.swift; sourceTree = "<group>"; };
+		8B6FDC7329E40E690037A8B8 /* CreateAccountScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenPresenter.swift; sourceTree = "<group>"; };
+		8B6FDC7429E40E690037A8B8 /* CreateAccountScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B6FDC7529E40E690037A8B8 /* CreateAccountScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenViewController.swift; sourceTree = "<group>"; };
+		8B6FDC7629E40E690037A8B8 /* CreateAccountScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenBuilder.swift; sourceTree = "<group>"; };
+		8B6FDC7729E40E690037A8B8 /* CreateAccountScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenInteractor.swift; sourceTree = "<group>"; };
+		8B6FDC7F29E412E30037A8B8 /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
+		8B6FDC8129E573360037A8B8 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 		8BB5589029ED43A100E09F5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8BB5589229ED484F00E09F5D /* ValidationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessage.swift; sourceTree = "<group>"; };
+		8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +199,8 @@
 				8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */,
 				8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */,
 				8BC1526129DD79D00007A372 /* SnapKit in Frameworks */,
+				8B6FDC8529E574E10037A8B8 /* FirebaseFirestoreSwift in Frameworks */,
+				8B6FDC8729E574E80037A8B8 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +221,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B6FDC7E29E40E6D0037A8B8 /* CreateAccountScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FDC7229E40E690037A8B8 /* CreateAccountScreenContract.swift */,
+				8B6FDC7329E40E690037A8B8 /* CreateAccountScreenPresenter.swift */,
+				8B6FDC7429E40E690037A8B8 /* CreateAccountScreenMiddleware.swift */,
+				8B6FDC7529E40E690037A8B8 /* CreateAccountScreenViewController.swift */,
+				8B6FDC7629E40E690037A8B8 /* CreateAccountScreenBuilder.swift */,
+				8B6FDC7729E40E690037A8B8 /* CreateAccountScreenInteractor.swift */,
+			);
+			path = CreateAccountScreen;
+			sourceTree = "<group>";
+		};
+		8B6FDC8329E574E10037A8B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B6FDC8829E575030037A8B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8BC151E129DD6EA00007A372 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +257,7 @@
 				8BC1520329DD6EA20007A372 /* FitmaniaTests */,
 				8BC1520D29DD6EA20007A372 /* FitmaniaUITests */,
 				8BC151EB29DD6EA00007A372 /* Products */,
+				8B6FDC8329E574E10037A8B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +380,7 @@
 				8BC1525429DD77070007A372 /* WelcomeScreen */,
 				8BE644D629DF06B200288DAB /* RegisterScreen */,
 				8BE644E029DFFDD900288DAB /* LoginScreen */,
+				8B6FDC7E29E40E6D0037A8B8 /* CreateAccountScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -337,6 +396,7 @@
 		8BE6447729DD7BBC00288DAB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8B6FDC8829E575030037A8B8 /* Models */,
 				8BE644DB29DFF9F800288DAB /* Helpers */,
 				8BE6449929DEE21A00288DAB /* Components */,
 				8BE6447929DDB63000288DAB /* Extensions */,
@@ -388,6 +448,7 @@
 				8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */,
 				8BE644D929DF101D00288DAB /* TextFieldWithTitleView.swift */,
 				8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */,
+				8B6FDC7F29E412E30037A8B8 /* AccountSetupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +458,9 @@
 			children = (
 				8BE644AF29DEF18F00288DAB /* AuthManager.swift */,
 				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
+				8B6FDC8129E573360037A8B8 /* FirestoreService.swift */,
+				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
+				8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -472,6 +536,8 @@
 				8BE6447329DD7B6000288DAB /* RxRelay */,
 				8BE6447529DD7B6000288DAB /* RxSwift */,
 				8BE644A429DEEE2300288DAB /* FirebaseAuth */,
+				8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */,
+				8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */,
 			);
 			productName = Fitmania;
 			productReference = 8BC151EA29DD6EA00007A372 /* Fitmania.app */;
@@ -660,23 +726,33 @@
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
+				8B6FDC7C29E40E690037A8B8 /* CreateAccountScreenBuilder.swift in Sources */,
+				8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */,
 				8BE644D829DF0EDA00288DAB /* UITextFieldExtension.swift in Sources */,
 				8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */,
 				8BE644D329DF06AF00288DAB /* RegisterScreenViewController.swift in Sources */,
+				8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */,
 				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
 				8BE644F629E0048900288DAB /* Localization.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
 				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
+				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
+				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
+				8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */,
+				8B6FDC7B29E40E690037A8B8 /* CreateAccountScreenViewController.swift in Sources */,
+				8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8BE644EB29DFFDEC00288DAB /* LoginScreenBuilder.swift in Sources */,
 				8BE644E729DFFDEC00288DAB /* LoginScreenContract.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
 				8BE644D529DF06AF00288DAB /* RegisterScreenInteractor.swift in Sources */,
+				8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */,
 				8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */,
+				8B6FDC8229E573360037A8B8 /* FirestoreService.swift in Sources */,
 				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
@@ -1574,6 +1650,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		8BC1526029DD79D00007A372 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */;
