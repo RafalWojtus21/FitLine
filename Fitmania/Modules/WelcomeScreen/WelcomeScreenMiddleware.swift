@@ -8,7 +8,7 @@
 import RxSwift
 
 final class WelcomeScreenMiddlewareImpl: WelcomeScreenMiddleware, WelcomeScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasOnboardingFlowNavigation
     typealias Result = WelcomeScreenResult
     
     private let dependencies: Dependencies
@@ -26,9 +26,9 @@ final class WelcomeScreenMiddlewareImpl: WelcomeScreenMiddleware, WelcomeScreenC
         case .effect(let effect):
             switch effect {
             case .showLoginScreen:
-                dependencies.appNavigation?.showLoginScreen()
+                dependencies.onboardingFlowNavigation?.showLoginScreen()
             case .showSignupScreen:
-                dependencies.appNavigation?.showRegisterScreen()
+                dependencies.onboardingFlowNavigation?.showRegisterScreen()
             }
         }
         return .just(result)

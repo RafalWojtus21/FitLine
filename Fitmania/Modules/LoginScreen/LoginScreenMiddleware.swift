@@ -8,7 +8,7 @@
 import RxSwift
 
 final class LoginScreenMiddlewareImpl: LoginScreenMiddleware, LoginScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasAuthenticationFlowNavigation
     typealias Result = LoginScreenResult
     
     private let dependencies: Dependencies
@@ -26,9 +26,9 @@ final class LoginScreenMiddlewareImpl: LoginScreenMiddleware, LoginScreenCallbac
         case .effect(let effect):
             switch effect {
             case .showForgotPasswordScreen:
-                dependencies.appNavigation?.showForgotPasswordScreen()
+                dependencies.authFlowNavigation?.showForgotPasswordScreen()
             case .showRegisterScreen:
-                dependencies.appNavigation?.showRegisterScreen()
+                dependencies.authFlowNavigation?.showRegisterScreen()
             default:
                 break
             }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AppDependencies: MainFlowController.Dependencies {
+struct AppDependencies: AppFlowController.Dependencies {
     // MARK: - Properties
     
     let navigation: Navigation

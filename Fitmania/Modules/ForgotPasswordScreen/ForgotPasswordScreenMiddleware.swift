@@ -8,7 +8,7 @@
 import RxSwift
 
 final class ForgotPasswordScreenMiddlewareImpl: ForgotPasswordScreenMiddleware, ForgotPasswordScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasAuthenticationFlowNavigation
     typealias Result = ForgotPasswordScreenResult
     
     private let dependencies: Dependencies
@@ -26,7 +26,7 @@ final class ForgotPasswordScreenMiddlewareImpl: ForgotPasswordScreenMiddleware, 
         case .effect(let effect):
             switch effect {
             case .dismiss:
-                dependencies.appNavigation?.dismiss()
+                dependencies.authFlowNavigation?.dismiss()
             default:
                 break
             }

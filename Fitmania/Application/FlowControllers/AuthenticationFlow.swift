@@ -1,19 +1,21 @@
 //
-//  MainFlowController.swift
-//  AcademyMVI
+//  AuthenticationFlow.swift
+//  Fitmania
 //
-//  Created by Bart on 15/11/2021.
+//  Created by Rafał Wojtuś on 17/04/2023.
 //
 
-import Foundation
+import UIKit
 
-protocol HasAppNavigation {
-    var appNavigation: AppNavigation? { get }
+protocol HasAuthenticationFlowNavigation {
+    var authFlowNavigation: AuthFlowNavigation? { get }
 }
 
-protocol AppNavigation: AnyObject {
-    func startApplication()
-    func showWelcomeScreen()
+protocol AuthenticationFlow {
+    func startAuthFlow(type: OnboardingExit) 
+}
+
+protocol AuthFlowNavigation: AnyObject {
     func showLoginScreen()
     func showRegisterScreen()
     func showForgotPasswordScreen()
@@ -22,55 +24,56 @@ protocol AppNavigation: AnyObject {
     func dismiss()
 }
 
-final class MainFlowController: AppNavigation {
-    typealias Dependencies = HasNavigation
+class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
+    typealias Dependencies = HasNavigation & HasAppNavigation
     
-    struct ExtendedDependencies: Dependencies, HasAppNavigation, HasAuthManager, HasValidationService, HasFirestoreService, HasCloudService {
-        private let dependencies: Dependencies
-        weak var appNavigation: AppNavigation?
-        var navigation: Navigation { dependencies.navigation }
-        
+    struct ExtendedDependencies: Dependencies, HasAuthenticationFlowNavigation, HasAuthManager, HasValidationService, HasFirestoreService, HasCloudService {
         let authManager: AuthManager = AuthManagerImpl()
         let validationService: ValidationService = ValidationServiceImpl()
         let firestoreService: FirestoreService
         let cloudService: CloudService
         
-        init(dependencies: Dependencies, appNavigation: AppNavigation) {
+        private let dependencies: Dependencies
+        weak var appNavigation: AppNavigation?
+        var navigation: Navigation { dependencies.navigation }
+        weak var authFlowNavigation: AuthFlowNavigation?
+
+        init(dependencies: Dependencies, authFlowNavigation: AuthFlowNavigation) {
             self.dependencies = dependencies
-            self.appNavigation = appNavigation
+            self.appNavigation = dependencies.appNavigation
+            self.authFlowNavigation = authFlowNavigation
             self.firestoreService = FirestoreServiceImpl(authManager: authManager)
             self.cloudService = CloudServiceImpl(authManager: authManager, firestoreService: firestoreService)
         }
     }
     
     // MARK: - Properties
-    
+
     private let dependencies: Dependencies
-    private lazy var extendedDependencies = ExtendedDependencies(dependencies: dependencies, appNavigation: self)
+    private lazy var extendedDependencies = ExtendedDependencies(dependencies: dependencies, authFlowNavigation: self)
+
+    // MARK: - Initialization
+
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+    }
     
     // MARK: - Builders
     
-    private lazy var welcomeScreenBuilder: WelcomeScreenBuilder = WelcomeScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var registerScreenBuilder: RegisterScreenBuilder = RegisterScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var loginScreenBuilder: LoginScreenBuilder = LoginScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var createAccountScreenBuilder: CreateAccountScreenBuilder = CreateAccountScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var forgotPasswordScreenBuilder: ForgotPasswordScreenBuilder = ForgotPasswordScreenBuilderImpl(dependencies: extendedDependencies)
 
-    // MARK: - Initialization
-    
-    init(dependencies: Dependencies) {
-        self.dependencies = dependencies
-    }
-
     // MARK: - AppNavigation
-    
-    func startApplication() {
-        showWelcomeScreen()
-    }
-    
-    func showWelcomeScreen() {
-        let view = welcomeScreenBuilder.build(with: .init()).view
-        dependencies.navigation.set(view: view, animated: false)
+
+    func startAuthFlow(type: OnboardingExit) {
+        switch type {
+        case .login:
+            showLoginScreen()
+        case .register:
+            showRegisterScreen()
+        }
     }
     
     func showLoginScreen() {
@@ -97,6 +100,6 @@ final class MainFlowController: AppNavigation {
     }
     
     func dismiss() {
-        dependencies.navigation.dismiss(completion: nil, animated: true)
+        dependencies.appNavigation?.dismiss()
     }
 }

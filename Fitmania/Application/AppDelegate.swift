@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private implementation
     
     private func setupInterface() {
-        mainFlowController = MainFlowController(dependencies: fitmaniaDependencies)
+        mainFlowController = AppFlowController(dependencies: fitmaniaDependencies)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

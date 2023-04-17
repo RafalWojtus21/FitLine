@@ -8,7 +8,7 @@
 import RxSwift
 
 final class RegisterScreenMiddlewareImpl: RegisterScreenMiddleware, RegisterScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasAuthenticationFlowNavigation
     typealias Result = RegisterScreenResult
     
     private let dependencies: Dependencies
@@ -28,7 +28,7 @@ final class RegisterScreenMiddlewareImpl: RegisterScreenMiddleware, RegisterScre
             case .registerError:
                 break
             case .showAccountSetupScreen:
-                dependencies.appNavigation?.showCreateAccountScreen()
+                dependencies.authFlowNavigation?.showCreateAccountScreen()
             default:
                 break
             }

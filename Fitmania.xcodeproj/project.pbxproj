@@ -47,7 +47,7 @@
 		8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */; };
 		8BC1524529DD769F0007A372 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524029DD769E0007A372 /* Navigation.swift */; };
 		8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524229DD769E0007A372 /* AppDependencies.swift */; };
-		8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524429DD769E0007A372 /* MainFlowController.swift */; };
+		8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524429DD769E0007A372 /* AppFlowController.swift */; };
 		8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524829DD77030007A372 /* WelcomeScreenContract.swift */; };
 		8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524929DD77030007A372 /* WelcomeScreenPresenter.swift */; };
 		8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524A29DD77030007A372 /* WelcomeScreenMiddleware.swift */; };
@@ -92,6 +92,8 @@
 		8BE644F629E0048900288DAB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644F529E0048900288DAB /* Localization.swift */; };
 		8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */; };
 		8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */; };
+		8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECB429ED815400540E1D /* OnboardingFlow.swift */; };
+		8BF1ECB729ED82B700540E1D /* AuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECB629ED82B700540E1D /* AuthenticationFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +132,6 @@
 		8B6FDC8129E573360037A8B8 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -155,7 +156,7 @@
 		8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "create-empty-configuration-file.sh"; sourceTree = "<group>"; };
 		8BC1524029DD769E0007A372 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		8BC1524229DD769E0007A372 /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		8BC1524429DD769E0007A372 /* MainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		8BC1524429DD769E0007A372 /* AppFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		8BC1524829DD77030007A372 /* WelcomeScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenContract.swift; sourceTree = "<group>"; };
 		8BC1524929DD77030007A372 /* WelcomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenPresenter.swift; sourceTree = "<group>"; };
 		8BC1524A29DD77030007A372 /* WelcomeScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenMiddleware.swift; sourceTree = "<group>"; };
@@ -195,6 +196,8 @@
 		8BE644F529E0048900288DAB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationAuthenticationFlow.swift; sourceTree = "<group>"; };
 		8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaTextField.swift; sourceTree = "<group>"; };
+		8BF1ECB429ED815400540E1D /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		8BF1ECB629ED82B700540E1D /* AuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,7 +380,9 @@
 		8BC1524329DD769E0007A372 /* FlowControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BC1524429DD769E0007A372 /* MainFlowController.swift */,
+				8BC1524429DD769E0007A372 /* AppFlowController.swift */,
+				8BF1ECB429ED815400540E1D /* OnboardingFlow.swift */,
+				8BF1ECB629ED82B700540E1D /* AuthenticationFlow.swift */,
 			);
 			path = FlowControllers;
 			sourceTree = "<group>";
@@ -482,7 +487,6 @@
 				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
 				8B6FDC8129E573360037A8B8 /* FirestoreService.swift */,
 				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
-				8B6FDC9329E6ADA50037A8B8 /* ValidationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -741,6 +745,7 @@
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
 				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
+				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
 				8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */,
@@ -780,9 +785,10 @@
 				8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */,
 				8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */,
 				8B6FDC8229E573360037A8B8 /* FirestoreService.swift in Sources */,
-				8BC1524729DD769F0007A372 /* MainFlowController.swift in Sources */,
+				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
+				8BF1ECB729ED82B700540E1D /* AuthenticationFlow.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,

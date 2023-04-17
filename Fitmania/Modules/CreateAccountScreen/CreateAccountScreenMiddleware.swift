@@ -8,7 +8,7 @@
 import RxSwift
 
 final class CreateAccountScreenMiddlewareImpl: CreateAccountScreenMiddleware, CreateAccountScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasAuthenticationFlowNavigation
     typealias Result = CreateAccountScreenResult
     
     private let dependencies: Dependencies
@@ -26,7 +26,7 @@ final class CreateAccountScreenMiddlewareImpl: CreateAccountScreenMiddleware, Cr
         case .effect(let effect):
             switch effect {
             case .showAccountCreatedScreen:
-                dependencies.appNavigation?.showAccountCreatedScreen()
+                dependencies.authFlowNavigation?.showAccountCreatedScreen()
             case .somethingWentWrong:
                 break
             default: break
