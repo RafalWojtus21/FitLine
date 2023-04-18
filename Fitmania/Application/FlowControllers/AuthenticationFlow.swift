@@ -12,7 +12,7 @@ protocol HasAuthenticationFlowNavigation {
 }
 
 protocol AuthenticationFlow {
-    func startAuthFlow(type: OnboardingExit) 
+    func startAuthFlow(type: OnboardingExit)
 }
 
 protocol AuthFlowNavigation: AnyObject {
@@ -64,6 +64,7 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     private lazy var loginScreenBuilder: LoginScreenBuilder = LoginScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var createAccountScreenBuilder: CreateAccountScreenBuilder = CreateAccountScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var forgotPasswordScreenBuilder: ForgotPasswordScreenBuilder = ForgotPasswordScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var accountCreatedScreenBuilder: AccountCreatedScreenBuilder = AccountCreatedScreenBuilderImpl(dependencies: extendedDependencies)
 
     // MARK: - AppNavigation
 
@@ -97,6 +98,8 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     }
     
     func showAccountCreatedScreen() {
+        let view = accountCreatedScreenBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
     }
     
     func dismiss() {

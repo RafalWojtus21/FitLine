@@ -34,5 +34,8 @@ extension Localization {
         static let enterEmail = "ForgotPassword.EnterEmail".localized
         static let backToLoginButton = "ForgotPassword.BackToLogin".localized
         static let emailSentMessage = "ForgotPassword.ResetEmailSentMessage".localized
+        static let accountCreatedTitle = "AccountCreated.Title".localized
+        static let accountCreatedSubtitle = "AccountCreated.Subtitle".localized
+        static let accountCreatedButtonTitle = "AccountCreated.ButtonTitle".localized
     }
 }
