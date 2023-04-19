@@ -13,5 +13,8 @@ extension Localization {
         static let password = "General.Password".localized
         static let error = "General.Error".localized
         static let okMessage = "General.Ok".localized
+        static let calendar = "General.Calendar".localized
+        static let workout = "General.Workout".localized
+        static let settings = "General.Settings".localized
     }
 }

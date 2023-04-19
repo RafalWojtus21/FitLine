@@ -76,7 +76,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
         return fitmaniaTextField
     }()
     
-    private lazy var forgotPasswordButton = UIButton.init().apply(style: .tertiary, title: L.forgotPassword)
+    private lazy var forgotPasswordButton = UIButton().apply(style: .tertiary, title: L.forgotPassword)
     
     private lazy var loginButton: UIButton = {
         let button = UIButton().apply(style: .primary, title: L.login)
@@ -84,7 +84,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
         return button
     }()
     
-    private lazy var createAccountButton = UIButton.init().apply(style: .tertiary, title: L.noAccountButton)
+    private lazy var createAccountButton = UIButton().apply(style: .tertiary, title: L.noAccountButton)
     
     init(presenter: LoginScreenPresenter) {
         self.presenter = presenter

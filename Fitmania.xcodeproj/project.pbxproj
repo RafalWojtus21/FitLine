@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
+		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
+		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
+		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
@@ -100,6 +103,14 @@
 		8BF1ECC329EEE27200540E1D /* AccountCreatedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECBD29EEE27200540E1D /* AccountCreatedScreenViewController.swift */; };
 		8BF1ECC429EEE27300540E1D /* AccountCreatedScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECBE29EEE27200540E1D /* AccountCreatedScreenBuilder.swift */; };
 		8BF1ECC529EEE27300540E1D /* AccountCreatedScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECBF29EEE27200540E1D /* AccountCreatedScreenInteractor.swift */; };
+		8BF1ECF929EFEA2F00540E1D /* HomeScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF329EFEA2F00540E1D /* HomeScreenContract.swift */; };
+		8BF1ECFA29EFEA2F00540E1D /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF429EFEA2F00540E1D /* HomeScreenPresenter.swift */; };
+		8BF1ECFB29EFEA2F00540E1D /* HomeScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF529EFEA2F00540E1D /* HomeScreenMiddleware.swift */; };
+		8BF1ECFC29EFEA2F00540E1D /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF629EFEA2F00540E1D /* HomeScreenViewController.swift */; };
+		8BF1ECFD29EFEA2F00540E1D /* HomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF729EFEA2F00540E1D /* HomeScreenBuilder.swift */; };
+		8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */; };
+		8BF1ED0029EFEBE800540E1D /* WorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */; };
+		8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +132,9 @@
 
 /* Begin PBXFileReference section */
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
+		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
+		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
@@ -210,6 +224,14 @@
 		8BF1ECBD29EEE27200540E1D /* AccountCreatedScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedScreenViewController.swift; sourceTree = "<group>"; };
 		8BF1ECBE29EEE27200540E1D /* AccountCreatedScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedScreenBuilder.swift; sourceTree = "<group>"; };
 		8BF1ECBF29EEE27200540E1D /* AccountCreatedScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedScreenInteractor.swift; sourceTree = "<group>"; };
+		8BF1ECF329EFEA2F00540E1D /* HomeScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenContract.swift; sourceTree = "<group>"; };
+		8BF1ECF429EFEA2F00540E1D /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
+		8BF1ECF529EFEA2F00540E1D /* HomeScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenMiddleware.swift; sourceTree = "<group>"; };
+		8BF1ECF629EFEA2F00540E1D /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		8BF1ECF729EFEA2F00540E1D /* HomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenBuilder.swift; sourceTree = "<group>"; };
+		8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenInteractor.swift; sourceTree = "<group>"; };
+		8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlow.swift; sourceTree = "<group>"; };
+		8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHomeFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +417,10 @@
 				8BC1524429DD769E0007A372 /* AppFlowController.swift */,
 				8BF1ECB429ED815400540E1D /* OnboardingFlow.swift */,
 				8BF1ECB629ED82B700540E1D /* AuthenticationFlow.swift */,
+				8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */,
+				8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */,
+				8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */,
+				8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */,
 			);
 			path = FlowControllers;
 			sourceTree = "<group>";
@@ -417,6 +443,7 @@
 			children = (
 				8BF1ECC729EEE27F00540E1D /* Onboarding Flow */,
 				8BF1ECC829EEE28700540E1D /* Authentication Flow */,
+				8BF1ECC929EFE85300540E1D /* Home Flow */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -543,6 +570,7 @@
 				8BE644F329E0047800288DAB /* LocalizationGeneral.swift */,
 				8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */,
 				8B0C115029E852F10028DCCF /* LocalizationValidation.swift */,
+				8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -578,6 +606,27 @@
 				8BF1ECC629EEE27600540E1D /* AccountCreatedScreen */,
 			);
 			path = "Authentication Flow";
+			sourceTree = "<group>";
+		};
+		8BF1ECC929EFE85300540E1D /* Home Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8BF1ECD629EFE88400540E1D /* Home Screen */,
+			);
+			path = "Home Flow";
+			sourceTree = "<group>";
+		};
+		8BF1ECD629EFE88400540E1D /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8BF1ECF329EFEA2F00540E1D /* HomeScreenContract.swift */,
+				8BF1ECF429EFEA2F00540E1D /* HomeScreenPresenter.swift */,
+				8BF1ECF529EFEA2F00540E1D /* HomeScreenMiddleware.swift */,
+				8BF1ECF629EFEA2F00540E1D /* HomeScreenViewController.swift */,
+				8BF1ECF729EFEA2F00540E1D /* HomeScreenBuilder.swift */,
+				8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */,
+			);
+			path = "Home Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -788,6 +837,7 @@
 				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
 				8BF1ECC129EEE27200540E1D /* AccountCreatedScreenPresenter.swift in Sources */,
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
+				8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */,
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
 				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
 				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
@@ -797,8 +847,10 @@
 				8B6FDC6E29E340D80037A8B8 /* ForgotPasswordScreenViewController.swift in Sources */,
 				8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */,
 				8BE644DD29DFFA0100288DAB /* Error.swift in Sources */,
+				8BF1ECFB29EFEA2F00540E1D /* HomeScreenMiddleware.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
+				8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
 				8B6FDC7C29E40E690037A8B8 /* CreateAccountScreenBuilder.swift in Sources */,
@@ -810,17 +862,21 @@
 				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
 				8BE644F629E0048900288DAB /* Localization.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
+				8BF1ED0029EFEBE800540E1D /* WorkoutFlow.swift in Sources */,
 				8BF1ECC029EEE27200540E1D /* AccountCreatedScreenContract.swift in Sources */,
 				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
+				8BF1ECFC29EFEA2F00540E1D /* HomeScreenViewController.swift in Sources */,
 				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
 				8BF1ECC329EEE27200540E1D /* AccountCreatedScreenViewController.swift in Sources */,
 				8B6FDC7029E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
+				8BF1ECF929EFEA2F00540E1D /* HomeScreenContract.swift in Sources */,
 				8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */,
 				8B6FDC7B29E40E690037A8B8 /* CreateAccountScreenViewController.swift in Sources */,
+				8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */,
 				8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
@@ -832,9 +888,12 @@
 				8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */,
 				8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */,
 				8B6FDC8229E573360037A8B8 /* FirestoreService.swift in Sources */,
+				8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */,
+				8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */,
 				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8BF1ECC429EEE27300540E1D /* AccountCreatedScreenBuilder.swift in Sources */,
+				8BF1ECFA29EFEA2F00540E1D /* HomeScreenPresenter.swift in Sources */,
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
 				8BF1ECB729ED82B700540E1D /* AuthenticationFlow.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
@@ -843,6 +902,7 @@
 				8BE644D229DF06AF00288DAB /* RegisterScreenMiddleware.swift in Sources */,
 				8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */,
 				8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */,
+				8BF1ECFD29EFEA2F00540E1D /* HomeScreenBuilder.swift in Sources */,
 				8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */,
 				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
 				8BE644E829DFFDEC00288DAB /* LoginScreenPresenter.swift in Sources */,

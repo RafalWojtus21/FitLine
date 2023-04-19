@@ -113,7 +113,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     
     private func layoutView() {
         title = L.resetPassword
-        view.backgroundColor = .bottomSheetBackgroundColor
+        view.backgroundColor = .secondaryBackgroundColor
         view.addSubview(screenDescriptionView)
         view.addSubview(emailTextfield)
         view.addSubview(resetButton)

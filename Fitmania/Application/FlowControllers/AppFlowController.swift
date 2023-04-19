@@ -5,7 +5,8 @@
 //  Created by Bart on 15/11/2021.
 //
 
-import Foundation
+import UIKit
+import FirebaseAuth
 
 protocol HasAppNavigation {
     var appNavigation: AppNavigation? { get }
@@ -16,17 +17,22 @@ protocol AppNavigation: AnyObject {
     func startOnboardingFlow()
     func finishedOnboarding(type: OnboardingExit)
     func startAuthenticationFlow(type: OnboardingExit)
+    func finishedAuthenticationFlow()
+    func startMainFlow()
+    func startHomeFlow()
+    func finishedHomeFlow()
     func dismiss()
 }
 
 final class AppFlowController: AppNavigation {
     typealias Dependencies = HasNavigation
     
-    struct ExtendedDependencies: Dependencies, HasAppNavigation {
+    struct ExtendedDependencies: Dependencies, HasAppNavigation, HasAuthManager {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
-        
+        let authManager: AuthManager = AuthManagerImpl()
+
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
             self.dependencies = dependencies
             self.appNavigation = appNavigation
@@ -42,7 +48,9 @@ final class AppFlowController: AppNavigation {
     
     private lazy var onboardingFlowController: OnboardingFlow = OnboardingFlowController(dependencies: extendedDependencies)
     private lazy var authenticationFlowController: AuthenticationFlow = AuthenticationFlowController(dependencies: extendedDependencies)
-    // var, optional
+    private lazy var mainFlowController: MainFlow = MainFlowController(dependencies: extendedDependencies)
+    
+    // MARK: - Builders
     
     // MARK: - Initialization
     
@@ -53,7 +61,12 @@ final class AppFlowController: AppNavigation {
     // MARK: - AppNavigation
     
     func startApplication() {
-        startOnboardingFlow()
+        extendedDependencies.authManager.isLoggedIn { isLoggedIn in
+            switch isLoggedIn {
+            case true: self.startMainFlow()
+            case false: self.startOnboardingFlow()
+            }
+        }
     }
     
     func dismiss() {
@@ -70,5 +83,19 @@ final class AppFlowController: AppNavigation {
     
     func startAuthenticationFlow(type: OnboardingExit) {
         authenticationFlowController.startAuthFlow(type: type)
+    }
+    
+    func finishedAuthenticationFlow() {
+      startHomeFlow()
+    }
+    
+    func startMainFlow() {
+      mainFlowController.showHomeScreen()
+    }
+
+    func startHomeFlow() {
+    }
+
+    func finishedHomeFlow() {
     }
 }

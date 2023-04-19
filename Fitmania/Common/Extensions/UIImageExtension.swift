@@ -23,4 +23,8 @@ enum AssetImage: String {
 
 enum SystemImage: String {
     case personCircleFill = "person.circle.fill"
+    case calendarIcon = "calendar"
+    case homeIcon = "house"
+    case settingsIcon = "gearshape"
+    case plusIcon = "plus"
 }

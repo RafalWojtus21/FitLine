@@ -13,7 +13,7 @@ import SnapKit
 class AccountSetupView: UIView {
     // MARK: Properties
 
-    private let mainView: UIView = .init(backgroundColor: .clear)
+    private let mainView = UIView(backgroundColor: .clear)
 
     private lazy var contentView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [leftTextField, rightTextField])

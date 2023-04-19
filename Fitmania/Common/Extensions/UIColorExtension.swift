@@ -18,6 +18,6 @@ extension UIColor {
     static let quaternaryColorTransparent = UIColor(named: "quaternaryColorTransparent")
     static let quinaryColor = UIColor(named: "quinaryColor")!
     static let primaryBackgroundColor = UIColor(named: "primaryBackgroundColor")!
-    static let bottomSheetBackgroundColor = UIColor(named: "bottomSheetBackgroundColor")!
+    static let secondaryBackgroundColor = UIColor(named: "secondaryBackgroundColor")!
     // swiftlint:enable force_unwrapping
 }

@@ -34,7 +34,7 @@ final class LoginScreenInteractorImpl: LoginScreenInteractor {
     }
 
     func login(email: String, password: String) -> Observable<LoginScreenResult> {
-        dependencies.authManager.login(email: email, password: password)
+        return dependencies.authManager.login(email: email, password: password)
             .asCompletable()
             .andThen(.just(.effect(.userLoggedIn)))
             .catch({ error -> Observable<LoginScreenResult> in

@@ -48,11 +48,7 @@ final class AccountCreatedScreenViewController: BaseViewController, AccountCreat
         return label
     }()
     
-    private lazy var beginButton: UIButton = {
-        let button = UIButton().apply(style: .primary, title: L.accountCreatedButtonTitle)
-        button.isEnabled = false
-        return button
-    }()
+    private lazy var beginButton = UIButton().apply(style: .primary, title: L.accountCreatedButtonTitle)
     
     init(presenter: AccountCreatedScreenPresenter) {
         self.presenter = presenter
@@ -75,7 +71,7 @@ final class AccountCreatedScreenViewController: BaseViewController, AccountCreat
     }
     
     private func layoutView() {
-        view.backgroundColor = .bottomSheetBackgroundColor
+        view.backgroundColor = .secondaryBackgroundColor
         view.addSubview(summaryStackView)
         view.addSubview(beginButton)
         

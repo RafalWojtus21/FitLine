@@ -22,6 +22,7 @@ protocol AuthFlowNavigation: AnyObject {
     func showCreateAccountScreen()
     func showAccountCreatedScreen()
     func dismiss()
+    func showHomeScreen()
 }
 
 class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
@@ -104,5 +105,9 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     
     func dismiss() {
         dependencies.appNavigation?.dismiss()
+    }
+    
+    func showHomeScreen() {
+        dependencies.appNavigation?.finishedAuthenticationFlow()
     }
 }

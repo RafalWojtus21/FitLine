@@ -1,15 +1,15 @@
 //
-//  AccountCreatedScreenMiddleware.swift
+//  HomeScreenMiddleware.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 18/04/2023.
+//  Created by Rafał Wojtuś on 19/04/2023.
 //
 
 import RxSwift
 
-final class AccountCreatedScreenMiddlewareImpl: AccountCreatedScreenMiddleware, AccountCreatedScreenCallback {
-    typealias Dependencies = HasAuthenticationFlowNavigation
-    typealias Result = AccountCreatedScreenResult
+final class HomeScreenMiddlewareImpl: HomeScreenMiddleware, HomeScreenCallback {
+    typealias Dependencies = HasWorkoutFlowNavigation
+    typealias Result = HomeScreenResult
     
     private let dependencies: Dependencies
 
@@ -25,8 +25,8 @@ final class AccountCreatedScreenMiddlewareImpl: AccountCreatedScreenMiddleware, 
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
-            case .begin:
-                dependencies.authFlowNavigation?.showHomeScreen()
+            case .showWorkoutsList:
+                dependencies.workoutFlowNavigation?.showWorkoutsListScreen()
             }
         }
         return .just(result)

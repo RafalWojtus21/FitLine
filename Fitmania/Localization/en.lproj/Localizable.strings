@@ -13,6 +13,9 @@
 "General.Password" = "Password";
 "General.Error" = "Error";
 "General.Ok" = "OK";
+"General.Calendar" = "Calendar";
+"General.Workout" = "Workout";
+"General.Settings" = "Settings";
 
 // MARK: Welcome Screen
 
@@ -64,6 +67,7 @@
 "Validation.InvalidAgeError" = "Invalid age format";
 "Validation.InvalidHeightError" = "Invalid height format";
 "Validation.InvalidWeightError" = "Invalid weight format";
+
 // MARK: Forgot Password Screen
 
 "ForgotPassword.ResetInstructions" = "No worries, we’ll send you reset instructions";
@@ -78,4 +82,10 @@
 "AccountCreated.Subtitle" = "Your account is ready to use!";
 "AccountCreated.ButtonTitle" = "Begin";
 
+// MARK: Home Screen
 
+"HomeScreen.ChooseWorkoutAlert" = "Do you want to create custom workout or add one from community?";
+"HomeScreen.FirstActionTitle" = "I want to create my own workout";
+"HomeScreen.SecondActionTitle" = "I want to use workout from database";
+"HomeScreen.CustomWorkoutAlertTitle" = "Name your workout";
+"HomeScreen.CustomWorkoutAlertPlaceholder" = "Provide name for your custom workout";

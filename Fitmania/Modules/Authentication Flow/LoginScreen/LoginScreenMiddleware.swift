@@ -29,6 +29,8 @@ final class LoginScreenMiddlewareImpl: LoginScreenMiddleware, LoginScreenCallbac
                 dependencies.authFlowNavigation?.showForgotPasswordScreen()
             case .showRegisterScreen:
                 dependencies.authFlowNavigation?.showRegisterScreen()
+            case .userLoggedIn:
+                dependencies.authFlowNavigation?.showHomeScreen()
             default:
                 break
             }

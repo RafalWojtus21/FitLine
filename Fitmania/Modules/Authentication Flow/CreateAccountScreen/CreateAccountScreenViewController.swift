@@ -64,10 +64,10 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         return view
     }()
     
-    private lazy var firstSeparator: UIView = .init(backgroundColor: .white)
-    private lazy var secondSeparator: UIView = .init(backgroundColor: .white)
+    private lazy var firstSeparator = UIView(backgroundColor: .white)
+    private lazy var secondSeparator = UIView(backgroundColor: .white)
     
-    private lazy var createAccountButton = UIButton.init().apply(style: .primary, title: L.accountSetupButton)
+    private lazy var createAccountButton = UIButton().apply(style: .primary, title: L.accountSetupButton)
     
     init(presenter: CreateAccountScreenPresenter) {
         self.presenter = presenter
@@ -90,7 +90,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
     }
     
     private func layoutView() {
-        view.backgroundColor = .bottomSheetBackgroundColor
+        view.backgroundColor = .secondaryBackgroundColor
         
         view.addSubview(accountSetupTitle)
         view.addSubview(accountSetupView)

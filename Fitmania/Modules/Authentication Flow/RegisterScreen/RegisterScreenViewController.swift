@@ -88,7 +88,7 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     
     private func layoutView() {
         title = L.createAccount
-        view.backgroundColor = .bottomSheetBackgroundColor
+        view.backgroundColor = .secondaryBackgroundColor
         
         view.addSubview(credentialsStackView)
         view.addSubview(registerButton)

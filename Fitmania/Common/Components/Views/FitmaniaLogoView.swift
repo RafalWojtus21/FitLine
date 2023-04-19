@@ -11,7 +11,7 @@ import SnapKit
 class FitmaniaLogoView: UIView {
     // MARK: Properties
     
-    private let mainView: UIView = .init(backgroundColor: .clear)
+    private let mainView = UIView(backgroundColor: .clear)
     
     private let fitmaniaLabel: UILabel = {
         let label = UILabel()
@@ -22,7 +22,7 @@ class FitmaniaLogoView: UIView {
         return label
     }()
     
-    private let line: UIView = .init(backgroundColor: .secondaryColor)
+    private let line = UIView(backgroundColor: .secondaryColor)
     
     // MARK: Public Implementation
     
