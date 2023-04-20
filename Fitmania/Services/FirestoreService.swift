@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import FirebaseFirestore
 import Firebase
 import FirebaseFirestoreSwift
 

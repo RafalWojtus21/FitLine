@@ -46,6 +46,7 @@ enum LoginScreenResult: Equatable {
 enum LoginScreenPartialState: Equatable {
     case emailValidationResult(validationMessage: ValidationMessage)
     case passwordValidationResult(validationMessage: ValidationMessage)
+    case idle
     
     func reduce(previousState: LoginScreenViewState) -> LoginScreenViewState {
         var state = previousState
@@ -54,6 +55,7 @@ enum LoginScreenPartialState: Equatable {
             state.emailValidationMessage = validationMessage
         case .passwordValidationResult(validationMessage: let validationMessage):
             state.passwordValidationMessage = validationMessage
+        case .idle: break
         }
         return state
     }

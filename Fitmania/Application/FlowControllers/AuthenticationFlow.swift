@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HasAuthenticationFlowNavigation {
     var authFlowNavigation: AuthFlowNavigation? { get }
@@ -29,7 +30,7 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation
     
     struct ExtendedDependencies: Dependencies, HasAuthenticationFlowNavigation, HasAuthManager, HasValidationService, HasFirestoreService, HasCloudService {
-        let authManager: AuthManager = AuthManagerImpl()
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
         let validationService: ValidationService = ValidationServiceImpl()
         let firestoreService: FirestoreService
         let cloudService: CloudService

@@ -178,7 +178,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     
     private func trigger(effect: Effect) {
         switch effect {
-        case .somethingWentWrong(error: let error):
+        case .passwordResetError(error: let error):
             let alert = UIAlertController(title: G.error, message: error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: G.okMessage, style: .default))
             present(alert, animated: true, completion: nil)

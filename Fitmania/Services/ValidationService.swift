@@ -72,7 +72,7 @@ enum Validation {
         case invalid(message: String)
     }
 
-    struct Error: LocalizedError {
+    struct Error: LocalizedError, Equatable {
         let errorDescription: String?
     }
 }

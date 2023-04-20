@@ -16,7 +16,7 @@ enum AuthError: LocalizedError, Equatable {
     case weakPassword
     case emailAlreadyInUse
     case wrongPassword
-    case invalidCredential
+    case userNotFound
     
     var errorDescription: String {
         switch self {
@@ -34,8 +34,8 @@ enum AuthError: LocalizedError, Equatable {
             return L.emailAlreadyInUse
         case .wrongPassword:
             return L.wrongPassword
-        case .invalidCredential:
-            return L.invalidCredential
+        case .userNotFound:
+            return L.userNotFound
         }
     }
 }

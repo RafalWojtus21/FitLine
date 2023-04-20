@@ -99,4 +99,4 @@
 "AuthError.WeakPassword" = "Password is too weak.";
 "AuthError.EmailAlreadyInUse" = "Email address is already in use.";
 "AuthError.WrongPassword" = "Incorrect password.";
-"AuthError.InvalidCredential" = "Invalid credentials.";
+"AuthError.UserNotFound" = "User not found.";

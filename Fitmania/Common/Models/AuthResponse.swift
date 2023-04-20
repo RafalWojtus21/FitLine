@@ -7,7 +7,7 @@
 
 import Foundation
  
-struct AuthResponse {
+struct AuthResponse: Equatable {
     let email: String
     let uid: String
 }

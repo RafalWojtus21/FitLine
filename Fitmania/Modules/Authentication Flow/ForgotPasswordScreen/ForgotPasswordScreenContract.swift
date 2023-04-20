@@ -21,7 +21,8 @@ struct ForgotPasswordScreenViewState: Equatable {
 
 enum ForgotPasswordScreenEffect: Equatable {
     case emailSent
-    case somethingWentWrong(error: String)
+    case somethingWentWrong
+    case passwordResetError(error: String)
     case invalidCredentials
     case dismiss
 }

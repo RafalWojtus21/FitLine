@@ -22,11 +22,26 @@ protocol AuthManager {
     func resetPassword(email: String) -> Completable
 }
 
+protocol Authentication {
+    func addStateDidChangeListener(_ listener: @escaping (Auth, User?) -> Void) -> AuthStateDidChangeListenerHandle
+    var currentUser: User? { get }
+    func createUser(withEmail: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?)
+    func signIn(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?)
+    func signOut() throws
+    func sendPasswordReset(withEmail email: String, completion: ((Error?) -> Void)?)
+}
+
+extension Auth: Authentication {}
+
 final class AuthManagerImpl: AuthManager {
-    private let auth = Auth.auth()
+    private let auth: Authentication
+    
+    init(auth: Authentication) {
+        self.auth = auth
+    }
     
     func isLoggedIn(completion: @escaping (Bool) -> Void) {
-        auth.addStateDidChangeListener { _, user in
+        _ = auth.addStateDidChangeListener { _, user in
             if user != nil {
                 completion(true)
             } else {
@@ -36,7 +51,7 @@ final class AuthManagerImpl: AuthManager {
     }
     
     func getCurrentUser() -> User? {
-        self.auth.currentUser
+        auth.currentUser
     }
     
     func signUp(email: String, password: String) -> Single<AuthResponse> {
@@ -62,6 +77,7 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
+        .debug("sign up AM")
     }
     
     func login(email: String, password: String) -> Single<AuthResponse> {
@@ -73,8 +89,8 @@ final class AuthManagerImpl: AuthManager {
                         single(.failure(AuthError.invalidEmail))
                     case AuthErrorCode.wrongPassword.rawValue:
                         single(.failure(AuthError.wrongPassword))
-                    case AuthErrorCode.invalidCredential.rawValue:
-                        single(.failure(AuthError.invalidCredential))
+                    case AuthErrorCode.userNotFound.rawValue:
+                        single(.failure(AuthError.userNotFound))
                     default:
                         single(.failure(AuthError.loginError))
                     }
@@ -87,6 +103,7 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
+        .debug("log in AM")
     }
     
     func signOut() -> Completable {
@@ -99,6 +116,7 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
+        .debug("sign out AM")
     }
     
     func resetPassword(email: String) -> Completable {
@@ -109,5 +127,6 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
+        .debug("reset password AM")
     }
 }

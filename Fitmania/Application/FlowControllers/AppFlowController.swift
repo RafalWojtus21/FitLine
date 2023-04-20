@@ -31,7 +31,7 @@ final class AppFlowController: AppNavigation {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
-        let authManager: AuthManager = AuthManagerImpl()
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
 
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
             self.dependencies = dependencies

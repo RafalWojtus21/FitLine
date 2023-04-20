@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
+		8B2A4B6429F2B6FB00B6B3F0 /* AuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */; };
+		8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */; };
+		8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */; };
+		8B2A4B6C29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6B29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift */; };
+		8B2A4B6E29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6D29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift */; };
+		8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */; };
+		8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */; };
+		8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */; };
+		8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */; };
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
 		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
-		8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */; };
-		8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */; };
+		8B53581C2A03B64A009EED68 /* RxBlockingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53581A2A03B1F2009EED68 /* RxBlockingExtensions.swift */; };
+		8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
@@ -36,12 +45,16 @@
 		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
+		8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */; };
+		8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */; };
+		8B9AE9D429F1767D000E2743 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9AE9D329F1767D000E2743 /* RxTest */; };
+		8B9AE9D829F17732000E2743 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9AE9D729F17732000E2743 /* RxBlocking */; };
+		8B9B5C382A0531D9000F7A6D /* AuthMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B5C372A0531D9000F7A6D /* AuthMock.swift */; };
 		8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589029ED43A100E09F5D /* UIViewExtension.swift */; };
 		8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5589229ED484F00E09F5D /* ValidationMessage.swift */; };
 		8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC151ED29DD6EA00007A372 /* AppDelegate.swift */; };
 		8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F629DD6EA20007A372 /* Assets.xcassets */; };
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
-		8BC1520529DD6EA20007A372 /* FitmaniaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1520429DD6EA20007A372 /* FitmaniaTests.swift */; };
 		8BC1520F29DD6EA20007A372 /* FitmaniaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1520E29DD6EA20007A372 /* FitmaniaUITests.swift */; };
 		8BC1521129DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1521029DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift */; };
 		8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1522E29DD75CF0007A372 /* Configuration-Production.plist */; };
@@ -113,6 +126,10 @@
 		8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */; };
 		8BF1ED0029EFEBE800540E1D /* WorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */; };
 		8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */; };
+		CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3E729F282B400F0BCD0 /* FirebaseAuth */; };
+		CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; };
+		CC44D3EE29F288DB00F0BCD0 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CC44D3F029F2891200F0BCD0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,13 +149,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CC44D3ED29F288DB00F0BCD0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CC44D3EE29F288DB00F0BCD0 /* RxCocoa-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
+		8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerTests.swift; sourceTree = "<group>"; };
+		8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceMock.swift; sourceTree = "<group>"; };
+		8B2A4B6B29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B2A4B6D29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractorTests.swift; sourceTree = "<group>"; };
+		8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.AuthErrors.swift; sourceTree = "<group>"; };
+		8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableEventExtension.swift; sourceTree = "<group>"; };
+		8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerMock.swift; sourceTree = "<group>"; };
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
-		8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.AuthErrors.swift; sourceTree = "<group>"; };
-		8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		8B53581A2A03B1F2009EED68 /* RxBlockingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBlockingExtensions.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
@@ -160,6 +200,9 @@
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
+		8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
+		8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceMock.swift; sourceTree = "<group>"; };
+		8B9B5C372A0531D9000F7A6D /* AuthMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMock.swift; sourceTree = "<group>"; };
 		8BB5589029ED43A100E09F5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8BB5589229ED484F00E09F5D /* ValidationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessage.swift; sourceTree = "<group>"; };
 		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +211,6 @@
 		8BC151F929DD6EA20007A372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC151FB29DD6EA20007A372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitmaniaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC1520429DD6EA20007A372 /* FitmaniaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaTests.swift; sourceTree = "<group>"; };
 		8BC1520A29DD6EA20007A372 /* FitmaniaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitmaniaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC1520E29DD6EA20007A372 /* FitmaniaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITests.swift; sourceTree = "<group>"; };
 		8BC1521029DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -257,6 +299,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC44D3F029F2891200F0BCD0 /* FirebaseFirestoreSwift in Frameworks */,
+				CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */,
+				CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */,
+				8B9AE9D829F17732000E2743 /* RxBlocking in Frameworks */,
+				8B9AE9D429F1767D000E2743 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +317,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B53581D2A03B64F009EED68 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */,
+				8B53581A2A03B1F2009EED68 /* RxBlockingExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8B6FDC7129E340DE0037A8B8 /* ForgotPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +366,30 @@
 				8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8B9AE9CB29F162E5000E2743 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */,
+				8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */,
+				8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */,
+				8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */,
+				8B2A4B6B29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift */,
+				8B2A4B6D29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		8B9AE9CD29F162E6000E2743 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */,
+				8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */,
+				8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */,
+				8B9B5C372A0531D9000F7A6D /* AuthMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8BC151E129DD6EA00007A372 = {
@@ -354,7 +434,9 @@
 		8BC1520329DD6EA20007A372 /* FitmaniaTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BC1520429DD6EA20007A372 /* FitmaniaTests.swift */,
+				8B53581D2A03B64F009EED68 /* Extensions */,
+				8B9AE9CD29F162E6000E2743 /* Mocks */,
+				8B9AE9CB29F162E5000E2743 /* Tests */,
 			);
 			path = FitmaniaTests;
 			sourceTree = "<group>";
@@ -673,6 +755,7 @@
 				8BC151FC29DD6EA20007A372 /* Sources */,
 				8BC151FD29DD6EA20007A372 /* Frameworks */,
 				8BC151FE29DD6EA20007A372 /* Resources */,
+				CC44D3ED29F288DB00F0BCD0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -680,6 +763,13 @@
 				8BC1520229DD6EA20007A372 /* PBXTargetDependency */,
 			);
 			name = FitmaniaTests;
+			packageProductDependencies = (
+				8B9AE9D329F1767D000E2743 /* RxTest */,
+				8B9AE9D729F17732000E2743 /* RxBlocking */,
+				CC44D3E729F282B400F0BCD0 /* FirebaseAuth */,
+				CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */,
+				CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */,
+			);
 			productName = FitmaniaTests;
 			productReference = 8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -923,7 +1013,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC1520529DD6EA20007A372 /* FitmaniaTests.swift in Sources */,
+				8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */,
+				8B9B5C382A0531D9000F7A6D /* AuthMock.swift in Sources */,
+				8B53581C2A03B64A009EED68 /* RxBlockingExtensions.swift in Sources */,
+				8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */,
+				8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */,
+				8B2A4B6429F2B6FB00B6B3F0 /* AuthManagerTests.swift in Sources */,
+				8B2A4B6C29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift in Sources */,
+				8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */,
+				8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */,
+				8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */,
+				8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */,
+				8B2A4B6E29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1810,6 +1911,16 @@
 			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
+		8B9AE9D329F1767D000E2743 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		8B9AE9D729F17732000E2743 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
 		8BC1526029DD79D00007A372 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -1834,6 +1945,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		CC44D3E729F282B400F0BCD0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

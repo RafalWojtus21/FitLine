@@ -20,9 +20,12 @@ final class ForgotPasswordScreenInteractorImpl: ForgotPasswordScreenInteractor {
     func resetPassword(email: String) -> Observable<ForgotPasswordScreenResult> {
         dependencies.authManager.resetPassword(email: email)
             .andThen(.just(.effect(.emailSent)))
-            .catch { error -> Observable<ForgotPasswordScreenResult> in
-                return .just(.effect(.somethingWentWrong(error: error.localizedDescription)))
-            }
+            .catch({ error -> Observable<ForgotPasswordScreenResult> in
+                guard let authError = error as? AuthError else {
+                    return .just(.effect(.somethingWentWrong))
+                }
+                return .just(.effect(.passwordResetError(error: authError.errorDescription)))
+            })
     }
     
     func validateEmail(email: String) -> RxSwift.Observable<ForgotPasswordScreenResult> {
