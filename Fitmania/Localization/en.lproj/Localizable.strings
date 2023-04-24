@@ -89,3 +89,14 @@
 "HomeScreen.SecondActionTitle" = "I want to use workout from database";
 "HomeScreen.CustomWorkoutAlertTitle" = "Name your workout";
 "HomeScreen.CustomWorkoutAlertPlaceholder" = "Provide name for your custom workout";
+
+// MARK: Authentication Errors
+
+"AuthError.SignupError" = "An error occurred while trying to sign up.";
+"AuthError.LoginError" = "An error occurred while trying to log in.";
+"AuthError.UserNotLoggedIn" = "User is not logged in.";
+"AuthError.InvalidEmail" = "Invalid email address.";
+"AuthError.WeakPassword" = "Password is too weak.";
+"AuthError.EmailAlreadyInUse" = "Email address is already in use.";
+"AuthError.WrongPassword" = "Incorrect password.";
+"AuthError.InvalidCredential" = "Invalid credentials.";

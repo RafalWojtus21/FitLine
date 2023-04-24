@@ -16,6 +16,18 @@ final class LoginScreenInteractorImpl: LoginScreenInteractor {
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
+    
+    func login(email: String, password: String) -> Observable<LoginScreenResult> {
+        return dependencies.authManager.login(email: email, password: password)
+            .asCompletable()
+            .andThen(.just(.effect(.userLoggedIn)))
+            .catch({ error -> Observable<LoginScreenResult> in
+                guard let authError = error as? AuthError else {
+                    return .just(.effect(.somethingWentWrong))
+                }
+                return .just(.effect(.wrongCredentialsAlert(error: authError.errorDescription)))
+            })
+    }
 
     func validateEmail(email: String) -> Observable<LoginScreenResult> {
         dependencies.validationService.validate(.email, input: email)
@@ -31,14 +43,5 @@ final class LoginScreenInteractorImpl: LoginScreenInteractor {
             .catch { error -> Observable<LoginScreenResult> in
                 return .just(.partialState(.passwordValidationResult(validationMessage: ValidationMessage(message: error.localizedDescription))))
             }
-    }
-
-    func login(email: String, password: String) -> Observable<LoginScreenResult> {
-        return dependencies.authManager.login(email: email, password: password)
-            .asCompletable()
-            .andThen(.just(.effect(.userLoggedIn)))
-            .catch({ error -> Observable<LoginScreenResult> in
-                return .just(.effect(.wrongCredentialsAlert(error: error.localizedDescription)))
-            })
     }
 }

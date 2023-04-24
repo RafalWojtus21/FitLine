@@ -11,6 +11,8 @@
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
 		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
+		8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */; };
+		8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
@@ -135,6 +137,8 @@
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
+		8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.AuthErrors.swift; sourceTree = "<group>"; };
+		8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */,
+				8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				8BE644F729E004B600288DAB /* LocalizationAuthenticationFlow.swift */,
 				8B0C115029E852F10028DCCF /* LocalizationValidation.swift */,
 				8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */,
+				8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -841,6 +847,7 @@
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
 				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
 				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
+				8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
 				8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */,
@@ -878,6 +885,7 @@
 				8B6FDC7B29E40E690037A8B8 /* CreateAccountScreenViewController.swift in Sources */,
 				8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */,
 				8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */,
+				8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */,

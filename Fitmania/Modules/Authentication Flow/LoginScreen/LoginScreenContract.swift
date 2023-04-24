@@ -29,6 +29,7 @@ enum LoginScreenEffect: Equatable {
     case showForgotPasswordScreen
     case showRegisterScreen
     case wrongValidationCase
+    case somethingWentWrong
 }
 
 struct LoginScreenBuilderInput {

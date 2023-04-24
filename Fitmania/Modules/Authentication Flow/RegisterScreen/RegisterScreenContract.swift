@@ -27,6 +27,7 @@ enum RegisterScreenEffect: Equatable {
     case registerError(error: String)
     case wrongValidationCase
     case invalidCredentials
+    case somethingWentWrong
 }
 
 struct RegisterScreenBuilderInput {

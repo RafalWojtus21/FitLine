@@ -66,8 +66,7 @@ class MainFlowController: MainFlow, MainFlowNavigation {
         
         var viewControllers = [UINavigationController]()
         for index in 0 ..< tabBarScreens.count {
-            guard let viewController = tabBarScreens[index] as? UIViewController else { return [] }
-            let navigationController = UINavigationController(rootViewController: viewController)
+            let navigationController = UINavigationController(rootViewController: tabBarScreens[index] as? UIViewController ?? UIViewController())
             navigationController.tabBarItem = UITabBarItem(title: tabBarTitles[index], image: tabBarIcons[index], selectedImage: tabBarIcons[index])
             viewControllers.append(navigationController)
         }

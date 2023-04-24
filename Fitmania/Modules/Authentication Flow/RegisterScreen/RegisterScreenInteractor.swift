@@ -22,7 +22,10 @@ final class RegisterScreenInteractorImpl: RegisterScreenInteractor {
             .asCompletable()
             .andThen(.just(.effect(.showAccountSetupScreen)))
             .catch({ error -> Observable<RegisterScreenResult> in
-                return .just(.effect(.registerError(error: error.localizedDescription)))
+                guard let authError = error as? AuthError else {
+                    return .just(.effect(.somethingWentWrong))
+                }
+                return .just(.effect(.registerError(error: authError.errorDescription)))
             })
     }
     
