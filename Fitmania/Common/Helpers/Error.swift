@@ -16,6 +16,7 @@ enum AuthError: LocalizedError, Equatable {
     case weakPassword
     case emailAlreadyInUse
     case wrongPassword
+    case unauthenticatedUser
     case userNotFound
     
     var errorDescription: String {
@@ -34,13 +35,15 @@ enum AuthError: LocalizedError, Equatable {
             return L.emailAlreadyInUse
         case .wrongPassword:
             return L.wrongPassword
+        case .unauthenticatedUser:
+            return L.unauthenticatedUser
         case .userNotFound:
             return L.userNotFound
         }
     }
 }
 
-enum FirestoreError: Error, Equatable {
-    case noData
+enum DatabaseError: Error, Equatable {
     case somethingWentWrong
+    case noData
 }

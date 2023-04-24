@@ -34,11 +34,17 @@ protocol Authentication {
 extension Auth: Authentication {}
 
 final class AuthManagerImpl: AuthManager {
+    // MARK: Properties
+
     private let auth: Authentication
     
+    // MARK: Initialization
+
     init(auth: Authentication) {
         self.auth = auth
     }
+    
+    // MARK: Public Implementation
     
     func isLoggedIn(completion: @escaping (Bool) -> Void) {
         _ = auth.addStateDidChangeListener { _, user in
@@ -49,7 +55,7 @@ final class AuthManagerImpl: AuthManager {
             }
         }
     }
-    
+
     func getCurrentUser() -> User? {
         auth.currentUser
     }

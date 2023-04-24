@@ -16,6 +16,7 @@ extension Localization {
         static let weakPassword = "AuthError.WeakPassword".localized
         static let emailAlreadyInUse = "AuthError.EmailAlreadyInUse".localized
         static let wrongPassword = "AuthError.WrongPassword".localized
+        static let unauthenticatedUser = "AuthError.UnauthenticatedUser".localized
         static let userNotFound = "AuthError.UserNotFound".localized
     }
 }

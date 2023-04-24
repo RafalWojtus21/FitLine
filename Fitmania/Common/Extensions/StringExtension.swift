@@ -12,3 +12,13 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
 }
+
+extension String {
+    var withTrailingSlash: String {
+        if self.hasSuffix("/") {
+            return self
+        } else {
+            return self + "/"
+        }
+    }
+}

@@ -18,7 +18,7 @@ final class CreateAccountScreenInteractorImpl: CreateAccountScreenInteractor {
     }
     
     func saveUserInfo(userInfo: UserInfo) -> Observable<CreateAccountScreenResult> {
-        return dependencies.cloudService.saveNewData(data: userInfo, collectionPath: .usersInfo)
+        return dependencies.cloudService.savePersonalData(data: userInfo, endpoint: .userInfo)
             .andThen(Observable.just(.effect(.showAccountCreatedScreen)))
             .catch { error -> Observable<CreateAccountScreenResult> in
                 return .just(.effect(.somethingWentWrong(error: error.localizedDescription)))

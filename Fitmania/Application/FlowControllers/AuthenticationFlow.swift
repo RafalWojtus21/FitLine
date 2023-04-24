@@ -29,11 +29,11 @@ protocol AuthFlowNavigation: AnyObject {
 class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation
     
-    struct ExtendedDependencies: Dependencies, HasAuthenticationFlowNavigation, HasAuthManager, HasValidationService, HasFirestoreService, HasCloudService {
+    struct ExtendedDependencies: Dependencies, HasAuthenticationFlowNavigation, HasAuthManager, HasValidationService, HasCloudService {
         let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
         let validationService: ValidationService = ValidationServiceImpl()
-        let firestoreService: FirestoreService
         let cloudService: CloudService
+        let realtimeDatabaseService: RealtimeDatabaseService
         
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
@@ -44,8 +44,8 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
             self.authFlowNavigation = authFlowNavigation
-            self.firestoreService = FirestoreServiceImpl(authManager: authManager)
-            self.cloudService = CloudServiceImpl(authManager: authManager, firestoreService: firestoreService)
+            self.realtimeDatabaseService = RealtimeDatabaseServiceImpl()
+            self.cloudService = CloudServiceImpl(authManager: authManager, realtimeService: realtimeDatabaseService)
         }
     }
     
