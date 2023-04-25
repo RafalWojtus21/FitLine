@@ -16,5 +16,7 @@ extension Localization {
         static let calendar = "General.Calendar".localized
         static let workout = "General.Workout".localized
         static let settings = "General.Settings".localized
+        static let time = "General.Time".localized
+        static let breakTime = "General.BreakTime".localized
     }
 }

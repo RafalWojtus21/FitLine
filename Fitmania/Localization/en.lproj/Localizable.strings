@@ -16,6 +16,8 @@
 "General.Calendar" = "Calendar";
 "General.Workout" = "Workout";
 "General.Settings" = "Settings";
+"General.Time" = "Time";
+"General.BreakTime" = "Break time";
 
 // MARK: Welcome Screen
 
@@ -102,6 +104,11 @@
 "AuthError.UnauthenticatedUser" =  "Unauthenticated user";
 "AuthError.UserNotFound" = "User not found.";
 
-// MARK: WorkoutsListScreen
+// MARK: Workouts List Screen
 
 "WorkoutsListScreen.Title" = "Choose workout";
+
+// MARK: Workout Setup Screen
+
+"WorkoutSetupScreen.AddExerciseButtonTitle" = "Add exercise";
+"WorkoutSetupScreen.SaveButtonTitle" = "Save training plan";

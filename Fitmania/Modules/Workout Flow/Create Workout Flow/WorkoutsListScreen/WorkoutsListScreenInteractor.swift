@@ -26,7 +26,7 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
     
     // MARK: Public Implementation
     
-    func loadTrainingPlans() -> RxSwift.Observable<WorkoutsListScreenResult> {
+    func loadTrainingPlans() -> Observable<WorkoutsListScreenResult> {
         dependencies.workoutsService.workoutDataHasChanged
             .map({ _ in })
             .startWith(())

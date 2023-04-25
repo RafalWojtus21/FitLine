@@ -28,7 +28,7 @@ final class ForgotPasswordScreenInteractorImpl: ForgotPasswordScreenInteractor {
             })
     }
     
-    func validateEmail(email: String) -> RxSwift.Observable<ForgotPasswordScreenResult> {
+    func validateEmail(email: String) -> Observable<ForgotPasswordScreenResult> {
         dependencies.validationService.validate(.email, input: email)
             .andThen(.just(.partialState(.emailValidationResult(validationMessage: ValidationMessage(message: nil)))))
             .catch { error -> Observable<ForgotPasswordScreenResult> in

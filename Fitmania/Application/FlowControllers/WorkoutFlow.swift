@@ -19,8 +19,8 @@ protocol WorkoutFlow {
 
 protocol WorkoutFlowNavigation: AnyObject {
     func showWorkoutsListScreen()
-    func finishedCreateWorkoutFlow()
     func startCreateWorkoutFlow(trainingName: String)
+    func finishedCreateWorkoutFlow()
 }
 
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
@@ -68,7 +68,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     
     private lazy var homeScreenBuilder: HomeScreenBuilder = HomeScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var workoutsListBuilder: WorkoutsListScreenBuilder = WorkoutsListScreenBuilderImpl(dependencies: extendedDependencies)
-
+    
     // MARK: - AppNavigation
     
     func startWorkoutFlow() -> BaseView {

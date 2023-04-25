@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HasCreateWorkoutFlow {
     var createWorkoutFlowNavigation: CreateWorkoutFlowNavigation? { get }
@@ -16,17 +17,24 @@ protocol CreateWorkoutFlow {
 }
 
 protocol CreateWorkoutFlowNavigation: AnyObject {
+    func showWorkoutSetupScreen(trainingName: String)
+    func showWorkoutCategoryListScreen()
+    func finishCreateWorkoutFlow()
 }
 
 class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigation {
     typealias Dependencies = HasNavigation & HasWorkoutFlowNavigation
     
-    struct ExtendedDependencies: Dependencies, HasCreateWorkoutFlow, HasExercisesDataStore & HasValidationService {
+    struct ExtendedDependencies: Dependencies, HasCreateWorkoutFlow, HasExercisesDataStore & HasValidationService & HasAuthManager & HasRealtimeDatabaseService & HasCloudService & HasWorkoutsService {
         private let dependencies: Dependencies
         weak var workoutFlowNavigation: WorkoutFlowNavigation?
         var navigation: Navigation { dependencies.navigation }
         weak var createWorkoutFlowNavigation: CreateWorkoutFlowNavigation?
         
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
+        let realtimeDatabaseService: RealtimeDatabaseService
+        let cloudService: CloudService
+        let workoutsService: WorkoutsService
         let exercisesDataStore: ExercisesDataStore
         let validationService: ValidationService
 
@@ -34,6 +42,9 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
             self.dependencies = dependencies
             self.workoutFlowNavigation = dependencies.workoutFlowNavigation
             self.createWorkoutFlowNavigation = createWorkoutFlowNavigation
+            self.realtimeDatabaseService = RealtimeDatabaseServiceImpl()
+            self.cloudService = CloudServiceImpl(authManager: authManager, realtimeService: realtimeDatabaseService)
+            self.workoutsService = WorkoutsServiceImpl(cloudService: cloudService)
             self.exercisesDataStore = ExercisesDataStoreImpl()
             self.validationService = ValidationServiceImpl()
         }
@@ -52,9 +63,20 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
     
     // MARK: - Builders
     
+    private lazy var workoutSetupBuilder: WorkoutSetupScreenBuilder = WorkoutSetupScreenBuilderImpl(dependencies: extendedDependencies)
+    
     // MARK: - AppNavigation
     
     func startCreateWorkoutFlow(trainingName: String) {
+        showWorkoutSetupScreen(trainingName: trainingName)
+    }
+    
+    func showWorkoutSetupScreen(trainingName: String) {
+        let view = workoutSetupBuilder.build(with: .init(trainingName: trainingName)).view
+        dependencies.navigation.show(view: view, animated: false)
+    }
+    
+    func showWorkoutCategoryListScreen() {
     }
     
     func finishCreateWorkoutFlow() {
