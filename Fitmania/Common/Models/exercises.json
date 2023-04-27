@@ -1,0 +1,86 @@
+[
+    {
+        "category": "cardio",
+        "name": "Running"
+    },
+    {
+        "category": "cardio",
+        "name": "Cycling"
+    },
+    {
+        "category": "cardio",
+        "name": "Jumping Jacks"
+    },
+    {
+        "category": "legs",
+        "name": "Squats"
+    },
+    {
+        "category": "legs",
+        "name": "Lunges"
+    },
+    {
+        "category": "legs",
+        "name": "Deadlifts"
+    },
+    {
+        "category": "biceps",
+        "name": "Bicep Curls"
+    },
+    {
+        "category": "biceps",
+        "name": "Hammer Curls"
+    },
+    {
+        "category": "biceps",
+        "name": "Chin-Ups"
+    },
+    {
+        "category": "triceps",
+        "name": "Tricep Extensions"
+    },
+    {
+        "category": "triceps",
+        "name": "Close-Grip Bench Press"
+    },
+    {
+        "category": "triceps",
+        "name": "Dips"
+    },
+    {
+        "category": "chest",
+        "name": "Bench Press"
+    },
+    {
+        "category": "chest",
+        "name": "Push-Ups"
+    },
+    {
+        "category": "chest",
+        "name": "Dumbbell Flyes"
+    },
+    {
+        "category": "shoulders",
+        "name": "Military Press"
+    },
+    {
+        "category": "shoulders",
+        "name": "Arnold Press"
+    },
+    {
+        "category": "shoulders",
+        "name": "Lateral Raises"
+    },
+    {
+        "category": "back",
+        "name": "Deadlifts"
+    },
+    {
+        "category": "back",
+        "name": "Pull-Ups"
+    },
+    {
+        "category": "back",
+        "name": "Bent-Over Rows"
+    }
+]

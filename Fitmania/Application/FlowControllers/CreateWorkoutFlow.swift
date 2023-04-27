@@ -19,6 +19,7 @@ protocol CreateWorkoutFlow {
 protocol CreateWorkoutFlowNavigation: AnyObject {
     func showWorkoutSetupScreen(trainingName: String)
     func showWorkoutCategoryListScreen()
+    func showCategoryExercisesListScreen(category: Exercise.ExerciseCategory)
     func finishCreateWorkoutFlow()
 }
 
@@ -64,6 +65,7 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
     // MARK: - Builders
     
     private lazy var workoutSetupBuilder: WorkoutSetupScreenBuilder = WorkoutSetupScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var workoutsCategoryListBuilder: WorkoutsCategoryListScreenBuilder = WorkoutsCategoryListScreenBuilderImpl(dependencies: extendedDependencies)
     
     // MARK: - AppNavigation
     
@@ -77,6 +79,11 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
     }
     
     func showWorkoutCategoryListScreen() {
+        let view = workoutsCategoryListBuilder.build(with: .init()).view
+        dependencies.navigation.show(view: view, animated: false)
+    }
+    
+    func showCategoryExercisesListScreen(category: Exercise.ExerciseCategory) {
     }
     
     func finishCreateWorkoutFlow() {

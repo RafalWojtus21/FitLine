@@ -11,9 +11,11 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
-}
-
-extension String {
+    
+    var firstLetterCapitalized: String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    
     var withTrailingSlash: String {
         if self.hasSuffix("/") {
             return self

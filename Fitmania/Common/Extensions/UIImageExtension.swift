@@ -27,4 +27,6 @@ enum SystemImage: String {
     case homeIcon = "house"
     case settingsIcon = "gearshape"
     case plusIcon = "plus"
+    case plusCircleIcon = "plus.circle"
+    case rightArrow = "chevron.right"
 }
