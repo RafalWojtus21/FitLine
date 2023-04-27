@@ -9,16 +9,20 @@ import Foundation
 
 struct WorkoutPlan: Codable, Equatable {
     let name: String
-    let id: UUID
+    let id: WorkoutPlanID
     let parts: [WorkoutPart]
 }
 
 struct WorkoutPart: Codable, Equatable {
     let workoutPlanName: String
-    let workoutPlanID: String
+    let workoutPlanID: WorkoutPlanID
     let exercise: Exercise
     let time: Int
     let breakTime: Int
+}
+
+struct WorkoutPlanID: Codable, Equatable, Hashable {
+    let workoutPlanID: UUID
 }
 
 struct Exercise: Codable, Equatable {

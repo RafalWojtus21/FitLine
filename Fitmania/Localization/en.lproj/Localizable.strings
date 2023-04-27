@@ -101,3 +101,7 @@
 "AuthError.WrongPassword" = "Incorrect password.";
 "AuthError.UnauthenticatedUser" =  "Unauthenticated user";
 "AuthError.UserNotFound" = "User not found.";
+
+// MARK: WorkoutsListScreen
+
+"WorkoutsListScreen.Title" = "Choose workout";

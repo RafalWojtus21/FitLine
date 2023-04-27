@@ -13,5 +13,6 @@ extension Localization {
         static let secondActionTitle = "HomeScreen.SecondActionTitle".localized
         static let customWorkoutAlertTitle = "HomeScreen.CustomWorkoutAlertTitle".localized
         static let customWorkoutAlertPlaceholder = "HomeScreen.CustomWorkoutAlertPlaceholder".localized
+        static let workoutsListScreenTitle = "WorkoutsListScreen.Title".localized
     }
 }

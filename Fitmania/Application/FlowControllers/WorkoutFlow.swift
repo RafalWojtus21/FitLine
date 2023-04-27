@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HasWorkoutFlowNavigation {
     var workoutFlowNavigation: WorkoutFlowNavigation? { get }
@@ -19,23 +20,32 @@ protocol WorkoutFlow {
 protocol WorkoutFlowNavigation: AnyObject {
     func showWorkoutsListScreen()
     func finishedCreateWorkoutFlow()
+    func startCreateWorkoutFlow(trainingName: String)
 }
 
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation & HasMainFlowNavigation
     
-    struct ExtendedDependencies: Dependencies, HasWorkoutFlowNavigation {
+    struct ExtendedDependencies: Dependencies, HasWorkoutFlowNavigation, HasAuthManager, HasCloudService, HasRealtimeDatabaseService, HasWorkoutsService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         weak var mainFlowNavigation: MainFlowNavigation?
         var navigation: Navigation { dependencies.navigation }
         var workoutFlowNavigation: WorkoutFlowNavigation?
 
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
+        let realtimeDatabaseService: RealtimeDatabaseService
+        let cloudService: CloudService
+        let workoutsService: WorkoutsService
+        
         init(dependencies: Dependencies, workoutFlowNavigation: WorkoutFlowNavigation) {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
             self.mainFlowNavigation = dependencies.mainFlowNavigation
             self.workoutFlowNavigation = workoutFlowNavigation
+            self.realtimeDatabaseService = RealtimeDatabaseServiceImpl()
+            self.cloudService = CloudServiceImpl(authManager: authManager, realtimeService: realtimeDatabaseService)
+            self.workoutsService = WorkoutsServiceImpl(cloudService: cloudService)
         }
     }
     
@@ -57,6 +67,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     // MARK: - Builders
     
     private lazy var homeScreenBuilder: HomeScreenBuilder = HomeScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var workoutsListBuilder: WorkoutsListScreenBuilder = WorkoutsListScreenBuilderImpl(dependencies: extendedDependencies)
 
     // MARK: - AppNavigation
     
@@ -65,6 +76,8 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     }
     
     func showWorkoutsListScreen() {
+        let view = workoutsListBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
     }
     
     func startCreateWorkoutFlow(trainingName: String) {
