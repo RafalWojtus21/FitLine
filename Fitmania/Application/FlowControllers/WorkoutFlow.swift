@@ -13,10 +13,12 @@ protocol HasWorkoutFlowNavigation {
 
 protocol WorkoutFlow {
     func startWorkoutFlow() -> BaseView
+    func startCreateWorkoutFlow(trainingName: String)
 }
 
 protocol WorkoutFlowNavigation: AnyObject {
     func showWorkoutsListScreen()
+    func finishedCreateWorkoutFlow()
 }
 
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
@@ -42,6 +44,10 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     private let dependencies: Dependencies
     private lazy var extendedDependencies = ExtendedDependencies(dependencies: dependencies, workoutFlowNavigation: self)
 
+    // MARK: - Flows
+    
+    private var createWorkoutFlowController: CreateWorkoutFlow?
+
     // MARK: - Initialization
 
     init(dependencies: Dependencies) {
@@ -59,5 +65,14 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     }
     
     func showWorkoutsListScreen() {
+    }
+    
+    func startCreateWorkoutFlow(trainingName: String) {
+        createWorkoutFlowController = CreateWorkoutFlowController(dependencies: extendedDependencies)
+        createWorkoutFlowController?.startCreateWorkoutFlow(trainingName: trainingName)
+    }
+    
+    func finishedCreateWorkoutFlow() {
+        createWorkoutFlowController = nil 
     }
 }

@@ -17,6 +17,9 @@
 		8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */; };
 		8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */; };
 		8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */; };
+		8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */; };
+		8B10656D29FAB096005A1521 /* ExercisesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */; };
+		8B10656F29FAB264005A1521 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656E29FAB264005A1521 /* Workout.swift */; };
 		8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */; };
 		8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */; };
 		8B2A4B7C29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */; };
@@ -180,6 +183,9 @@
 		8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableEventExtension.swift; sourceTree = "<group>"; };
 		8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerMock.swift; sourceTree = "<group>"; };
+		8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkoutFlow.swift; sourceTree = "<group>"; };
+		8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesDataStore.swift; sourceTree = "<group>"; };
+		8B10656E29FAB264005A1521 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		8B2A4B6F29F69A6500B6B3F0 /* Localization.AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.AuthErrors.swift; sourceTree = "<group>"; };
 		8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseService.swift; sourceTree = "<group>"; };
@@ -373,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */,
+				8B10656E29FAB264005A1521 /* Workout.swift */,
 				8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */,
 			);
 			path = Models;
@@ -518,6 +525,7 @@
 				8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */,
 				8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */,
 				8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */,
+				8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */,
 				8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */,
 			);
 			path = FlowControllers;
@@ -621,6 +629,7 @@
 				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
 				8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */,
 				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
+				8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -948,10 +957,12 @@
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
 				8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */,
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
+				8B10656D29FAB096005A1521 /* ExercisesDataStore.swift in Sources */,
 				8BE644EC29DFFDEC00288DAB /* LoginScreenInteractor.swift in Sources */,
 				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
 				8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
+				8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
 				8BE644D129DF06AF00288DAB /* RegisterScreenPresenter.swift in Sources */,
 				8B6FDC6E29E340D80037A8B8 /* ForgotPasswordScreenViewController.swift in Sources */,
@@ -960,6 +971,7 @@
 				8BF1ECFB29EFEA2F00540E1D /* HomeScreenMiddleware.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
+				8B10656F29FAB264005A1521 /* Workout.swift in Sources */,
 				8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
