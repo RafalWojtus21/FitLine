@@ -1,19 +1,19 @@
 //
-//  WorkoutsListScreenPresenter.swift
+//  AddExerciseScreenPresenter.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 20/04/2023.
+//  Created by Rafał Wojtuś on 25/04/2023.
 //
 
 import RxSwift
 
-final class WorkoutsListScreenPresenterImpl: WorkoutsListScreenPresenter {
-    typealias View = WorkoutsListScreenView
-    typealias ViewState = WorkoutsListScreenViewState
-    typealias Middleware = WorkoutsListScreenMiddleware
-    typealias Interactor = WorkoutsListScreenInteractor
-    typealias Effect = WorkoutsListScreenEffect
-    typealias Result = WorkoutsListScreenResult
+final class AddExerciseScreenPresenterImpl: AddExerciseScreenPresenter {
+    typealias View = AddExerciseScreenView
+    typealias ViewState = AddExerciseScreenViewState
+    typealias Middleware = AddExerciseScreenMiddleware
+    typealias Interactor = AddExerciseScreenInteractor
+    typealias Effect = AddExerciseScreenEffect
+    typealias Result = AddExerciseScreenResult
     
     private let interactor: Interactor
     private let middleware: Middleware
@@ -29,14 +29,14 @@ final class WorkoutsListScreenPresenterImpl: WorkoutsListScreenPresenter {
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
         let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
             switch intent {
-            case .plusButtonIntent:
-                return .just(.effect(.nameCustomWorkoutAlert))
-            case .createNewTraining(name: let name):
-                return .just(.effect(.showNewTrainingPlanScreen(name: name)))
-            case .loadTrainingPlans:
-                return interactor.loadTrainingPlans()
-            case .deleteWorkoutPlan(id: let id):
-                return interactor.deleteTrainingPlan(id: id)
+            case .validateExerciseTime(text: let text):
+                return interactor.validateExerciseTime(time: text)
+            case .validateExerciseBreakTime(text: let text):
+                return interactor.validateExerciseBreakTime(time: text)
+            case .addExerciseIntent(time: let time, breakTime: let breakTime):
+                return interactor.addExercise(time: time, breakTime: breakTime)
+            case .invalidDataSet:
+                return .just(.effect(.invalidData))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

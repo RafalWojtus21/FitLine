@@ -11,6 +11,7 @@ enum WorkoutsListScreenIntent {
     case plusButtonIntent
     case createNewTraining(name: String)
     case loadTrainingPlans
+    case deleteWorkoutPlan(id: WorkoutPlanID)
 }
 
 struct WorkoutsListScreenViewState: Equatable {
@@ -21,6 +22,8 @@ enum WorkoutsListScreenEffect: Equatable {
     case nameCustomWorkoutAlert
     case showWorkoutCategoryListScreen
     case showNewTrainingPlanScreen(name: String)
+    case workoutPlanDeleted
+    case somethingWentWrong
 }
 
 struct WorkoutsListScreenBuilderInput {
@@ -67,6 +70,7 @@ protocol WorkoutsListScreenPresenter: AnyObject, BasePresenter {
 
 protocol WorkoutsListScreenInteractor: BaseInteractor {
     func loadTrainingPlans() -> Observable<WorkoutsListScreenResult>
+    func deleteTrainingPlan(id: WorkoutPlanID) -> Observable<WorkoutsListScreenResult>
 }
 
 protocol WorkoutsListScreenMiddleware {

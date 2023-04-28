@@ -20,6 +20,9 @@ protocol RealtimeDatabaseService {
     func save<T: Encodable>(_ object: T, at databaseReference: DatabaseReference, encoder: JSONEncoder?) -> Completable
     func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Single<T>
     func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T>
+    func delete(from databaseReference: DatabaseReference) -> Completable
+    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T>
+    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> 
 }
 
 final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
@@ -38,7 +41,7 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             do {
                 let encoder = encoder ?? self.jsonEncoder
                 let objectData = try encoder.encode(object)
-                let dictionary = try JSONSerialization.jsonObject(with: objectData, options: []) as? [String: Any]
+                let dictionary = try JSONSerialization.jsonObject(with: objectData, options: [])
                 databaseReference.setValue(dictionary) { error, _ in
                     if let error = error {
                         completable(.error(error))
@@ -51,7 +54,19 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             }
             return Disposables.create()
         }
-        .debug("save RTDB")
+    }
+    
+    func delete(from databaseReference: DatabaseReference) -> Completable {
+        return Completable.create { completable in
+            databaseReference.removeValue { error, _ in
+                if let error = error {
+                    completable(.error(error))
+                } else {
+                    completable(.completed)
+                }
+            }
+            return Disposables.create()
+        }
     }
     
     func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Single<T> {
@@ -69,7 +84,6 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             })
             return Disposables.create()
         }
-        .debug("fetch single RTDB")
     }
     
     func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
@@ -88,7 +102,45 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             }
             return Disposables.create()
         }
-        .debug("fetch observable RTDB")
+        .debug("fetch data observable")
+    }
+    
+    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
+        return Observable.create { observer in
+            databaseReference.observe(.childAdded) { snapshot in
+                guard let value = snapshot.value else {
+                    observer.onError(DatabaseError.noData)
+                    return
+                }
+                do {
+                    let object = try self.decodeObject(objectType, from: value, decoder: decoder)
+                    observer.onNext(object)
+                } catch {
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        .debug("child added")
+    }
+    
+    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
+        return Observable.create { observer in
+            databaseReference.observe(.childRemoved) { snapshot in
+                guard let value = snapshot.value else {
+                    observer.onError(DatabaseError.noData)
+                    return
+                }
+                do {
+                    let object = try self.decodeObject(objectType, from: value, decoder: decoder)
+                    observer.onNext(object)
+                } catch {
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        .debug("child Removed")
     }
     
     private func decodeObject<T: Decodable>(_ objectType: T.Type, from json: Any, decoder: JSONDecoder?) throws -> T {

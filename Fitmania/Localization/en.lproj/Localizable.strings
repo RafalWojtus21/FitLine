@@ -18,6 +18,7 @@
 "General.Settings" = "Settings";
 "General.Time" = "Time";
 "General.BreakTime" = "Break time";
+"General.Add" = "Add";
 
 // MARK: Welcome Screen
 
@@ -112,3 +113,10 @@
 
 "WorkoutSetupScreen.AddExerciseButtonTitle" = "Add exercise";
 "WorkoutSetupScreen.SaveButtonTitle" = "Save training plan";
+
+// MARK: Add Exercise Screen
+
+"AddExerciseScreen.TimeWithUnit" = "Time [s]";
+"AddExerciseScreen.SetTimeMessage" = "Set workout time";
+"AddExerciseScreen.BreakTimeWithUnit" = "Break time [s]";
+"AddExerciseScreen.SetBreakTimeMessage" = "Set break time";

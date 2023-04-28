@@ -32,7 +32,7 @@ final class AppFlowController: AppNavigation {
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
-
+        
         init(dependencies: Dependencies, appNavigation: AppNavigation) {
             self.dependencies = dependencies
             self.appNavigation = appNavigation
@@ -61,11 +61,9 @@ final class AppFlowController: AppNavigation {
     // MARK: - AppNavigation
     
     func startApplication() {
-        extendedDependencies.authManager.isLoggedIn { isLoggedIn in
-            switch isLoggedIn {
-            case true: self.startMainFlow()
-            case false: self.startOnboardingFlow()
-            }
+        switch extendedDependencies.authManager.isLoggedIn() {
+        case true: self.startMainFlow()
+        case false: self.startOnboardingFlow()
         }
     }
     
@@ -86,16 +84,16 @@ final class AppFlowController: AppNavigation {
     }
     
     func finishedAuthenticationFlow() {
-      startHomeFlow()
+        startHomeFlow()
     }
     
     func startMainFlow() {
-      mainFlowController.showHomeScreen()
+        mainFlowController.showHomeScreen()
     }
-
+    
     func startHomeFlow() {
     }
-
+    
     func finishedHomeFlow() {
     }
 }

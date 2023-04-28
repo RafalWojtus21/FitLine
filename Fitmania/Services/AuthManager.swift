@@ -14,7 +14,7 @@ protocol HasAuthManager {
 }
 
 protocol AuthManager {
-    func isLoggedIn(completion: @escaping (Bool) -> Void)
+    func isLoggedIn() -> Bool
     func getCurrentUser() -> User?
     func signUp(email: String, password: String) -> Single<AuthResponse>
     func login(email: String, password: String) -> Single<AuthResponse>
@@ -47,13 +47,11 @@ final class AuthManagerImpl: AuthManager {
     
     // MARK: Public Implementation
     
-    func isLoggedIn(completion: @escaping (Bool) -> Void) {
-        _ = auth.addStateDidChangeListener { _, user in
-            if user != nil {
-                completion(true)
-            } else {
-                completion(false)
-            }
+    func isLoggedIn() -> Bool {
+        if getCurrentUser() != nil {
+            return true
+        } else {
+            return false
         }
     }
 

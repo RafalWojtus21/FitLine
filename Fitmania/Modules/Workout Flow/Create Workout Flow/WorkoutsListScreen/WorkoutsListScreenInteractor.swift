@@ -17,7 +17,6 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
     typealias Result = WorkoutsListScreenResult
     
     private let dependencies: Dependencies
-    private let workoutsSubject = BehaviorSubject<[WorkoutPlan]>(value: [])
     
     // MARK: Initialization
     
@@ -27,25 +26,28 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
     
     // MARK: Public Implementation
     
-    func loadTrainingPlans() -> Observable<WorkoutsListScreenResult> {
-        dependencies.workoutsService.workoutDataHasChanged
-            .map({ _ in })
-            .startWith(())
-            .flatMapLatest { _ in
-                Observable.zip(self.dependencies.workoutsService.fetchAllWorkouts(), self.workoutsSubject)
-            }
-            .map({ exercises, currentWorkouts in
-                let workoutPlans = exercises.reduce(into: [:]) { dict, part in
+    func loadTrainingPlans() -> RxSwift.Observable<WorkoutsListScreenResult> {
+        dependencies.workoutsService.workoutsObservable
+            .map({ exercises in
+                let dictionary = exercises.reduce(into: [:]) { dict, part in
                     dict[part.workoutPlanID, default: []].append(part)
-                }.compactMap { workoutPlanID, parts -> WorkoutPlan? in
+                }
+                let workoutPlans = dictionary.compactMap { workoutPlanID, parts -> WorkoutPlan? in
                     guard let name = parts.first?.workoutPlanName, !parts.isEmpty else {
                         return nil
                     }
                     return WorkoutPlan(name: name, id: workoutPlanID, parts: parts)
                 }
-                let refreshedPlans = workoutPlans + currentWorkouts
-                self.workoutsSubject.onNext(refreshedPlans)
-                return .partialState(.updateTrainingPlans(plans: refreshedPlans))
+                return .partialState(.updateTrainingPlans(plans: workoutPlans))
             })
+            .asObservable()
+    }
+    
+    func deleteTrainingPlan(id: WorkoutPlanID) -> RxSwift.Observable<WorkoutsListScreenResult> {
+        dependencies.workoutsService.deleteWorkoutPlan(id: id)
+            .andThen(.just(.effect(.workoutPlanDeleted)))
+            .catch { _ in
+                return .just(.effect(.somethingWentWrong))
+            }
     }
 }

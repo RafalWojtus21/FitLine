@@ -86,6 +86,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     }
     
     func finishedCreateWorkoutFlow() {
-        createWorkoutFlowController = nil 
+        createWorkoutFlowController = nil
+        dependencies.navigation.popToTargetViewController(controllerType: WorkoutsListScreenViewController.self, animated: false)
     }
 }

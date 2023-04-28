@@ -17,6 +17,7 @@ protocol Navigation {
     func show(view: BaseView, animated: Bool)
     func pop()
     func popToRootViewController(animated: Bool)
+    func popToTargetViewController(controllerType: UIViewController.Type, animated: Bool)
     func present(view: BaseView, animated: Bool, completion: (() -> Void)?)
     func dismiss(completion: (() -> Void)?, animated: Bool)
 }
@@ -90,6 +91,14 @@ final class MainNavigation: Navigation {
     
     func popToRootViewController(animated: Bool) {
         activeNavigationController.popToRootViewController(animated: animated)
+    }
+    
+    func popToTargetViewController(controllerType: UIViewController.Type, animated: Bool) {
+        let targetViewController = activeNavigationController.viewControllers.first { viewController in
+            viewController.isKind(of: controllerType)
+        }
+        guard let targetViewController else { return }
+        activeNavigationController.popToViewController(targetViewController, animated: animated)
     }
     
     // MARK: - Present

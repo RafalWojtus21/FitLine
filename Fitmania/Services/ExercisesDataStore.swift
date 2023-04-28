@@ -16,11 +16,11 @@ protocol HasExercisesDataStore {
 protocol ExercisesDataStore {
     var exercisesRelay: BehaviorRelay<[WorkoutPart]> { get }
     var trainingPlanNameRelay: BehaviorRelay<String> { get }
-    var trainingPlanId: String { get }
+    var trainingPlanId: UUID { get }
 }
 
 final class ExercisesDataStoreImpl: ExercisesDataStore {
     let exercisesRelay = BehaviorRelay<[WorkoutPart]>(value: [])
-    var trainingPlanId = UUID().uuidString
+    var trainingPlanId = UUID()
     var trainingPlanNameRelay = BehaviorRelay<String>(value: "")
 }

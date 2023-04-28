@@ -10,5 +10,9 @@ extension Localization {
     enum CreateWorkoutFlow {
         static let addButtonTitle = "WorkoutSetupScreen.AddExerciseButtonTitle".localized
         static let saveButtonTitle = "WorkoutSetupScreen.SaveButtonTitle".localized
+        static let timeWithUnitLabelTitle = "AddExerciseScreen.TimeWithUnit".localized
+        static let setTimeMessage = "AddExerciseScreen.SetTimeMessage".localized
+        static let breakTimeWithUnitLabelTitle = "AddExerciseScreen.BreakTimeWithUnit".localized
+        static let setBreakTimeMessage = "AddExerciseScreen.SetBreakTimeMessage".localized
     }
 }

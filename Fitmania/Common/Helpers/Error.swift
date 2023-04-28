@@ -46,4 +46,5 @@ enum AuthError: LocalizedError, Equatable {
 enum DatabaseError: Error, Equatable {
     case somethingWentWrong
     case noData
+    case invalidWorkoutPlan
 }

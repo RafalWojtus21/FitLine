@@ -17,11 +17,11 @@ final class AuthManagerMock: AuthManager {
         currentUser
     }
     
-    func isLoggedIn(completion: @escaping (Bool) -> Void) {
+    func isLoggedIn() -> Bool {
         if currentUser != nil {
-            return completion(true)
+            return true
         } else {
-            completion(false)
+            return false
         }
     }
 

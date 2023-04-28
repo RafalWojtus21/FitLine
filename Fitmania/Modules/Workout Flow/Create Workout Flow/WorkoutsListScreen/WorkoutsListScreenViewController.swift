@@ -76,9 +76,19 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
             }
             .disposed(by: bag)
         
-        plusButton?.tap
-            .subscribe(onNext: { [weak self] in
-                self?._intents.subject.onNext(.plusButtonIntent)
+        let deleteWorkoutPlanIntent = tableView.rx.modelDeleted(WorkoutPlan.self).map {
+            return Intent.deleteWorkoutPlan(id: $0.id)
+        }
+        
+        let plusButtonIntent = plusButton?.tap.map { Intent.plusButtonIntent }
+        guard let plusButtonIntent else {
+            Log.workoutCreator.debug("plusButtonIntent is nil")
+            return
+        }
+        
+        Observable.merge(plusButtonIntent, deleteWorkoutPlanIntent)
+            .subscribe(onNext: { [weak self] intent in
+                self?._intents.subject.onNext(intent)
             })
             .disposed(by: bag)
     }
