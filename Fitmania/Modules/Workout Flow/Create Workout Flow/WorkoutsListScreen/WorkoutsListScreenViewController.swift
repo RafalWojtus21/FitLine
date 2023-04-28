@@ -85,8 +85,6 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
     
     private func trigger(effect: Effect) {
         switch effect {
-        case .showWorkoutCategoryListScreen:
-            break
         case .nameCustomWorkoutAlert:
             let alert = UIAlertController(title: L.customWorkoutAlertTitle, message: nil, preferredStyle: .alert)
             alert.addTextField { textField in
