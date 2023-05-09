@@ -40,6 +40,7 @@ protocol CloudService {
 }
 
 final class CloudServiceImpl: CloudService {
+    
     // MARK: Properties
     
     enum FirestoreCollectionPaths: String {

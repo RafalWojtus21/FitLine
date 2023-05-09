@@ -15,6 +15,7 @@ enum TextFieldStyle {
 }
 
 class FitmaniaTextField: UIView {
+    
     // MARK: Properties
     
     private lazy var contentView: UIStackView = {

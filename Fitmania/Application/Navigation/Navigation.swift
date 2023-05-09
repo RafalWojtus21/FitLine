@@ -22,6 +22,7 @@ protocol Navigation {
 }
 
 final class MainNavigation: Navigation {
+    
     // MARK: - Properties
     
     private let navigationController: UINavigationController

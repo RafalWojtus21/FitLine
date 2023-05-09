@@ -8,6 +8,7 @@
 import UIKit
 
 struct AppDependencies: AppFlowController.Dependencies {
+    
     // MARK: - Properties
     
     let navigation: Navigation

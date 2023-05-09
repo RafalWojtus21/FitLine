@@ -34,6 +34,7 @@ protocol Authentication {
 extension Auth: Authentication {}
 
 final class AuthManagerImpl: AuthManager {
+    
     // MARK: Properties
 
     private let auth: Authentication

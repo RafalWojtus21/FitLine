@@ -17,6 +17,7 @@ disabled_rules:
     - multiline_function_chains
     - empty_enum_arguments
     - type_name
+    - vertical_whitespace_opening_braces
     
     # Code style
 opt_in_rules:
@@ -47,7 +48,6 @@ opt_in_rules:
     - redundant_type_annotation
     - toggle_bool
     - vertical_whitespace_closing_braces
-    - vertical_whitespace_opening_braces
     - yoda_condition
     
 # paths to include during linting. `--path` is ignored if present.

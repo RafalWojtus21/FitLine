@@ -23,6 +23,7 @@ protocol RealtimeDatabaseService {
 }
 
 final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
+    
     // MARK: - Properties
 
     let bag = DisposeBag()

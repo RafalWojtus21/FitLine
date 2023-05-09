@@ -10,6 +10,7 @@ import Foundation
 import RxCocoa
 
 final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
+    
     // MARK: Properties
     
     typealias Dependencies = HasCloudService & HasWorkoutsService

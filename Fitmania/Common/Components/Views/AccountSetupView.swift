@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 
 class AccountSetupView: UIView {
+    
     // MARK: Properties
 
     private let mainView = UIView(backgroundColor: .clear)

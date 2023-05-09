@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class WorkoutCategoryListCell: UITableViewCell, ReusableCell {
+    
     // MARK: Properties
     
     struct ViewModel {

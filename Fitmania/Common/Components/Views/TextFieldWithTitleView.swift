@@ -8,6 +8,7 @@
 import UIKit
 
 class TextFieldWithTitleView: UIView {
+    
     // MARK: Properties
     
     private lazy var contentView: UIStackView = {

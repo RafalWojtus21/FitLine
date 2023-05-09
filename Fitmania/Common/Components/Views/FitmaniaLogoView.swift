@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class FitmaniaLogoView: UIView {
+    
     // MARK: Properties
     
     private let mainView = UIView(backgroundColor: .clear)
