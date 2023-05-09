@@ -19,6 +19,7 @@ protocol AppNavigation: AnyObject {
     func startAuthenticationFlow(type: OnboardingExit)
     func finishedAuthenticationFlow()
     func startMainFlow()
+    func finishedMainFlow()
     func startHomeFlow()
     func finishedHomeFlow()
     func dismiss()
@@ -45,10 +46,10 @@ final class AppFlowController: AppNavigation {
     private lazy var extendedDependencies = ExtendedDependencies(dependencies: dependencies, appNavigation: self)
     
     // MARK: - Flows
-    
-    private lazy var onboardingFlowController: OnboardingFlow = OnboardingFlowController(dependencies: extendedDependencies)
-    private lazy var authenticationFlowController: AuthenticationFlow = AuthenticationFlowController(dependencies: extendedDependencies)
-    private lazy var mainFlowController: MainFlow = MainFlowController(dependencies: extendedDependencies)
+
+    private var onboardingFlowController: OnboardingFlow?
+    private var authenticationFlowController: AuthenticationFlow?
+    private var mainFlowController: MainFlow?
     
     // MARK: - Builders
     
@@ -72,25 +73,34 @@ final class AppFlowController: AppNavigation {
     }
     
     func startOnboardingFlow() {
-        onboardingFlowController.startOnboarding()
+        onboardingFlowController = OnboardingFlowController(dependencies: extendedDependencies)
+        onboardingFlowController?.startOnboarding()
     }
     
     func finishedOnboarding(type: OnboardingExit) {
+        onboardingFlowController = nil
         startAuthenticationFlow(type: type)
     }
     
     func startAuthenticationFlow(type: OnboardingExit) {
-        authenticationFlowController.startAuthFlow(type: type)
+        authenticationFlowController = AuthenticationFlowController(dependencies: extendedDependencies)
+        authenticationFlowController?.startAuthFlow(type: type)
     }
     
     func finishedAuthenticationFlow() {
-        startHomeFlow()
+        authenticationFlowController = nil
+        startMainFlow()
     }
     
     func startMainFlow() {
-        mainFlowController.showHomeScreen()
+        mainFlowController = MainFlowController(dependencies: extendedDependencies)
+        mainFlowController?.startMainFlow()
     }
     
+    func finishedMainFlow() {
+        mainFlowController = nil
+    }
+
     func startHomeFlow() {
     }
     

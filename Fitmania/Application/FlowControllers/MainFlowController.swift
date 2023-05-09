@@ -12,7 +12,7 @@ protocol HasMainFlowNavigation {
 }
 
 protocol MainFlow {
-    func showHomeScreen()
+    func startMainFlow()
 }
 
 protocol MainFlowNavigation: AnyObject {
@@ -41,9 +41,9 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     
     // MARK: - Flows
     
-    private lazy var calendarFlowController: CalendarFlow = CalendarFlowController(dependencies: extendedDependencies)
-    private lazy var homeFlowController: WorkoutFlow = WorkoutFlowController(dependencies: extendedDependencies)
-    private lazy var settingsFlowController: SettingsFlow = SettingsFlowController(dependencies: extendedDependencies)
+    private var calendarFlowController: CalendarFlow?
+    private var homeFlowController: WorkoutFlow?
+    private var settingsFlowController: SettingsFlow?
 
     // MARK: - Initialization
     
@@ -56,9 +56,9 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     // MARK: - AppNavigation
     
     func tabBarViewControllers() -> [UINavigationController] {
-        let calendarScreen = calendarFlowController.startCalendarFlow()
-        let workoutScreen = homeFlowController.startWorkoutFlow()
-        let settingsScreen = settingsFlowController.startSettingsFlow()
+        let calendarScreen = calendarFlowController?.startCalendarFlow()
+        let workoutScreen = homeFlowController?.startWorkoutFlow()
+        let settingsScreen = settingsFlowController?.startSettingsFlow()
         
         let tabBarScreens = [calendarScreen, workoutScreen, settingsScreen]
         let tabBarTitles = [Localization.General.calendar, Localization.General.workout, Localization.General.settings]
@@ -73,7 +73,10 @@ class MainFlowController: MainFlow, MainFlowNavigation {
         return viewControllers
     }
     
-    func showHomeScreen() {
+    func startMainFlow() {
+        calendarFlowController = CalendarFlowController(dependencies: extendedDependencies)
+        homeFlowController = WorkoutFlowController(dependencies: extendedDependencies)
+        settingsFlowController = SettingsFlowController(dependencies: extendedDependencies)
         dependencies.navigation.setTabBar(viewControllers: tabBarViewControllers(), animated: true, selectedTab: 1)
     }
     
