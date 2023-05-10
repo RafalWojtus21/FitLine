@@ -13,7 +13,7 @@ enum CategoryExercisesListIntent {
 }
 
 struct CategoryExercisesListViewState: Equatable {
-    let chosenCategory: Exercise.ExerciseCategory
+    let chosenCategory: Exercise.Category
     var exercises: [Exercise] = []
 }
 
@@ -23,7 +23,7 @@ enum CategoryExercisesListEffect: Equatable {
 }
 
 struct CategoryExercisesListBuilderInput {
-    let chosenCategory: Exercise.ExerciseCategory
+    let chosenCategory: Exercise.Category
 }
 
 protocol CategoryExercisesListCallback {

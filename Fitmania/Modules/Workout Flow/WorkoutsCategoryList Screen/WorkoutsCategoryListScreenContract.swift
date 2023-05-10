@@ -8,15 +8,15 @@
 import RxSwift
 
 enum WorkoutsCategoryListScreenIntent {
-    case cellTapped(category: Exercise.ExerciseCategory)
+    case cellTapped(category: Exercise.Category)
 }
 
 struct WorkoutsCategoryListScreenViewState: Equatable {
-    var categories = Exercise.ExerciseCategory.allCases
+    var categories = Exercise.Category.allCases
 }
 
 enum WorkoutsCategoryListScreenEffect: Equatable {
-    case showCategoryExercisesList(category: Exercise.ExerciseCategory)
+    case showCategoryExercisesList(category: Exercise.Category)
 }
 
 struct WorkoutsCategoryListScreenBuilderInput {

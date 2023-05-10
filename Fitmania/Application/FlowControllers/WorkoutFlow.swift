@@ -15,12 +15,15 @@ protocol HasWorkoutFlowNavigation {
 protocol WorkoutFlow {
     func startWorkoutFlow() -> BaseView
     func startCreateWorkoutFlow(trainingName: String)
+    func startTrainingAssistantFlow(plan: WorkoutPlan)
 }
 
 protocol WorkoutFlowNavigation: AnyObject {
     func showWorkoutsListScreen()
     func startCreateWorkoutFlow(trainingName: String)
     func finishedCreateWorkoutFlow()
+    func startTrainingAssistantFlow(plan: WorkoutPlan)
+    func finishedTrainingAssistantFlow()
 }
 
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
@@ -57,7 +60,8 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     // MARK: - Flows
     
     private var createWorkoutFlowController: CreateWorkoutFlow?
-
+    private var trainingAssistantFlowController: TrainingAssistantFlowController?
+    
     // MARK: - Initialization
 
     init(dependencies: Dependencies) {
@@ -88,5 +92,14 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     func finishedCreateWorkoutFlow() {
         createWorkoutFlowController = nil
         dependencies.navigation.popToTargetViewController(controllerType: WorkoutsListScreenViewController.self, animated: false)
+    }
+    
+    func startTrainingAssistantFlow(plan: WorkoutPlan) {
+        trainingAssistantFlowController = TrainingAssistantFlowController(dependencies: extendedDependencies)
+        trainingAssistantFlowController?.startTrainingAssistantFlow(plan: plan)
+    }
+    
+    func finishedTrainingAssistantFlow() {
+        trainingAssistantFlowController = nil
     }
 }

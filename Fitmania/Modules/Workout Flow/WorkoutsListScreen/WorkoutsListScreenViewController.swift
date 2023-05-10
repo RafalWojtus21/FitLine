@@ -86,7 +86,11 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
             return
         }
         
-        Observable.merge(plusButtonIntent, deleteWorkoutPlanIntent)
+        let workoutSelectedPlanIntent = tableView.rx.modelSelected(WorkoutPlan.self).map {
+            Intent.workoutSelected(plan: $0)
+        }
+        
+        Observable.merge(plusButtonIntent, deleteWorkoutPlanIntent, workoutSelectedPlanIntent)
             .subscribe(onNext: { [weak self] intent in
                 self?._intents.subject.onNext(intent)
             })
@@ -110,6 +114,9 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
     }
     
     func render(state: ViewState) {
-        workoutsSubject.onNext(state.workouts)
+        workoutsSubject.onNext(state.workouts.reduce(into: [], { partialResult, workoutPlan in
+            partialResult.append(workoutPlan)
+            partialResult.sort { $0.name.lowercased() < $1.name.lowercased() }
+        }))
     }
 }

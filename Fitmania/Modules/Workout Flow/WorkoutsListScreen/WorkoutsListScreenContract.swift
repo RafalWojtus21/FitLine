@@ -12,6 +12,7 @@ enum WorkoutsListScreenIntent {
     case createNewTraining(name: String)
     case loadTrainingPlans
     case deleteWorkoutPlan(id: WorkoutPlanID)
+    case workoutSelected(plan: WorkoutPlan)
 }
 
 struct WorkoutsListScreenViewState: Equatable {
@@ -24,6 +25,7 @@ enum WorkoutsListScreenEffect: Equatable {
     case showNewTrainingPlanScreen(name: String)
     case workoutPlanDeleted
     case somethingWentWrong
+    case showScheduleWorkoutScreen(plan: WorkoutPlan)
 }
 
 struct WorkoutsListScreenBuilderInput {

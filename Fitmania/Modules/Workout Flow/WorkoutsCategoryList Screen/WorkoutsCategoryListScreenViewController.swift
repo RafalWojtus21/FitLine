@@ -21,7 +21,7 @@ final class WorkoutsCategoryListScreenViewController: BaseViewController, Workou
     private let bag = DisposeBag()
     private let presenter: WorkoutsCategoryListScreenPresenter
     
-    private var categorySubject = PublishSubject<[Exercise.ExerciseCategory]>()
+    private var categorySubject = PublishSubject<[Exercise.Category]>()
     
     private var tableView: UITableView = {
         let tableView = UITableView()
@@ -71,7 +71,7 @@ final class WorkoutsCategoryListScreenViewController: BaseViewController, Workou
             }
             .disposed(by: bag)
         
-        tableView.rx.modelSelected(Exercise.ExerciseCategory.self)
+        tableView.rx.modelSelected(Exercise.Category.self)
             .subscribe(onNext: { [weak self] category in
                 self?._intents.subject.onNext(.cellTapped(category: category))
             })

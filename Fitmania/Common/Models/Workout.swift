@@ -26,12 +26,12 @@ struct WorkoutPlanID: Codable, Equatable, Hashable {
 }
 
 struct Exercise: Codable, Equatable {
-    let category: ExerciseCategory
+    let category: Category
     let name: String
 }
 
 extension Exercise {
-    enum ExerciseCategory: String, CaseIterable, Codable {
+    enum Category: String, CaseIterable, Codable {
         case cardio
         case legs
         case biceps

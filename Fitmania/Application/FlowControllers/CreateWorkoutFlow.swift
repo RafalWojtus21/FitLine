@@ -19,7 +19,7 @@ protocol CreateWorkoutFlow {
 protocol CreateWorkoutFlowNavigation: AnyObject {
     func showWorkoutSetupScreen(trainingName: String)
     func showWorkoutCategoryListScreen()
-    func showCategoryExercisesListScreen(category: Exercise.ExerciseCategory)
+    func showCategoryExercisesListScreen(category: Exercise.Category)
     func showAddExerciseScreen(exercise: Exercise)
     func popToRootViewController()
     func finishCreateWorkoutFlow()
@@ -87,7 +87,7 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
         dependencies.navigation.show(view: view, animated: false)
     }
     
-    func showCategoryExercisesListScreen(category: Exercise.ExerciseCategory) {
+    func showCategoryExercisesListScreen(category: Exercise.Category) {
         let view = categoryExercisesListBuilder.build(with: .init(chosenCategory: category)).view
         dependencies.navigation.show(view: view, animated: false)
     }

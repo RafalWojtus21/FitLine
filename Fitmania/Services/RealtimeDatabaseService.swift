@@ -102,7 +102,6 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             }
             return Disposables.create()
         }
-        .debug("fetch data observable")
     }
     
     func childAddedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
@@ -121,7 +120,6 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             }
             return Disposables.create()
         }
-        .debug("child added")
     }
     
     func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
@@ -140,7 +138,6 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
             }
             return Disposables.create()
         }
-        .debug("child Removed")
     }
     
     private func decodeObject<T: Decodable>(_ objectType: T.Type, from json: Any, decoder: JSONDecoder?) throws -> T {

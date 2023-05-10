@@ -120,3 +120,7 @@
 "AddExerciseScreen.SetTimeMessage" = "Set workout time";
 "AddExerciseScreen.BreakTimeWithUnit" = "Break time [s]";
 "AddExerciseScreen.SetBreakTimeMessage" = "Set break time";
+
+// MARK: Schedule Workout Screen
+
+"ScheduleWorkoutScreen.StartNowButtonTitle" = "Start now";

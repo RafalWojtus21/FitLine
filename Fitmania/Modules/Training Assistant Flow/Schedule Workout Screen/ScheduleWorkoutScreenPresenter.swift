@@ -1,19 +1,19 @@
 //
-//  WorkoutsListScreenPresenter.swift
+//  ScheduleWorkoutScreenPresenter.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 20/04/2023.
+//  Created by Rafał Wojtuś on 10/05/2023.
 //
 
 import RxSwift
 
-final class WorkoutsListScreenPresenterImpl: WorkoutsListScreenPresenter {
-    typealias View = WorkoutsListScreenView
-    typealias ViewState = WorkoutsListScreenViewState
-    typealias Middleware = WorkoutsListScreenMiddleware
-    typealias Interactor = WorkoutsListScreenInteractor
-    typealias Effect = WorkoutsListScreenEffect
-    typealias Result = WorkoutsListScreenResult
+final class ScheduleWorkoutScreenPresenterImpl: ScheduleWorkoutScreenPresenter {
+    typealias View = ScheduleWorkoutScreenView
+    typealias ViewState = ScheduleWorkoutScreenViewState
+    typealias Middleware = ScheduleWorkoutScreenMiddleware
+    typealias Interactor = ScheduleWorkoutScreenInteractor
+    typealias Effect = ScheduleWorkoutScreenEffect
+    typealias Result = ScheduleWorkoutScreenResult
     
     private let interactor: Interactor
     private let middleware: Middleware
@@ -27,16 +27,14 @@ final class WorkoutsListScreenPresenterImpl: WorkoutsListScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
             switch intent {
-            case .plusButtonIntent:
-                return .just(.effect(.nameCustomWorkoutAlert))
-            case .createNewTraining(name: let name):
-                return .just(.effect(.showNewTrainingPlanScreen(name: name)))
-            case .loadTrainingPlans:
-                return interactor.loadTrainingPlans()
-            case .deleteWorkoutPlan(id: let id):
-                return interactor.deleteTrainingPlan(id: id)
+            case .startNowButtonIntent:
+                return .just(.effect(.startNowButtonPressed))
+            case .workoutPreviewTapped:
+                return .just(.effect(.showWorkoutPreview))
+            case .viewLoaded:
+                return self.interactor.calculateWorkoutDetails()
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

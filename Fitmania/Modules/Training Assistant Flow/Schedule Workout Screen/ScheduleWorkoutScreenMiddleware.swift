@@ -1,15 +1,15 @@
 //
-//  WorkoutsListScreenMiddleware.swift
+//  ScheduleWorkoutScreenMiddleware.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 20/04/2023.
+//  Created by Rafał Wojtuś on 10/05/2023.
 //
 
 import RxSwift
 
-final class WorkoutsListScreenMiddlewareImpl: WorkoutsListScreenMiddleware, WorkoutsListScreenCallback {
-    typealias Dependencies = HasWorkoutFlowNavigation
-    typealias Result = WorkoutsListScreenResult
+final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware, ScheduleWorkoutScreenCallback {
+    typealias Dependencies = HasAppNavigation
+    typealias Result = ScheduleWorkoutScreenResult
     
     private let dependencies: Dependencies
 
@@ -25,9 +25,10 @@ final class WorkoutsListScreenMiddlewareImpl: WorkoutsListScreenMiddleware, Work
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
-            case .showNewTrainingPlanScreen(name: let name):
-                dependencies.workoutFlowNavigation?.startCreateWorkoutFlow(trainingName: name)
-            default: break
+            case .startNowButtonPressed:
+                break
+            case .showWorkoutPreview:
+                break
             }
         }
         return .just(result)

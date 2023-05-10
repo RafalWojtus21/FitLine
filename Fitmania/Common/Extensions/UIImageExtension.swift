@@ -29,4 +29,5 @@ enum SystemImage: String {
     case plusIcon = "plus"
     case plusCircleIcon = "plus.circle"
     case rightArrow = "chevron.right"
+    case flame = "flame"
 }
