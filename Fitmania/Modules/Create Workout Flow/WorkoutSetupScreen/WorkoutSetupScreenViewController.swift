@@ -24,7 +24,7 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
     
     private var exercisesSubject = PublishSubject<[WorkoutPart]>()
     
-    private lazy var addExerciseButton = UIBarButtonItem().apply(style: .rightStringButtonItem, imageName: nil, title: L.addButtonTitle)
+    private lazy var addExerciseButton = UIBarButtonItem().apply(style: .rightStringButtonItemWhite, imageName: nil, title: L.addButtonTitle)
     
     private lazy var saveButton = UIButton().apply(style: .primary, title: L.saveButtonTitle)
     

@@ -1,19 +1,19 @@
 //
-//  WorkoutPreviewScreenPresenter.swift
+//  WorkoutFinishedScreenPresenter.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 10/05/2023.
+//  Created by Rafał Wojtuś on 17/05/2023.
 //
 
 import RxSwift
 
-final class WorkoutPreviewScreenPresenterImpl: WorkoutPreviewScreenPresenter {
-    typealias View = WorkoutPreviewScreenView
-    typealias ViewState = WorkoutPreviewScreenViewState
-    typealias Middleware = WorkoutPreviewScreenMiddleware
-    typealias Interactor = WorkoutPreviewScreenInteractor
-    typealias Effect = WorkoutPreviewScreenEffect
-    typealias Result = WorkoutPreviewScreenResult
+final class WorkoutFinishedScreenPresenterImpl: WorkoutFinishedScreenPresenter {
+    typealias View = WorkoutFinishedScreenView
+    typealias ViewState = WorkoutFinishedScreenViewState
+    typealias Middleware = WorkoutFinishedScreenMiddleware
+    typealias Interactor = WorkoutFinishedScreenInteractor
+    typealias Effect = WorkoutFinishedScreenEffect
+    typealias Result = WorkoutFinishedScreenResult
     
     private let interactor: Interactor
     private let middleware: Middleware
@@ -27,7 +27,13 @@ final class WorkoutPreviewScreenPresenterImpl: WorkoutPreviewScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
+            switch intent {
+            case .doneButtonPressed:
+                return .just(.effect(.doneButtonEffect))
+            case .viewLoaded:
+                return interactor.saveWorkoutToHistory()
+            }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)
             .flatMap { self.middleware.process(result: $0) }

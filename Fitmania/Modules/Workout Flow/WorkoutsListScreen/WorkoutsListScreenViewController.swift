@@ -75,7 +75,6 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
                 cell.configureCell(with: WorkoutsListCell.ViewModel(workoutName: item.name))
             }
             .disposed(by: bag)
-        
         let deleteWorkoutPlanIntent = tableView.rx.modelDeleted(WorkoutPlan.self).map {
             return Intent.deleteWorkoutPlan(id: $0.id)
         }

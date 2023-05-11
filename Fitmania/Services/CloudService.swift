@@ -14,6 +14,7 @@ enum DatabaseEndpoints {
     case userInfo
     case workouts
     case workoutsPublic
+    case workoutsHistory
     
     var path: String {
         switch self {
@@ -23,6 +24,8 @@ enum DatabaseEndpoints {
             return "workouts"
         case .workoutsPublic:
             return "workouts/public"
+        case .workoutsHistory:
+            return "workoutsHistory"
         }
     }
 }

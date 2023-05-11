@@ -164,7 +164,6 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
             return Intent.resetPasswordIntent(email: email)
         }
         let backToLoginButtonIntent = backButton.rx.tap.map {
-            print("Back to login pressed")
             return Intent.backToLoginIntent
         }
         

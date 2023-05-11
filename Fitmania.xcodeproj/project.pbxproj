@@ -16,10 +16,21 @@
 		8B0235702A0BE881006B45A5 /* WorkoutPreviewScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02356A2A0BE881006B45A5 /* WorkoutPreviewScreenBuilder.swift */; };
 		8B0235712A0BE881006B45A5 /* WorkoutPreviewScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02356B2A0BE881006B45A5 /* WorkoutPreviewScreenInteractor.swift */; };
 		8B0235762A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235752A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift */; };
+		8B02357D2A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235772A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift */; };
+		8B02357E2A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235782A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift */; };
+		8B02357F2A0CEB1A006B45A5 /* WorkoutExerciseScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235792A0CEB1A006B45A5 /* WorkoutExerciseScreenMiddleware.swift */; };
+		8B0235802A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02357A2A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift */; };
+		8B0235812A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02357B2A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift */; };
+		8B0235822A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02357C2A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift */; };
+		8B0235852A0CF540006B45A5 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235842A0CF540006B45A5 /* CircularProgressBarView.swift */; };
+		8B0235872A0D07FC006B45A5 /* AnimationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0235862A0D07FC006B45A5 /* AnimationKeys.swift */; };
+		8B02358B2A0D1FC4006B45A5 /* ExercisePartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */; };
+		8B02358D2A0E2129006B45A5 /* ObservableTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */; };
+		8B02358F2A0E465E006B45A5 /* ExerciseTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */; };
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
 		8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */; };
 		8B10656D29FAB096005A1521 /* ExercisesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */; };
-		8B10656F29FAB264005A1521 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656E29FAB264005A1521 /* Workout.swift */; };
+		8B10656F29FAB264005A1521 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656E29FAB264005A1521 /* WorkoutPlan.swift */; };
 		8B2A4B6429F2B6FB00B6B3F0 /* AuthManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */; };
 		8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */; };
 		8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */; };
@@ -64,6 +75,8 @@
 		8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */; };
 		8B5358202A03D6A0009EED68 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53581F2A03D6A0009EED68 /* UITableViewCellExtension.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
+		8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */; };
+		8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
 		8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */; };
@@ -188,6 +201,15 @@
 		8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */; };
 		8BF1ED0029EFEBE800540E1D /* WorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */; };
 		8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */; };
+		8BF48B862A1759A600F84C6F /* WorkoutsHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B852A1759A500F84C6F /* WorkoutsHistoryService.swift */; };
+		8BF48B8E2A175F8A00F84C6F /* WorkoutFinishedScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B882A175F8A00F84C6F /* WorkoutFinishedScreenBuilder.swift */; };
+		8BF48B8F2A175F8A00F84C6F /* WorkoutFinishedScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B892A175F8A00F84C6F /* WorkoutFinishedScreenMiddleware.swift */; };
+		8BF48B902A175F8A00F84C6F /* WorkoutFinishedScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B8A2A175F8A00F84C6F /* WorkoutFinishedScreenInteractor.swift */; };
+		8BF48B912A175F8A00F84C6F /* WorkoutFinishedScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B8B2A175F8A00F84C6F /* WorkoutFinishedScreenPresenter.swift */; };
+		8BF48B922A175F8A00F84C6F /* WorkoutFinishedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B8C2A175F8A00F84C6F /* WorkoutFinishedScreenViewController.swift */; };
+		8BF48B932A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B8D2A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift */; };
+		8BF48B952A175FB700F84C6F /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */; };
+		8BF48B972A175FDA00F84C6F /* WorkoutSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */; };
 		CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3E729F282B400F0BCD0 /* FirebaseAuth */; };
 		CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; };
 		CC44D3EE29F288DB00F0BCD0 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -235,10 +257,21 @@
 		8B02356A2A0BE881006B45A5 /* WorkoutPreviewScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPreviewScreenBuilder.swift; sourceTree = "<group>"; };
 		8B02356B2A0BE881006B45A5 /* WorkoutPreviewScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPreviewScreenInteractor.swift; sourceTree = "<group>"; };
 		8B0235752A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsPreviewCell.swift; sourceTree = "<group>"; };
+		8B0235772A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenContract.swift; sourceTree = "<group>"; };
+		8B0235782A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenPresenter.swift; sourceTree = "<group>"; };
+		8B0235792A0CEB1A006B45A5 /* WorkoutExerciseScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B02357A2A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenViewController.swift; sourceTree = "<group>"; };
+		8B02357B2A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenBuilder.swift; sourceTree = "<group>"; };
+		8B02357C2A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenInteractor.swift; sourceTree = "<group>"; };
+		8B0235842A0CF540006B45A5 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		8B0235862A0D07FC006B45A5 /* AnimationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationKeys.swift; sourceTree = "<group>"; };
+		8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePartInfoView.swift; sourceTree = "<group>"; };
+		8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtension.swift; sourceTree = "<group>"; };
+		8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTrackerCell.swift; sourceTree = "<group>"; };
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
 		8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkoutFlow.swift; sourceTree = "<group>"; };
 		8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesDataStore.swift; sourceTree = "<group>"; };
-		8B10656E29FAB264005A1521 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		8B10656E29FAB264005A1521 /* WorkoutPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerTests.swift; sourceTree = "<group>"; };
 		8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceMock.swift; sourceTree = "<group>"; };
@@ -281,6 +314,8 @@
 		8B53581A2A03B1F2009EED68 /* RxBlockingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBlockingExtensions.swift; sourceTree = "<group>"; };
 		8B53581F2A03D6A0009EED68 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
+		8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
+		8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
 		8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenMiddleware.swift; sourceTree = "<group>"; };
@@ -400,6 +435,15 @@
 		8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenInteractor.swift; sourceTree = "<group>"; };
 		8BF1ECFF29EFEBE800540E1D /* WorkoutFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFlow.swift; sourceTree = "<group>"; };
 		8BF1ED0129F011D400540E1D /* LocalizationHomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHomeFlow.swift; sourceTree = "<group>"; };
+		8BF48B852A1759A500F84C6F /* WorkoutsHistoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryService.swift; sourceTree = "<group>"; };
+		8BF48B882A175F8A00F84C6F /* WorkoutFinishedScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenBuilder.swift; sourceTree = "<group>"; };
+		8BF48B892A175F8A00F84C6F /* WorkoutFinishedScreenMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenMiddleware.swift; sourceTree = "<group>"; };
+		8BF48B8A2A175F8A00F84C6F /* WorkoutFinishedScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenInteractor.swift; sourceTree = "<group>"; };
+		8BF48B8B2A175F8A00F84C6F /* WorkoutFinishedScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenPresenter.swift; sourceTree = "<group>"; };
+		8BF48B8C2A175F8A00F84C6F /* WorkoutFinishedScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenViewController.swift; sourceTree = "<group>"; };
+		8BF48B8D2A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenContract.swift; sourceTree = "<group>"; };
+		8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +498,19 @@
 			path = WorkoutPreviewScreen;
 			sourceTree = "<group>";
 		};
+		8B0235832A0CEB1D006B45A5 /* Workout Exercise Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8B0235772A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift */,
+				8B0235782A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift */,
+				8B0235792A0CEB1A006B45A5 /* WorkoutExerciseScreenMiddleware.swift */,
+				8B02357A2A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift */,
+				8B02357B2A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift */,
+				8B02357C2A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift */,
+			);
+			path = "Workout Exercise Screen";
+			sourceTree = "<group>";
+		};
 		8B10657029FAB590005A1521 /* Create Workout Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +529,8 @@
 				8B5357D429FABC3C009EED68 /* ExerciseDetailsCell.swift */,
 				8B5357F829FACAA7009EED68 /* WorkoutCategoryListCell.swift */,
 				8B0235752A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift */,
+				8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */,
+				8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -524,6 +583,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8B5FCC172A1CD0DA0007D60C /* Workout Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B10656E29FAB264005A1521 /* WorkoutPlan.swift */,
+				8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */,
+				8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */,
+			);
+			path = "Workout Models";
+			sourceTree = "<group>";
+		};
 		8B6FDC7129E340DE0037A8B8 /* ForgotPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,8 +631,8 @@
 			children = (
 				8B5357FA29FACB14009EED68 /* exercises.json */,
 				8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */,
-				8B10656E29FAB264005A1521 /* Workout.swift */,
 				8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */,
+				8B5FCC172A1CD0DA0007D60C /* Workout Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -753,6 +822,8 @@
 			children = (
 				8BCEB3E42A0B8085001F8F78 /* Schedule Workout Screen */,
 				8B0235722A0BE884006B45A5 /* WorkoutPreviewScreen */,
+				8B0235832A0CEB1D006B45A5 /* Workout Exercise Screen */,
+				8BF48B872A175F8A00F84C6F /* Workout Finished Screen */,
 			);
 			path = "Training Assistant Flow";
 			sourceTree = "<group>";
@@ -810,6 +881,8 @@
 				8BB5589029ED43A100E09F5D /* UIViewExtension.swift */,
 				8B53581F2A03D6A0009EED68 /* UITableViewCellExtension.swift */,
 				8BCEB3D32A0A40F7001F8F78 /* LoggerExtension.swift */,
+				8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */,
+				8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -846,6 +919,8 @@
 				8B53581629FBA8BC009EED68 /* ExerciseDetailsView.swift */,
 				8BCEB3F22A0B9090001F8F78 /* WorkoutPreviewButton.swift */,
 				8B0235552A0BAE9B006B45A5 /* CategoryWithIcon.swift */,
+				8B0235842A0CF540006B45A5 /* CircularProgressBarView.swift */,
+				8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -859,6 +934,7 @@
 				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
 				8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */,
 				8BEF011D29FAB690004B6B15 /* WorkoutsService.swift */,
+				8BF48B852A1759A500F84C6F /* WorkoutsHistoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -881,6 +957,7 @@
 			children = (
 				8BE644DC29DFFA0100288DAB /* Error.swift */,
 				8BB5589229ED484F00E09F5D /* ValidationMessage.swift */,
+				8B0235862A0D07FC006B45A5 /* AnimationKeys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -980,6 +1057,19 @@
 				8BF1ECF829EFEA2F00540E1D /* HomeScreenInteractor.swift */,
 			);
 			path = "Home Screen";
+			sourceTree = "<group>";
+		};
+		8BF48B872A175F8A00F84C6F /* Workout Finished Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8BF48B882A175F8A00F84C6F /* WorkoutFinishedScreenBuilder.swift */,
+				8BF48B892A175F8A00F84C6F /* WorkoutFinishedScreenMiddleware.swift */,
+				8BF48B8A2A175F8A00F84C6F /* WorkoutFinishedScreenInteractor.swift */,
+				8BF48B8B2A175F8A00F84C6F /* WorkoutFinishedScreenPresenter.swift */,
+				8BF48B8C2A175F8A00F84C6F /* WorkoutFinishedScreenViewController.swift */,
+				8BF48B8D2A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift */,
+			);
+			path = "Workout Finished Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1200,16 +1290,20 @@
 				8BE644DA29DF101D00288DAB /* TextFieldWithTitleView.swift in Sources */,
 				8BF1ECC229EEE27200540E1D /* AccountCreatedScreenMiddleware.swift in Sources */,
 				8BF1ECC529EEE27300540E1D /* AccountCreatedScreenInteractor.swift in Sources */,
+				8B0235802A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift in Sources */,
 				8BEF011C29FAB66F004B6B15 /* WorkoutsListScreenViewController.swift in Sources */,
 				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
 				8B5357D529FABC3C009EED68 /* ExerciseDetailsCell.swift in Sources */,
 				8B5357CF29FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift in Sources */,
+				8B0235852A0CF540006B45A5 /* CircularProgressBarView.swift in Sources */,
 				8BCEB3E12A0B8080001F8F78 /* ScheduleWorkoutScreenViewController.swift in Sources */,
 				8B5357CE29FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift in Sources */,
 				8BF1ECC129EEE27200540E1D /* AccountCreatedScreenPresenter.swift in Sources */,
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
 				8BCEB3D42A0A40F7001F8F78 /* LoggerExtension.swift in Sources */,
 				8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */,
+				8B02357E2A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift in Sources */,
+				8B0235822A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift in Sources */,
 				8BCEB3F32A0B9090001F8F78 /* WorkoutPreviewButton.swift in Sources */,
 				8B5358202A03D6A0009EED68 /* UITableViewCellExtension.swift in Sources */,
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
@@ -1223,6 +1317,7 @@
 				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
 				8BEF011829FAB66F004B6B15 /* WorkoutsListScreenInteractor.swift in Sources */,
 				8B5357D029FABB2B009EED68 /* WorkoutSetupScreenContract.swift in Sources */,
+				8BF48B912A175F8A00F84C6F /* WorkoutFinishedScreenPresenter.swift in Sources */,
 				8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */,
@@ -1241,7 +1336,7 @@
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
 				8BEF011B29FAB66F004B6B15 /* WorkoutsListScreenContract.swift in Sources */,
-				8B10656F29FAB264005A1521 /* Workout.swift in Sources */,
+				8B10656F29FAB264005A1521 /* WorkoutPlan.swift in Sources */,
 				8BF1ED0229F011D400540E1D /* LocalizationHomeFlow.swift in Sources */,
 				8BC1524F29DD77030007A372 /* WelcomeScreenPresenter.swift in Sources */,
 				8BC1525029DD77030007A372 /* WelcomeScreenMiddleware.swift in Sources */,
@@ -1249,23 +1344,28 @@
 				8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */,
 				8B2A4B7C29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift in Sources */,
 				8BE644D829DF0EDA00288DAB /* UITextFieldExtension.swift in Sources */,
+				8BF48B952A175FB700F84C6F /* DateFormatterExtension.swift in Sources */,
 				8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */,
 				8BE644D329DF06AF00288DAB /* RegisterScreenViewController.swift in Sources */,
+				8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */,
 				8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */,
 				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
 				8BE644F629E0048900288DAB /* Localization.swift in Sources */,
+				8BF48B902A175F8A00F84C6F /* WorkoutFinishedScreenInteractor.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
 				8B02356C2A0BE881006B45A5 /* WorkoutPreviewScreenContract.swift in Sources */,
 				8BF1ED0029EFEBE800540E1D /* WorkoutFlow.swift in Sources */,
 				8B53581729FBA8BC009EED68 /* ExerciseDetailsView.swift in Sources */,
 				8BF1ECC029EEE27200540E1D /* AccountCreatedScreenContract.swift in Sources */,
 				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
+				8BF48B932A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift in Sources */,
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8B2A4B8229F6D58C00B6B3F0 /* Configuration.swift in Sources */,
 				8B02356D2A0BE881006B45A5 /* WorkoutPreviewScreenPresenter.swift in Sources */,
 				8B53581129FBA7A7009EED68 /* AddExerciseScreenMiddleware.swift in Sources */,
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
+				8BF48B862A1759A600F84C6F /* WorkoutsHistoryService.swift in Sources */,
 				8BF1ECFC29EFEA2F00540E1D /* HomeScreenViewController.swift in Sources */,
 				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
 				8BF1ECC329EEE27200540E1D /* AccountCreatedScreenViewController.swift in Sources */,
@@ -1286,7 +1386,10 @@
 				8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */,
 				8B53580729FBA4AE009EED68 /* CategoryExercisesListPresenter.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
+				8B0235812A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift in Sources */,
+				8B02358F2A0E465E006B45A5 /* ExerciseTrackerCell.swift in Sources */,
 				8B53581529FBA7A7009EED68 /* AddExerciseScreenBuilder.swift in Sources */,
+				8BF48B922A175F8A00F84C6F /* WorkoutFinishedScreenViewController.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8B53581329FBA7A7009EED68 /* AddExerciseScreenContract.swift in Sources */,
 				8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */,
@@ -1299,11 +1402,16 @@
 				8B02356E2A0BE881006B45A5 /* WorkoutPreviewScreenMiddleware.swift in Sources */,
 				8BE644D529DF06AF00288DAB /* RegisterScreenInteractor.swift in Sources */,
 				8B6FDC7A29E40E690037A8B8 /* CreateAccountScreenMiddleware.swift in Sources */,
+				8B02357F2A0CEB1A006B45A5 /* WorkoutExerciseScreenMiddleware.swift in Sources */,
 				8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */,
+				8B0235872A0D07FC006B45A5 /* AnimationKeys.swift in Sources */,
+				8B02358D2A0E2129006B45A5 /* ObservableTypeExtension.swift in Sources */,
+				8BF48B8E2A175F8A00F84C6F /* WorkoutFinishedScreenBuilder.swift in Sources */,
 				8BEF011929FAB66F004B6B15 /* WorkoutsListScreenPresenter.swift in Sources */,
 				8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */,
 				8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */,
 				8B5357D129FABB2B009EED68 /* WorkoutSetupScreenViewController.swift in Sources */,
+				8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */,
 				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
 				8B53581429FBA7A7009EED68 /* AddExerciseScreenInteractor.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
@@ -1314,6 +1422,7 @@
 				8BEF011A29FAB66F004B6B15 /* WorkoutsListScreenMiddleware.swift in Sources */,
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
 				8BF1ECB729ED82B700540E1D /* AuthenticationFlow.swift in Sources */,
+				8BF48B8F2A175F8A00F84C6F /* WorkoutFinishedScreenMiddleware.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8BCEB3DF2A0B8080001F8F78 /* ScheduleWorkoutScreenPresenter.swift in Sources */,
 				8B53581029FBA7A7009EED68 /* AddExerciseScreenPresenter.swift in Sources */,
@@ -1330,7 +1439,10 @@
 				8BCEB3F12A0B86C6001F8F78 /* WorkoutsCategoryListScreenBuilder.swift in Sources */,
 				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
 				8BCEB3E22A0B8080001F8F78 /* ScheduleWorkoutScreenBuilder.swift in Sources */,
+				8B02357D2A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift in Sources */,
 				8BE644E829DFFDEC00288DAB /* LoginScreenPresenter.swift in Sources */,
+				8BF48B972A175FDA00F84C6F /* WorkoutSummaryCell.swift in Sources */,
+				8B02358B2A0D1FC4006B45A5 /* ExercisePartInfoView.swift in Sources */,
 				8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */,
 				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,
 			);

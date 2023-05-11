@@ -13,5 +13,6 @@ extension Logger {
     // swiftlint:disable:next force_unwrapping
     private static let subsystem = Bundle.main.bundleIdentifier!
     
-    static let workoutCreator = Logger(subsystem: subsystem, category: "workoutCreator")   
+    static let workoutCreator = Logger(subsystem: subsystem, category: "workoutCreator")
+    static let trainingAssistant = Logger(subsystem: subsystem, category: "trainingAssistant")
 }

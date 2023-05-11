@@ -42,7 +42,7 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     // MARK: - Flows
     
     private var calendarFlowController: CalendarFlow?
-    private var homeFlowController: WorkoutFlow?
+    private var workoutFlowController: WorkoutFlow?
     private var settingsFlowController: SettingsFlow?
 
     // MARK: - Initialization
@@ -57,7 +57,7 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     
     func tabBarViewControllers() -> [UINavigationController] {
         let calendarScreen = calendarFlowController?.startCalendarFlow()
-        let workoutScreen = homeFlowController?.startWorkoutFlow()
+        let workoutScreen = workoutFlowController?.startWorkoutFlow()
         let settingsScreen = settingsFlowController?.startSettingsFlow()
         
         let tabBarScreens = [calendarScreen, workoutScreen, settingsScreen]
@@ -75,7 +75,7 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     
     func startMainFlow() {
         calendarFlowController = CalendarFlowController(dependencies: extendedDependencies)
-        homeFlowController = WorkoutFlowController(dependencies: extendedDependencies)
+        workoutFlowController = WorkoutFlowController(dependencies: extendedDependencies)
         settingsFlowController = SettingsFlowController(dependencies: extendedDependencies)
         dependencies.navigation.setTabBar(viewControllers: tabBarViewControllers(), animated: true, selectedTab: 1)
     }

@@ -18,7 +18,8 @@ enum ButtonStyle {
 enum BarButtonStyle {
     case rightButtonItem
     case leftButtonItem
-    case rightStringButtonItem
+    case rightStringButtonItemWhite
+    case rightStringButtonItemBlack
 }
 
 extension UIButton {
@@ -58,10 +59,14 @@ extension UIBarButtonItem {
             guard let imageName else { return nil }
             button.semanticContentAttribute = .forceLeftToRight
             button.setImage(UIImage.systemImageName(imageName), for: .normal)
-        case .rightStringButtonItem:
+        case .rightStringButtonItemWhite:
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.semanticContentAttribute = .forceRightToLeft
+        case .rightStringButtonItemBlack:
+            button.setTitle(title, for: .normal)
+            button.semanticContentAttribute = .forceRightToLeft
+            button.setTitleColor(.black, for: .normal)
         }
         return UIBarButtonItem(customView: button)
     }

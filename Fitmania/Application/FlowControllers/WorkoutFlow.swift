@@ -101,5 +101,6 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     
     func finishedTrainingAssistantFlow() {
         trainingAssistantFlowController = nil
+        dependencies.navigation.popToRootViewController(animated: true)
     }
 }

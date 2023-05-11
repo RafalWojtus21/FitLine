@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Fitmania
 
@@ -124,3 +124,16 @@
 // MARK: Schedule Workout Screen
 
 "ScheduleWorkoutScreen.StartNowButtonTitle" = "Start now";
+
+// MARK: Workout Exercise Screen
+
+"WorkoutExerciseScreen.RestEventName" = "Rest";
+"WorkoutExerciseScreen.PauseButtonTitle" = "Pause";
+"WorkoutExerciseScreen.ResumeButtonTitle" = "Resume";
+"WorkoutExerciseScreen.StartButtonTitle" = "Start";
+"WorkoutExerciseScreen.NextButtonTitle" = "Next";
+
+// MARK: Workout Finished Screen
+
+"WorkoutFinishedScreen.ScreenTitle" = "Workout summary";
+"WorkoutFinishedScreen.DoneButtonTitle" = "Done";

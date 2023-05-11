@@ -21,7 +21,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     private let bag = DisposeBag()
     private let presenter: AddExerciseScreenPresenter
     
-    private lazy var addExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItem, imageName: nil, title: Localization.General.add)
+    private lazy var addExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: Localization.General.add)
     private lazy var exerciseDetailsView = ExerciseDetailsView()
     
     init(presenter: AddExerciseScreenPresenter) {

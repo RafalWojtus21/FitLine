@@ -28,7 +28,7 @@ final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware
         case .effect(let effect):
             switch effect {
             case .startNowButtonPressed:
-                break
+                dependencies.trainingAssistantFlowNavigation?.showWorkoutExerciseScreen(plan: chosenWorkout)
             case .showWorkoutPreview:
                 dependencies.trainingAssistantFlowNavigation?.showWorkoutPreviewScreen(plan: chosenWorkout)
             }
