@@ -8,16 +8,18 @@
 import RxSwift
 
 final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware, ScheduleWorkoutScreenCallback {
-    typealias Dependencies = HasAppNavigation
+    typealias Dependencies = HasTrainingAssistantFlowNavigation
     typealias Result = ScheduleWorkoutScreenResult
     
     private let dependencies: Dependencies
-
+    private let chosenWorkout: WorkoutPlan
+    
     private let middlewareSubject = PublishSubject<Result>()
     var middlewareObservable: Observable<Result> { return middlewareSubject }
     
-    init(dependencies: Dependencies) {
+    init(dependencies: Dependencies, chosenWorkout: WorkoutPlan) {
         self.dependencies = dependencies
+        self.chosenWorkout = chosenWorkout
     }
     
     func process(result: Result) -> Observable<Result> {
@@ -28,7 +30,7 @@ final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware
             case .startNowButtonPressed:
                 break
             case .showWorkoutPreview:
-                break
+                dependencies.trainingAssistantFlowNavigation?.showWorkoutPreviewScreen(plan: chosenWorkout)
             }
         }
         return .just(result)

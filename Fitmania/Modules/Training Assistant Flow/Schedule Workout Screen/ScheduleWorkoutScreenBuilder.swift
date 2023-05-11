@@ -18,7 +18,7 @@ final class ScheduleWorkoutScreenBuilderImpl: ScheduleWorkoutScreenBuilder {
         
     func build(with input: ScheduleWorkoutScreenBuilderInput) -> ScheduleWorkoutScreenModule {
         let interactor = ScheduleWorkoutScreenInteractorImpl(dependencies: dependencies, chosenWorkout: input.chosenWorkout)
-        let middleware = ScheduleWorkoutScreenMiddlewareImpl(dependencies: dependencies)
+        let middleware = ScheduleWorkoutScreenMiddlewareImpl(dependencies: dependencies, chosenWorkout: input.chosenWorkout)
         let presenter = ScheduleWorkoutScreenPresenterImpl(interactor: interactor, middleware: middleware, initialViewState: ScheduleWorkoutScreenViewState(chosenWorkout: input.chosenWorkout))
         let view = ScheduleWorkoutScreenViewController(presenter: presenter)
         return ScheduleWorkoutScreenModule(view: view, callback: middleware)

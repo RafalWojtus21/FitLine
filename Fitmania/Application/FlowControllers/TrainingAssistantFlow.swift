@@ -16,6 +16,8 @@ protocol TrainingAssistantFlow {
 }
 
 protocol TrainingAssistantFlowNavigation: AnyObject {
+    func showScheduleWorkoutScreen(plan: WorkoutPlan)
+    func showWorkoutPreviewScreen(plan: WorkoutPlan)
 }
 
 class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantFlowNavigation {
@@ -52,6 +54,7 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     // MARK: - Builders
     
     private lazy var scheduleWorkoutScreenBuilder: ScheduleWorkoutScreenBuilder = ScheduleWorkoutScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var workoutPreviewScreenBuilder: WorkoutPreviewScreenBuilder = WorkoutPreviewScreenBuilderImpl(dependencies: extendedDependencies)
     
     // MARK: - AppNavigation
     
@@ -61,6 +64,11 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     
     func showScheduleWorkoutScreen(plan: WorkoutPlan) {
         let view = scheduleWorkoutScreenBuilder.build(with: .init(chosenWorkout: plan)).view
+        dependencies.navigation.show(view: view, animated: false)
+    }
+    
+    func showWorkoutPreviewScreen(plan: WorkoutPlan) {
+        let view = workoutPreviewScreenBuilder.build(with: .init(chosenWorkout: plan)).view
         dependencies.navigation.show(view: view, animated: false)
     }
     

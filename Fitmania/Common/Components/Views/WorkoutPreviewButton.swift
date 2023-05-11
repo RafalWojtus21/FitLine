@@ -74,7 +74,7 @@ class WorkoutPreviewButton: UIButton {
         super.init(frame: frame)
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
