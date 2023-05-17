@@ -54,7 +54,7 @@ final class WorkoutsCategoryListScreenViewController: BaseViewController, Workou
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints {

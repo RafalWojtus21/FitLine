@@ -12,6 +12,7 @@ enum TextFieldStyle {
     case primary
     case secondary
     case tertiary
+    case quaternary
 }
 
 class FitmaniaTextField: UIView {
@@ -96,18 +97,22 @@ class FitmaniaTextField: UIView {
             textField.layer.borderWidth = 1
             textField.layer.borderColor = UIColor.quinaryColor.cgColor
             textField.layer.cornerRadius = 4
-            textField.textColor = .lightGray
             textField.textColor = .quinaryColor
         case .tertiary:
             textField.backgroundColor = .clear
             textField.placeholder = placeholder
             textField.attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                                 // swiftlint:disable:next force_unwrapping
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.quaternaryColorTransparent!])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)])
             textField.layer.borderColor = UIColor.white.cgColor
             textField.layer.borderWidth = 1
             textField.layer.cornerRadius = 2
             textField.textColor = .quinaryColor
+        case .quaternary:
+            textField.backgroundColor = .quaternaryColor
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder,
+                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            textField.layer.cornerRadius = 4
+            textField.textColor = .white
         }
     }
 }

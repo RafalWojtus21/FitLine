@@ -71,7 +71,7 @@ final class AccountCreatedScreenViewController: BaseViewController, AccountCreat
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         view.addSubview(summaryStackView)
         view.addSubview(beginButton)
         

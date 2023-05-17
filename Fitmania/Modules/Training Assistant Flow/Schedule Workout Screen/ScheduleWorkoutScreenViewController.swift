@@ -47,7 +47,7 @@ final class ScheduleWorkoutScreenViewController: BaseViewController, ScheduleWor
     }
     
     private func layoutView() {
-        view.backgroundColor = .primaryBackgroundColor
+        view.backgroundColor = .primaryColor
         view.addSubview(workoutPreviewButton)
         view.addSubview(startNowButton)
         

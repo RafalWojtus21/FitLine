@@ -21,7 +21,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     
     private lazy var mainView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [exerciseNameLabel, detailsView])
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .clear
         view.spacing = 4
         view.axis = .vertical
         view.layoutMargins.bottom = 8
@@ -44,7 +44,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     private lazy var detailsView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [exerciseTimeStackView, exerciseBreakTimeStackView])
         view.axis = .vertical
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .clear
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.cornerRadius = 8
@@ -54,7 +54,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     private lazy var exerciseTimeStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [exerciseTimeHeader, exerciseTimeValueLabel])
         view.axis = .horizontal
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -82,7 +82,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     private lazy var exerciseBreakTimeStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [exerciseBreakTimeHeader, exerciseBreakTimeValueLabel])
         view.axis = .horizontal
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .clear
         return view
     }()
     

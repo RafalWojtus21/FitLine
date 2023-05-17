@@ -32,7 +32,7 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = .primaryColor
+        tableView.separatorColor = .tertiaryColor
         tableView.rowHeight = 80 
         tableView.register(ExerciseDetailsCell.self)
         return tableView
@@ -60,7 +60,7 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         navigationItem.rightBarButtonItem = addExerciseButton
         
         view.addSubview(tableView)

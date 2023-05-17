@@ -28,7 +28,7 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
     
     private var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .secondaryBackgroundColor
+        tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = 56
         tableView.register(WorkoutsListCell.self)
@@ -57,7 +57,7 @@ final class WorkoutsListScreenViewController: BaseViewController, WorkoutsListSc
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         title = L.workoutsListScreenTitle
         navigationItem.rightBarButtonItem = plusButton
         

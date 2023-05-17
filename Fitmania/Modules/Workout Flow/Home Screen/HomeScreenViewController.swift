@@ -34,7 +34,7 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         let imageView = UIImageView()
         imageView.image = UIImage.systemImageName(SystemImage.plusIcon)
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .primaryColor
+        imageView.tintColor = .tertiaryColor
         return imageView
     }()
     
@@ -59,7 +59,7 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     }
     
     private func layoutView() {
-        view.backgroundColor = .primaryBackgroundColor
+        view.backgroundColor = .primaryColor
         view.addSubview(plusButton)
         
         plusButton.addSubview(plusButtonImage)

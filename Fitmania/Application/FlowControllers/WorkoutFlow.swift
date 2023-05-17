@@ -81,7 +81,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     
     func showWorkoutsListScreen() {
         let view = workoutsListBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.show(view: view, animated: false)
     }
     
     func startCreateWorkoutFlow(trainingName: String) {

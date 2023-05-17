@@ -37,8 +37,8 @@ class AccountSetupView: UIView {
     }
     
     private func configureTextFields(leftPlaceholder: String, rightPlacerholder: String) {
-        leftTextField.apply(style: .secondary, placeholder: leftPlaceholder)
-        rightTextField.apply(style: .secondary, placeholder: rightPlacerholder)
+        leftTextField.apply(style: .quaternary, placeholder: leftPlaceholder)
+        rightTextField.apply(style: .quaternary, placeholder: rightPlacerholder)
     }
     
     private func setupView() {

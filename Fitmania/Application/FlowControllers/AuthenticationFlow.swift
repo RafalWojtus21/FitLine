@@ -86,7 +86,7 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     
     func showRegisterScreen() {
         let view = registerScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.show(view: view, animated: false)
     }
     
     func showForgotPasswordScreen() {
@@ -96,12 +96,12 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     
     func showCreateAccountScreen() {
         let view = createAccountScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.show(view: view, animated: false)
     }
     
     func showAccountCreatedScreen() {
         let view = accountCreatedScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.show(view: view, animated: false)
     }
     
     func dismiss() {

@@ -55,7 +55,7 @@ final class CategoryExercisesListViewController: BaseViewController, CategoryExe
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints {

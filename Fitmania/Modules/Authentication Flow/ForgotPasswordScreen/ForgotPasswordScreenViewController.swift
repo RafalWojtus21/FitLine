@@ -63,7 +63,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     private lazy var resetButton: UIButton = {
         let button = UIButton().apply(style: .secondary, title: L.resetPassword)
         button.isEnabled = false
-        button.backgroundColor = .secondaryDisabledColor
+        button.backgroundColor = .secondaryColorDisabled
         return button
     }()
         
@@ -113,7 +113,8 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     
     private func layoutView() {
         title = L.resetPassword
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
+        navigationItem.setHidesBackButton(true, animated: true)
         view.addSubview(screenDescriptionView)
         view.addSubview(emailTextfield)
         view.addSubview(resetButton)
@@ -162,7 +163,10 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
             guard let email = self.emailTextfield.textField.text else { return Intent.invalidCredentials }
             return Intent.resetPasswordIntent(email: email)
         }
-        let backToLoginButtonIntent = backButton.rx.tap.map { Intent.backToLoginIntent }
+        let backToLoginButtonIntent = backButton.rx.tap.map {
+            print("Back to login pressed")
+            return Intent.backToLoginIntent
+        }
         
         Observable.merge(emailValidationIntent, resetPasswordButtonIntent, backToLoginButtonIntent)
             .subscribe(onNext: { [weak self] intent in
@@ -198,8 +202,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
             resetButton.backgroundColor = .secondaryColor
         } else {
             resetButton.isEnabled = false
-            resetButton.backgroundColor = .primaryDisabledColor
-            resetButton.backgroundColor = .secondaryDisabledColor
+            resetButton.backgroundColor = .secondaryColorDisabled
         }
     }
 }

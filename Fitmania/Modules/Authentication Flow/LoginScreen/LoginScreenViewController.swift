@@ -107,7 +107,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }
     
     private func layoutView() {
-        view.backgroundColor = .primaryBackgroundColor
+        view.backgroundColor = .primaryColor
         view.addSubview(screenDescriptionView)
         view.addSubview(credentialsStackView)
         view.addSubview(loginButton)
@@ -182,6 +182,6 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
         emailView.fitmaniaTextField.errorLabel.text = state.emailValidationMessage.message
         passwordView.fitmaniaTextField.errorLabel.text = state.passwordValidationMessage.message
         loginButton.isEnabled = state.isLoginButtonEnable
-        loginButton.backgroundColor = state.isLoginButtonEnable ? .primaryColor : .primaryDisabledColor
+        loginButton.backgroundColor = state.isLoginButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }
 }

@@ -12,6 +12,7 @@ enum ButtonStyle {
     case primary
     case secondary
     case tertiary
+    case quaternary
 }
 
 enum BarButtonStyle {
@@ -27,7 +28,7 @@ extension UIButton {
         titleLabel?.font = .openSansRegular14
         switch style {
         case .primary:
-            backgroundColor = isEnabled ? .primaryColor : .primaryDisabledColor
+            backgroundColor = isEnabled ? .tertiaryColor : .tertiaryColorDisabled
             layer.cornerRadius = 25
         case .secondary:
             backgroundColor = .secondaryColor
@@ -36,6 +37,9 @@ extension UIButton {
             backgroundColor = .clear
             setTitleColor(.quinaryColor, for: .normal)
             titleLabel?.font = .openSansSemiBold14
+        case .quaternary:
+            layer.cornerRadius = 25
+            backgroundColor = .white
         }
         return self
     }

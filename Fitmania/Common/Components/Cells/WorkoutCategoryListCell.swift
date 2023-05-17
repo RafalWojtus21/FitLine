@@ -16,7 +16,7 @@ class WorkoutCategoryListCell: UITableViewCell, ReusableCell {
         let category: String
     }
     
-    private lazy var mainView = UIView(backgroundColor: .secondaryBackgroundColor)
+    private lazy var mainView = UIView(backgroundColor: .clear)
     
     private lazy var categoryLabel: UILabel = {
         let categoryLabel = UILabel()

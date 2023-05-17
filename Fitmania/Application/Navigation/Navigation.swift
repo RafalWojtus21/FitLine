@@ -62,8 +62,8 @@ final class MainNavigation: Navigation {
     func setTabBar(viewControllers: [UINavigationController], animated: Bool, selectedTab: Int) {
         let tabBar = UITabBarController()
         tabBar.tabBar.tintColor = .primaryColor
-        tabBar.tabBar.unselectedItemTintColor = .primaryDisabledColor
-        tabBar.tabBar.backgroundColor = .secondaryBackgroundColor
+        tabBar.tabBar.unselectedItemTintColor = .primaryColor.withAlphaComponent(0.4)
+        tabBar.tabBar.backgroundColor = .secondaryColor
         tabBar.modalPresentationStyle = .fullScreen
         tabBar.setViewControllers(viewControllers, animated: true)
         tabBar.selectedIndex = selectedTab

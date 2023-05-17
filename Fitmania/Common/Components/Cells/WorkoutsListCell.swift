@@ -18,7 +18,7 @@ class WorkoutsListCell: UITableViewCell, ReusableCell {
     
     private lazy var mainView: UIView = {
         let mainView = UIView()
-        mainView.backgroundColor = .secondaryBackgroundColor
+        mainView.backgroundColor = .clear
         mainView.layer.borderWidth = 1
         mainView.layer.borderColor = UIColor.white.cgColor
         mainView.layer.cornerRadius = 8
@@ -27,7 +27,7 @@ class WorkoutsListCell: UITableViewCell, ReusableCell {
     
     private lazy var workoutNameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .secondaryBackgroundColor
+        label.backgroundColor = .clear
         label.numberOfLines = 0
         label.textColor = .white
         label.textAlignment = .center

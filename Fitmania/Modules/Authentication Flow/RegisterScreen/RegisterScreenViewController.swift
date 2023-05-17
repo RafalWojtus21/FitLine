@@ -88,7 +88,7 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     
     private func layoutView() {
         title = L.createAccount
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         
         view.addSubview(credentialsStackView)
         view.addSubview(registerButton)
@@ -145,6 +145,6 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
         passwordView.fitmaniaTextField.errorLabel.text = state.passwordValidationMessage.message
         repeatPasswordView.fitmaniaTextField.errorLabel.text = state.repeatPasswordValidationMessage.message
         registerButton.isEnabled = state.isRegisterButtonEnable
-        registerButton.backgroundColor = state.isRegisterButtonEnable ? .primaryColor : .primaryDisabledColor
+        registerButton.backgroundColor = state.isRegisterButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }
 }

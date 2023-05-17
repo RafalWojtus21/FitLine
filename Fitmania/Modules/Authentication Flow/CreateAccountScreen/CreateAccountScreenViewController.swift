@@ -51,7 +51,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         let imageView = UIImageView()
         imageView.image = .systemImageName(.personCircleFill)
         imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = .quaternaryColor
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -59,7 +59,9 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         let view = UIStackView(arrangedSubviews: [namesStackView, firstSeparator, sexAgeStackView, secondSeparator, heightWeightStackView])
         view.axis = .vertical
         view.spacing = 1
-        view.backgroundColor = .black
+        view.backgroundColor = .primaryColor
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 2
         view.layer.cornerRadius = 16
         return view
     }()
@@ -90,7 +92,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
     }
     
     private func layoutView() {
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         
         view.addSubview(accountSetupTitle)
         view.addSubview(accountSetupView)
@@ -110,7 +112,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         
         personImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(accountSetupView.snp.top).offset(12)
+            $0.bottom.equalTo(accountSetupView.snp.top).offset(6)
             $0.height.equalTo(48)
         }
         
@@ -204,10 +206,10 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         
         if state.isCreateAccountButtonEnable {
             createAccountButton.isEnabled = true
-            createAccountButton.backgroundColor = .primaryColor
+            createAccountButton.backgroundColor = .tertiaryColor
         } else {
             createAccountButton.isEnabled = false
-            createAccountButton.backgroundColor = .primaryDisabledColor
+            createAccountButton.backgroundColor = .tertiaryColorDisabled
         }
     }
 }

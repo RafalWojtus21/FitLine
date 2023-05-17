@@ -46,7 +46,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     
     private func layoutView() {
         self.navigationItem.rightBarButtonItem = addExerciseButton
-        view.backgroundColor = .secondaryBackgroundColor
+        view.backgroundColor = .primaryColor
         
         view.addSubview(exerciseDetailsView)
         
