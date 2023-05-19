@@ -9,9 +9,11 @@ import RxSwift
 
 enum HomeScreenIntent {
     case plusButtonIntent
+    case viewLoaded
 }
 
 struct HomeScreenViewState: Equatable {
+    var workoutsHistory: [FinishedWorkout] = []
 }
 
 enum HomeScreenEffect: Equatable {
@@ -30,8 +32,13 @@ enum HomeScreenResult: Equatable {
 }
 
 enum HomeScreenPartialState: Equatable {
+    case updateWorkoutsHistory(workouts: [FinishedWorkout])
     func reduce(previousState: HomeScreenViewState) -> HomeScreenViewState {
-        let state = previousState
+        var state = previousState
+        switch self {
+        case .updateWorkoutsHistory(workouts: let workouts):
+            state.workoutsHistory = workouts
+        }
         return state
     }
 }
@@ -55,6 +62,7 @@ protocol HomeScreenPresenter: AnyObject, BasePresenter {
 }
 
 protocol HomeScreenInteractor: BaseInteractor {
+    func subscribeForWorkoutsHistory() -> Observable<HomeScreenResult>
 }
 
 protocol HomeScreenMiddleware {

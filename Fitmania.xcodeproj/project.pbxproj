@@ -27,6 +27,7 @@
 		8B02358B2A0D1FC4006B45A5 /* ExercisePartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */; };
 		8B02358D2A0E2129006B45A5 /* ObservableTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */; };
 		8B02358F2A0E465E006B45A5 /* ExerciseTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */; };
+		8B0722692A20E1E900854F1B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0722682A20E1E900854F1B /* DateExtension.swift */; };
 		8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0C115029E852F10028DCCF /* LocalizationValidation.swift */; };
 		8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */; };
 		8B10656D29FAB096005A1521 /* ExercisesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */; };
@@ -210,6 +211,7 @@
 		8BF48B932A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B8D2A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift */; };
 		8BF48B952A175FB700F84C6F /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */; };
 		8BF48B972A175FDA00F84C6F /* WorkoutSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */; };
+		8BF48B992A17687400F84C6F /* WorkoutsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */; };
 		CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3E729F282B400F0BCD0 /* FirebaseAuth */; };
 		CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; };
 		CC44D3EE29F288DB00F0BCD0 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -268,6 +270,7 @@
 		8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePartInfoView.swift; sourceTree = "<group>"; };
 		8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtension.swift; sourceTree = "<group>"; };
 		8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTrackerCell.swift; sourceTree = "<group>"; };
+		8B0722682A20E1E900854F1B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8B0C115029E852F10028DCCF /* LocalizationValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationValidation.swift; sourceTree = "<group>"; };
 		8B10656A29FAB047005A1521 /* CreateWorkoutFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkoutFlow.swift; sourceTree = "<group>"; };
 		8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesDataStore.swift; sourceTree = "<group>"; };
@@ -444,6 +447,7 @@
 		8BF48B8D2A175F8A00F84C6F /* WorkoutFinishedScreenContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedScreenContract.swift; sourceTree = "<group>"; };
 		8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryCell.swift; sourceTree = "<group>"; };
+		8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -531,6 +535,7 @@
 				8B0235752A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift */,
 				8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */,
 				8BF48B962A175FDA00F84C6F /* WorkoutSummaryCell.swift */,
+				8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -883,6 +888,7 @@
 				8BCEB3D32A0A40F7001F8F78 /* LoggerExtension.swift */,
 				8B02358C2A0E2129006B45A5 /* ObservableTypeExtension.swift */,
 				8BF48B942A175FB700F84C6F /* DateFormatterExtension.swift */,
+				8B0722682A20E1E900854F1B /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1374,6 +1380,7 @@
 				8BCEB3E32A0B8080001F8F78 /* ScheduleWorkoutScreenInteractor.swift in Sources */,
 				8B53580429FBA4AE009EED68 /* CategoryExercisesListInteractor.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
+				8B0722692A20E1E900854F1B /* DateExtension.swift in Sources */,
 				8BF1ECF929EFEA2F00540E1D /* HomeScreenContract.swift in Sources */,
 				8B02356F2A0BE881006B45A5 /* WorkoutPreviewScreenViewController.swift in Sources */,
 				8B6FDC7829E40E690037A8B8 /* CreateAccountScreenContract.swift in Sources */,
@@ -1386,6 +1393,7 @@
 				8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */,
 				8B53580729FBA4AE009EED68 /* CategoryExercisesListPresenter.swift in Sources */,
 				8BC1525329DD77030007A372 /* WelcomeScreenInteractor.swift in Sources */,
+				8BF48B992A17687400F84C6F /* WorkoutsHistoryCell.swift in Sources */,
 				8B0235812A0CEB1A006B45A5 /* WorkoutExerciseScreenBuilder.swift in Sources */,
 				8B02358F2A0E465E006B45A5 /* ExerciseTrackerCell.swift in Sources */,
 				8B53581529FBA7A7009EED68 /* AddExerciseScreenBuilder.swift in Sources */,

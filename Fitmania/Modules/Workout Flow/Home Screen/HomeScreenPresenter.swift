@@ -27,10 +27,12 @@ final class HomeScreenPresenterImpl: HomeScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { [interactor] intent -> Observable<Result> in
             switch intent {
             case .plusButtonIntent:
                 return .just(.effect(.showWorkoutsList))
+            case .viewLoaded:
+                return interactor.subscribeForWorkoutsHistory()
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)
