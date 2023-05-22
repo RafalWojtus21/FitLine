@@ -27,3 +27,12 @@ extension Single {
             .first()!
     }
 }
+
+extension Observable {
+    func toArrayAndBlocking() throws -> Array<Event<Element>> {
+        return try self.materialize()
+            .toArray()
+            .toBlocking()
+            .first()!
+    }
+}

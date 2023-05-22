@@ -13,8 +13,8 @@ import RxBlocking
 
 final class CreateAccountScreenInteractorTests: XCTestCase {
     struct Dependencies: CreateAccountScreenInteractorImpl.Dependencies {
-        var validationService: Fitmania.ValidationService { validationServiceMock }
-        var cloudService: Fitmania.CloudService { cloudServiceMock }
+        var validationService: ValidationService { validationServiceMock }
+        var cloudService: CloudService { cloudServiceMock }
         let cloudServiceMock = CloudServiceMock()
         let validationServiceMock = ValidationServiceMock()
     }
@@ -29,7 +29,7 @@ final class CreateAccountScreenInteractorTests: XCTestCase {
     func testSaveUserInfoObserverSuccess() {
         // Given
         let bag = DisposeBag()
-        dependencies.cloudServiceMock.saveDataResponse = .completed
+        dependencies.cloudServiceMock.savePersonalDataResponse = .completed
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(CreateAccountScreenResult.self)
         
@@ -50,12 +50,12 @@ final class CreateAccountScreenInteractorTests: XCTestCase {
     func testSaveUserInfoObserverError() {
         // Given
         let bag = DisposeBag()
-        dependencies.cloudServiceMock.saveDataResponse = .error(AuthError.invalidEmail)
+        dependencies.cloudServiceMock.savePersonalDataResponse = .error(AuthError.invalidEmail)
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(CreateAccountScreenResult.self)
         
         // When
-        let userInfo = UserInfo(firstName: "name", lastName: "last name", sex: nil, age: nil, height: 121, weight: nil)
+        let userInfo = UserInfo(firstName: "1", lastName: "last name", sex: nil, age: nil, height: 121, weight: nil)
         sut.saveUserInfo(userInfo: userInfo)
             .subscribe(observer)
             .disposed(by: bag)

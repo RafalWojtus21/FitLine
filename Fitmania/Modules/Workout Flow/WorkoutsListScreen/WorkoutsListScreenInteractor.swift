@@ -38,7 +38,7 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
                     }
                     return WorkoutPlan(name: name, id: workoutPlanID, parts: parts)
                 }
-                return .partialState(.updateTrainingPlans(plans: workoutPlans))
+                return .partialState(.updateTrainingPlans(plans: workoutPlans.sorted(by: { $0.name < $1.name })))
             })
             .asObservable()
     }

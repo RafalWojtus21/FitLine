@@ -12,6 +12,7 @@ import RxTest
 import RxBlocking
 
 final class LoginScreenInteractorTests: XCTestCase {
+    
     struct Dependencies: LoginScreenInteractorImpl.Dependencies {
         var authManager: AuthManager {
             authManagerMock
@@ -22,20 +23,22 @@ final class LoginScreenInteractorTests: XCTestCase {
         let authManagerMock = AuthManagerMock()
         let validationServiceMock = ValidationServiceMock()
     }
+    
     var dependencies: Dependencies!
     var sut: LoginScreenInteractor!
+    var bag: DisposeBag!
+    var observer: TestableObserver<LoginScreenResult>!
     
     override func setUp() {
         dependencies = Dependencies()
         sut = LoginScreenInteractorImpl(dependencies: dependencies)
+        bag = DisposeBag()
+        observer = TestScheduler(initialClock: 0).createObserver(LoginScreenResult.self)
     }
     
     func testValidateEmailObserverSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         // When
         sut.validateEmail(email: "Testemail")
@@ -50,10 +53,7 @@ final class LoginScreenInteractorTests: XCTestCase {
     func testValidateEmailObserverError() {
         // Given
         typealias L = Localization.Validation
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .error(Validation.Error(errorDescription: L.passwordUppercaseError))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         // When
         sut.validateEmail(email: "Testemail")
@@ -67,7 +67,6 @@ final class LoginScreenInteractorTests: XCTestCase {
     
     func testValidateEmailSubjectSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
         let subject: BehaviorSubject<LoginScreenResult> = .init(value: .partialState(LoginScreenPartialState.idle))
         
@@ -83,7 +82,6 @@ final class LoginScreenInteractorTests: XCTestCase {
     
     func testValidatePasswordSubjectSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
         let subject: BehaviorSubject<LoginScreenResult> = .init(value: .partialState(LoginScreenPartialState.idle))
         
@@ -99,11 +97,7 @@ final class LoginScreenInteractorTests: XCTestCase {
     
     func testValidatePasswordObserverSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
-        
         // When
         sut.validatePassword(password: "somePassword")
             .subscribe(observer)
@@ -116,11 +110,8 @@ final class LoginScreenInteractorTests: XCTestCase {
     
     func testValidatePasswordObserverError() {
         // Given
-        let bag = DisposeBag()
         let errorMessage = "error message"
         dependencies.validationServiceMock.validateResponse = .error(Validation.Error(errorDescription: errorMessage))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         // When
         sut.validatePassword(password: "somePassword")
@@ -133,12 +124,9 @@ final class LoginScreenInteractorTests: XCTestCase {
     }
     
     func testLoginSuccess() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         dependencies.authManagerMock.loginAuthResult = .just(AuthResponse(email: email, uid: password))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         sut.login(email: email, password: password)
             .subscribe(observer)
@@ -151,12 +139,9 @@ final class LoginScreenInteractorTests: XCTestCase {
     }
     
     func testLoginErrorWrongCredentialsAlert() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         dependencies.authManagerMock.loginAuthResult = .error(AuthError.wrongPassword)
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         sut.login(email: email, password: password)
             .subscribe(observer)
@@ -172,7 +157,6 @@ final class LoginScreenInteractorTests: XCTestCase {
     }
     
     func testLoginErrorSomethingWentWrong() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         enum TestError: LocalizedError, Equatable {
@@ -180,8 +164,6 @@ final class LoginScreenInteractorTests: XCTestCase {
         }
         
         dependencies.authManagerMock.loginAuthResult = .error(TestError.testError)
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(LoginScreenResult.self)
         
         sut.login(email: email, password: password)
             .subscribe(observer)

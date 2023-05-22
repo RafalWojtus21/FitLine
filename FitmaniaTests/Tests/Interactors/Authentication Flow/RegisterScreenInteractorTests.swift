@@ -12,6 +12,7 @@ import RxTest
 import RxBlocking
 
 final class RegisterScreenInteractorTests: XCTestCase {
+    
     struct Dependencies: RegisterScreenInteractorImpl.Dependencies {
         var authManager: AuthManager {
             authManagerMock
@@ -22,20 +23,22 @@ final class RegisterScreenInteractorTests: XCTestCase {
         let authManagerMock = AuthManagerMock()
         let validationServiceMock = ValidationServiceMock()
     }
+    
     var dependencies: Dependencies!
     var sut: RegisterScreenInteractor!
+    var bag: DisposeBag!
+    var observer: TestableObserver<RegisterScreenResult>!
     
     override func setUp() {
         dependencies = Dependencies()
         sut = RegisterScreenInteractorImpl(dependencies: dependencies)
+        bag = DisposeBag()
+        observer = TestScheduler(initialClock: 0).createObserver(RegisterScreenResult.self)
     }
     
     func testValidateEmailObserverSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         // When
         sut.validateEmail(email: "Testemail")
@@ -49,11 +52,8 @@ final class RegisterScreenInteractorTests: XCTestCase {
     
     func testValidateEmailObserverError() {
         // Given
-        let bag = DisposeBag()
         let errorMessage = "text"
         dependencies.validationServiceMock.validateResponse = .error(Validation.Error(errorDescription: errorMessage))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         // When
         sut.validateEmail(email: "Testemail")
@@ -68,7 +68,6 @@ final class RegisterScreenInteractorTests: XCTestCase {
     
     func testValidatePasswordSubjectSuccess() {
         // Given
-        let bag = DisposeBag()
         dependencies.validationServiceMock.validateResponse = .completed
         let subject: BehaviorSubject<RegisterScreenResult> = .init(value: .partialState(RegisterScreenPartialState.passwordValidationResult(validationMessage: ValidationMessage(message: "Tests message"))))
         
@@ -85,11 +84,8 @@ final class RegisterScreenInteractorTests: XCTestCase {
     
     func testValidatePasswordObserverError() {
         // Given
-        let bag = DisposeBag()
         let errorMessage = "error message"
         dependencies.validationServiceMock.validateResponse = .error(Validation.Error(errorDescription: errorMessage))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         // When
         sut.validatePassword(password: "somePassword")
@@ -102,12 +98,6 @@ final class RegisterScreenInteractorTests: XCTestCase {
     }
     
     func testValidateRepeatPasswordError() {
-        // Given
-        let bag = DisposeBag()
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
-        
-        // When
         sut.validateRepeatPassword(password: "somePassword", repeatPassword: "somePassword1")
             .subscribe(observer)
             .disposed(by: bag)
@@ -120,12 +110,6 @@ final class RegisterScreenInteractorTests: XCTestCase {
     }
     
     func testValidateRepeatPasswordSuccess() {
-        // Given
-        let bag = DisposeBag()
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
-        
-        // When
         sut.validateRepeatPassword(password: "somePassword", repeatPassword: "somePassword")
             .subscribe(observer)
             .disposed(by: bag)
@@ -138,12 +122,9 @@ final class RegisterScreenInteractorTests: XCTestCase {
     }
     
     func testRegisterSuccess() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         dependencies.authManagerMock.signUpAuthResult = .just(AuthResponse(email: email, uid: password))
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         sut.register(email: email, password: password)
             .subscribe(observer)
@@ -156,12 +137,9 @@ final class RegisterScreenInteractorTests: XCTestCase {
     }
     
     func testRegisterError() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         dependencies.authManagerMock.signUpAuthResult = .error(AuthError.emailAlreadyInUse)
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         sut.register(email: email, password: password)
             .subscribe(observer)
@@ -177,7 +155,6 @@ final class RegisterScreenInteractorTests: XCTestCase {
     }
     
     func testRegisterErrorSomethingWentWrong() {
-        let bag = DisposeBag()
         let email = "rafal.wojtus@untitledkingdom.com"
         let password = "somePassword"
         
@@ -186,8 +163,6 @@ final class RegisterScreenInteractorTests: XCTestCase {
         }
         
         dependencies.authManagerMock.signUpAuthResult = .error(TestError.testError)
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(RegisterScreenResult.self)
         
         sut.register(email: email, password: password)
             .subscribe(observer)

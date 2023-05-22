@@ -76,6 +76,7 @@
 		8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */; };
 		8B5358202A03D6A0009EED68 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53581F2A03D6A0009EED68 /* UITableViewCellExtension.swift */; };
 		8B5B2B8029E97B520017E3C8 /* NSPredicateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */; };
+		8B5FCC0B2A1BB23F0007D60C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */; };
 		8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */; };
 		8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
@@ -91,14 +92,20 @@
 		8B6FDC7C29E40E690037A8B8 /* CreateAccountScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7629E40E690037A8B8 /* CreateAccountScreenBuilder.swift */; };
 		8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7729E40E690037A8B8 /* CreateAccountScreenInteractor.swift */; };
 		8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC7F29E412E30037A8B8 /* AccountSetupView.swift */; };
-		8B6FDC8529E574E10037A8B8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */; };
-		8B6FDC8729E574E80037A8B8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */; };
 		8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */; };
 		8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */; };
 		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
+		8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */; };
+		8B876E532A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E522A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift */; };
+		8B876E552A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E542A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift */; };
+		8B876E572A1B5E71008AE1CE /* ExercisesDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E562A1B5E71008AE1CE /* ExercisesDataStoreMock.swift */; };
+		8B876E5B2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E5A2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift */; };
+		8B876E5D2A1B75DF008AE1CE /* WorkoutsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */; };
+		8B876E5F2A1B82F7008AE1CE /* CloudServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */; };
+		8B876E612A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E602A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift */; };
 		8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */; };
 		8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */; };
 		8B9AE9D429F1767D000E2743 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9AE9D329F1767D000E2743 /* RxTest */; };
@@ -215,7 +222,6 @@
 		CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3E729F282B400F0BCD0 /* FirebaseAuth */; };
 		CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; };
 		CC44D3EE29F288DB00F0BCD0 /* RxCocoa-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CC44D3F029F2891200F0BCD0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +344,14 @@
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
+		8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceMock.swift; sourceTree = "<group>"; };
+		8B876E522A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsListScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B876E542A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B876E562A1B5E71008AE1CE /* ExercisesDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesDataStoreMock.swift; sourceTree = "<group>"; };
+		8B876E5A2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceTests.swift; sourceTree = "<group>"; };
+		8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceTests.swift; sourceTree = "<group>"; };
+		8B876E602A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseServiceMock.swift; sourceTree = "<group>"; };
 		8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
 		8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceMock.swift; sourceTree = "<group>"; };
 		8B9B5C372A0531D9000F7A6D /* AuthMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMock.swift; sourceTree = "<group>"; };
@@ -461,9 +475,7 @@
 				8B2A4B8029F6D55200B6B3F0 /* FirebaseDatabaseSwift in Frameworks */,
 				8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */,
 				8BC1526129DD79D00007A372 /* SnapKit in Frameworks */,
-				8B6FDC8529E574E10037A8B8 /* FirebaseFirestoreSwift in Frameworks */,
 				8B2A4B7E29F6D55200B6B3F0 /* FirebaseDatabase in Frameworks */,
-				8B6FDC8729E574E80037A8B8 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +483,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC44D3F029F2891200F0BCD0 /* FirebaseFirestoreSwift in Frameworks */,
+				8B5FCC0B2A1BB23F0007D60C /* FirebaseDatabase in Frameworks */,
 				CC44D3EC29F288DB00F0BCD0 /* RxCocoa-Dynamic in Frameworks */,
 				CC44D3E829F282B400F0BCD0 /* FirebaseAuth in Frameworks */,
 				8B9AE9D829F17732000E2743 /* RxBlocking in Frameworks */,
@@ -642,15 +654,53 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		8B9AE9CB29F162E5000E2743 /* Tests */ = {
+		8B876E4E2A1B5311008AE1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				8B2A4B6329F2B6FB00B6B3F0 /* AuthManagerTests.swift */,
 				8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */,
+				8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */,
+				8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B876E4F2A1B531B008AE1CE /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				8B876E502A1B54E3008AE1CE /* Authentication Flow */,
+				8B876E512A1B54EC008AE1CE /* Create Workout Flow */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		8B876E502A1B54E3008AE1CE /* Authentication Flow */ = {
+			isa = PBXGroup;
+			children = (
 				8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */,
 				8B2A4B6529F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift */,
 				8B2A4B6B29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift */,
 				8B2A4B6D29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift */,
+			);
+			path = "Authentication Flow";
+			sourceTree = "<group>";
+		};
+		8B876E512A1B54EC008AE1CE /* Create Workout Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8B876E522A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift */,
+				8B876E542A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift */,
+				8B876E5A2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift */,
+			);
+			path = "Create Workout Flow";
+			sourceTree = "<group>";
+		};
+		8B9AE9CB29F162E5000E2743 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8B9AE9CD29F162E6000E2743 /* Mocks */,
+				8B876E4F2A1B531B008AE1CE /* Interactors */,
+				8B876E4E2A1B5311008AE1CE /* Services */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -658,10 +708,13 @@
 		8B9AE9CD29F162E6000E2743 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */,
-				8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */,
 				8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */,
 				8B9B5C372A0531D9000F7A6D /* AuthMock.swift */,
+				8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */,
+				8B876E602A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift */,
+				8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */,
+				8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */,
+				8B876E562A1B5E71008AE1CE /* ExercisesDataStoreMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -709,7 +762,6 @@
 			isa = PBXGroup;
 			children = (
 				8B53581D2A03B64F009EED68 /* Extensions */,
-				8B9AE9CD29F162E6000E2743 /* Mocks */,
 				8B9AE9CB29F162E5000E2743 /* Tests */,
 			);
 			path = FitmaniaTests;
@@ -1102,8 +1154,6 @@
 				8BE6447329DD7B6000288DAB /* RxRelay */,
 				8BE6447529DD7B6000288DAB /* RxSwift */,
 				8BE644A429DEEE2300288DAB /* FirebaseAuth */,
-				8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */,
-				8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */,
 				8B2A4B7D29F6D55200B6B3F0 /* FirebaseDatabase */,
 				8B2A4B7F29F6D55200B6B3F0 /* FirebaseDatabaseSwift */,
 			);
@@ -1131,7 +1181,7 @@
 				8B9AE9D729F17732000E2743 /* RxBlocking */,
 				CC44D3E729F282B400F0BCD0 /* FirebaseAuth */,
 				CC44D3EB29F288DB00F0BCD0 /* RxCocoa-Dynamic */,
-				CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */,
+				8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */,
 			);
 			productName = FitmaniaTests;
 			productReference = 8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */;
@@ -1463,15 +1513,23 @@
 				8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */,
 				8B9B5C382A0531D9000F7A6D /* AuthMock.swift in Sources */,
 				8B53581C2A03B64A009EED68 /* RxBlockingExtensions.swift in Sources */,
+				8B876E572A1B5E71008AE1CE /* ExercisesDataStoreMock.swift in Sources */,
 				8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */,
+				8B876E532A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift in Sources */,
 				8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */,
 				8B2A4B6429F2B6FB00B6B3F0 /* AuthManagerTests.swift in Sources */,
 				8B2A4B6C29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift in Sources */,
+				8B876E5D2A1B75DF008AE1CE /* WorkoutsServiceTests.swift in Sources */,
 				8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */,
 				8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */,
 				8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */,
+				8B876E612A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift in Sources */,
+				8B876E5F2A1B82F7008AE1CE /* CloudServiceTests.swift in Sources */,
+				8B876E552A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift in Sources */,
+				8B876E5B2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift in Sources */,
 				8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */,
 				8B2A4B6E29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift in Sources */,
+				8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2358,15 +2416,10 @@
 			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
 		};
-		8B6FDC8429E574E10037A8B8 /* FirebaseFirestoreSwift */ = {
+		8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-		8B6FDC8629E574E80037A8B8 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
+			productName = FirebaseDatabase;
 		};
 		8B9AE9D329F1767D000E2743 /* RxTest */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2412,11 +2465,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = "RxCocoa-Dynamic";
-		};
-		CC44D3EF29F2891200F0BCD0 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
