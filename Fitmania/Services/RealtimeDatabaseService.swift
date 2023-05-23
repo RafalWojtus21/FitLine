@@ -7,7 +7,6 @@
 
 import Foundation
 import RxSwift
-import FirebaseFirestore
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 
@@ -16,13 +15,12 @@ protocol HasRealtimeDatabaseService {
 }
 
 protocol RealtimeDatabaseService {
-    var database: Database { get }
-    func save<T: Encodable>(_ object: T, at databaseReference: DatabaseReference, encoder: JSONEncoder?) -> Completable
-    func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Single<T>
-    func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T>
-    func delete(from databaseReference: DatabaseReference) -> Completable
-    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T>
-    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> 
+    func save<T: Encodable>(_ object: T, at path: String, encoder: JSONEncoder?) -> Completable
+    func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Single<T>
+    func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T>
+    func delete(from path: String) -> Completable
+    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T>
+    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T>
 }
 
 final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
@@ -36,12 +34,13 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
     
     // MARK: Public Implementation
 
-    func save<T: Encodable>(_ object: T, at databaseReference: DatabaseReference, encoder: JSONEncoder?) -> Completable {
+    func save<T: Encodable>(_ object: T, at path: String, encoder: JSONEncoder?) -> Completable {
         return Completable.create { completable in
             do {
                 let encoder = encoder ?? self.jsonEncoder
                 let objectData = try encoder.encode(object)
                 let dictionary = try JSONSerialization.jsonObject(with: objectData, options: [])
+                let databaseReference = self.database.reference(withPath: path)
                 databaseReference.setValue(dictionary) { error, _ in
                     if let error = error {
                         completable(.error(error))
@@ -56,8 +55,9 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         }
     }
     
-    func delete(from databaseReference: DatabaseReference) -> Completable {
+    func delete(from path: String) -> Completable {
         return Completable.create { completable in
+            let databaseReference = self.database.reference(withPath: path)
             databaseReference.removeValue { error, _ in
                 if let error = error {
                     completable(.error(error))
@@ -69,8 +69,9 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         }
     }
     
-    func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Single<T> {
+    func fetchDataSingle<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Single<T> {
         return Single.create { single in
+            let databaseReference = self.database.reference(withPath: path)
             databaseReference.observe(.value, with: { snapshot in
                 guard let value = snapshot.value as? [String: Any] else {
                     return single(.failure(DatabaseError.noData))
@@ -86,8 +87,9 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         }
     }
     
-    func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
+    func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> {
         return Observable.create { observer in
+            let databaseReference = self.database.reference(withPath: path)
             databaseReference.observe(.childAdded) { snapshot in
                 guard let value = snapshot.value else {
                     observer.onError(DatabaseError.noData)
@@ -104,8 +106,9 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         }
     }
     
-    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
+    func childAddedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> {
         return Observable.create { observer in
+            let databaseReference = self.database.reference(withPath: path)
             databaseReference.observe(.childAdded) { snapshot in
                 guard let value = snapshot.value else {
                     observer.onError(DatabaseError.noData)
@@ -122,8 +125,9 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         }
     }
     
-    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from databaseReference: DatabaseReference, decoder: JSONDecoder?) -> Observable<T> {
+    func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> {
         return Observable.create { observer in
+            let databaseReference = self.database.reference(withPath: path)
             databaseReference.observe(.childRemoved) { snapshot in
                 guard let value = snapshot.value else {
                     observer.onError(DatabaseError.noData)

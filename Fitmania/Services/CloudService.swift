@@ -35,8 +35,8 @@ protocol HasCloudService {
 }
 
 protocol CloudService {
-    func savePersonalDataWithID<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?, id: UUID?) -> Completable
-    func deletePersonalDataWithID(endpoint: DatabaseEndpoints, id: UUID?) -> Completable
+    func savePersonalDataWithID<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?, dataID: UUID?) -> Completable
+    func deletePersonalDataWithID(endpoint: DatabaseEndpoints, dataID: UUID?) -> Completable
     func savePublicData<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable
     func savePersonalData<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable
     func fetchPublicDataSingle<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Single<T>
@@ -50,42 +50,35 @@ final class CloudServiceImpl: CloudService {
     
     // MARK: Properties
     
-    enum FirestoreCollectionPaths: String {
-        case usersInfo
-    }
-    
     private let bag = DisposeBag()
     private let authManager: AuthManager
     private let realtimeService: RealtimeDatabaseService
-    private let database: Database
     
     // MARK: Initialization
     
     init(authManager: AuthManager, realtimeService: RealtimeDatabaseService) {
         self.authManager = authManager
         self.realtimeService = realtimeService
-        self.database = realtimeService.database
     }
     
     // MARK: Public Implementation
     
     func savePublicData<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable {
-        let reference = realtimeService.database.reference(withPath: endpoint.path)
-        return realtimeService.save(data, at: reference, encoder: encoder)
+        return realtimeService.save(data, at: endpoint.path, encoder: encoder)
     }
     
     func savePersonalData<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint))
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.save(data, at: reference, encoder: encoder)
         } catch {
             return Completable.error(error)
         }
     }
     
-    func savePersonalDataWithID<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?, id: UUID?) -> Completable {
+    func savePersonalDataWithID<T: Encodable>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?, dataID: UUID?) -> Completable {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint)).child(id?.uuidString ?? "")
+            let reference = try getPrivateDestination(from: endpoint, dataID: dataID)
             return realtimeService.save(data, at: reference, encoder: encoder)
         } catch {
             return Completable.error(error)
@@ -93,13 +86,13 @@ final class CloudServiceImpl: CloudService {
     }
     
     func fetchPublicDataSingle<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Single<T> {
-        let reference = realtimeService.database.reference(withPath: endpoint.path)
+        let reference = endpoint.path
         return realtimeService.fetchDataSingle(type, from: reference, decoder: decoder)
     }
     
     func fetchPersonalDataSingle<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Single<T> {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint))
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.fetchDataSingle(type, from: reference, decoder: decoder)
         } catch {
             return Single.error(error)
@@ -108,16 +101,16 @@ final class CloudServiceImpl: CloudService {
     
     func fetchPersonalDataObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint))
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.fetchDataObservable(type, from: reference, decoder: decoder)
         } catch {
             return Observable.error(error)
         }
     }
     
-    func deletePersonalDataWithID(endpoint: DatabaseEndpoints, id: UUID?) -> Completable {
+    func deletePersonalDataWithID(endpoint: DatabaseEndpoints, dataID: UUID?) -> Completable {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint)).child(id?.uuidString ?? "")
+            let reference = try getPrivateDestination(from: endpoint, dataID: dataID)
             return realtimeService.delete(from: reference)
         } catch {
             return Completable.error(error)
@@ -126,7 +119,7 @@ final class CloudServiceImpl: CloudService {
     
     func childAddedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint))
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.childAddedObservable(type, from: reference, decoder: decoder)
         } catch {
             return Observable.error(error)
@@ -135,18 +128,21 @@ final class CloudServiceImpl: CloudService {
     
     func childRemovedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> {
         do {
-            let reference = realtimeService.database.reference(withPath: try getDestination(from: endpoint))
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.childRemovedObservable(type, from: reference, decoder: decoder)
         } catch {
             return Observable.error(error)
         }
     }
     
-    private func getDestination(from endpoint: DatabaseEndpoints) throws -> String {
+    private func getPrivateDestination(from endpoint: DatabaseEndpoints, dataID: UUID?) throws -> String {
         guard let userID = authManager.getCurrentUser()?.uid else {
             throw AuthError.unauthenticatedUser
         }
-        return endpoint.path.withTrailingSlash + userID
+        let destinationPath = endpoint.path.withTrailingSlash + userID
+        guard let dataID else { return destinationPath }
+        let reference = destinationPath.withTrailingSlash + dataID.uuidString
+        return reference
     }
 }
 
@@ -160,7 +156,7 @@ extension CloudService {
     }
     
     func savePersonalDataWithID<T: Encodable>(data: T, endpoint: DatabaseEndpoints, id: UUID?) -> Completable {
-        return savePersonalDataWithID(data: data, endpoint: endpoint, encoder: nil, id: id)
+        return savePersonalDataWithID(data: data, endpoint: endpoint, encoder: nil, dataID: id)
     }
     
     func fetchPublicDataSingle<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints) -> Single<T> {

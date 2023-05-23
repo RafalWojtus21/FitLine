@@ -50,7 +50,7 @@ final class WorkoutsServiceImpl: WorkoutsService {
     }
     
     func deleteWorkoutPlan(id: WorkoutPlanID) -> Completable {
-        cloudService.deletePersonalDataWithID(endpoint: .workouts, id: id.workoutPlanID)
+        cloudService.deletePersonalDataWithID(endpoint: .workouts, dataID: id.workoutPlanID)
     }
     
     func observeWorkoutsInCloudService() {
