@@ -59,18 +59,17 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     
     private func bindControls() {
         let addExerciseButtonIntent = addExerciseButton?.tap.map { [weak self] _ -> Intent in
-            guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text else { return Intent.invalidDataSet }
-            return Intent.addExerciseIntent(time: exerciseTime, breakTime: exerciseBreakTime)
+            guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text, let setsNumber = self?.exerciseDetailsView.setsTextfield.text else { return Intent.invalidDataSet }
+            return Intent.addExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime)
         }
-                
-        let exerciseTimeValidationIntent = exerciseDetailsView.timeTextField.rx.text.orEmpty.asObservable().skip(1).map { Intent.validateExerciseTime(text: $0) }
-        let exerciseBreakTimeValidationIntent = exerciseDetailsView.breakTimeTextField.rx.text.orEmpty.asObservable().skip(1).map { Intent.validateExerciseBreakTime(text: $0) }
+        
+        let exerciseTimeValidationIntent = exerciseDetailsView.timeTextField.rx.text.orEmpty.asObservable().map { Intent.validateExerciseTime(text: $0) }
+        let exerciseSetsValidationIntent = exerciseDetailsView.setsTextfield.rx.text.orEmpty.asObservable().map { Intent.validateSets(text: $0) }
+        let exerciseBreakTimeValidationIntent = exerciseDetailsView.breakTimeTextField.rx.text.orEmpty.asObservable().map { Intent.validateExerciseBreakTime(text: $0) }
         
         guard let addExerciseButtonIntent else { return }
-        Observable.merge(addExerciseButtonIntent, exerciseTimeValidationIntent, exerciseBreakTimeValidationIntent)
-            .subscribe(onNext: { [weak self] intent in
-                self?._intents.subject.onNext(intent)
-            })
+        Observable.merge(addExerciseButtonIntent, exerciseTimeValidationIntent, exerciseBreakTimeValidationIntent, exerciseSetsValidationIntent)
+            .bind(to: _intents.subject)
             .disposed(by: bag)
     }
     
@@ -83,6 +82,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     
     func render(state: ViewState) {
         title = state.chosenExercise.name
+        exerciseDetailsView.setupView(category: state.chosenExercise.category)
         addExerciseButton?.isEnabled = state.isAddButtonEnabled
     }
 }

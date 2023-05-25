@@ -82,7 +82,14 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
     private func bindControls() {
         exercisesSubject
             .bind(to: tableView.rx.items(cellIdentifier: ExerciseDetailsCell.reuseIdentifier, cellType: ExerciseDetailsCell.self)) { _, item, cell in
-                cell.configureCell(with: ExerciseDetailsCell.ViewModel(name: item.exercise.name, time: item.time, breakTime: item.breakTime))
+                switch item.exercise.type {
+                case .cardio:
+                    guard let time = item.details.time else { return }
+                    cell.configureCell(with: ExerciseDetailsCell.ViewModel(name: item.exercise.name, type: item.exercise.type, timeOrSetsValue: time, breakTime: item.details.breakTime))
+                case .strength:
+                    guard let sets = item.details.sets else { return }
+                    cell.configureCell(with: ExerciseDetailsCell.ViewModel(name: item.exercise.name, type: item.exercise.type, timeOrSetsValue: sets, breakTime: item.details.breakTime))
+                }
             }
             .disposed(by: bag)
         

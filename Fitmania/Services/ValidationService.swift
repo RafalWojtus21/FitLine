@@ -19,6 +19,7 @@ enum Validation {
         case height
         case weight
         case workoutTime
+        case workoutSets
         
         enum RegexPatterns: String {
             case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -32,6 +33,7 @@ enum Validation {
             case height = "^(2[0-2][0-9]|23[0-9]|[1][0-9][0-9]|[2-9][0-9]|[2-9])$"
             case weight = "^(2[3-4][0-9]|25[0-9]|[3-9][0-9]|[1-2][0-4][0-9]|250|[3-9][0-9]|[1-2][0-9]|30)$"
             case workoutTime = "^(?!0\\d)\\d{1,4}$|^(10[0-7]\\d{2}|10800)$"
+            case workoutSets = "^(1?[0-9]|20)$"
         }
 
         var predicates: [(NSPredicate, String)] {
@@ -64,7 +66,11 @@ enum Validation {
                  ]
              case .workoutTime:
                  return [
-                    (NSPredicate.matchPredicate(regex: .workoutTime), L.invalidWeightError)
+                    (NSPredicate.matchPredicate(regex: .workoutTime), L.invalidWorkoutTimeError)
+                 ]
+             case .workoutSets:
+                 return [
+                    (NSPredicate.matchPredicate(regex: .workoutSets), L.invalidSetsNumberError)
                  ]
              default:
                  return []

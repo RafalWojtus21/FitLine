@@ -44,12 +44,15 @@ struct WorkoutExerciseScreenViewState: Equatable {
     var isTimerRunning = true
     var isStartButtonVisible: Bool { intervalState == .notStarted }
     var isNextButtonVisible: Bool { !isStartButtonVisible }
-    var isPauseButtonVisible: Bool { intervalState != .paused && intervalState != .notStarted }
-    var isResumeButtonVisible: Bool { intervalState == .paused }
+    var isPauseButtonVisible: Bool { intervalState != .paused && intervalState != .notStarted && !shouldShowStrengthExerciseAnimation }
+    var isResumeButtonVisible: Bool { intervalState == .paused && !shouldShowStrengthExerciseAnimation }
     var isPauseButtonEnabled: Bool { intervalState == .running }
     var isResumeButtonEnabled: Bool { intervalState == .paused }
     var shouldChangeTable = false
-    var shouldChangeEventName: Bool { workoutEvents.count > 0 }
+    var shouldChangeEventName: Bool { workoutEvents.count > 0 && intervalState != .notStarted}
+    var shouldShowTimer = false
+    var shouldShowStrengthExerciseAnimation = false
+    var shouldTriggerAnimation = false
 }
 
 enum WorkoutExerciseScreenEffect: Equatable {
@@ -71,22 +74,21 @@ enum WorkoutExerciseScreenResult: Equatable {
 }
 
 enum WorkoutExerciseScreenPartialState: Equatable {
-    case updateCurrentTime(intervalState: WorkoutExerciseScreen.IntervalState, currentEventIndex: Int, previousProgress: Float, currentProgress: Float, timeLeft: Int)
+    case updateCurrentTime(intervalState: WorkoutExerciseScreen.IntervalState, previousProgress: Float, currentProgress: Float, timeLeft: Int)
     case loadWorkoutEvents(workoutEvents: [WorkoutPartEvent])
     case isTimerRunning(isRunning: Bool)
     case updateIntervalState(intervalState: WorkoutExerciseScreen.IntervalState)
     case idle
+    case switchToPhysicalExerciseView(currentEventIndex: Int)
+    case shouldShowTimer(isTimerVisible: Bool)
+    case triggerAnimation
+    case updateCurrentEventIndex(currentEventIndex: Int)
     func reduce(previousState: WorkoutExerciseScreenViewState) -> WorkoutExerciseScreenViewState {
         var state = previousState
         state.shouldChangeTable = false
         switch self {
-        case .updateCurrentTime(let intervalState, let currentEventIndex, let previousProgress, let currentProgress, let timeLeft):
+        case .updateCurrentTime(let intervalState, let previousProgress, let currentProgress, let timeLeft):
             state.intervalState = intervalState
-            state.currentEventIndex = currentEventIndex
-            state.workoutEvents = state.workoutEvents.enumerated().compactMap({ index, row in
-                WorkoutExerciseScreen.Row(event: row.event, isSelected: index == currentEventIndex)
-            })
-            state.shouldChangeTable = true
             state.currentProgress = currentProgress
             state.previousProgress = previousProgress
             state.timeLeft = timeLeft
@@ -101,6 +103,19 @@ enum WorkoutExerciseScreenPartialState: Equatable {
             break
         case .updateIntervalState(intervalState: let intervalState):
             state.intervalState = intervalState
+        case .switchToPhysicalExerciseView(currentEventIndex: let currentEventIndex):
+            state.currentEventIndex = currentEventIndex
+        case .shouldShowTimer(isTimerVisible: let isTimerVisible):
+            state.shouldShowTimer = isTimerVisible
+            state.shouldShowStrengthExerciseAnimation = !isTimerVisible
+        case .triggerAnimation:
+            state.shouldTriggerAnimation = true
+        case .updateCurrentEventIndex(currentEventIndex: let currentEventIndex):
+            state.currentEventIndex = currentEventIndex
+            state.workoutEvents = state.workoutEvents.enumerated().compactMap({ index, row in
+                WorkoutExerciseScreen.Row(event: row.event, isSelected: index == currentEventIndex)
+            })
+            state.shouldChangeTable = true
         }
         return state
     }

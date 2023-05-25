@@ -9,15 +9,18 @@ import UIKit
 import SnapKit
 
 class ExerciseTrackerCell: UITableViewCell, ReusableCell {
-        
+    typealias L = Localization.General
+    
     struct ViewModel {
         let eventName: String
-        let duration: Int
+        let exerciseType: Exercise.ExerciseType
+        let eventType: WorkoutPartEvent.EventType
+        let duration: Int?
         let isSelected: Bool
     }
     
     // MARK: Properties
-        
+    
     private lazy var mainView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [eventNameLabel, eventDurationLabel])
         view.axis = .vertical
@@ -58,10 +61,15 @@ class ExerciseTrackerCell: UITableViewCell, ReusableCell {
     }
     
     // MARK: Public Implementation
-
+    
     func configure(with viewModel: ViewModel) {
         eventNameLabel.text = viewModel.eventName
-        eventDurationLabel.text = "\(viewModel.duration)" + " sec"
+        if viewModel.exerciseType == .strength && viewModel.eventType == .exercise {
+            eventDurationLabel.text = ""
+        } else {
+            guard let duration = viewModel.duration else { return }
+            eventDurationLabel.text = Int.calculateFormattedDuration(duration: duration)
+        }
         updateView(isSelected: viewModel.isSelected)
     }
     

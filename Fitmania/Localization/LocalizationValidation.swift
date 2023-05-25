@@ -24,5 +24,7 @@ extension Localization {
         static let invalidAgeError = "Validation.InvalidAgeError".localized
         static let invalidHeightError = "Validation.InvalidHeightError".localized
         static let invalidWeightError = "Validation.InvalidWeightError".localized
+        static let invalidWorkoutTimeError = "Validation.InvalidWorkoutTimeError".localized
+        static let invalidSetsNumberError = "Validation.InvalidSetsNumberError".localized
     }
 }

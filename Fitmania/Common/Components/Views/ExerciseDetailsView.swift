@@ -11,10 +11,14 @@ import SnapKit
 class ExerciseDetailsView: UIView {
     typealias L = Localization.CreateWorkoutFlow
     
+    struct ViewModel {
+        let category: Exercise.Category
+    }
+    
     // MARK: Properties
     
     private lazy var mainView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [timeView, breakTimeView])
+        let view = UIStackView()
         view.axis = .vertical
         view.distribution = .fillEqually
         view.backgroundColor = .clear
@@ -24,8 +28,29 @@ class ExerciseDetailsView: UIView {
         return view
     }()
     
+    private let setsView = UIView(backgroundColor: .clear)
+    
+    private let setsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sets"
+        label.font = .openSansSemiBold14
+        label.textColor = .white
+        return label
+    }()
+    
+    let setsTextfield: UITextField = {
+        let textField = UITextField()
+        textField.textAlignment = .right
+        textField.setRightPaddingPoints(12)
+        textField.setPlaceholder(placeholder: L.setTimeMessage, textColor: .lightGray)
+        textField.textColor = .white
+        textField.keyboardType = .numberPad
+        textField.returnKeyType = .next
+        return textField
+    }()
+    
     private let timeView = UIView(backgroundColor: .clear)
-
+    
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.text = L.timeWithUnitLabelTitle
@@ -35,7 +60,7 @@ class ExerciseDetailsView: UIView {
     }()
     
     let timeTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.textAlignment = .right
         textField.setRightPaddingPoints(12)
         textField.setPlaceholder(placeholder: L.setTimeMessage, textColor: .lightGray)
@@ -56,7 +81,7 @@ class ExerciseDetailsView: UIView {
     }()
     
     let breakTimeTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.textAlignment = .right
         textField.setPlaceholder(placeholder: L.setBreakTimeMessage, textColor: .lightGray)
         textField.setRightPaddingPoints(12)
@@ -68,26 +93,37 @@ class ExerciseDetailsView: UIView {
     
     // MARK: Public Implementation
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+    convenience init(with viewModel: ViewModel) {
+        self.init()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
+    func setupView(category: Exercise.Category) {
         addSubview(mainView)
-        timeView.addSubview(timeLabel)
-        timeView.addSubview(timeTextField)
-        breakTimeView.addSubview(breakTimeLabel)
-        breakTimeView.addSubview(breakTimeTextField)
         
         mainView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    
+        
+        mainView.addArrangedSubview(setsView)
+        setsView.addSubview(setsLabel)
+        setsView.addSubview(setsTextfield)
+        
+        setsLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.left.equalToSuperview().inset(16)
+        }
+        
+        setsTextfield.snp.makeConstraints {
+            $0.top.bottom.right.equalToSuperview()
+            $0.left.equalTo(setsLabel.snp.right).offset(20)
+        }
+        
+        mainView.addArrangedSubview(timeView)
+        timeView.addSubview(timeLabel)
+        timeView.addSubview(timeTextField)
+        
+        mainView.addArrangedSubview(breakTimeView)
+        
         timeLabel.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.left.equalToSuperview().inset(16)
@@ -98,6 +134,9 @@ class ExerciseDetailsView: UIView {
             $0.left.equalTo(timeLabel.snp.right).offset(20)
         }
         
+        breakTimeView.addSubview(breakTimeLabel)
+        breakTimeView.addSubview(breakTimeTextField)
+        
         breakTimeLabel.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.left.equalToSuperview().inset(16)
@@ -105,7 +144,10 @@ class ExerciseDetailsView: UIView {
         
         breakTimeTextField.snp.makeConstraints {
             $0.top.bottom.right.equalToSuperview()
-            $0.left.equalTo(timeLabel.snp.right).offset(20)
+            $0.left.equalTo(breakTimeLabel.snp.right).offset(20)
         }
+        
+        timeView.isHidden = !category.isTimeVisible
+        setsView.isHidden = !category.areSetsVisible
     }
 }

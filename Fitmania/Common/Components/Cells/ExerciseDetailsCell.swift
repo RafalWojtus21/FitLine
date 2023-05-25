@@ -15,7 +15,8 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     
     struct ViewModel {
         let name: String
-        let time: Int
+        let type: Exercise.ExerciseType
+        let timeOrSetsValue: Int
         let breakTime: Int
     }
     
@@ -42,7 +43,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     }()
     
     private lazy var detailsView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [exerciseTimeStackView, exerciseBreakTimeStackView])
+        let view = UIStackView(arrangedSubviews: [exerciseTimeOrSetsStackView, exerciseBreakTimeStackView])
         view.axis = .vertical
         view.backgroundColor = .clear
         view.layer.borderWidth = 1
@@ -51,17 +52,16 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
         return view
     }()
     
-    private lazy var exerciseTimeStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [exerciseTimeHeader, exerciseTimeValueLabel])
+    private lazy var exerciseTimeOrSetsStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [exerciseTimeOrSetsHeader, exerciseTimeOrSetsValueLabel])
         view.axis = .horizontal
         view.backgroundColor = .clear
         return view
     }()
     
-    private lazy var exerciseTimeHeader: UILabel = {
+    private lazy var exerciseTimeOrSetsHeader: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
-        label.text = L.time + ":"
         label.numberOfLines = 0
         label.textColor = .white
         label.textAlignment = .center
@@ -69,7 +69,7 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
         return label
     }()
     
-    private lazy var exerciseTimeValueLabel: UILabel = {
+    private lazy var exerciseTimeOrSetsValueLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
         label.numberOfLines = 0
@@ -122,8 +122,14 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
     // MARK: Public Implementation
     
     func configureCell(with viewModel: ViewModel) {
+        switch viewModel.type {
+        case .strength:
+            exerciseTimeOrSetsHeader.text = L.sets + ":"
+        case .cardio:
+            exerciseTimeOrSetsHeader.text = L.time + ":"
+        }
         exerciseNameLabel.text = viewModel.name
-        exerciseTimeValueLabel.text = "\(viewModel.time)"
+        exerciseTimeOrSetsValueLabel.text = "\(viewModel.timeOrSetsValue)"
         exerciseBreakTimeValueLabel.text = "\(viewModel.breakTime)"
     }
     

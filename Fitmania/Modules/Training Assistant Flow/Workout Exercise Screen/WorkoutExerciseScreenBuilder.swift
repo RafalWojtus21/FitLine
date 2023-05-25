@@ -19,7 +19,7 @@ final class WorkoutExerciseScreenBuilderImpl: WorkoutExerciseScreenBuilder {
     func build(with input: WorkoutExerciseScreenBuilderInput) -> WorkoutExerciseScreenModule {
         let interactor = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies, workoutPlan: input.chosenPlan)
         let middleware = WorkoutExerciseScreenMiddlewareImpl(dependencies: dependencies)
-        let presenter = WorkoutExerciseScreenPresenterImpl(interactor: interactor, middleware: middleware, initialViewState: WorkoutExerciseScreenViewState(chosenPlan: input.chosenPlan, timeLeft: input.chosenPlan.parts.first?.time ?? 0))
+        let presenter = WorkoutExerciseScreenPresenterImpl(interactor: interactor, middleware: middleware, initialViewState: WorkoutExerciseScreenViewState(chosenPlan: input.chosenPlan, timeLeft: input.chosenPlan.parts.first?.details.time ?? 0))
         let view = WorkoutExerciseScreenViewController(presenter: presenter)
         return WorkoutExerciseScreenModule(view: view, callback: middleware)
     }

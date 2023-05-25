@@ -33,10 +33,12 @@ final class AddExerciseScreenPresenterImpl: AddExerciseScreenPresenter {
                 return interactor.validateExerciseTime(time: text)
             case .validateExerciseBreakTime(text: let text):
                 return interactor.validateExerciseBreakTime(time: text)
-            case .addExerciseIntent(time: let time, breakTime: let breakTime):
-                return interactor.addExercise(time: time, breakTime: breakTime)
             case .invalidDataSet:
                 return .just(.effect(.invalidData))
+            case .addExerciseIntent(sets: let sets, time: let time, breakTime: let breakTime):
+                return interactor.addExercise(sets: sets, time: time, breakTime: breakTime)
+            case .validateSets(text: let text):
+                return interactor.validateSets(sets: text)
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

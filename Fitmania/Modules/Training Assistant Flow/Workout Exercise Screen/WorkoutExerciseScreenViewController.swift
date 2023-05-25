@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import SwiftUI
 
 final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExerciseScreenView {
     typealias ViewState = WorkoutExerciseScreenViewState
@@ -24,8 +25,9 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     
     private var exerciseTrackerSubject = PublishSubject<[WorkoutExerciseScreen.Row]>()
     private var currentEventIndexSubject = BehaviorSubject<Int>(value: 0)
+    @Published var isAnimating = false
     
-    private lazy var plusButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemBlack, imageName: nil, title: "Set details")
+    private lazy var plusButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemBlack, imageName: nil, title: L.setDetailsButtonTitle)
     
     private lazy var workoutDetailsView: UIView = {
         let view = UIView(backgroundColor: .secondaryColor)
@@ -35,7 +37,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     
     private lazy var workoutDetailsStackView: UIStackView = {
         let filler = UIView()
-        let view = UIStackView(arrangedSubviews: [eventNameLabel, circularProgressBar, timerControlView])
+        let view = UIStackView(arrangedSubviews: [eventNameLabel, exerciseContentView, timerControlView])
         view.axis = .vertical
         view.spacing = 20
         view.backgroundColor = .clear
@@ -50,7 +52,11 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         return label
     }()
     
+    private lazy var exerciseContentView = UIView(backgroundColor: .secondaryColor)
     private lazy var circularProgressBar = CircularProgressBarView()
+    private var model = StrengthExerciseViewDataModel()
+    private lazy var strengthExerciseController = UIHostingController(rootView: StrengthExerciseView(model: model, waveColor: Color(.primaryColor), amplify: 150, backgroundColor: Color(.secondaryColor)))
+    private var strengthExerciseView: UIView { strengthExerciseController.view }
     
     private lazy var timeLeftLabel: UILabel = {
         let label = UILabel()
@@ -128,6 +134,8 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         view.addSubview(workoutDetailsView)
         workoutDetailsView.addSubview(workoutDetailsStackView)
         workoutDetailsView.addSubview(tableView)
+        exerciseContentView.addSubview(circularProgressBar)
+        exerciseContentView.addSubview(strengthExerciseView)
         view.addSubview(startButton)
         view.addSubview(nextEventButton)
         
@@ -159,8 +167,16 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
             $0.bottom.equalTo(tableView.snp.top).offset(-12)
         }
         
-        circularProgressBar.snp.makeConstraints {
+        exerciseContentView.snp.makeConstraints {
             $0.height.equalToSuperview().multipliedBy(0.7)
+        }
+        
+        circularProgressBar.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        strengthExerciseView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
   
         circularProgressBar.addSubview(timeLeftLabel)
@@ -192,7 +208,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     private func bindControls() {
         exerciseTrackerSubject
             .bind(to: tableView.rx.items(cellIdentifier: ExerciseTrackerCell.reuseIdentifier, cellType: ExerciseTrackerCell.self)) { _, item, cell in
-                cell.configure(with: ExerciseTrackerCell.ViewModel(eventName: item.event.name, duration: item.event.duration, isSelected: item.isSelected))
+                cell.configure(with: ExerciseTrackerCell.ViewModel(eventName: item.event.name, exerciseType: item.event.exercise.type, eventType: item.event.type, duration: item.event.duration, isSelected: item.isSelected))
             }
             .disposed(by: bag)
         
@@ -226,13 +242,13 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     private func trigger(effect: Effect) {
         switch effect {
         case .showExerciseDetailsAlert(detailsTypes: let detailsTypes):
-            let alert = UIAlertController(title: "Set details", message: "Enter your results for the current exercise", preferredStyle: .alert)
+            let alert = UIAlertController(title: L.setDetailsAlertTitle, message: L.setDetailsAlertMessage, preferredStyle: .alert)
             for detailType in detailsTypes {
                 alert.addTextField { textField in
                     textField.placeholder = detailType.rawValue
                 }
             }
-            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self, weak alert] _ in
+            alert.addAction(UIAlertAction(title: L.saveAlertAction, style: .default, handler: { [weak self, weak alert] _ in
                 guard let self, let textFields = alert?.textFields else { return }
                 var texts: [String] = []
                 for (index, textField) in textFields.enumerated() {
@@ -240,7 +256,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
                 }
                 self._intents.subject.onNext(.saveButtonPressed(details: texts))
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: L.cancelAlertAction, style: .cancel))
             present(alert, animated: true, completion: nil)
         default: break
         }
@@ -265,5 +281,25 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         circularProgressBar.setProgress(fromValue: state.previousProgress, toValue: state.currentProgress)
         
         plusButton?.isHidden = state.currentEventIndex % 2 == 1 ? false : true
+        
+        isAnimating = state.shouldTriggerAnimation
+        circularProgressBar.isHidden = !state.shouldShowTimer
+        strengthExerciseView.isHidden = !state.shouldShowStrengthExerciseAnimation
+        
+        if state.intervalState != .notStarted {
+            if state.shouldShowTimer {
+                circularProgressBar.fadeIn()
+            } else {
+                circularProgressBar.fadeOut()
+            }
+            
+            if state.shouldShowStrengthExerciseAnimation && state.intervalState != .notStarted {
+                strengthExerciseView.fadeIn()
+            } else {
+                strengthExerciseView.fadeOut()
+            }
+        }
+
+        model.isAnimating = state.shouldTriggerAnimation
     }
 }

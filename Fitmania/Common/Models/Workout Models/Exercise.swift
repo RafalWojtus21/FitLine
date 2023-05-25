@@ -21,6 +21,42 @@ extension Exercise {
         case chest
         case shoulders
         case back
+        
+        var shouldMeasureTime: Bool {
+            switch self {
+            case .cardio:
+                return true
+            default:
+                return false
+            }
+        }
+        
+        var isTimeVisible: Bool {
+            switch self {
+            case .cardio:
+                return true
+            default:
+                return false
+            }
+        }
+        
+        var areSetsVisible: Bool {
+            return !isTimeVisible
+        }
+    }
+    
+    enum ExerciseType {
+        case strength
+        case cardio
+    }
+    
+    var type: ExerciseType {
+        switch category {
+        case .cardio:
+            return .cardio
+        default:
+            return .strength
+        }
     }
     
     enum DetailsType: String, Codable, Equatable {

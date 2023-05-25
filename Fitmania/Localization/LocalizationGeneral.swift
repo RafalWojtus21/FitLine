@@ -17,7 +17,14 @@ extension Localization {
         static let workout = "General.Workout".localized
         static let settings = "General.Settings".localized
         static let time = "General.Time".localized
+        static let sets = "General.Sets".localized
         static let breakTime = "General.BreakTime".localized
         static let add = "General.Add".localized
+        static let secondsSingularForm = "General.Units.Seconds.Singular".localized
+        static let secondsPluralForm = "General.Units.Seconds.Plural".localized
+        static let minutesSingularForm = "General.Units.Minutes.Singular".localized
+        static let minutesPluralForm = "General.Units.Minutes.Plural".localized
+        static let hoursSingularForm = "General.Units.Hours.Singular".localized
+        static let hoursPluralForm = "General.Units.Hours.Plural".localized
     }
 }

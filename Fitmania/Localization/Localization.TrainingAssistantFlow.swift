@@ -16,5 +16,10 @@ extension Localization {
         static let nextButtonTitle = "WorkoutExerciseScreen.NextButtonTitle".localized
         static let workoutFinishedScreenTitle = "WorkoutFinishedScreen.ScreenTitle".localized
         static let doneButtonTitle = "WorkoutFinishedScreen.DoneButtonTitle".localized
+        static let setDetailsButtonTitle = "WorkoutExerciseScreen.SetDetailsButtonTitle".localized
+        static let setDetailsAlertTitle = "WorkoutExerciseScreen.SetDetailsAlertTitle".localized
+        static let setDetailsAlertMessage = "WorkoutExerciseScreen.SetDetailsAlertMessage".localized
+        static let saveAlertAction = "WorkoutExerciseScreen.SaveAlertAction".localized
+        static let cancelAlertAction = "WorkoutExerciseScreen.CancelAlertAction".localized
     }
 }

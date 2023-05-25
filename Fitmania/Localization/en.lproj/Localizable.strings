@@ -19,6 +19,13 @@
 "General.Time" = "Time";
 "General.BreakTime" = "Break time";
 "General.Add" = "Add";
+"General.Sets" = "Sets";
+"General.Units.Seconds.Singular" = "second";
+"General.Units.Seconds.Plural" = "seconds";
+"General.Units.Minutes.Singular" = "minute";
+"General.Units.Minutes.Plural" = "minutes";
+"General.Units.Hours.Singular" = "hour";
+"General.Units.Hours.Plural" = "hours";
 
 // MARK: Welcome Screen
 
@@ -70,7 +77,8 @@
 "Validation.InvalidAgeError" = "Invalid age format";
 "Validation.InvalidHeightError" = "Invalid height format";
 "Validation.InvalidWeightError" = "Invalid weight format";
-
+"Validation.InvalidWorkoutTimeError" = "Invalid time format";
+"Validation.InvalidSetsNumberError" = "Invalid sets format";
 // MARK: Forgot Password Screen
 
 "ForgotPassword.ResetInstructions" = "No worries, we’ll send you reset instructions";
@@ -137,3 +145,8 @@
 
 "WorkoutFinishedScreen.ScreenTitle" = "Workout summary";
 "WorkoutFinishedScreen.DoneButtonTitle" = "Done";
+"WorkoutExerciseScreen.SetDetailsButtonTitle" = "Set details";
+"WorkoutExerciseScreen.SetDetailsAlertTitle" = "Set details of the exercise";
+"WorkoutExerciseScreen.SetDetailsAlertMessage" = "Enter your results for the current exercise";
+"WorkoutExerciseScreen.SaveAlertAction" = "Save";
+"WorkoutExerciseScreen.CancelAlertAction" = "Cancel";

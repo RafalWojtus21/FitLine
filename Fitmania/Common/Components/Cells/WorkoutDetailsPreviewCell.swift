@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class WorkoutDetailsPreviewCell: UITableViewCell, ReusableCell {
+    typealias L = Localization.General
         
     struct ViewModel {
         let exercise: WorkoutPart
@@ -19,7 +20,7 @@ class WorkoutDetailsPreviewCell: UITableViewCell, ReusableCell {
     private lazy var mainView = UIView(backgroundColor: .clear)
     
     private lazy var exerciseStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [exerciseNameLabel, exerciseTimeLabel])
+        let view = UIStackView(arrangedSubviews: [exerciseNameLabel, exerciseTimeLabel, exerciseSetsLabel])
         view.axis = .vertical
         view.spacing = 2
         view.backgroundColor = .clear
@@ -39,6 +40,14 @@ class WorkoutDetailsPreviewCell: UITableViewCell, ReusableCell {
     }()
     
     private lazy var exerciseTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .openSansSemiBold16
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var exerciseSetsLabel: UILabel = {
         let label = UILabel()
         label.font = .openSansSemiBold16
         label.textColor = .white
@@ -72,8 +81,15 @@ class WorkoutDetailsPreviewCell: UITableViewCell, ReusableCell {
 
     func configure(with viewModel: ViewModel) {
         exerciseNameLabel.text = viewModel.exercise.exercise.name
-        exerciseTimeLabel.text = "\(viewModel.exercise.time)" + " sec"
-        exerciseBreakTimeLabel.text = "\(viewModel.exercise.breakTime)" + " sec"
+        switch viewModel.exercise.exercise.type {
+        case .strength:
+            guard let sets = viewModel.exercise.details.sets else { return }
+            exerciseSetsLabel.text = "\(sets)" + L.sets
+        case .cardio:
+            guard let time = viewModel.exercise.details.time else { return }
+            exerciseTimeLabel.text = Int.calculateFormattedDuration(duration: time)
+        }
+        exerciseBreakTimeLabel.text = Int.calculateFormattedDuration(duration: viewModel.exercise.details.breakTime)
     }
     
     // MARK: Private Implementation

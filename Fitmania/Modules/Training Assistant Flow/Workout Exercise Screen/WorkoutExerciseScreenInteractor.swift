@@ -11,7 +11,7 @@ import UIKit
 final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor {
     
     // MARK: Properties
-
+    
     typealias Dependencies = Any
     typealias Result = WorkoutExerciseScreenResult
     
@@ -36,7 +36,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     private var detailedExercisesArray: [DetailedExercise] = []
     private var exerciseDetailsSubject = BehaviorSubject<([DetailedExercise.Details], Int?)>(value: ([], nil))
     var detailedExercises: [DetailedExercise] = []
-
+    
     enum TriggerType {
         case initialExercise
         case nextExercise
@@ -48,7 +48,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         self.dependencies = dependencies
         self.timerScheduler = timerScheduler
         self.workoutPlan = workoutPlan
-        self.timeLeft = Double(workoutEvents[0].duration)
+        self.timeLeft = Double(workoutEvents[0].duration ?? 0)
         self.workoutPlan = workoutPlan
     }
     
@@ -62,12 +62,15 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         return triggerExerciseSubject
             .asObservable()
             .flatMapLatest { triggerType -> Observable<WorkoutExerciseScreenResult> in
-                self.timeLeft = Double(self.workoutEvents[self.currentEventIndex].duration)
                 self.timeGone = 0.0
                 self.accumulatedTime = 0.0
                 switch triggerType {
                 case .initialExercise:
-                    return self.handleInitialExercise()
+                    return .merge(
+                        .just(.partialState(.updateIntervalState(intervalState: .running))),
+                        .just(.partialState(.updateCurrentEventIndex(currentEventIndex: 0))),
+                        self.handleInitialExercise()
+                    )
                 case .nextExercise:
                     return self.handleNextExercise()
                 }
@@ -78,7 +81,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         let detailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
         return .just(.effect(.showExerciseDetailsAlert(detailsTypes: detailsTypes)))
     }
-
+    
     func saveDetailOfCurrentExercise(details: [String]) -> Observable<WorkoutExerciseScreenResult> {
         let possibleDetailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
         var exerciseDetails: [DetailedExercise.Details] = []
@@ -102,7 +105,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         }
         return .just(.partialState(.idle))
     }
-        
+    
     func triggerFirstExercise() -> Observable<WorkoutExerciseScreenResult> {
         triggerExerciseSubject.onNext(.initialExercise)
         return .just(.partialState(.idle))
@@ -114,30 +117,34 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     }
     
     func setTimer() -> Observable<WorkoutExerciseScreenResult> {
-        let eventDuration = TimeInterval(workoutEvents[currentEventIndex].duration)
+        let currentEventDuration = workoutEvents[currentEventIndex].duration
+        // swiftlint:disable:next force_unwrapping
+        let eventDurationTimeInterval: TimeInterval? = currentEventDuration != nil ? TimeInterval(currentEventDuration!) : nil
+        self.timeLeft = Double(self.workoutEvents[self.currentEventIndex].duration ?? 0)
         startTime = Date()
         return Observable<Int>.interval(.milliseconds(1), scheduler: timerScheduler)
             .pausable(pauser)
             .take(until: { _ in
-                self.timeLeft == 0
+                return self.timeLeft == 0
             })
             .map { _ -> WorkoutExerciseScreenResult in
                 guard let startTime = self.startTime, var timeLeft = self.timeLeft else { return .partialState(.isTimerRunning(isRunning: false))}
+                guard let eventDurationTimeInterval else { return .partialState(.switchToPhysicalExerciseView(currentEventIndex: self.currentEventIndex)) }
                 let currentTime = Date()
                 let elapsedTime = currentTime.timeIntervalSince(startTime) + self.accumulatedTime
-                let previousProgress = Float(elapsedTime) / Float(eventDuration)
+                let previousProgress = Float(elapsedTime) / Float(eventDurationTimeInterval)
                 self.timeGone = elapsedTime
-                timeLeft = eventDuration - elapsedTime
-                let currentProgress = Float(elapsedTime) / Float(eventDuration)
+                timeLeft = eventDurationTimeInterval - elapsedTime
+                let currentProgress = Float(elapsedTime) / Float(eventDurationTimeInterval)
                 var intervalState: WorkoutExerciseScreen.IntervalState = .running
-                if elapsedTime >= eventDuration {
+                if elapsedTime >= eventDurationTimeInterval {
                     timeLeft = 0
                     intervalState = .finished
                     if self.workoutEvents[self.currentEventIndex].type == .exercise {
                         self.triggerExerciseSubject.onNext(.nextExercise)
                     }
                 }
-                return .partialState(.updateCurrentTime(intervalState: intervalState, currentEventIndex: self.currentEventIndex, previousProgress: previousProgress, currentProgress: currentProgress, timeLeft: Int(ceil(timeLeft))))
+                return .partialState(.updateCurrentTime(intervalState: intervalState, previousProgress: previousProgress, currentProgress: currentProgress, timeLeft: Int(ceil(timeLeft))))
             }
     }
     
@@ -160,10 +167,24 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     }
     
     // MARK: Private Implementation
-
+    
     private func handleInitialExercise() -> Observable<WorkoutExerciseScreenResult> {
         workoutStartTime = Date()
-        return setTimer()
+        return checkTypeOfExercise()
+    }
+    
+    private func checkTypeOfExercise() -> Observable<WorkoutExerciseScreenResult> {
+        let currentEvent = workoutEvents[currentEventIndex]
+        if currentEvent.exercise.category.shouldMeasureTime {
+            return .merge(setTimer(), .just(.partialState(.shouldShowTimer(isTimerVisible: true))))
+        } else {
+            switch currentEvent.type {
+            case .exercise:
+                return .merge(.just(.partialState(.shouldShowTimer(isTimerVisible: false))), .just(.partialState(.triggerAnimation)))
+            case .rest:
+                return .merge(setTimer(), .just(.partialState(.shouldShowTimer(isTimerVisible: true))))
+            }
+        }
     }
     
     private func handleNextExercise() -> Observable<WorkoutExerciseScreenResult> {
@@ -183,11 +204,8 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
             }
         default: break
         }
+        
         return checkIfLastEvent()
-    }
-    
-    private func isLastEvent() -> Bool {
-        currentEventIndex == workoutEvents.count - 1
     }
     
     private func checkIfLastEvent() -> Observable<WorkoutExerciseScreenResult> {
@@ -198,6 +216,10 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         }
     }
     
+    private func isLastEvent() -> Bool {
+        currentEventIndex == workoutEvents.count - 1
+    }
+    
     private func handleLastEvent() -> Observable<WorkoutExerciseScreenResult> {
         detailedExercisesSubject.onNext(detailedExercises)
         let finishedWorkout = FinishedWorkout(workoutPlanName: workoutPlan.name, workoutID: WorkoutPlanID(workoutPlanID: UUID()), exercisesDetails: detailedExercises, startDate: workoutStartTime ?? Date(), finishDate: Date())
@@ -206,6 +228,6 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     
     private func handleNonLastEvent() -> Observable<WorkoutExerciseScreenResult> {
         currentEventIndex += 1
-        return setTimer()
+        return .merge(checkTypeOfExercise(), .just(.partialState(.updateCurrentEventIndex(currentEventIndex: currentEventIndex))))
     }
 }
