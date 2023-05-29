@@ -78,7 +78,6 @@ final class AppFlowController: AppNavigation {
     }
     
     func finishedOnboarding(type: OnboardingExit) {
-        onboardingFlowController = nil
         startAuthenticationFlow(type: type)
     }
     
@@ -89,6 +88,7 @@ final class AppFlowController: AppNavigation {
     
     func finishedAuthenticationFlow() {
         authenticationFlowController = nil
+        onboardingFlowController = nil
         startMainFlow()
     }
     
