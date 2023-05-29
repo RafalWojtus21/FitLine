@@ -82,7 +82,6 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
-        .debug("sign up AM")
     }
     
     func login(email: String, password: String) -> Single<AuthResponse> {
@@ -108,7 +107,6 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
-        .debug("log in AM")
     }
     
     func signOut() -> Completable {
@@ -121,7 +119,6 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
-        .debug("sign out AM")
     }
     
     func resetPassword(email: String) -> Completable {
@@ -132,6 +129,5 @@ final class AuthManagerImpl: AuthManager {
             }
             return Disposables.create()
         }
-        .debug("reset password AM")
     }
 }

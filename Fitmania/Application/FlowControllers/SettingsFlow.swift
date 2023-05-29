@@ -6,27 +6,31 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HasSettingsFlowNavigation {
     var settingsFlowNavigation: SettingsFlowNavigation? { get }
 }
 
 protocol SettingsFlow {
-    func startSettingsFlow() -> BaseView?
+    func startSettingsFlow() -> BaseView
 }
 
 protocol SettingsFlowNavigation: AnyObject {
+    func finishedSettingsFlow()
 }
 
 class SettingsFlowController: SettingsFlow, SettingsFlowNavigation {
-    typealias Dependencies = HasNavigation & HasAppNavigation
+    typealias Dependencies = HasNavigation & HasAppNavigation & HasMainFlowNavigation
     
-    struct ExtendedDependencies: Dependencies, HasSettingsFlowNavigation {
+    struct ExtendedDependencies: Dependencies, HasSettingsFlowNavigation, HasAuthManager {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         weak var settingsFlowNavigation: SettingsFlowNavigation?
-        
+        weak var mainFlowNavigation: MainFlowNavigation?
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
+
         init(dependencies: Dependencies, settingsFlowNavigation: SettingsFlowNavigation?) {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
@@ -47,9 +51,15 @@ class SettingsFlowController: SettingsFlow, SettingsFlowNavigation {
     
     // MARK: - Builders
     
+    private lazy var settingsScreenBuilder: SettingsScreenBuilder = SettingsScreenBuilderImpl(dependencies: extendedDependencies)
+
     // MARK: - AppNavigation
     
-    func startSettingsFlow() -> BaseView? {
-        nil
+    func startSettingsFlow() -> BaseView {
+        settingsScreenBuilder.build(with: .init()).view
+    }
+    
+    func finishedSettingsFlow() {
+        dependencies.mainFlowNavigation?.finishedMainFlow()
     }
 }

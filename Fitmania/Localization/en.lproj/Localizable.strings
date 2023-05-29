@@ -150,3 +150,7 @@
 "WorkoutExerciseScreen.SetDetailsAlertMessage" = "Enter your results for the current exercise";
 "WorkoutExerciseScreen.SaveAlertAction" = "Save";
 "WorkoutExerciseScreen.CancelAlertAction" = "Cancel";
+
+// MARK: Settings Screen
+
+"SettingsScreen.SignOutButtonTitle" = "Sign out";

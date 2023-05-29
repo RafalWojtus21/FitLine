@@ -56,6 +56,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
         let textField = fitmaniaTextField.textField
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitmaniaTextField
     }()

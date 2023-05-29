@@ -61,6 +61,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
         let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
         let textField = fitmaniaTextField.fitmaniaTextField.textField
         textField.textContentType = .emailAddress
+        textField.autocapitalizationType = .none
         textField.keyboardType = .emailAddress
         textField.returnKeyType = .next
         return fitmaniaTextField
@@ -71,6 +72,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
         let textField = fitmaniaTextField.fitmaniaTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
+        textField.autocapitalizationType = .none
         textField.keyboardType = .default
         textField.returnKeyType = .next
         return fitmaniaTextField

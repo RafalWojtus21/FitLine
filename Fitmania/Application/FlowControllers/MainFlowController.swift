@@ -16,6 +16,7 @@ protocol MainFlow {
 }
 
 protocol MainFlowNavigation: AnyObject {
+    func finishedMainFlow()
 }
 
 class MainFlowController: MainFlow, MainFlowNavigation {
@@ -82,5 +83,12 @@ class MainFlowController: MainFlow, MainFlowNavigation {
     
     func dismiss() {
         dependencies.appNavigation?.dismiss()
+    }
+    
+    func finishedMainFlow() {
+        calendarFlowController = nil
+        workoutFlowController = nil
+        settingsFlowController = nil
+        dependencies.appNavigation?.finishedMainFlow()
     }
 }

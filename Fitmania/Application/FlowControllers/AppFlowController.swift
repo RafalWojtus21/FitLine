@@ -99,6 +99,7 @@ final class AppFlowController: AppNavigation {
     
     func finishedMainFlow() {
         mainFlowController = nil
+        startOnboardingFlow()
     }
 
     func startHomeFlow() {

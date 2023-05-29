@@ -36,6 +36,7 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
         let textField = fitmaniaTextField.fitmaniaTextField.textField
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitmaniaTextField
     }()
@@ -46,6 +47,7 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.keyboardType = .default
+        textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitmaniaTextField
     }()
@@ -56,6 +58,7 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.keyboardType = .default
+        textField.autocapitalizationType = .none
         textField.returnKeyType = .done
         return fitmaniaTextField
     }()
