@@ -85,5 +85,6 @@ struct DetailedExercise: Codable, Equatable, Hashable {
         case repetitions(Int)
         case weight(Double)
         case distance(Double)
+        case totalTime(TimeInterval)
     }
 }

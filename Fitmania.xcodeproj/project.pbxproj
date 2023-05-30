@@ -54,6 +54,7 @@
 		8B2A4B7E29F6D55200B6B3F0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2A4B7D29F6D55200B6B3F0 /* FirebaseDatabase */; };
 		8B2A4B8029F6D55200B6B3F0 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2A4B7F29F6D55200B6B3F0 /* FirebaseDatabaseSwift */; };
 		8B2A4B8229F6D58C00B6B3F0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A4B8129F6D58C00B6B3F0 /* Configuration.swift */; };
+		8B3224542A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3224532A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift */; };
 		8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */; };
 		8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */; };
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
@@ -313,6 +314,7 @@
 		8B2A4B7329F6A83900B6B3F0 /* CompletableEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableEventExtension.swift; sourceTree = "<group>"; };
 		8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseService.swift; sourceTree = "<group>"; };
 		8B2A4B8129F6D58C00B6B3F0 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		8B3224532A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAssistantDetailsTextfieldsView.swift; sourceTree = "<group>"; };
 		8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerMock.swift; sourceTree = "<group>"; };
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -1035,6 +1037,7 @@
 				8B0235552A0BAE9B006B45A5 /* CategoryWithIcon.swift */,
 				8B0235842A0CF540006B45A5 /* CircularProgressBarView.swift */,
 				8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */,
+				8B3224532A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1536,6 +1539,7 @@
 				8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */,
 				8B5357D129FABB2B009EED68 /* WorkoutSetupScreenViewController.swift in Sources */,
 				8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */,
+				8B3224542A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift in Sources */,
 				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
 				8B53581429FBA7A7009EED68 /* AddExerciseScreenInteractor.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,

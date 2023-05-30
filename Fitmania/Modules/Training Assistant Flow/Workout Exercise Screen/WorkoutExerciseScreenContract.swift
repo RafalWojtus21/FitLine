@@ -29,8 +29,7 @@ enum WorkoutExerciseScreenIntent {
     case pauseButtonIntent
     case resumeButtonIntent
     case nextEventButtonIntent
-    case plusButtonIntent
-    case saveButtonPressed(details: [String])
+    case nextButtonIntent(details: [String])
 }
 
 struct WorkoutExerciseScreenViewState: Equatable {
@@ -53,11 +52,14 @@ struct WorkoutExerciseScreenViewState: Equatable {
     var shouldShowTimer = false
     var shouldShowStrengthExerciseAnimation = false
     var shouldTriggerAnimation = false
+    var possibleDetailsTypes: [Exercise.DetailsType] = []
+    var shouldRefreshDetailsTextField = false
+    var shouldChangeAnimation = false
+    var animationDuration = 0
 }
 
 enum WorkoutExerciseScreenEffect: Equatable {
     case workoutFinished(finishedWorkout: FinishedWorkout)
-    case showExerciseDetailsAlert(detailsTypes: [Exercise.DetailsType])
     case somethingWentWrong
 }
 
@@ -83,9 +85,13 @@ enum WorkoutExerciseScreenPartialState: Equatable {
     case shouldShowTimer(isTimerVisible: Bool)
     case triggerAnimation
     case updateCurrentEventIndex(currentEventIndex: Int)
+    case updateAvailableDetailsTypes(detailsTypes: [Exercise.DetailsType])
+    case setAnimationDuration(duration: Int)
     func reduce(previousState: WorkoutExerciseScreenViewState) -> WorkoutExerciseScreenViewState {
         var state = previousState
         state.shouldChangeTable = false
+        state.shouldRefreshDetailsTextField = false
+        state.shouldChangeAnimation = false
         switch self {
         case .updateCurrentTime(let intervalState, let previousProgress, let currentProgress, let timeLeft):
             state.intervalState = intervalState
@@ -116,6 +122,12 @@ enum WorkoutExerciseScreenPartialState: Equatable {
                 WorkoutExerciseScreen.Row(event: row.event, isSelected: index == currentEventIndex)
             })
             state.shouldChangeTable = true
+            state.shouldChangeAnimation = true
+        case .updateAvailableDetailsTypes(detailsTypes: let detailsTypes):
+            state.possibleDetailsTypes = detailsTypes
+            state.shouldRefreshDetailsTextField = true
+        case .setAnimationDuration(duration: let duration):
+            state.animationDuration = duration
         }
         return state
     }

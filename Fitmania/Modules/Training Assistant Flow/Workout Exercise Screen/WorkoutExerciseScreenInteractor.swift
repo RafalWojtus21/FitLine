@@ -36,6 +36,8 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     private var detailedExercisesArray: [DetailedExercise] = []
     private var exerciseDetailsSubject = BehaviorSubject<([DetailedExercise.Details], Int?)>(value: ([], nil))
     var detailedExercises: [DetailedExercise] = []
+    private var currentExerciseStartDateSubject = BehaviorSubject<Date>(value: Date())
+    private var currentExerciseFinishDateSubject = BehaviorSubject<Date>(value: Date())
     
     enum TriggerType {
         case initialExercise
@@ -79,12 +81,15 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     
     func getCurrentExercise() -> Observable<WorkoutExerciseScreenResult> {
         let detailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
-        return .just(.effect(.showExerciseDetailsAlert(detailsTypes: detailsTypes)))
+        return .just(.partialState(.updateAvailableDetailsTypes(detailsTypes: detailsTypes)))
     }
     
     func saveDetailOfCurrentExercise(details: [String]) -> Observable<WorkoutExerciseScreenResult> {
         let possibleDetailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
         var exerciseDetails: [DetailedExercise.Details] = []
+        let currentEvent = workoutEvents[currentEventIndex]
+         
+        guard currentEvent.type == .rest else { return .just(.partialState(.idle)) }
         for (index, detailValue) in details.enumerated() {
             let detailType = possibleDetailsTypes[index]
             switch detailType {
@@ -101,8 +106,16 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                     exerciseDetails.append(.distance(distance))
                 }
             }
-            exerciseDetailsSubject.onNext((exerciseDetails, currentEventIndex))
         }
+        do {
+            let startDate = try currentExerciseStartDateSubject.value()
+            let finishDate = try currentExerciseFinishDateSubject.value()
+            let totalTimeInterval = finishDate.timeIntervalSince(startDate)
+            exerciseDetails.append(.totalTime(totalTimeInterval))
+        } catch {
+            return .just(.partialState(.idle))
+        }
+        exerciseDetailsSubject.onNext((exerciseDetails, currentEventIndex))
         return .just(.partialState(.idle))
     }
     
@@ -175,15 +188,48 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     
     private func checkTypeOfExercise() -> Observable<WorkoutExerciseScreenResult> {
         let currentEvent = workoutEvents[currentEventIndex]
+        
         if currentEvent.exercise.category.shouldMeasureTime {
-            return .merge(setTimer(), .just(.partialState(.shouldShowTimer(isTimerVisible: true))))
+            return handleCardioExercise()
         } else {
-            switch currentEvent.type {
-            case .exercise:
-                return .merge(.just(.partialState(.shouldShowTimer(isTimerVisible: false))), .just(.partialState(.triggerAnimation)))
-            case .rest:
-                return .merge(setTimer(), .just(.partialState(.shouldShowTimer(isTimerVisible: true))))
-            }
+            return handlePhysicalExercise()
+        }
+    }
+    
+    private func handleCardioExercise() -> Observable<WorkoutExerciseScreenResult> {
+        let currentEvent = workoutEvents[currentEventIndex]
+        let duration = currentEvent.duration ?? 0
+        switch currentEvent.type {
+        case .exercise:
+            currentExerciseStartDateSubject.onNext(Date())
+            return .merge(setTimer(),
+                          .just(.partialState(.shouldShowTimer(isTimerVisible: true))),
+                          .just(.partialState(.updateAvailableDetailsTypes(detailsTypes: []))),
+                          .just(.partialState(.setAnimationDuration(duration: duration))))
+        case .rest:
+            currentExerciseFinishDateSubject.onNext(Date())
+            return .merge(setTimer(),
+                          .just(.partialState(.shouldShowTimer(isTimerVisible: true))),
+                          getCurrentExercise(),
+                          .just(.partialState(.setAnimationDuration(duration: duration))))
+        }
+    }
+    
+    private func handlePhysicalExercise() -> Observable<WorkoutExerciseScreenResult> {
+        let currentEvent = workoutEvents[currentEventIndex]
+        let duration = currentEvent.duration ?? 0
+        switch currentEvent.type {
+        case .exercise:
+            currentExerciseStartDateSubject.onNext(Date())
+            return .merge(.just(.partialState(.shouldShowTimer(isTimerVisible: false))),
+                          .just(.partialState(.triggerAnimation)),
+                          .just(.partialState(.updateAvailableDetailsTypes(detailsTypes: []))))
+        case .rest:
+            currentExerciseFinishDateSubject.onNext(Date())
+            return .merge(setTimer(),
+                          .just(.partialState(.shouldShowTimer(isTimerVisible: true))),
+                          getCurrentExercise(),
+                          .just(.partialState(.setAnimationDuration(duration: duration))))
         }
     }
     

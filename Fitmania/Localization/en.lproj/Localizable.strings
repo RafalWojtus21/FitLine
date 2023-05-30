@@ -100,6 +100,7 @@
 "HomeScreen.SecondActionTitle" = "I want to use workout from database";
 "HomeScreen.CustomWorkoutAlertTitle" = "Name your workout";
 "HomeScreen.CustomWorkoutAlertPlaceholder" = "Provide name for your custom workout";
+"HomeScreen.MinShortcut" = "min";
 
 // MARK: Authentication Errors
 

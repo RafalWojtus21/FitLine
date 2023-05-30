@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class WorkoutsHistoryCell: UITableViewCell, ReusableCell {
+    typealias L = Localization.HomeFlow
     
     struct ViewModel {
         let workoutName: String
@@ -64,7 +65,7 @@ class WorkoutsHistoryCell: UITableViewCell, ReusableCell {
         workoutNameLabel.text = viewModel.workoutName
         let duration = Int(ceil(Double(viewModel.duration)))
         let dateFormatter = DateFormatter.dayMonthHourMinuteDateFormatter
-        workoutDateLabel.text = "\(dateFormatter.string(from: viewModel.workoutDate)) - \(duration)" + " min"
+        workoutDateLabel.text = "\(dateFormatter.string(from: viewModel.workoutDate)) - \(duration) " + L.minShortcut
     }
     
     // MARK: Private Implementation

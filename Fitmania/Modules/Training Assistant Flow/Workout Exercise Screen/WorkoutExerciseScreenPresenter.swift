@@ -39,10 +39,9 @@ final class WorkoutExerciseScreenPresenterImpl: WorkoutExerciseScreenPresenter {
                 return interactor.triggerNextExercise()
             case .viewLoaded:
                 return .merge(interactor.loadEvents(), interactor.observeForExercises())
-            case .plusButtonIntent:
-                return interactor.getCurrentExercise()
-            case .saveButtonPressed(details: let details):
-                return interactor.saveDetailOfCurrentExercise(details: details)
+            case .nextButtonIntent(details: let details):
+                return .merge(interactor.saveDetailOfCurrentExercise(details: details),
+                              interactor.triggerNextExercise())
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

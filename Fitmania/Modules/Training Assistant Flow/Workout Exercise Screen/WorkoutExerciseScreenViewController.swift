@@ -26,9 +26,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     private var exerciseTrackerSubject = PublishSubject<[WorkoutExerciseScreen.Row]>()
     private var currentEventIndexSubject = BehaviorSubject<Int>(value: 0)
     @Published var isAnimating = false
-    
-    private lazy var plusButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemBlack, imageName: nil, title: L.setDetailsButtonTitle)
-    
+        
     private lazy var workoutDetailsView: UIView = {
         let view = UIView(backgroundColor: .secondaryColor)
         view.layer.cornerRadius = 20
@@ -37,7 +35,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     
     private lazy var workoutDetailsStackView: UIStackView = {
         let filler = UIView()
-        let view = UIStackView(arrangedSubviews: [eventNameLabel, exerciseContentView, timerControlView])
+        let view = UIStackView(arrangedSubviews: [eventNameLabel, setDetailsView, exerciseContentView, timerControlView])
         view.axis = .vertical
         view.spacing = 20
         view.backgroundColor = .clear
@@ -52,6 +50,8 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         return label
     }()
     
+    private lazy var setDetailsView = ExerciseAssistantDetailsTextfieldsView()
+        
     private lazy var exerciseContentView = UIView(backgroundColor: .secondaryColor)
     private lazy var circularProgressBar = CircularProgressBarView()
     private var model = StrengthExerciseViewDataModel()
@@ -129,7 +129,6 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     }
     
     private func layoutView() {
-        navigationItem.rightBarButtonItem = plusButton
         view.backgroundColor = .primaryColor
         view.addSubview(workoutDetailsView)
         workoutDetailsView.addSubview(workoutDetailsStackView)
@@ -167,16 +166,24 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
             $0.bottom.equalTo(tableView.snp.top).offset(-12)
         }
         
+        setDetailsView.snp.makeConstraints {
+            $0.height.equalToSuperview().multipliedBy(0.1)
+        }
+        
         exerciseContentView.snp.makeConstraints {
-            $0.height.equalToSuperview().multipliedBy(0.7)
+            $0.height.greaterThanOrEqualToSuperview().multipliedBy(0.4)
         }
         
         circularProgressBar.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(0.8)
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.6)
+            $0.bottom.equalToSuperview()
         }
         
         strengthExerciseView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.left.right.bottom.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(0.8)
         }
   
         circularProgressBar.addSubview(timeLeftLabel)
@@ -225,39 +232,29 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         let startButtonIntent = startButton.rx.tap.map { Intent.startEventIntent }
         let nextEventButtonIntent = nextEventButton.rx.tap.map {
             self.circularProgressBar.removeAnimation()
-            return Intent.nextEventButtonIntent
+            return Intent.nextButtonIntent(details: self.setDetailsView.getTextfieldValues())
         }
-        let pauseButtonIntent = pauseButton.rx.tap.map { Intent.pauseButtonIntent }
-        let resumeButtonIntent = resumeButton.rx.tap.map { Intent.resumeButtonIntent }
-        let plusButtonIntent = plusButton?.tap.map { Intent.plusButtonIntent }
-        guard let plusButtonIntent else {
-            Log.trainingAssistant.debug("plusButtonIntent is nil")
-            return
+        let pauseButtonIntent = pauseButton.rx.tap.map {
+            self.circularProgressBar.pauseAnimation()
+            return Intent.pauseButtonIntent
         }
-        Observable.merge(startButtonIntent, nextEventButtonIntent, pauseButtonIntent, resumeButtonIntent, plusButtonIntent)
+        let resumeButtonIntent = resumeButton.rx.tap.map {
+            self.circularProgressBar.resumeAnimation()
+            return Intent.resumeButtonIntent
+        }
+
+        Observable.merge(startButtonIntent, nextEventButtonIntent, pauseButtonIntent, resumeButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     private func trigger(effect: Effect) {
         switch effect {
-        case .showExerciseDetailsAlert(detailsTypes: let detailsTypes):
-            let alert = UIAlertController(title: L.setDetailsAlertTitle, message: L.setDetailsAlertMessage, preferredStyle: .alert)
-            for detailType in detailsTypes {
-                alert.addTextField { textField in
-                    textField.placeholder = detailType.rawValue
-                }
-            }
-            alert.addAction(UIAlertAction(title: L.saveAlertAction, style: .default, handler: { [weak self, weak alert] _ in
-                guard let self, let textFields = alert?.textFields else { return }
-                var texts: [String] = []
-                for (index, textField) in textFields.enumerated() {
-                    texts.append(textField.text ?? "")
-                }
-                self._intents.subject.onNext(.saveButtonPressed(details: texts))
-            }))
-            alert.addAction(UIAlertAction(title: L.cancelAlertAction, style: .cancel))
-            present(alert, animated: true, completion: nil)
         default: break
         }
     }
@@ -278,10 +275,10 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
             eventNameLabel.text = state.workoutEvents[state.currentEventIndex].event.name
         }
         timeLeftLabel.text = "\(state.timeLeft)" + " s"
-        circularProgressBar.setProgress(fromValue: state.previousProgress, toValue: state.currentProgress)
-        
-        plusButton?.isHidden = state.currentEventIndex % 2 == 1 ? false : true
-        
+        if state.shouldChangeAnimation {
+            circularProgressBar.setProgress(duration: Float(state.animationDuration))
+        }
+                
         isAnimating = state.shouldTriggerAnimation
         circularProgressBar.isHidden = !state.shouldShowTimer
         strengthExerciseView.isHidden = !state.shouldShowStrengthExerciseAnimation
@@ -301,5 +298,6 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         }
 
         model.isAnimating = state.shouldTriggerAnimation
+        state.shouldRefreshDetailsTextField == true ? setDetailsView.configure(with: ExerciseAssistantDetailsTextfieldsView.ViewModel(detailsTypes: state.possibleDetailsTypes)) : ()
     }
 }

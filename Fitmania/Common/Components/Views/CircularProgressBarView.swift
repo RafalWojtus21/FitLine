@@ -60,13 +60,23 @@ class CircularProgressBarView: UIView {
     
     // MARK: Public Implementation
 
-    func setProgress(fromValue: Float, toValue: Float) {
+    func setProgress(duration: Float) {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = progressLayer.presentation()?.value(forKeyPath: "strokeEnd") ?? fromValue
-        animation.toValue = toValue
-        animation.duration = 0.001
-        progressLayer.strokeEnd = CGFloat(toValue)
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = CFTimeInterval(duration)
+        progressLayer.beginTime = 0.0
+        progressLayer.timeOffset = 0.0
+        progressLayer.strokeEnd = CGFloat(duration)
         progressLayer.add(animation, forKey: AnimationKeys.circularProgressAnimation)
+    }
+    
+    func pauseAnimation() {
+        layer.pauseAnimation()
+    }
+    
+    func resumeAnimation() {
+        layer.resumeAnimation()
     }
     
     func removeAnimation() {
@@ -78,5 +88,29 @@ class CircularProgressBarView: UIView {
         let path = UIBezierPath(arcCenter: .init(x: mainView.frame.width / 2, y: mainView.frame.height / 2), radius: (mainView.frame.height / 2) - 20, startAngle: CGFloat(-0.5 * Double.pi), endAngle: CGFloat(1.5 * Double.pi), clockwise: true)
         progressLayer.path = path.cgPath
         trackLayer.path = path.cgPath
+    }
+}
+
+extension CALayer {
+    
+    var isPaused: Bool {
+        speed == 0
+    }
+    
+    func pauseAnimation() {
+        guard !isPaused else { return }
+        let pausedTime = convertTime(CACurrentMediaTime(), from: nil)
+        speed = 0.0
+        timeOffset = pausedTime
+    }
+
+    func resumeAnimation() {
+        guard isPaused else { return }
+        let pausedTime = timeOffset
+        speed = 1.0
+        timeOffset = 0.0
+        beginTime = 0.0
+        let timeSincePause = convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        beginTime = timeSincePause
     }
 }

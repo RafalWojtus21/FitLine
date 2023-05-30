@@ -67,6 +67,11 @@ class FitmaniaTextField: UIView {
             errorLabel.snp.makeConstraints {
                 $0.height.equalTo(16)
             }
+        case .secondary:
+            textField.snp.makeConstraints {
+                $0.height.equalTo(56)
+                $0.left.right.equalToSuperview()
+            }
         case .tertiary:
             textField.snp.makeConstraints {
                 $0.height.equalTo(50)
@@ -91,9 +96,9 @@ class FitmaniaTextField: UIView {
             textField.textColor = .black
 
         case .secondary:
-            textField.backgroundColor = .black
+            textField.backgroundColor = .primaryColor
             textField.attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             textField.layer.borderWidth = 1
             textField.layer.borderColor = UIColor.quinaryColor.cgColor
             textField.layer.cornerRadius = 4
