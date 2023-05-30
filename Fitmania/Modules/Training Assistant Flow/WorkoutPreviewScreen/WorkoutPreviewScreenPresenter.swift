@@ -27,7 +27,7 @@ final class WorkoutPreviewScreenPresenterImpl: WorkoutPreviewScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { _ -> Observable<Result> in
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)
             .flatMap { self.middleware.process(result: $0) }

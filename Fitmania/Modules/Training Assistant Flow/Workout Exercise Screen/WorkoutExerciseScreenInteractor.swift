@@ -98,11 +98,11 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                     exerciseDetails.append(.repetitions(repetitions))
                 }
             case .weight:
-                if let weight = Double(detailValue) {
+                if let weight = detailValue.floatValue {
                     exerciseDetails.append(.weight(weight))
                 }
             case .distance:
-                if let distance = Double(detailValue) {
+                if let distance = detailValue.floatValue {
                     exerciseDetails.append(.distance(distance))
                 }
             }

@@ -24,3 +24,20 @@ extension String {
         }
     }
 }
+
+extension String {
+    static let numberFormatter = NumberFormatter()
+    var floatValue: Float? {
+        String.numberFormatter.decimalSeparator = "."
+        if let result = String.numberFormatter.number(from: self) {
+            return result.floatValue
+        } else {
+            String.numberFormatter.decimalSeparator = ","
+            if let result = String.numberFormatter.number(from: self) {
+                return result.floatValue
+            } else {
+                return nil
+            }
+        }
+    }
+}

@@ -32,7 +32,9 @@ final class WorkoutFinishedScreenPresenterImpl: WorkoutFinishedScreenPresenter {
             case .doneButtonPressed:
                 return .just(.effect(.doneButtonEffect))
             case .viewLoaded:
-                return interactor.saveWorkoutToHistory()
+                return .merge(interactor.saveWorkoutToHistory(),
+                              interactor.calculateWorkoutSummaryModels()
+                )
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

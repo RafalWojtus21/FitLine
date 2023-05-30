@@ -8,6 +8,16 @@
 import RxSwift
 import Foundation
 
+struct WorkoutSummaryModel: Equatable {
+    let exerciseName: String
+    let exerciseType: Exercise.ExerciseType
+    let setsNumber: Int?
+    var totalTime: Int?
+    var maxWeight: Float?
+    var maxRepetitions: Int?
+    var distance: Float?
+}
+
 enum WorkoutFinishedScreen {
     
     struct WorkoutSummaryPart: Equatable {
@@ -39,6 +49,7 @@ struct WorkoutFinishedScreenViewState: Equatable {
         return "\(dateFormatter.string(from: workoutDoneModel.startDate)) - \(dateFormatter.string(from: workoutDoneModel.finishDate))"
     }
     var isWorkoutSaved = false
+    var workoutSummary: [WorkoutSummaryModel] = []
 }
 
 enum WorkoutFinishedScreenEffect: Equatable {
@@ -61,11 +72,14 @@ enum WorkoutFinishedScreenResult: Equatable {
 
 enum WorkoutFinishedScreenPartialState: Equatable {
     case isWorkoutSaved(isSaved: Bool)
+    case calculateWorkoutSummaryModel(workoutSummaryModel: [WorkoutSummaryModel])
     func reduce(previousState: WorkoutFinishedScreenViewState) -> WorkoutFinishedScreenViewState {
         var state = previousState
         switch self {
         case .isWorkoutSaved(isSaved: let isSaved):
             state.isWorkoutSaved = isSaved
+        case .calculateWorkoutSummaryModel(workoutSummaryModel: let workoutSummaryModel):
+            state.workoutSummary = workoutSummaryModel
         }
         return state
     }
@@ -91,6 +105,7 @@ protocol WorkoutFinishedScreenPresenter: AnyObject, BasePresenter {
 
 protocol WorkoutFinishedScreenInteractor: BaseInteractor {
     func saveWorkoutToHistory() -> Observable<WorkoutFinishedScreenResult>
+    func calculateWorkoutSummaryModels() -> Observable<WorkoutFinishedScreenResult>
 }
 
 protocol WorkoutFinishedScreenMiddleware {

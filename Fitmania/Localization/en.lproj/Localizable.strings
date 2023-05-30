@@ -141,16 +141,21 @@
 "WorkoutExerciseScreen.ResumeButtonTitle" = "Resume";
 "WorkoutExerciseScreen.StartButtonTitle" = "Start";
 "WorkoutExerciseScreen.NextButtonTitle" = "Next";
-
-// MARK: Workout Finished Screen
-
-"WorkoutFinishedScreen.ScreenTitle" = "Workout summary";
-"WorkoutFinishedScreen.DoneButtonTitle" = "Done";
 "WorkoutExerciseScreen.SetDetailsButtonTitle" = "Set details";
 "WorkoutExerciseScreen.SetDetailsAlertTitle" = "Set details of the exercise";
 "WorkoutExerciseScreen.SetDetailsAlertMessage" = "Enter your results for the current exercise";
 "WorkoutExerciseScreen.SaveAlertAction" = "Save";
 "WorkoutExerciseScreen.CancelAlertAction" = "Cancel";
+
+// MARK: Workout Finished Screen
+
+"WorkoutFinishedScreen.ScreenTitle" = "Workout summary";
+"WorkoutFinishedScreen.DoneButtonTitle" = "Done";
+"WorkoutFinishedScreen.SetsTitle" = "Sets: ";
+"WorkoutFinishedScreen.DistanceTitle" = "Distance: ";
+"WorkoutFinishedScreen.TotalTimeTitle" = "Total time: ";
+"WorkoutFinishedScreen.MaxWeightTitle" = "Max. weight: ";
+"WorkoutFinishedScreen.MaxRepetitionsTitle" = "Max. repetitions: ";
 
 // MARK: Settings Screen
 

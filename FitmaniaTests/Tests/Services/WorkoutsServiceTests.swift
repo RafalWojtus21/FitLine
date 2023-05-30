@@ -92,11 +92,4 @@ final class WorkoutsServiceTests: XCTestCase {
             .toArrayAndBlocking()
         XCTAssertEqual(result, .error(error))
     }
-    
-    func testObserveWorkoutsInCloudService() {
-        // should I test it?
-    }
-    
-    func testWorkoutsObservable() {
-    }
 }

@@ -83,8 +83,8 @@ struct DetailedExercise: Codable, Equatable, Hashable {
     
     enum Details: Codable, Equatable, Hashable {
         case repetitions(Int)
-        case weight(Double)
-        case distance(Double)
+        case weight(Float)
+        case distance(Float)
         case totalTime(TimeInterval)
     }
 }

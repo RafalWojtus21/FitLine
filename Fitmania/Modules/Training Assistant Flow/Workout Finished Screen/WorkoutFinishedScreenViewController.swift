@@ -22,7 +22,7 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
     private let bag = DisposeBag()
     private let presenter: WorkoutFinishedScreenPresenter
     
-    private var exerciseNamesSubject = PublishSubject<[String]>()
+    private var workoutSummarySubject = PublishSubject<[WorkoutSummaryModel]>()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -55,21 +55,20 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
         return label
     }()
     
-    private lazy var tableViewContainer = UIView(backgroundColor: .clear)
-
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = .clear
-        tableView.layer.cornerRadius = 24
-        tableView.layer.borderWidth = 1
-        tableView.layer.borderColor = UIColor.secondaryColor.cgColor
-        tableView.showsVerticalScrollIndicator = true
-        tableView.indicatorStyle = .white
-        tableView.rowHeight = 50
-        tableView.register(WorkoutSummaryCell.self)
-        return tableView
-    }()
+    private lazy var collectionViewContainer = UIView(backgroundColor: .clear)
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 16
+        layout.itemSize = CGSize(width: Int(view.frame.width - 16) / 2, height: 140)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(WorkoutSummaryCollectionViewCell.self)
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+
     private lazy var doneButton = UIButton().apply(style: .primary, title: L.doneButtonTitle)
 
     init(presenter: WorkoutFinishedScreenPresenter) {
@@ -98,8 +97,8 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
         view.backgroundColor = .primaryColor
         view.addSubview(titleLabel)
         view.addSubview(workoutTimeStackView)
-        view.addSubview(tableViewContainer)
-        tableViewContainer.addSubview(tableView)
+        view.addSubview(collectionViewContainer)
+        collectionViewContainer.addSubview(collectionView)
         view.addSubview(doneButton)
         
         titleLabel.snp.makeConstraints {
@@ -120,15 +119,15 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
             $0.height.equalTo(48)
         }
         
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.centerY.equalTo(view.snp.centerY).priority(.low)
-            $0.top.greaterThanOrEqualToSuperview()
-            $0.bottom.lessThanOrEqualToSuperview()
-            $0.height.equalTo(tableView.contentSize.height).priority(.high)
-            $0.left.right.equalToSuperview().inset(32)
+            $0.top.greaterThanOrEqualToSuperview().priority(.high)
+            $0.bottom.lessThanOrEqualToSuperview().priority(.high)
+            $0.height.equalTo(collectionView.collectionViewLayout.collectionViewContentSize.height).priority(.medium)
+            $0.left.right.equalToSuperview()
         }
         
-        tableViewContainer.snp.makeConstraints {
+        collectionViewContainer.snp.makeConstraints {
             $0.top.equalTo(workoutTimeStackView.snp.bottom).offset(24)
             $0.left.right.equalToSuperview()
             $0.bottom.equalTo(doneButton.snp.top).offset(-24)
@@ -136,9 +135,9 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
     }
 
     private func bindControls() {
-        exerciseNamesSubject
-            .bind(to: tableView.rx.items(cellIdentifier: WorkoutSummaryCell.reuseIdentifier, cellType: WorkoutSummaryCell.self)) { _, item, cell in
-                cell.configure(with: WorkoutSummaryCell.ViewModel(exerciseName: item))
+        workoutSummarySubject
+            .bind(to: collectionView.rx.items(cellIdentifier: WorkoutSummaryCollectionViewCell.reuseIdentifier, cellType: WorkoutSummaryCollectionViewCell.self)) { _, item, cell in
+                cell.configure(with: WorkoutSummaryCollectionViewCell.ViewModel(exerciseName: item.exerciseName, exerciseType: item.exerciseType, numberOfSets: item.setsNumber, maxRepetitions: item.maxRepetitions, totalTime: item.totalTime, maxWeight: item.maxWeight, distance: item.distance))
             }
             .disposed(by: bag)
 
@@ -156,14 +155,15 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
     }
     
     func render(state: ViewState) {
-        exerciseNamesSubject.onNext(state.exerciseNames)
+        workoutSummarySubject.onNext(state.workoutSummary)
         workoutDayLabel.text = state.workoutDayLabelText
         workoutHoursLabel.text = state.workoutHoursLabelText
         doneButton.isEnabled = state.isWorkoutSaved
         doneButton.backgroundColor = state.isWorkoutSaved ? .tertiaryColor : .tertiaryColorDisabled
-        
-        tableView.snp.updateConstraints {
-            $0.height.equalTo(tableView.contentSize.height).priority(.high)
+        collectionViewContainer.layoutSubviews()
+        collectionViewContainer.layoutIfNeeded()
+        collectionView.snp.updateConstraints {
+            $0.height.equalTo(collectionView.collectionViewLayout.collectionViewContentSize.height).priority(.medium)
         }
     }
 }
