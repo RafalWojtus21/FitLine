@@ -10,17 +10,17 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFinishedScreenView {
-    typealias ViewState = WorkoutFinishedScreenViewState
-    typealias Effect = WorkoutFinishedScreenEffect
-    typealias Intent = WorkoutFinishedScreenIntent
+final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSummaryScreenView {
+    typealias ViewState = WorkoutSummaryScreenViewState
+    typealias Effect = WorkoutSummaryScreenEffect
+    typealias Intent = WorkoutSummaryScreenIntent
     typealias L = Localization.TrainingAssistantFlow
     
-    @IntentSubject() var intents: Observable<WorkoutFinishedScreenIntent>
+    @IntentSubject() var intents: Observable<WorkoutSummaryScreenIntent>
     
     private let effectsSubject = PublishSubject<Effect>()
     private let bag = DisposeBag()
-    private let presenter: WorkoutFinishedScreenPresenter
+    private let presenter: WorkoutSummaryScreenPresenter
     
     private var workoutSummarySubject = PublishSubject<[WorkoutSummaryModel]>()
     
@@ -71,7 +71,7 @@ final class WorkoutFinishedScreenViewController: BaseViewController, WorkoutFini
 
     private lazy var doneButton = UIButton().apply(style: .primary, title: L.doneButtonTitle)
 
-    init(presenter: WorkoutFinishedScreenPresenter) {
+    init(presenter: WorkoutSummaryScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

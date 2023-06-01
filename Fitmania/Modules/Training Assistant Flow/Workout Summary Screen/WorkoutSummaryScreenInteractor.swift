@@ -7,34 +7,39 @@
 
 import RxSwift
 
-final class WorkoutFinishedScreenInteractorImpl: WorkoutFinishedScreenInteractor {
+final class WorkoutSummaryScreenInteractorImpl: WorkoutSummaryScreenInteractor {
     
     // MARK: Properties
 
     typealias Dependencies = HasWorkoutsHistoryService
-    typealias Result = WorkoutFinishedScreenResult
+    typealias Result = WorkoutSummaryScreenResult
     
     private let dependencies: Dependencies
-    private let input: WorkoutFinishedScreenBuilderInput
+    private let input: WorkoutSummaryScreenBuilderInput
     
     // MARK: Initialization
 
-    init(dependencies: Dependencies, input: WorkoutFinishedScreenBuilderInput) {
+    init(dependencies: Dependencies, input: WorkoutSummaryScreenBuilderInput) {
         self.dependencies = dependencies
         self.input = input
     }
     
     // MARK: Public Implementation
 
-    func saveWorkoutToHistory() -> RxSwift.Observable<WorkoutFinishedScreenResult> {
-        return dependencies.workoutsHistoryService.saveFinishedWorkoutToHistory(finishedWorkout: input.workoutDoneModel)
-            .andThen(.just(.partialState(.isWorkoutSaved(isSaved: true))))
-            .catch { _ in
-                    .just(.partialState(.isWorkoutSaved(isSaved: false)))
-            }
+    func saveWorkoutToHistory() -> RxSwift.Observable<WorkoutSummaryScreenResult> {
+        switch input.shouldSaveWorkout {
+        case true:
+            return dependencies.workoutsHistoryService.saveFinishedWorkoutToHistory(finishedWorkout: input.workoutDoneModel)
+                .andThen(.just(.partialState(.isWorkoutSaved(savingStatus: .saved))))
+                .catch { _ in
+                        .just(.partialState(.isWorkoutSaved(savingStatus: .notSaved)))
+                }
+        case false:
+            return .just(.partialState(.isWorkoutSaved(savingStatus: .notNeeded)))
+        }
     }
     
-    func calculateWorkoutSummaryModels() -> Observable<WorkoutFinishedScreenResult> {
+    func calculateWorkoutSummaryModels() -> Observable<WorkoutSummaryScreenResult> {
         var workoutSummaryModel: [WorkoutSummaryModel] = []
         let exerciseGroups = groupExercises()
         

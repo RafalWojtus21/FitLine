@@ -33,6 +33,8 @@ final class HomeScreenPresenterImpl: HomeScreenPresenter {
                 return .just(.effect(.showWorkoutsList))
             case .viewLoaded:
                 return interactor.subscribeForWorkoutsHistory()
+            case .showWorkoutSummaryIntent(workout: let workout):
+                return .just(.effect(.showWorkoutSummaryScreen(workout: workout)))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

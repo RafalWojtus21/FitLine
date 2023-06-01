@@ -105,10 +105,14 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
             }
             .disposed(by: bag)
         
-        plusButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?._intents.subject.onNext(.plusButtonIntent)
-            })
+        let workoutSelectedIntent = tableView.rx.modelSelected(FinishedWorkout.self).map {
+            return Intent.showWorkoutSummaryIntent(workout: $0)
+        }
+        
+        let plusButtonIntent = plusButton.rx.tap.map { Intent.plusButtonIntent }
+
+        Observable.merge(plusButtonIntent, workoutSelectedIntent)
+            .bind(to: _intents.subject)
             .disposed(by: bag)
     }
     

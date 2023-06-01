@@ -20,7 +20,7 @@ protocol TrainingAssistantFlowNavigation: AnyObject {
     func showScheduleWorkoutScreen(plan: WorkoutPlan)
     func showWorkoutPreviewScreen(plan: WorkoutPlan)
     func showWorkoutExerciseScreen(plan: WorkoutPlan)
-    func showWorkoutFinishedScreen(workoutDoneModel: FinishedWorkout)
+    func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool)
     func finishTrainingAssistantFlow() 
 }
 
@@ -69,7 +69,7 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     private lazy var scheduleWorkoutScreenBuilder: ScheduleWorkoutScreenBuilder = ScheduleWorkoutScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var workoutPreviewScreenBuilder: WorkoutPreviewScreenBuilder = WorkoutPreviewScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var workoutExerciseScreenBuilder: WorkoutExerciseScreenBuilder = WorkoutExerciseScreenBuilderImpl(dependencies: extendedDependencies)
-    private lazy var workoutFinishedScreenBuilder: WorkoutFinishedScreenBuilder = WorkoutFinishedScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var workoutSummaryScreenBuilder: WorkoutSummaryScreenBuilder = WorkoutSummaryScreenBuilderImpl(dependencies: extendedDependencies)
     
     // MARK: - AppNavigation
     
@@ -92,8 +92,8 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
         dependencies.navigation.show(view: view, animated: false)
     }
     
-    func showWorkoutFinishedScreen(workoutDoneModel: FinishedWorkout) {
-        let view = workoutFinishedScreenBuilder.build(with: .init(workoutDoneModel: workoutDoneModel)).view
+    func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool) {
+        let view = workoutSummaryScreenBuilder.build(with: .init(workoutDoneModel: workoutDoneModel, shouldSaveWorkout: shouldSaveWorkout)).view
         dependencies.navigation.show(view: view, animated: false)
     }
     

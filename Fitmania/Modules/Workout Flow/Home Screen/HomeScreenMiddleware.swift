@@ -27,6 +27,8 @@ final class HomeScreenMiddlewareImpl: HomeScreenMiddleware, HomeScreenCallback {
             switch effect {
             case .showWorkoutsList:
                 dependencies.workoutFlowNavigation?.showWorkoutsListScreen()
+            case .showWorkoutSummaryScreen(workout: let workout):
+                dependencies.workoutFlowNavigation?.showWorkoutSummaryScreen(workout: workout, shouldSaveWorkout: false)
             }
         }
         return .just(result)

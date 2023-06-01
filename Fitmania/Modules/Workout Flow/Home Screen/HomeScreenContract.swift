@@ -10,6 +10,7 @@ import RxSwift
 enum HomeScreenIntent {
     case plusButtonIntent
     case viewLoaded
+    case showWorkoutSummaryIntent(workout: FinishedWorkout)
 }
 
 struct HomeScreenViewState: Equatable {
@@ -18,6 +19,7 @@ struct HomeScreenViewState: Equatable {
 
 enum HomeScreenEffect: Equatable {
     case showWorkoutsList
+    case showWorkoutSummaryScreen(workout: FinishedWorkout)
 }
 
 struct HomeScreenBuilderInput {

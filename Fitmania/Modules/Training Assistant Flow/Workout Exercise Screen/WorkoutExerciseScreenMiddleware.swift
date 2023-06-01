@@ -27,7 +27,7 @@ final class WorkoutExerciseScreenMiddlewareImpl: WorkoutExerciseScreenMiddleware
         case .effect(let effect):
             switch effect {
             case .workoutFinished(finishedWorkout: let finishedWorkout):
-                dependencies.trainingAssistantFlowNavigation?.showWorkoutFinishedScreen(workoutDoneModel: finishedWorkout)
+                dependencies.trainingAssistantFlowNavigation?.showWorkoutSummaryScreen(workoutDoneModel: finishedWorkout, shouldSaveWorkout: true)
             default:
                 break
             }

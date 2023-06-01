@@ -7,9 +7,9 @@
 
 import RxSwift
 
-final class WorkoutFinishedScreenMiddlewareImpl: WorkoutFinishedScreenMiddleware, WorkoutFinishedScreenCallback {
+final class WorkoutSummaryScreenMiddlewareImpl: WorkoutSummaryScreenMiddleware, WorkoutSummaryScreenCallback {
     typealias Dependencies = HasTrainingAssistantFlowNavigation
-    typealias Result = WorkoutFinishedScreenResult
+    typealias Result = WorkoutSummaryScreenResult
     
     private let dependencies: Dependencies
     

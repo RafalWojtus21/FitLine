@@ -7,13 +7,13 @@
 
 import RxSwift
 
-final class WorkoutFinishedScreenPresenterImpl: WorkoutFinishedScreenPresenter {
-    typealias View = WorkoutFinishedScreenView
-    typealias ViewState = WorkoutFinishedScreenViewState
-    typealias Middleware = WorkoutFinishedScreenMiddleware
-    typealias Interactor = WorkoutFinishedScreenInteractor
-    typealias Effect = WorkoutFinishedScreenEffect
-    typealias Result = WorkoutFinishedScreenResult
+final class WorkoutSummaryScreenPresenterImpl: WorkoutSummaryScreenPresenter {
+    typealias View = WorkoutSummaryScreenView
+    typealias ViewState = WorkoutSummaryScreenViewState
+    typealias Middleware = WorkoutSummaryScreenMiddleware
+    typealias Interactor = WorkoutSummaryScreenInteractor
+    typealias Effect = WorkoutSummaryScreenEffect
+    typealias Result = WorkoutSummaryScreenResult
     
     private let interactor: Interactor
     private let middleware: Middleware

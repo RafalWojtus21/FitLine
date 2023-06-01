@@ -23,6 +23,7 @@ protocol WorkoutFlowNavigation: AnyObject {
     func startCreateWorkoutFlow(trainingName: String)
     func finishedCreateWorkoutFlow()
     func startTrainingAssistantFlow(plan: WorkoutPlan)
+    func showWorkoutSummaryScreen(workout: FinishedWorkout, shouldSaveWorkout: Bool) 
     func finishedTrainingAssistantFlow()
 }
 
@@ -99,6 +100,11 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     func startTrainingAssistantFlow(plan: WorkoutPlan) {
         trainingAssistantFlowController = TrainingAssistantFlowController(dependencies: extendedDependencies)
         trainingAssistantFlowController?.startTrainingAssistantFlow(plan: plan)
+    }
+    
+    func showWorkoutSummaryScreen(workout: FinishedWorkout, shouldSaveWorkout: Bool) {
+        trainingAssistantFlowController = TrainingAssistantFlowController(dependencies: extendedDependencies)
+        trainingAssistantFlowController?.showWorkoutSummaryScreen(workoutDoneModel: workout, shouldSaveWorkout: shouldSaveWorkout)
     }
     
     func finishedTrainingAssistantFlow() {
