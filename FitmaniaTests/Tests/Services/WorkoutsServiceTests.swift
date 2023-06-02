@@ -35,7 +35,7 @@ final class WorkoutsServiceTests: XCTestCase {
         cloudServiceMock.savePersonalDataWithIDResponse = .error(error)
         let plan1Name = "plan1"
         let plan1ID = WorkoutPlanID(workoutPlanID: UUID())
-        let exercises: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .legs, name: "squats"), time: 12, breakTime: 24), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), time: 22, breakTime: 25)]
+        let exercises: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .legs, name: "squats"), details: WorkoutPart.Details(sets: 4, time: nil, breakTime: 25)), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), details: WorkoutPart.Details(sets: 4, time: nil, breakTime: 5))]
         let result = try! sut.saveNewPersonalTrainingPlan(exercises: exercises)
             .toArrayAndBlocking()
         XCTAssertEqual(result, .error(error))
@@ -48,14 +48,14 @@ final class WorkoutsServiceTests: XCTestCase {
         cloudServiceMock.savePersonalDataWithIDResponse = .completed
         let plan1Name = "plan1"
         let plan1ID = WorkoutPlanID(workoutPlanID: UUID())
-        let exercises: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .legs, name: "squats"), time: 12, breakTime: 24), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), time: 22, breakTime: 25)]
+        let exercises: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .legs, name: "squats"), details: WorkoutPart.Details(sets: nil, time: 12, breakTime: 24)), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), details: WorkoutPart.Details(sets: 4, time: nil, breakTime: 25))]
         let result = try! sut.saveNewPersonalTrainingPlan(exercises: exercises)
             .toArrayAndBlocking()
         XCTAssertEqual(result, .completed)
     }
     
     func testFetchAllExercises() {
-        let exercises = [WorkoutPart(workoutPlanName: "plan Name", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), time: 12, breakTime: 25), WorkoutPart(workoutPlanName: "plan Name 2", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "hiking"), time: 222, breakTime: 253)]
+        let exercises = [WorkoutPart(workoutPlanName: "plan Name", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 12, breakTime: 24)), WorkoutPart(workoutPlanName: "plan Name 2", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "hiking"), details: WorkoutPart.Details(sets: nil, time: 222, breakTime: 253))]
         cloudServiceMock.fetchPersonalDataSingleResponse = .just(exercises)
         let result = try! sut.fetchAllExercises()
             .toArrayAndBlocking()
@@ -64,7 +64,7 @@ final class WorkoutsServiceTests: XCTestCase {
     }
     
     func testFetchAllWorkoutsError() {
-        let exercises = [WorkoutPart(workoutPlanName: "plan Name", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), time: 12, breakTime: 25), WorkoutPart(workoutPlanName: "plan Name 2", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "hiking"), time: 222, breakTime: 253)]
+        let exercises = [WorkoutPart(workoutPlanName: "plan Name", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 12, breakTime: 25)), WorkoutPart(workoutPlanName: "plan Name 2", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "hiking"), details: WorkoutPart.Details(sets: nil, time: 222, breakTime: 253))]
         cloudServiceMock.fetchPersonalDataObservableResponse = .just(exercises)
         let result = try! sut.fetchAllWorkouts()
             .toArrayAndBlocking()

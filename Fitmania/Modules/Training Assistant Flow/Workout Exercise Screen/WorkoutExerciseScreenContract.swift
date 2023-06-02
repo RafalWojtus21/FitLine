@@ -36,8 +36,6 @@ struct WorkoutExerciseScreenViewState: Equatable {
     let chosenPlan: WorkoutPlan
     var workoutEvents: [WorkoutExerciseScreen.Row] = []
     var currentEventIndex: Int = 0
-    var currentProgress: Float = 0.0
-    var previousProgress: Float = 0.0
     var timeLeft: Int
     var intervalState: WorkoutExerciseScreen.IntervalState = .notStarted
     var isTimerRunning = true
@@ -76,7 +74,7 @@ enum WorkoutExerciseScreenResult: Equatable {
 }
 
 enum WorkoutExerciseScreenPartialState: Equatable {
-    case updateCurrentTime(intervalState: WorkoutExerciseScreen.IntervalState, previousProgress: Float, currentProgress: Float, timeLeft: Int)
+    case updateCurrentTime(intervalState: WorkoutExerciseScreen.IntervalState, timeLeft: Int)
     case loadWorkoutEvents(workoutEvents: [WorkoutPartEvent])
     case isTimerRunning(isRunning: Bool)
     case updateIntervalState(intervalState: WorkoutExerciseScreen.IntervalState)
@@ -93,10 +91,8 @@ enum WorkoutExerciseScreenPartialState: Equatable {
         state.shouldRefreshDetailsTextField = false
         state.shouldChangeAnimation = false
         switch self {
-        case .updateCurrentTime(let intervalState, let previousProgress, let currentProgress, let timeLeft):
+        case .updateCurrentTime(let intervalState, let timeLeft):
             state.intervalState = intervalState
-            state.currentProgress = currentProgress
-            state.previousProgress = previousProgress
             state.timeLeft = timeLeft
         case .isTimerRunning(isRunning: let isRunning):
             state.isTimerRunning = isRunning

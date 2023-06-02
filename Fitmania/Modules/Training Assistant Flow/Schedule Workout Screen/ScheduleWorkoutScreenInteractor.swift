@@ -24,6 +24,6 @@ final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor
         let totalWorkoutTimeInSeconds: Int = chosenWorkout.parts.reduce(0) { $0 + ($1.details.time ?? 0) + $1.details.breakTime }
         let totalWorkoutTimeInMinutes = Int(ceil(Double(totalWorkoutTimeInSeconds) / 60.0))
         let categories = Array(Set(chosenWorkout.parts.map { $0.exercise.category }))
-        return .just(.partialState(.updateWorkoutInfo(totalWorkoutTimeInSeconds: totalWorkoutTimeInSeconds, totalWorkoutTimeInMinutes: totalWorkoutTimeInMinutes, categories: categories)))
+        return .just(.partialState(.updateWorkoutInfo(totalWorkoutTimeInSeconds: totalWorkoutTimeInSeconds, totalWorkoutTimeInMinutes: totalWorkoutTimeInMinutes, categories: categories.sorted(by: { $0.rawValue < $1.rawValue }))))
     }
 }

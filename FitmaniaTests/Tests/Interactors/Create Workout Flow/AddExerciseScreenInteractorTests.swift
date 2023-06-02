@@ -35,7 +35,7 @@ final class AddExerciseScreenInteractorTests: XCTestCase {
     }
 
     func testAddExercise() {
-        sut.addExercise(time: "12", breakTime: "25")
+        sut.addExercise(sets: "5", time: "12", breakTime: "25")
             .subscribe(observer)
             .disposed(by: bag)
         let result = observer.events.compactMap { $0.value.element }

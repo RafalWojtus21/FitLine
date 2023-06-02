@@ -63,7 +63,11 @@
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
 		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
+		8B4C56E22A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */; };
+		8B4C56E42A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */; };
 		8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */; };
+		8B4C56E82A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */; };
+		8B4C56EA2A29E783007FB66F /* WorkoutsHistoryServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */; };
 		8B5357C629FAB818009EED68 /* WorkoutsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */; };
 		8B5357CE29FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */; };
 		8B5357CF29FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */; };
@@ -326,7 +330,11 @@
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
+		8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWorkoutScreenInteractorTests.swift; sourceTree = "<group>"; };
+		8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryModel.swift; sourceTree = "<group>"; };
+		8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryServiceTests.swift; sourceTree = "<group>"; };
+		8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryServiceMock.swift; sourceTree = "<group>"; };
 		8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsListCell.swift; sourceTree = "<group>"; };
 		8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenPresenter.swift; sourceTree = "<group>"; };
 		8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenInteractor.swift; sourceTree = "<group>"; };
@@ -598,6 +606,15 @@
 			path = "Create Workout Flow";
 			sourceTree = "<group>";
 		};
+		8B4C56E02A29D0A7007FB66F /* Training Assistant Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */,
+				8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */,
+			);
+			path = "Training Assistant Flow";
+			sourceTree = "<group>";
+		};
 		8B5357C429FAB80F009EED68 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +740,7 @@
 				8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */,
 				8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */,
 				8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */,
+				8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -732,6 +750,7 @@
 			children = (
 				8B876E502A1B54E3008AE1CE /* Authentication Flow */,
 				8B876E512A1B54EC008AE1CE /* Create Workout Flow */,
+				8B4C56E02A29D0A7007FB66F /* Training Assistant Flow */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -777,6 +796,7 @@
 				8B2A4B6929F6683E00B6B3F0 /* CloudServiceMock.swift */,
 				8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */,
 				8B876E562A1B5E71008AE1CE /* ExercisesDataStoreMock.swift */,
+				8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1595,6 +1615,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4C56E42A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift in Sources */,
 				8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */,
 				8B9B5C382A0531D9000F7A6D /* AuthMock.swift in Sources */,
 				8B53581C2A03B64A009EED68 /* RxBlockingExtensions.swift in Sources */,
@@ -1602,9 +1623,11 @@
 				8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */,
 				8B876E532A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift in Sources */,
 				8B53581E2A03B6CF009EED68 /* CompletableEventExtension.swift in Sources */,
+				8B4C56E22A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift in Sources */,
 				8B2A4B6429F2B6FB00B6B3F0 /* AuthManagerTests.swift in Sources */,
 				8B2A4B6C29F669B300B6B3F0 /* CreateAccountScreenInteractorTests.swift in Sources */,
 				8B876E5D2A1B75DF008AE1CE /* WorkoutsServiceTests.swift in Sources */,
+				8B4C56EA2A29E783007FB66F /* WorkoutsHistoryServiceMock.swift in Sources */,
 				8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */,
 				8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */,
 				8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */,
@@ -1615,6 +1638,7 @@
 				8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */,
 				8B2A4B6E29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift in Sources */,
 				8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */,
+				8B4C56E82A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,10 +145,8 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                 guard let eventDurationTimeInterval else { return .partialState(.switchToPhysicalExerciseView(currentEventIndex: self.currentEventIndex)) }
                 let currentTime = Date()
                 let elapsedTime = currentTime.timeIntervalSince(startTime) + self.accumulatedTime
-                let previousProgress = Float(elapsedTime) / Float(eventDurationTimeInterval)
                 self.timeGone = elapsedTime
                 timeLeft = eventDurationTimeInterval - elapsedTime
-                let currentProgress = Float(elapsedTime) / Float(eventDurationTimeInterval)
                 var intervalState: WorkoutExerciseScreen.IntervalState = .running
                 if elapsedTime >= eventDurationTimeInterval {
                     timeLeft = 0
@@ -157,7 +155,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                         self.triggerExerciseSubject.onNext(.nextExercise)
                     }
                 }
-                return .partialState(.updateCurrentTime(intervalState: intervalState, previousProgress: previousProgress, currentProgress: currentProgress, timeLeft: Int(ceil(timeLeft))))
+                return .partialState(.updateCurrentTime(intervalState: intervalState, timeLeft: Int(ceil(timeLeft))))
             }
     }
     
