@@ -33,9 +33,7 @@ enum SettingsScreenResult: Equatable {
 
 enum SettingsScreenPartialState: Equatable {
     func reduce(previousState: SettingsScreenViewState) -> SettingsScreenViewState {
-        var state = previousState
-        switch self {
-        }
+        let state = previousState
         return state
     }
 }
