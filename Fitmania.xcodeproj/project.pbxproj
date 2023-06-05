@@ -69,6 +69,7 @@
 		8B4C56E82A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */; };
 		8B4C56EA2A29E783007FB66F /* WorkoutsHistoryServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */; };
 		8B4C56EC2A2DDFC8007FB66F /* WorkoutSummaryScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56EB2A2DDFC8007FB66F /* WorkoutSummaryScreenPresenter.swift */; };
+		8B4C56EE2A2DE030007FB66F /* WorkoutSummaryScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56ED2A2DE030007FB66F /* WorkoutSummaryScreenInteractorTests.swift */; };
 		8B5357C629FAB818009EED68 /* WorkoutsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */; };
 		8B5357CE29FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */; };
 		8B5357CF29FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */; };
@@ -336,6 +337,7 @@
 		8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryServiceTests.swift; sourceTree = "<group>"; };
 		8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsHistoryServiceMock.swift; sourceTree = "<group>"; };
 		8B4C56EB2A2DDFC8007FB66F /* WorkoutSummaryScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryScreenPresenter.swift; sourceTree = "<group>"; };
+		8B4C56ED2A2DE030007FB66F /* WorkoutSummaryScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsListCell.swift; sourceTree = "<group>"; };
 		8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenPresenter.swift; sourceTree = "<group>"; };
 		8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenInteractor.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			children = (
 				8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */,
 				8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */,
+				8B4C56ED2A2DE030007FB66F /* WorkoutSummaryScreenInteractorTests.swift */,
 			);
 			path = "Training Assistant Flow";
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 				8B2A4B6629F6606E00B6B3F0 /* RegisterScreenInteractorTests.swift in Sources */,
 				8B9B5C382A0531D9000F7A6D /* AuthMock.swift in Sources */,
 				8B53581C2A03B64A009EED68 /* RxBlockingExtensions.swift in Sources */,
+				8B4C56EE2A2DE030007FB66F /* WorkoutSummaryScreenInteractorTests.swift in Sources */,
 				8B876E572A1B5E71008AE1CE /* ExercisesDataStoreMock.swift in Sources */,
 				8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */,
 				8B876E532A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift in Sources */,

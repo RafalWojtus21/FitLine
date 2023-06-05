@@ -26,7 +26,7 @@ final class WorkoutSummaryScreenInteractorImpl: WorkoutSummaryScreenInteractor {
     
     // MARK: Public Implementation
 
-    func saveWorkoutToHistory() -> RxSwift.Observable<WorkoutSummaryScreenResult> {
+    func saveWorkoutToHistory() -> Observable<WorkoutSummaryScreenResult> {
         switch input.shouldSaveWorkout {
         case true:
             return dependencies.workoutsHistoryService.saveFinishedWorkoutToHistory(finishedWorkout: input.workoutDoneModel)
