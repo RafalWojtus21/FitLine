@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HasCalendarFlowNavigation {
     var calendarFlowNavigation: CalendarFlowNavigation? { get }
@@ -21,16 +22,26 @@ protocol CalendarFlowNavigation: AnyObject {
 class CalendarFlowController: CalendarFlow, CalendarFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation
     
-    struct ExtendedDependencies: Dependencies, HasCalendarFlowNavigation {
+    struct ExtendedDependencies: Dependencies, HasCalendarFlowNavigation, HasRealtimeDatabaseService, HasAuthManager, HasCloudService, HasWorkoutsHistoryService, HasCalendarService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         weak var calendarFlowNavigation: CalendarFlowNavigation?
         
+        let calendarService: CalendarService
+        let workoutsHistoryService: WorkoutsHistoryService
+        let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
+        let realtimeDatabaseService: RealtimeDatabaseService
+        let cloudService: CloudService
+        
         init(dependencies: Dependencies, calendarFlowNavigation: CalendarFlowNavigation) {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
             self.calendarFlowNavigation = calendarFlowNavigation
+            realtimeDatabaseService = RealtimeDatabaseServiceImpl()
+            cloudService = CloudServiceImpl(authManager: authManager, realtimeService: realtimeDatabaseService)
+            workoutsHistoryService = WorkoutsHistoryServiceImpl(cloudService: cloudService)
+            calendarService = CalendarServiceImpl(workoutsHistoryService: workoutsHistoryService)
         }
     }
     
@@ -47,9 +58,11 @@ class CalendarFlowController: CalendarFlow, CalendarFlowNavigation {
     
     // MARK: - Builders
     
+    private lazy var calendarScreenBuilder: CalendarScreenBuilder = CalendarScreenBuilderImpl(dependencies: extendedDependencies)
+    
     // MARK: - AppNavigation
     
     func startCalendarFlow() -> BaseView? {
-        nil
+        calendarScreenBuilder.build(with: .init()).view
     }
 }

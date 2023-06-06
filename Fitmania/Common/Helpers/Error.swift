@@ -48,3 +48,7 @@ enum DatabaseError: Error, Equatable {
     case noData
     case invalidWorkoutPlan
 }
+
+enum CalendarError: Error, Equatable {
+    case somethingWentWrong
+}

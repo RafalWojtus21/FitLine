@@ -140,7 +140,7 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
                 cell.configure(with: WorkoutSummaryCollectionViewCell.ViewModel(exerciseName: item.exerciseName, exerciseType: item.exerciseType, numberOfSets: item.setsNumber, maxRepetitions: item.maxRepetitions, totalTime: item.totalTime, maxWeight: item.maxWeight, distance: item.distance))
             }
             .disposed(by: bag)
-
+        
         let doneButtonIntent = doneButton.rx.tap.map { Intent.doneButtonPressed }
         
         doneButtonIntent
