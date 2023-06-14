@@ -71,8 +71,10 @@ final class CloudServiceMock: CloudService {
     }
     
     var childAddedObservableResponse: Observable<Decodable> = Observable.never()
+//    var scheduler: SchedulerType!
     func childAddedObservable<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Observable<T> where T : Decodable {
         return childAddedObservableResponse
+//            .observe(on: scheduler)
             .compactMap { $0 as? T }
             .catch { error in
                 Observable.error(error)

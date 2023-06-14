@@ -18,6 +18,10 @@ final class WorkoutSummaryScreenInteractorTests: XCTestCase {
         var workoutsHistoryService: WorkoutsHistoryService { workoutsHistoryServiceMock }
     }
     
+    enum TestError: LocalizedError, Equatable {
+        case testError
+    }
+    
     var dependencies: Dependencies!
     var sut: WorkoutSummaryScreenInteractor!
     var bag: DisposeBag!
@@ -50,7 +54,7 @@ final class WorkoutSummaryScreenInteractorTests: XCTestCase {
         observer = TestScheduler(initialClock: 0).createObserver(WorkoutSummaryScreenResult.self)
     }
     
-    func testSaveWorkoutToHistory() {
+    func testSaveWorkoutToHistoryNotNeeded() {
         sut.saveWorkoutToHistory()
             .subscribe(observer)
             .disposed(by: bag)
@@ -58,6 +62,29 @@ final class WorkoutSummaryScreenInteractorTests: XCTestCase {
         let result = observer.events.compactMap { $0.value.element }
         
         XCTAssertEqual(result, [.partialState(.isWorkoutSaved(savingStatus: .notNeeded))])
+    }
+    
+    func testSaveWorkoutToHistorySaved() {
+        sut = WorkoutSummaryScreenInteractorImpl(dependencies: dependencies, input: WorkoutSummaryScreenBuilderInput(workoutDoneModel: workout, shouldSaveWorkout: true))
+        
+        sut.saveWorkoutToHistory()
+            .subscribe(observer)
+            .disposed(by: bag)
+        let result = observer.events.compactMap { $0.value.element }
+        XCTAssertEqual(result, [.partialState(.isWorkoutSaved(savingStatus: .saved))])
+    }
+    
+    func testSaveWorkoutToHistoryNotSaved() {
+        sut = WorkoutSummaryScreenInteractorImpl(dependencies: dependencies, input: WorkoutSummaryScreenBuilderInput(workoutDoneModel: workout, shouldSaveWorkout: true))
+        
+        dependencies.workoutsHistoryServiceMock.saveFinishedWorkoutToHistoryResponse = .error(TestError.testError)
+        
+        sut.saveWorkoutToHistory()
+            .subscribe(observer)
+            .disposed(by: bag)
+        
+        let result = observer.events.compactMap { $0.value.element }
+        XCTAssertEqual(result, [.partialState(.isWorkoutSaved(savingStatus: .notSaved))])
     }
     
     func testCalculateWorkoutSummaryModels() {
