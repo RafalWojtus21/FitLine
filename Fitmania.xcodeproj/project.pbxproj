@@ -185,7 +185,10 @@
 		8BCEB3F02A0B86C6001F8F78 /* WorkoutsCategoryListScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEB3EA2A0B86C6001F8F78 /* WorkoutsCategoryListScreenContract.swift */; };
 		8BCEB3F12A0B86C6001F8F78 /* WorkoutsCategoryListScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEB3EB2A0B86C6001F8F78 /* WorkoutsCategoryListScreenBuilder.swift */; };
 		8BCEB3F32A0B9090001F8F78 /* WorkoutPreviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEB3F22A0B9090001F8F78 /* WorkoutPreviewButton.swift */; };
+		8BD7A9D12A39A454001CAAA1 /* CalendarServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7A9D02A39A454001CAAA1 /* CalendarServiceMock.swift */; };
+		8BD7A9D32A39A516001CAAA1 /* CalendarServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7A9D22A39A516001CAAA1 /* CalendarServiceTests.swift */; };
 		8BE3EB072A41AECA005F69FA /* CalendarPageSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3EB062A41AECA005F69FA /* CalendarPageSwipeDirection.swift */; };
+		8BE3EB0A2A41D61C005F69FA /* CalendarScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE3EB092A41D61C005F69FA /* CalendarScreenInteractorTests.swift */; };
 		8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447129DD7B6000288DAB /* RxCocoa */; };
 		8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447329DD7B6000288DAB /* RxRelay */; };
 		8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE6447529DD7B6000288DAB /* RxSwift */; };
@@ -465,7 +468,10 @@
 		8BCEB3EA2A0B86C6001F8F78 /* WorkoutsCategoryListScreenContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsCategoryListScreenContract.swift; sourceTree = "<group>"; };
 		8BCEB3EB2A0B86C6001F8F78 /* WorkoutsCategoryListScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsCategoryListScreenBuilder.swift; sourceTree = "<group>"; };
 		8BCEB3F22A0B9090001F8F78 /* WorkoutPreviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPreviewButton.swift; sourceTree = "<group>"; };
+		8BD7A9D02A39A454001CAAA1 /* CalendarServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceMock.swift; sourceTree = "<group>"; };
+		8BD7A9D22A39A516001CAAA1 /* CalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceTests.swift; sourceTree = "<group>"; };
 		8BE3EB062A41AECA005F69FA /* CalendarPageSwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageSwipeDirection.swift; sourceTree = "<group>"; };
+		8BE3EB092A41D61C005F69FA /* CalendarScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8BE6447D29DDB8D800288DAB /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		8BE6447E29DDB8D800288DAB /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		8BE6447F29DDB8D800288DAB /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -838,6 +844,7 @@
 				8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */,
 				8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */,
 				8B4C56E72A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift */,
+				8BD7A9D22A39A516001CAAA1 /* CalendarServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -848,6 +855,7 @@
 				8B876E502A1B54E3008AE1CE /* Authentication Flow */,
 				8B876E512A1B54EC008AE1CE /* Create Workout Flow */,
 				8B4C56E02A29D0A7007FB66F /* Training Assistant Flow */,
+				8BE3EB0B2A41D61F005F69FA /* Calendar Flow */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -894,6 +902,7 @@
 				8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */,
 				8B876E562A1B5E71008AE1CE /* ExercisesDataStoreMock.swift */,
 				8B4C56E92A29E783007FB66F /* WorkoutsHistoryServiceMock.swift */,
+				8BD7A9D02A39A454001CAAA1 /* CalendarServiceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1100,6 +1109,14 @@
 				8BE3EB062A41AECA005F69FA /* CalendarPageSwipeDirection.swift */,
 			);
 			path = "Calendar Models";
+			sourceTree = "<group>";
+		};
+		8BE3EB0B2A41D61F005F69FA /* Calendar Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8BE3EB092A41D61C005F69FA /* CalendarScreenInteractorTests.swift */,
+			);
+			path = "Calendar Flow";
 			sourceTree = "<group>";
 		};
 		8BE6447729DD7BBC00288DAB /* Common */ = {
@@ -1769,14 +1786,17 @@
 				8B876E5D2A1B75DF008AE1CE /* WorkoutsServiceTests.swift in Sources */,
 				8B4C56EA2A29E783007FB66F /* WorkoutsHistoryServiceMock.swift in Sources */,
 				8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */,
+				8BD7A9D32A39A516001CAAA1 /* CalendarServiceTests.swift in Sources */,
 				8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */,
 				8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */,
+				8BE3EB0A2A41D61C005F69FA /* CalendarScreenInteractorTests.swift in Sources */,
 				8B876E612A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift in Sources */,
 				8B876E5F2A1B82F7008AE1CE /* CloudServiceTests.swift in Sources */,
 				8B876E552A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift in Sources */,
 				8B876E5B2A1B6F87008AE1CE /* AddExerciseScreenInteractorTests.swift in Sources */,
 				8B2A4B6A29F6683E00B6B3F0 /* CloudServiceMock.swift in Sources */,
 				8B2A4B6E29F66FAF00B6B3F0 /* ForgotPasswordInteractorTests.swift in Sources */,
+				8BD7A9D12A39A454001CAAA1 /* CalendarServiceMock.swift in Sources */,
 				8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */,
 				8B4C56E82A29E75F007FB66F /* WorkoutsHistoryServiceTests.swift in Sources */,
 			);

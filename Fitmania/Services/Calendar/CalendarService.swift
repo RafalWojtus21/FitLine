@@ -74,16 +74,9 @@ final class CalendarServiceImpl: CalendarService {
             }
     }
     
-    func checkIfDidWorkout(date: Date) -> [FinishedWorkout]? {
-        let startOfDay = calendar.startOfDay(for: date)
-        guard let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) else { return nil}
-        let finishedWorkout = workoutsHistory.filter { workout in
-            startOfDay <= workout.finishDate && workout.startDate <= endOfDay
-        }
-        return finishedWorkout.isEmpty ? nil : finishedWorkout
-    }
+    // MARK: Private Implementation
     
-    func getWorkoutsHistory() {
+    private func getWorkoutsHistory() {
         workoutsHistoryService.workoutsHistoryObservable
             .subscribe(onNext: { [weak self] finishedWorkouts in
                 self?.workoutsHistory = finishedWorkouts
@@ -91,8 +84,6 @@ final class CalendarServiceImpl: CalendarService {
             })
             .disposed(by: bag)
     }
-    
-    // MARK: Private Implementation
     
     private func getChosenMonth() -> Date {
         let referenceDate = Date()
@@ -110,7 +101,7 @@ final class CalendarServiceImpl: CalendarService {
         }
         return calendarMonths
     }
-
+    
     private func generateCalendarItems(for month: Date) -> [CalendarItem] {
         let offset = calendar.component(.weekday, from: month) - 2
         let numberOfItemsInCollectionView = 35
@@ -123,6 +114,15 @@ final class CalendarServiceImpl: CalendarService {
             return CalendarItem(date: date, isCurrentMonth: isCurrentMonth, finishedWorkout: finishedWorkout)
         }
         return calendarItems
+    }
+    
+    private func checkIfDidWorkout(date: Date) -> [FinishedWorkout]? {
+        let startOfDay = calendar.startOfDay(for: date)
+        guard let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) else { return nil}
+        let finishedWorkout = workoutsHistory.filter { workout in
+            startOfDay <= workout.finishDate && workout.startDate <= endOfDay
+        }
+        return finishedWorkout.isEmpty ? nil : finishedWorkout
     }
     
     private func getMonthAndYearName(date: Date) -> String {
