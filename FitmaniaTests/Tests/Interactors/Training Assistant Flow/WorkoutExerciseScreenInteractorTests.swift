@@ -101,7 +101,7 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
         let planName = "Test plan"
         let planID = WorkoutPlanID(workoutPlanID: UUID())
         
-        let plan: WorkoutPlan {
+        var plan: WorkoutPlan {
             WorkoutPlan(name: planName, id: planID, parts: [
                 WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 90, breakTime: 45)),
                 WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .chest, name: "chest exercise"), details: WorkoutPart.Details(sets: 4, time: nil, breakTime: 45)),
