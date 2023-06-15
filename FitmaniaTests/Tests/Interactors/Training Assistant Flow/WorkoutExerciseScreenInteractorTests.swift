@@ -97,6 +97,20 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
     }
     
     func testSaveDetailsOfCurrentExerciseRestDistanceDetails() {
+        
+        let planName = "Test plan"
+        let planID = WorkoutPlanID(workoutPlanID: UUID())
+        
+        let plan: WorkoutPlan {
+            WorkoutPlan(name: planName, id: planID, parts: [
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 90, breakTime: 45)),
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .chest, name: "chest exercise"), details: WorkoutPart.Details(sets: 4, time: nil, breakTime: 45)),
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .shoulders, name: "push ups"), details: WorkoutPart.Details(sets: 3, time: nil, breakTime: 22))
+            ])
+        }
+        
+        sut = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies!, workoutPlan: plan)
+        
         let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
         
         sut.observeForExercises()
@@ -110,11 +124,8 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
         sut.triggerNextExercise()
             .subscribe(triggerObserver)
             .disposed(by: bag)
-        
-        sut.triggerNextExercise()
-            .subscribe(triggerObserver)
-            .disposed(by: bag)
-        
+
+
         let distance = "120.5"
         
         sut.saveDetailOfCurrentExercise(details: [distance])
