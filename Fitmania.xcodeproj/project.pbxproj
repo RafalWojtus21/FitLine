@@ -1229,6 +1229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC1521429DD6EA20007A372 /* Build configuration list for PBXNativeTarget "Fitmania" */;
 			buildPhases = (
+				8B2E91072A3C51CD00E5D9D1 /* Empty Configuration */,
 				8BC1523D29DD76100007A372 /* Configuration */,
 				8BC151E629DD6EA00007A372 /* Sources */,
 				8BC151E729DD6EA00007A372 /* Frameworks */,
@@ -1387,6 +1388,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8B2E91072A3C51CD00E5D9D1 /* Empty Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Empty Configuration";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Fitmania/Configurations/Configuration.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/BuildScripts/create-empty-configuration-file.sh\"\n";
+		};
 		8BC1523D29DD76100007A372 /* Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
