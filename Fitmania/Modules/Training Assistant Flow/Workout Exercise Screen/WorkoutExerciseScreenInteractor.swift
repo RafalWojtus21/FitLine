@@ -134,6 +134,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         // swiftlint:disable:next force_unwrapping
         let eventDurationTimeInterval: TimeInterval? = currentEventDuration != nil ? TimeInterval(currentEventDuration!) : nil
         self.timeLeft = Double(self.workoutEvents[self.currentEventIndex].duration ?? 0)
+        self.timeLeft = 21
         startTime = Date()
         return Observable<Int>.interval(.milliseconds(1), scheduler: timerScheduler)
             .pausable(pauser)
