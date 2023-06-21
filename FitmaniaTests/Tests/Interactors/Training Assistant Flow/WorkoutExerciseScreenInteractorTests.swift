@@ -237,29 +237,45 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
     
     func testSetTimerEventDurationNil() {
         let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
+        let setTimerScheduler = TestScheduler(initialClock: 0)
+        let setTimerObserver = setTimerScheduler.createObserver(WorkoutExerciseScreenResult.self)
 
         let planName = "Test plan"
         let planID = WorkoutPlanID(workoutPlanID: UUID())
         var plan: WorkoutPlan {
             WorkoutPlan(name: planName, id: planID, parts: [
-                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "swimming"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 45)),
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "swimming"), details: WorkoutPart.Details(sets: nil, time: 12, breakTime: 45)),
                 WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 45)),
-                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "joga"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 22))
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "joga"), details: WorkoutPart.Details(sets: nil, time: 12, breakTime: 22))
             ])
         }
         
         sut = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies!, workoutPlan: plan)
-
-        sut.triggerNextExercise()
+        
+        sut.observeForExercises()
+            .subscribe(triggerObserver)
+            .disposed(by: bag)
+        
+        sut.triggerFirstExercise()
             .subscribe(triggerObserver)
             .disposed(by: bag)
         
         sut.setTimer()
-            .subscribe(observer)
+            .subscribe(setTimerObserver)
             .disposed(by: bag)
+        setTimerScheduler.start()
         
-        let result = observer.events.compactMap { $0.value.element }
+        setTimerScheduler.scheduleAt(10) {
+            setTimerScheduler.stop()
+        }
         
+        let triggerResult = triggerObserver.events.compactMap { $0.value.element }
+        
+        let result = setTimerObserver.events.compactMap { $0.value.element }
+        
+        print("Trigger: \(triggerResult)")
+        print("Result: \(result)")
+
 //        XCTAssertEqual(result, [.partialState(.switchToPhysicalExerciseView(currentEventIndex: 0))])
     }
     
