@@ -29,7 +29,7 @@ final class WorkoutsHistoryServiceTests: XCTestCase {
         XCTAssertEqual(result, .completed)
     }
 
-    func testSaveFinishedWorkoutChildAddedObservable() {
+    func testWorkoutHistoryObservableWorkoutAdded() {
         let bag = DisposeBag()
         let workoutSubject = BehaviorSubject<[FinishedWorkout]>(value: [])
         
@@ -44,6 +44,36 @@ final class WorkoutsHistoryServiceTests: XCTestCase {
         
         let result = try! workoutSubject.value()
         XCTAssertEqual(result, [sampleWorkout])
+    }
+    
+    func testWorkoutHistoryObservableWorkoutRemoved() {
+        let bag = DisposeBag()
+        let workoutSubject = BehaviorSubject<[FinishedWorkout]>(value: [])
+        
+        cloudServiceMock.childAddedObservableResponse = .just(sampleWorkout)
+        sut = WorkoutsHistoryServiceImpl(cloudService: cloudServiceMock)
+
+        sut.workoutsHistoryObservable
+            .subscribe(onNext: { value in
+                workoutSubject.onNext(value)
+            })
+            .disposed(by: bag)
+        
+        let addWorkoutResult = try! workoutSubject.value()
+        XCTAssertEqual(addWorkoutResult, [sampleWorkout])
+
+        cloudServiceMock.childRemovedObservableResponse = .just(sampleWorkout)
+        sut = WorkoutsHistoryServiceImpl(cloudService: cloudServiceMock)
+
+        sut.workoutsHistoryObservable
+            .subscribe(onNext: { value in
+                workoutSubject.onNext(value)
+            })
+            .disposed(by: bag)
+
+        let removeWorkoutResult = try! workoutSubject.value()
+        
+        XCTAssertEqual(removeWorkoutResult, [sampleWorkout])
     }
 
     func testSaveFinishedWorkoutToHistorError() {

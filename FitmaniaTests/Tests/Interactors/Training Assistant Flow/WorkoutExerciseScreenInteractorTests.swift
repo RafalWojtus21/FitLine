@@ -220,7 +220,7 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
         XCTAssertEqual(result, [.partialState(.updateIntervalState(intervalState: .running))])
     }
     
-    func testSetTimer() {
+    func testSetTimerSuccess() {
         let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
         sut.triggerNextExercise()
             .subscribe(triggerObserver)
@@ -233,6 +233,34 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
         let result = observer.events.compactMap { $0.value.element }
         
         XCTAssertEqual(result, [])
+    }
+    
+    func testSetTimerEventDurationNil() {
+        let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
+
+        let planName = "Test plan"
+        let planID = WorkoutPlanID(workoutPlanID: UUID())
+        var plan: WorkoutPlan {
+            WorkoutPlan(name: planName, id: planID, parts: [
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "swimming"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 45)),
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 45)),
+                WorkoutPart(workoutPlanName: planName, workoutPlanID: planID, exercise: Exercise(category: .cardio, name: "joga"), details: WorkoutPart.Details(sets: nil, time: 25, breakTime: 22))
+            ])
+        }
+        
+        sut = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies!, workoutPlan: plan)
+
+        sut.triggerNextExercise()
+            .subscribe(triggerObserver)
+            .disposed(by: bag)
+        
+        sut.setTimer()
+            .subscribe(observer)
+            .disposed(by: bag)
+        
+        let result = observer.events.compactMap { $0.value.element }
+        
+//        XCTAssertEqual(result, [.partialState(.switchToPhysicalExerciseView(currentEventIndex: 0))])
     }
     
     func testPauseTimerWhenTimerRunning() {
