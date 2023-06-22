@@ -303,7 +303,7 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Time left should be equal to 0 and interval state should be .finished")
         
-        let disposable = sut.setTimer()
+        sut.setTimer()
             .subscribe(onNext: { result in
                 if case .partialState(let state) = result {
                     if case .updateCurrentTime(let intervalState, let timeLeft) = state {
@@ -313,8 +313,8 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
                     }
                 }
             })
+            .disposed(by: bag)
         wait(for: [expectation], timeout: 10)
-        disposable.dispose()
     }
     
     func testPauseTimerWhenTimerRunning() {        
