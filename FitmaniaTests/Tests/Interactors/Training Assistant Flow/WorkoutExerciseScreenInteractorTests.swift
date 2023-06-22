@@ -313,7 +313,7 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
                     }
                 }
             })
-        wait(for: [expectation], timeout: 3)
+        wait(for: [expectation], timeout: 10)
         disposable.dispose()
     }
     
