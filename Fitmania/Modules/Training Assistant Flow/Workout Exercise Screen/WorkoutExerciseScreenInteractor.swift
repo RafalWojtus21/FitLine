@@ -22,7 +22,6 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     private let pauser = BehaviorSubject<Bool>(value: true)
     private var detailedExercisesSubject = PublishSubject<[DetailedExercise]>()
     private var timeGone: Double = 0.0
-    private var timeLeft: Double?
     private var timerScheduler: SchedulerType
     private var workoutPlan: WorkoutPlan
     private var workoutEvents: [WorkoutPartEvent] {
@@ -50,7 +49,6 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         self.dependencies = dependencies
         self.timerScheduler = timerScheduler
         self.workoutPlan = workoutPlan
-        self.timeLeft = Double(workoutEvents[0].duration ?? 0)
         self.workoutPlan = workoutPlan
     }
     
@@ -131,30 +129,27 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     
     func setTimer() -> Observable<WorkoutExerciseScreenResult> {
         let currentEventDuration = workoutEvents[currentEventIndex].duration
+        var timeLeft = Double(currentEventDuration ?? 0)
         // swiftlint:disable:next force_unwrapping
         let eventDurationTimeInterval: TimeInterval? = currentEventDuration != nil ? TimeInterval(currentEventDuration!) : nil
-        self.timeLeft = Double(self.workoutEvents[self.currentEventIndex].duration ?? 0)
-        self.timeLeft = 21
+        guard let eventDurationTimeInterval else {
+            fatalError("Invalid event duration: The duration for the current workout event is not set correctly.")
+        }
         startTime = Date()
         return Observable<Int>.interval(.milliseconds(1), scheduler: timerScheduler)
             .pausable(pauser)
             .take(until: { _ in
-                return self.timeLeft == 0
+                return timeLeft <= 0
             })
             .map { _ -> WorkoutExerciseScreenResult in
-                guard let startTime = self.startTime, var timeLeft = self.timeLeft else { return .partialState(.isTimerRunning(isRunning: false))}
-                guard let eventDurationTimeInterval else { return .partialState(.switchToPhysicalExerciseView(currentEventIndex: self.currentEventIndex)) }
+                guard let startTime = self.startTime else { return .partialState(.isTimerRunning(isRunning: false))}
                 let currentTime = Date()
                 let elapsedTime = currentTime.timeIntervalSince(startTime) + self.accumulatedTime
                 self.timeGone = elapsedTime
                 timeLeft = eventDurationTimeInterval - elapsedTime
-                var intervalState: WorkoutExerciseScreen.IntervalState = .running
-                if elapsedTime >= eventDurationTimeInterval {
-                    timeLeft = 0
-                    intervalState = .finished
-                    if self.workoutEvents[self.currentEventIndex].type == .exercise {
-                        self.triggerExerciseSubject.onNext(.nextExercise)
-                    }
+                let intervalState: WorkoutExerciseScreen.IntervalState = elapsedTime >= eventDurationTimeInterval ? .finished : .running
+                if timeLeft < 0 {
+                    self.autoTriggerRestEvent()
                 }
                 return .partialState(.updateCurrentTime(intervalState: intervalState, timeLeft: Int(ceil(timeLeft))))
             }
@@ -192,6 +187,12 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
             return handleCardioExercise()
         } else {
             return handlePhysicalExercise()
+        }
+    }
+    
+    private func autoTriggerRestEvent() {
+        if self.workoutEvents[self.currentEventIndex].type == .exercise {
+            self.triggerExerciseSubject.onNext(.nextExercise)
         }
     }
     
