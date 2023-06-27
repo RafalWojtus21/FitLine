@@ -35,9 +35,9 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
     let cardioExerciseFirstPlanID = WorkoutPlanID(workoutPlanID: UUID())
     var cardioExerciseFirstPlan: WorkoutPlan {
         WorkoutPlan(name: cardioExerciseFirstPlanName, id: cardioExerciseFirstPlanID, parts: [
-            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "swimming"), details: WorkoutPart.Details(sets: nil, time: 2, breakTime: 3)),
-            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 2, breakTime: 3)),
-            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "joga"), details: WorkoutPart.Details(sets: nil, time: 2, breakTime: 3))
+            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "swimming"), details: WorkoutPart.Details(sets: nil, time: 1, breakTime: 3)),
+            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "running"), details: WorkoutPart.Details(sets: nil, time: 1, breakTime: 3)),
+            WorkoutPart(workoutPlanName: cardioExerciseFirstPlanName, workoutPlanID: cardioExerciseFirstPlanID, exercise: Exercise(category: .cardio, name: "joga"), details: WorkoutPart.Details(sets: nil, time: 1, breakTime: 3))
         ])
     }
     
@@ -286,23 +286,23 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
     
     func testSetTimerSuccess() {
         let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
-        
+
         sut = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies!, workoutPlan: cardioExerciseFirstPlan)
 
         sut.observeForExercises()
             .subscribe(triggerObserver)
             .disposed(by: bag)
-        
+
         sut.triggerFirstExercise()
             .subscribe(triggerObserver)
             .disposed(by: bag)
-        
+
         sut.triggerNextExercise()
             .subscribe(triggerObserver)
             .disposed(by: bag)
-        
+
         let expectation = XCTestExpectation(description: "Time left should be equal to 0 and interval state should be .finished")
-        
+
         sut.setTimer()
             .subscribe(onNext: { result in
                 if case .partialState(let state) = result {
@@ -315,6 +315,26 @@ final class WorkoutExerciseScreenInteractorTests: XCTestCase {
             })
             .disposed(by: bag)
         wait(for: [expectation], timeout: 10)
+    }
+    
+    func testSetTimerSuccess2() {
+        let triggerObserver = TestScheduler(initialClock: 0).createObserver(WorkoutExerciseScreenResult.self)
+
+        let testScheduler = TestScheduler(initialClock: 0)
+        let testObserver = testScheduler.createObserver(WorkoutExerciseScreenResult.self)
+
+        sut = WorkoutExerciseScreenInteractorImpl(dependencies: dependencies!, timerScheduler: testScheduler, workoutPlan: cardioExerciseFirstPlan)
+        
+        sut.setTimer()
+            .subscribe(testObserver)
+            .disposed(by: bag)
+
+        testScheduler.advanceTo(10)
+
+        let result = testObserver.events.compactMap { $0.value.element }
+
+        print("Result: \(result)")
+        XCTAssertEqual(result, [.partialState(.updateCurrentTime(intervalState: .finished, timeLeft: 0))])
     }
     
     func testPauseTimerWhenTimerRunning() {        

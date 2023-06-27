@@ -139,7 +139,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         return Observable<Int>.interval(.milliseconds(1), scheduler: timerScheduler)
             .pausable(pauser)
             .take(until: { _ in
-                return timeLeft <= 0
+                return timeLeft == 0
             })
             .map { _ -> WorkoutExerciseScreenResult in
                 guard let startTime = self.startTime else { return .partialState(.isTimerRunning(isRunning: false))}
@@ -147,13 +147,23 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                 let elapsedTime = currentTime.timeIntervalSince(startTime) + self.accumulatedTime
                 self.timeGone = elapsedTime
                 timeLeft = eventDurationTimeInterval - elapsedTime
-                let intervalState: WorkoutExerciseScreen.IntervalState = elapsedTime >= eventDurationTimeInterval ? .finished : .running
+                var intervalState: WorkoutExerciseScreen.IntervalState = .running
                 if timeLeft < 0 {
+                    timeLeft = 0
+                    intervalState = .finished
                     self.autoTriggerRestEvent()
                 }
                 return .partialState(.updateCurrentTime(intervalState: intervalState, timeLeft: Int(ceil(timeLeft))))
             }
     }
+    
+//    func observeForActiveTimer()
+//    protocol EstimatedTimeTimer {
+//        func start(withInterval timeInterval: RxTimeInterval)
+//        func stop()
+//
+//        var timeLapseObserver: Observable<Int> { get }
+//    }
     
     func pauseTimer() -> Observable<WorkoutExerciseScreenResult> {
         if let startTime, !isPaused {
