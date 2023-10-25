@@ -63,6 +63,10 @@
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
 		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
+		8B425BB72AA5E2FC00A3A762 /* Configuration-Development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B425BB32AA5E2FC00A3A762 /* Configuration-Development.plist */; };
+		8B425BB82AA5E2FC00A3A762 /* Configuration-QA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B425BB42AA5E2FC00A3A762 /* Configuration-QA.plist */; };
+		8B425BB92AA5E2FC00A3A762 /* Configuration-Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B425BB52AA5E2FC00A3A762 /* Configuration-Default.plist */; };
+		8B425BBA2AA5E2FC00A3A762 /* Configuration-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B425BB62AA5E2FC00A3A762 /* Configuration-Production.plist */; };
 		8B4C56E22A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */; };
 		8B4C56E42A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */; };
 		8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */; };
@@ -140,10 +144,6 @@
 		8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */; };
 		8BC1520F29DD6EA20007A372 /* FitmaniaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1520E29DD6EA20007A372 /* FitmaniaUITests.swift */; };
 		8BC1521129DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1521029DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift */; };
-		8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1522E29DD75CF0007A372 /* Configuration-Production.plist */; };
-		8BC1523429DD75CF0007A372 /* Configuration-Development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1522F29DD75CF0007A372 /* Configuration-Development.plist */; };
-		8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523029DD75CF0007A372 /* Configuration-QA.plist */; };
-		8BC1523729DD75CF0007A372 /* Configuration-Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523229DD75CF0007A372 /* Configuration-Default.plist */; };
 		8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523929DD75F40007A372 /* generate-configuration.sh */; };
 		8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */; };
 		8BC1524529DD769F0007A372 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1524029DD769E0007A372 /* Navigation.swift */; };
@@ -331,6 +331,10 @@
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
+		8B425BB32AA5E2FC00A3A762 /* Configuration-Development.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Development.plist"; sourceTree = "<group>"; };
+		8B425BB42AA5E2FC00A3A762 /* Configuration-QA.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-QA.plist"; sourceTree = "<group>"; };
+		8B425BB52AA5E2FC00A3A762 /* Configuration-Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Default.plist"; sourceTree = "<group>"; };
+		8B425BB62AA5E2FC00A3A762 /* Configuration-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Production.plist"; sourceTree = "<group>"; };
 		8B4C56E12A29D36D007FB66F /* ScheduleWorkoutScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWorkoutScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B4C56E32A29D819007FB66F /* WorkoutExerciseScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryModel.swift; sourceTree = "<group>"; };
@@ -408,10 +412,6 @@
 		8BC1520A29DD6EA20007A372 /* FitmaniaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitmaniaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC1520E29DD6EA20007A372 /* FitmaniaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITests.swift; sourceTree = "<group>"; };
 		8BC1521029DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8BC1522E29DD75CF0007A372 /* Configuration-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Production.plist"; sourceTree = "<group>"; };
-		8BC1522F29DD75CF0007A372 /* Configuration-Development.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Development.plist"; sourceTree = "<group>"; };
-		8BC1523029DD75CF0007A372 /* Configuration-QA.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-QA.plist"; sourceTree = "<group>"; };
-		8BC1523229DD75CF0007A372 /* Configuration-Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Default.plist"; sourceTree = "<group>"; };
 		8BC1523929DD75F40007A372 /* generate-configuration.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "generate-configuration.sh"; sourceTree = "<group>"; };
 		8BC1523A29DD75F40007A372 /* create-empty-configuration-file.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "create-empty-configuration-file.sh"; sourceTree = "<group>"; };
 		8BC1524029DD769E0007A372 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
@@ -864,11 +864,11 @@
 		8BC1522D29DD75CF0007A372 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				8BC1522E29DD75CF0007A372 /* Configuration-Production.plist */,
-				8BC1522F29DD75CF0007A372 /* Configuration-Development.plist */,
-				8BC1523029DD75CF0007A372 /* Configuration-QA.plist */,
 				8B2A4B8129F6D58C00B6B3F0 /* Configuration.swift */,
-				8BC1523229DD75CF0007A372 /* Configuration-Default.plist */,
+				8B425BB52AA5E2FC00A3A762 /* Configuration-Default.plist */,
+				8B425BB32AA5E2FC00A3A762 /* Configuration-Development.plist */,
+				8B425BB62AA5E2FC00A3A762 /* Configuration-Production.plist */,
+				8B425BB42AA5E2FC00A3A762 /* Configuration-QA.plist */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1352,22 +1352,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE6448529DDB8D800288DAB /* SF-Pro-Text-Regular.otf in Resources */,
-				8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */,
+				8B425BB72AA5E2FC00A3A762 /* Configuration-Development.plist in Resources */,
 				8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */,
 				8B5357FB29FACB14009EED68 /* exercises.json in Resources */,
 				8BE6448629DDB8D800288DAB /* SF-Pro-Text-Bold.otf in Resources */,
 				8BE6448329DDB8D800288DAB /* OpenSans-SemiBold.ttf in Resources */,
 				8BC1523C29DD75F40007A372 /* create-empty-configuration-file.sh in Resources */,
-				8BC1523729DD75CF0007A372 /* Configuration-Default.plist in Resources */,
+				8B425BBA2AA5E2FC00A3A762 /* Configuration-Production.plist in Resources */,
 				8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */,
-				8BC1523429DD75CF0007A372 /* Configuration-Development.plist in Resources */,
 				8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */,
+				8B425BB82AA5E2FC00A3A762 /* Configuration-QA.plist in Resources */,
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
 				8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */,
-				8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */,
 				8BE644F029E0033900288DAB /* Localizable.strings in Resources */,
 				8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */,
 				8BE6448429DDB8D800288DAB /* SF-Pro.ttf in Resources */,
+				8B425BB92AA5E2FC00A3A762 /* Configuration-Default.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
