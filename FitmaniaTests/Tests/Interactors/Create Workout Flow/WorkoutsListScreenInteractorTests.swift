@@ -36,11 +36,11 @@ final class WorkoutsListScreenInteractorTests: XCTestCase {
     func testLoadTrainingPlansSuccess() {
         let plan1Name = "plan 1"
         let plan1ID = WorkoutPlanID(workoutPlanID: UUID())
-        let plan1Parts: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .cardio, name: "running"), time: 3, breakTime: 3), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .triceps, name: "dips"), time: 33, breakTime: 33)]
+        let plan1Parts: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .cardio, name: "running"), details: .init(sets: nil, time: 3, breakTime: 3)), WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .triceps, name: "dips"), details: .init(sets: nil, time: 33, breakTime: 33))]
         
         let plan2Name = "plan 2"
         let plan2ID = WorkoutPlanID(workoutPlanID: UUID())
-        let plan2Parts: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .chest, name: "push ups"), time: 1, breakTime: 11), WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .legs, name: "squats"), time: 2, breakTime: 22)]
+        let plan2Parts: [WorkoutPart] = [WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .chest, name: "push ups"), details: .init(sets: nil, time: 1, breakTime: 11)), WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .legs, name: "squats"), details: .init(sets: nil, time: 2, breakTime: 22))]
         
         let workoutParts: [WorkoutPart] = plan1Parts + plan2Parts
         dependencies.workoutsServiceMock.workoutsSubject.onNext(workoutParts.sorted(by: { $0.workoutPlanName < $1.workoutPlanName }))

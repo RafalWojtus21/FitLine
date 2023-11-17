@@ -95,6 +95,7 @@
 		8B5FCC0B2A1BB23F0007D60C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */; };
 		8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */; };
 		8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */; };
+		8B69D2312B078A9E007DD866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
 		8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */; };
@@ -179,7 +180,6 @@
 		8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6448929DDB96E00288DAB /* UIFontExtension.swift */; };
 		8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449129DED21600288DAB /* UIColorExtension.swift */; };
 		8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6449729DEDCD900288DAB /* UIImageExtension.swift */; };
-		8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */; };
 		8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE644A429DEEE2300288DAB /* FirebaseAuth */; };
 		8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644AF29DEF18F00288DAB /* AuthManager.swift */; };
 		8BE644D029DF06AF00288DAB /* RegisterScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE644CA29DF06AF00288DAB /* RegisterScreenContract.swift */; };
@@ -356,6 +356,7 @@
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
 		8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
 		8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenMiddleware.swift; sourceTree = "<group>"; };
@@ -438,7 +439,6 @@
 		8BE6448929DDB96E00288DAB /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		8BE6449129DED21600288DAB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		8BE6449729DEDCD900288DAB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BE644AF29DEF18F00288DAB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		8BE644CA29DF06AF00288DAB /* RegisterScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenContract.swift; sourceTree = "<group>"; };
 		8BE644CB29DF06AF00288DAB /* RegisterScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenPresenter.swift; sourceTree = "<group>"; };
@@ -813,7 +813,7 @@
 				8BE6447729DD7BBC00288DAB /* Common */,
 				8BE644ED29E0030200288DAB /* Localization */,
 				8BC151FB29DD6EA20007A372 /* Info.plist */,
-				8BE6449D29DEEC9B00288DAB /* GoogleService-Info.plist */,
+				8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
 				8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */,
 			);
@@ -1329,7 +1329,6 @@
 			files = (
 				8BE6448529DDB8D800288DAB /* SF-Pro-Text-Regular.otf in Resources */,
 				8BC1523329DD75CF0007A372 /* Configuration-Production.plist in Resources */,
-				8BE6449E29DEEC9B00288DAB /* GoogleService-Info.plist in Resources */,
 				8B5357FB29FACB14009EED68 /* exercises.json in Resources */,
 				8BE6448629DDB8D800288DAB /* SF-Pro-Text-Bold.otf in Resources */,
 				8BE6448329DDB8D800288DAB /* OpenSans-SemiBold.ttf in Resources */,
@@ -1340,6 +1339,7 @@
 				8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */,
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
 				8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */,
+				8B69D2312B078A9E007DD866 /* GoogleService-Info.plist in Resources */,
 				8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */,
 				8BE644F029E0033900288DAB /* Localizable.strings in Resources */,
 				8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */,

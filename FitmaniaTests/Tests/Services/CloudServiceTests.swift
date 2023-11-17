@@ -29,7 +29,10 @@ final class CloudServiceTests: XCTestCase {
     let plan2ID = WorkoutPlanID(workoutPlanID: UUID())
     
     var testData: [WorkoutPart] {
-        [WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), time: 12, breakTime: 25), WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .back, name: "rowing"), time: 112, breakTime: 12312)]
+        [
+            WorkoutPart(workoutPlanName: plan1Name, workoutPlanID: plan1ID, exercise: Exercise(category: .chest, name: "push ups"), details: .init(sets: 2, time: 12, breakTime: 25)),
+            WorkoutPart(workoutPlanName: plan2Name, workoutPlanID: plan2ID, exercise: Exercise(category: .back, name: "rowing"), details: .init(sets: 4, time: 112, breakTime: 12312))
+        ]
     }
     
     enum TestError: LocalizedError, Equatable {

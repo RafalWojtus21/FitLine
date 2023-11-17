@@ -42,7 +42,7 @@ final class WorkoutSetupScreenInteractorTests: XCTestCase {
     }
     
     func testLoadExercises() {
-        let plans: [WorkoutPart] = [WorkoutPart(workoutPlanName: "plan 1", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), time: 12, breakTime: 22)]
+        let plans: [WorkoutPart] = [WorkoutPart(workoutPlanName: "plan 1", workoutPlanID: WorkoutPlanID(workoutPlanID: UUID()), exercise: Exercise(category: .cardio, name: "running"), details: .init(sets: nil, time: 12, breakTime: 22))]
         dependencies.exercisesDataStoreMock.exercisesRelay.accept(plans)
 
         sut.loadExercises()
