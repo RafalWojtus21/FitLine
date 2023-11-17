@@ -96,6 +96,19 @@
 		8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */; };
 		8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */; };
 		8B69D2312B078A9E007DD866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */; };
+		8B69D2332B078EA0007DD866 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2322B078E9F007DD866 /* CalendarCell.swift */; };
+		8B69D2352B078EB6007DD866 /* CalendarDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2342B078EB6007DD866 /* CalendarDaysView.swift */; };
+		8B69D2392B078F0F007DD866 /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2372B078F0F007DD866 /* CalendarItem.swift */; };
+		8B69D23A2B078F0F007DD866 /* CalendarPageSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2382B078F0F007DD866 /* CalendarPageSwipeDirection.swift */; };
+		8B69D2442B07900E007DD866 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2432B07900E007DD866 /* CalendarService.swift */; };
+		8B69D24C2B07905F007DD866 /* CalendarScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2462B07905F007DD866 /* CalendarScreenMiddleware.swift */; };
+		8B69D24D2B07905F007DD866 /* CalendarScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2472B07905F007DD866 /* CalendarScreenBuilder.swift */; };
+		8B69D24E2B07905F007DD866 /* CalendarScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2482B07905F007DD866 /* CalendarScreenContract.swift */; };
+		8B69D24F2B07905F007DD866 /* CalendarScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2492B07905F007DD866 /* CalendarScreenInteractor.swift */; };
+		8B69D2502B07905F007DD866 /* CalendarScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D24A2B07905F007DD866 /* CalendarScreenViewController.swift */; };
+		8B69D2512B07905F007DD866 /* CalendarScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D24B2B07905F007DD866 /* CalendarScreenPresenter.swift */; };
+		8B69D2552B07906C007DD866 /* CalendarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2532B07906B007DD866 /* CalendarPage.swift */; };
+		8B69D2562B07906C007DD866 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2542B07906B007DD866 /* CalendarPageViewController.swift */; };
 		8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */; };
 		8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */; };
 		8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */; };
@@ -357,6 +370,19 @@
 		8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
 		8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B69D2322B078E9F007DD866 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		8B69D2342B078EB6007DD866 /* CalendarDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDaysView.swift; sourceTree = "<group>"; };
+		8B69D2372B078F0F007DD866 /* CalendarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
+		8B69D2382B078F0F007DD866 /* CalendarPageSwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPageSwipeDirection.swift; sourceTree = "<group>"; };
+		8B69D2432B07900E007DD866 /* CalendarService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		8B69D2462B07905F007DD866 /* CalendarScreenMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B69D2472B07905F007DD866 /* CalendarScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenBuilder.swift; sourceTree = "<group>"; };
+		8B69D2482B07905F007DD866 /* CalendarScreenContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenContract.swift; sourceTree = "<group>"; };
+		8B69D2492B07905F007DD866 /* CalendarScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenInteractor.swift; sourceTree = "<group>"; };
+		8B69D24A2B07905F007DD866 /* CalendarScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenViewController.swift; sourceTree = "<group>"; };
+		8B69D24B2B07905F007DD866 /* CalendarScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarScreenPresenter.swift; sourceTree = "<group>"; };
+		8B69D2532B07906B007DD866 /* CalendarPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPage.swift; sourceTree = "<group>"; };
+		8B69D2542B07906B007DD866 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
 		8B6FDC6529E340D80037A8B8 /* ForgotPasswordScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenContract.swift; sourceTree = "<group>"; };
 		8B6FDC6629E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenPresenter.swift; sourceTree = "<group>"; };
 		8B6FDC6729E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenMiddleware.swift; sourceTree = "<group>"; };
@@ -608,6 +634,7 @@
 				8B02358E2A0E465D006B45A5 /* ExerciseTrackerCell.swift */,
 				8B3224572A275961008ADA95 /* WorkoutSummaryCollectionViewCell.swift */,
 				8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */,
+				8B69D2322B078E9F007DD866 /* CalendarCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -671,6 +698,87 @@
 			path = "Workout Models";
 			sourceTree = "<group>";
 		};
+		8B69D2362B078F00007DD866 /* Calendar Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B69D2372B078F0F007DD866 /* CalendarItem.swift */,
+				8B69D2382B078F0F007DD866 /* CalendarPageSwipeDirection.swift */,
+			);
+			path = "Calendar Models";
+			sourceTree = "<group>";
+		};
+		8B69D23D2B078F5A007DD866 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8BE644AF29DEF18F00288DAB /* AuthManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		8B69D23E2B078F67007DD866 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		8B69D23F2B078F7A007DD866 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */,
+				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		8B69D2402B078FD4007DD866 /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+				8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */,
+			);
+			path = DataStores;
+			sourceTree = "<group>";
+		};
+		8B69D2412B078FF3007DD866 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				8BEF011D29FAB690004B6B15 /* WorkoutsService.swift */,
+				8BF48B852A1759A500F84C6F /* WorkoutsHistoryService.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		8B69D2422B079000007DD866 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		8B69D2452B07904B007DD866 /* Calendar Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8B69D2522B079065007DD866 /* Calendar */,
+				8B69D2472B07905F007DD866 /* CalendarScreenBuilder.swift */,
+				8B69D2482B07905F007DD866 /* CalendarScreenContract.swift */,
+				8B69D2492B07905F007DD866 /* CalendarScreenInteractor.swift */,
+				8B69D2462B07905F007DD866 /* CalendarScreenMiddleware.swift */,
+				8B69D24B2B07905F007DD866 /* CalendarScreenPresenter.swift */,
+				8B69D24A2B07905F007DD866 /* CalendarScreenViewController.swift */,
+			);
+			path = "Calendar Flow";
+			sourceTree = "<group>";
+		};
+		8B69D2522B079065007DD866 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8B69D2532B07906B007DD866 /* CalendarPage.swift */,
+				8B69D2542B07906B007DD866 /* CalendarPageViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		8B6FDC7129E340DE0037A8B8 /* ForgotPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,8 +818,9 @@
 				8B5357FA29FACB14009EED68 /* exercises.json */,
 				8B6FDC8929E5750C0037A8B8 /* UserInfo.swift */,
 				8B2A4B7129F69BD200B6B3F0 /* AuthResponse.swift */,
-				8B5FCC172A1CD0DA0007D60C /* Workout Models */,
 				8B0722892A24A2D400854F1B /* Units.swift */,
+				8B5FCC172A1CD0DA0007D60C /* Workout Models */,
+				8B69D2362B078F00007DD866 /* Calendar Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -925,6 +1034,7 @@
 				8B10657029FAB590005A1521 /* Create Workout Flow */,
 				8BCEB3D72A0B8064001F8F78 /* Training Assistant Flow */,
 				8B07226C2A24884200854F1B /* Settings Flow */,
+				8B69D2452B07904B007DD866 /* Calendar Flow */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1047,6 +1157,7 @@
 				8B02358A2A0D1FC4006B45A5 /* ExercisePartInfoView.swift */,
 				8B3224532A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift */,
 				8B32245B2A276844008ADA95 /* PaddingLabel.swift */,
+				8B69D2342B078EB6007DD866 /* CalendarDaysView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1054,13 +1165,13 @@
 		8BE644AE29DEF18000288DAB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8BE644AF29DEF18F00288DAB /* AuthManager.swift */,
-				8B6FDC9D29E816190037A8B8 /* ValidationService.swift */,
-				8B2A4B7B29F6D52E00B6B3F0 /* RealtimeDatabaseService.swift */,
-				8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */,
-				8B10656C29FAB095005A1521 /* ExercisesDataStore.swift */,
-				8BEF011D29FAB690004B6B15 /* WorkoutsService.swift */,
-				8BF48B852A1759A500F84C6F /* WorkoutsHistoryService.swift */,
+				8B69D23D2B078F5A007DD866 /* Authentication */,
+				8B69D23E2B078F67007DD866 /* Validation */,
+				8B69D2422B079000007DD866 /* Calendar */,
+				8B69D2432B07900E007DD866 /* CalendarService.swift */,
+				8B69D23F2B078F7A007DD866 /* Storages */,
+				8B69D2402B078FD4007DD866 /* DataStores */,
+				8B69D2412B078FF3007DD866 /* Workouts */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1447,8 +1558,10 @@
 				8B0722802A248C6E00854F1B /* SettingsScreenContract.swift in Sources */,
 				8BF48B912A175F8A00F84C6F /* WorkoutSummaryScreenPresenter.swift in Sources */,
 				8B2A4B7029F69A6500B6B3F0 /* Localization.AuthErrors.swift in Sources */,
+				8B69D24F2B07905F007DD866 /* CalendarScreenInteractor.swift in Sources */,
 				8BE644B029DEF18F00288DAB /* AuthManager.swift in Sources */,
 				8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */,
+				8B69D2502B07905F007DD866 /* CalendarScreenViewController.swift in Sources */,
 				8BEF011E29FAB691004B6B15 /* WorkoutsService.swift in Sources */,
 				8B0235762A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift in Sources */,
 				8B0235582A0BCA3E006B45A5 /* Localization.TrainingAssistantFlow.swift in Sources */,
@@ -1462,8 +1575,10 @@
 				8B6FDC6C29E340D80037A8B8 /* ForgotPasswordScreenPresenter.swift in Sources */,
 				8BE644DD29DFFA0100288DAB /* Error.swift in Sources */,
 				8BF1ECFB29EFEA2F00540E1D /* HomeScreenMiddleware.swift in Sources */,
+				8B69D24D2B07905F007DD866 /* CalendarScreenBuilder.swift in Sources */,
 				8B5357D329FABB2B009EED68 /* WorkoutSetupScreenBuilder.swift in Sources */,
 				8BC1524629DD769F0007A372 /* AppDependencies.swift in Sources */,
+				8B69D2512B07905F007DD866 /* CalendarScreenPresenter.swift in Sources */,
 				8B0722842A248C6E00854F1B /* SettingsScreenBuilder.swift in Sources */,
 				8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */,
 				8BEF011B29FAB66F004B6B15 /* WorkoutsListScreenContract.swift in Sources */,
@@ -1481,6 +1596,7 @@
 				8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */,
 				8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */,
 				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
+				8B69D23A2B078F0F007DD866 /* CalendarPageSwipeDirection.swift in Sources */,
 				8BE644F629E0048900288DAB /* Localization.swift in Sources */,
 				8BF48B902A175F8A00F84C6F /* WorkoutSummaryScreenInteractor.swift in Sources */,
 				8BC1524529DD769F0007A372 /* Navigation.swift in Sources */,
@@ -1496,11 +1612,13 @@
 				8B2A4B8229F6D58C00B6B3F0 /* Configuration.swift in Sources */,
 				8B02356D2A0BE881006B45A5 /* WorkoutPreviewScreenPresenter.swift in Sources */,
 				8B53581129FBA7A7009EED68 /* AddExerciseScreenMiddleware.swift in Sources */,
+				8B69D2552B07906C007DD866 /* CalendarPage.swift in Sources */,
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
 				8BF48B862A1759A600F84C6F /* WorkoutsHistoryService.swift in Sources */,
 				8BF1ECFC29EFEA2F00540E1D /* HomeScreenViewController.swift in Sources */,
 				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
 				8BF1ECC329EEE27200540E1D /* AccountCreatedScreenViewController.swift in Sources */,
+				8B69D2562B07906C007DD866 /* CalendarPageViewController.swift in Sources */,
 				8B32245A2A276250008ADA95 /* UICollectionViewCellExtension.swift in Sources */,
 				8B6FDC7029E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift in Sources */,
 				8B5357D729FABDB2009EED68 /* Localization.CreateWorkoutFlow.swift in Sources */,
@@ -1529,14 +1647,18 @@
 				8B02358F2A0E465E006B45A5 /* ExerciseTrackerCell.swift in Sources */,
 				8B53581529FBA7A7009EED68 /* AddExerciseScreenBuilder.swift in Sources */,
 				8BF48B922A175F8A00F84C6F /* WorkoutSummaryScreenViewController.swift in Sources */,
+				8B69D24E2B07905F007DD866 /* CalendarScreenContract.swift in Sources */,
+				8B69D24C2B07905F007DD866 /* CalendarScreenMiddleware.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8B53581329FBA7A7009EED68 /* AddExerciseScreenContract.swift in Sources */,
+				8B69D2442B07900E007DD866 /* CalendarService.swift in Sources */,
 				8B6FDC6D29E340D80037A8B8 /* ForgotPasswordScreenMiddleware.swift in Sources */,
 				8B0722812A248C6E00854F1B /* SettingsScreenPresenter.swift in Sources */,
 				8B5357C629FAB818009EED68 /* WorkoutsListCell.swift in Sources */,
 				8BE644EB29DFFDEC00288DAB /* LoginScreenBuilder.swift in Sources */,
 				8B5357D229FABB2B009EED68 /* WorkoutSetupScreenMiddleware.swift in Sources */,
 				8BE644E729DFFDEC00288DAB /* LoginScreenContract.swift in Sources */,
+				8B69D2352B078EB6007DD866 /* CalendarDaysView.swift in Sources */,
 				8BC1525129DD77030007A372 /* WelcomeScreenViewController.swift in Sources */,
 				8B0722912A24BC4700854F1B /* IntExtension.swift in Sources */,
 				8B53580829FBA4AE009EED68 /* CategoryExercisesListMiddleware.swift in Sources */,
@@ -1548,6 +1670,7 @@
 				8B0235872A0D07FC006B45A5 /* AnimationKeys.swift in Sources */,
 				8B02358D2A0E2129006B45A5 /* ObservableTypeExtension.swift in Sources */,
 				8BF48B8E2A175F8A00F84C6F /* WorkoutSummaryScreenBuilder.swift in Sources */,
+				8B69D2332B078EA0007DD866 /* CalendarCell.swift in Sources */,
 				8BEF011929FAB66F004B6B15 /* WorkoutsListScreenPresenter.swift in Sources */,
 				8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */,
 				8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */,
@@ -1585,6 +1708,7 @@
 				8B02357D2A0CEB1A006B45A5 /* WorkoutExerciseScreenContract.swift in Sources */,
 				8BE644E829DFFDEC00288DAB /* LoginScreenPresenter.swift in Sources */,
 				8B02358B2A0D1FC4006B45A5 /* ExercisePartInfoView.swift in Sources */,
+				8B69D2392B078F0F007DD866 /* CalendarItem.swift in Sources */,
 				8B0722852A248C6E00854F1B /* SettingsScreenInteractor.swift in Sources */,
 				8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */,
 				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,

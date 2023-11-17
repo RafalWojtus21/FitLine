@@ -14,6 +14,7 @@ extension DateFormatter {
         case dayMonthString = "dd MMMM"
         case hourMinute = "HH:mm"
         case dayMonthHourMinute = "dd.MM HH:mm"
+        case monthStringYear = "MMMM yyyy"
     }
     
     static var dayMonthDateFormatter: DateFormatter = {
@@ -40,6 +41,13 @@ extension DateFormatter {
     static var dayMonthHourMinuteDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = DateFormat.dayMonthHourMinute.rawValue
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter
+    }()
+    
+    static var monthStringYearDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormat.monthStringYear.rawValue
         dateFormatter.timeZone = TimeZone.current
         return dateFormatter
     }()

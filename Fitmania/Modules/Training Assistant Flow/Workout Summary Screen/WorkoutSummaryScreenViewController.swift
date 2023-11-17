@@ -68,9 +68,9 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-
+    
     private lazy var doneButton = UIButton().apply(style: .primary, title: L.doneButtonTitle)
-
+    
     init(presenter: WorkoutSummaryScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -79,7 +79,7 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
@@ -91,7 +91,7 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
             .disposed(by: bag)
         _intents.subject.onNext(.viewLoaded)
     }
-        
+    
     private func layoutView() {
         navigationItem.setHidesBackButton(true, animated: true)
         view.backgroundColor = .primaryColor
@@ -133,14 +133,14 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
             $0.bottom.equalTo(doneButton.snp.top).offset(-24)
         }
     }
-
+    
     private func bindControls() {
         workoutSummarySubject
             .bind(to: collectionView.rx.items(cellIdentifier: WorkoutSummaryCollectionViewCell.reuseIdentifier, cellType: WorkoutSummaryCollectionViewCell.self)) { _, item, cell in
                 cell.configure(with: WorkoutSummaryCollectionViewCell.ViewModel(exerciseName: item.exerciseName, exerciseType: item.exerciseType, numberOfSets: item.setsNumber, maxRepetitions: item.maxRepetitions, totalTime: item.totalTime, maxWeight: item.maxWeight, distance: item.distance))
             }
             .disposed(by: bag)
-
+        
         let doneButtonIntent = doneButton.rx.tap.map { Intent.doneButtonPressed }
         
         doneButtonIntent
