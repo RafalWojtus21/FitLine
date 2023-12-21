@@ -18,6 +18,7 @@ struct ScheduleWorkoutScreenViewState: Equatable {
     let chosenWorkout: WorkoutPlan
     var totalWorkoutTimeInSeconds: Int?
     var totalWorkoutTimeInMinutes: Int?
+    var totalNumberOfSets: Int?
     var categories: [Exercise.Category] = []
 }
 
@@ -39,13 +40,14 @@ enum ScheduleWorkoutScreenResult: Equatable {
 }
 
 enum ScheduleWorkoutScreenPartialState: Equatable {
-    case updateWorkoutInfo(totalWorkoutTimeInSeconds: Int, totalWorkoutTimeInMinutes: Int, categories: [Exercise.Category])
+    case updateWorkoutInfo(totalWorkoutTimeInSeconds: Int, totalWorkoutTimeInMinutes: Int, totalNumberOfSets: Int, categories: [Exercise.Category])
     func reduce(previousState: ScheduleWorkoutScreenViewState) -> ScheduleWorkoutScreenViewState {
         var state = previousState
         switch self {
-        case .updateWorkoutInfo(totalWorkoutTimeInSeconds: let totalWorkoutTimeInSeconds, totalWorkoutTimeInMinutes: let totalWorkoutTimeInMinutes, categories: let categories):
+        case .updateWorkoutInfo(totalWorkoutTimeInSeconds: let totalWorkoutTimeInSeconds, totalWorkoutTimeInMinutes: let totalWorkoutTimeInMinutes, totalNumberOfSets: let totalNumberOfSets, categories: let categories):
             state.totalWorkoutTimeInSeconds = totalWorkoutTimeInSeconds
             state.totalWorkoutTimeInMinutes = totalWorkoutTimeInMinutes
+            state.totalNumberOfSets = totalNumberOfSets
             state.categories = categories
         }
         return state

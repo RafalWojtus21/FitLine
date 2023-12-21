@@ -6,15 +6,26 @@
 //
 
 import RxSwift
+import Foundation
+
+enum HomeScreen {
+    struct PersonalRecordData: Equatable {
+        let score: Float
+        let date: Date
+    }
+}
 
 enum HomeScreenIntent {
-    case plusButtonIntent
     case viewLoaded
+    case startWorkoutButtonIntent
     case showWorkoutSummaryIntent(workout: FinishedWorkout)
 }
 
 struct HomeScreenViewState: Equatable {
     var workoutsHistory: [FinishedWorkout] = []
+    var userInfo: UserInfo?
+    var personalRecordsDictionary: [Exercise: HomeScreen.PersonalRecordData] = [:]
+    var shouldUpdatePersonalRecords = false
 }
 
 enum HomeScreenEffect: Equatable {
@@ -35,11 +46,19 @@ enum HomeScreenResult: Equatable {
 
 enum HomeScreenPartialState: Equatable {
     case updateWorkoutsHistory(workouts: [FinishedWorkout])
+    case setUserInfo(userInfo: UserInfo)
+    case setPersonalRecords(personalRecords: [Exercise: HomeScreen.PersonalRecordData])
     func reduce(previousState: HomeScreenViewState) -> HomeScreenViewState {
         var state = previousState
+        state.shouldUpdatePersonalRecords = false
         switch self {
         case .updateWorkoutsHistory(workouts: let workouts):
             state.workoutsHistory = workouts
+        case .setUserInfo(userInfo: let userInfo):
+            state.userInfo = userInfo
+        case .setPersonalRecords(personalRecords: let personalRecords):
+            state.shouldUpdatePersonalRecords = true
+            state.personalRecordsDictionary = personalRecords
         }
         return state
     }
@@ -64,7 +83,9 @@ protocol HomeScreenPresenter: AnyObject, BasePresenter {
 }
 
 protocol HomeScreenInteractor: BaseInteractor {
+    func fetchUserInfo() -> Observable<HomeScreenResult>
     func subscribeForWorkoutsHistory() -> Observable<HomeScreenResult>
+    func setPersonalRecords() -> Observable<HomeScreenResult>
 }
 
 protocol HomeScreenMiddleware {

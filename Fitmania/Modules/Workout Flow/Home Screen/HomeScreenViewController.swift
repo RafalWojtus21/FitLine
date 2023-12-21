@@ -23,34 +23,84 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     private let presenter: HomeScreenPresenter
     
     private var workoutsHistorySubject = PublishSubject<[FinishedWorkout]>()
+    private var personalRecordsSubject = PublishSubject<[Exercise: HomeScreen.PersonalRecordData]>()
     
-    private lazy var plusButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 8.0
-        button.clipsToBounds = true
-        return button
+    private lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.font = .openSansSemiBold24
+        label.textColor = .tertiaryColor
+        return label
     }()
     
-    private lazy var plusButtonImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage.systemImageName(SystemImage.plusIcon)
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .tertiaryColor
-        return imageView
+    private lazy var workoutsHistoryStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [workoutsHistoryLabel, workoutsHistoryTableView])
+        view.axis = .vertical
+        view.spacing = 8
+        return view
     }()
     
-    private lazy var tableView: UITableView = {
+    private lazy var workoutsHistoryLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .openSansSemiBold16
+        label.text = "Workouts history"
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = .tertiaryColor
+        return label
+    }()
+    
+    private lazy var workoutsHistoryTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .quaternaryColor.withAlphaComponent(0.2)
         tableView.rowHeight = 80
         tableView.register(WorkoutsHistoryCell.self)
-        tableView.layer.borderColor = UIColor.tertiaryColor.withAlphaComponent(0.6).cgColor
-        tableView.layer.borderWidth = 1
-        tableView.layer.cornerRadius = 8
+        tableView.layer.cornerRadius = 16
         tableView.showsVerticalScrollIndicator = true
         tableView.indicatorStyle = .white
         return tableView
+    }()
+    
+    private lazy var personalRecordsStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [personalRecordsLabel, personalRecordsTableView])
+        view.axis = .vertical
+        view.spacing = 8
+
+        return view
+    }()
+    
+    private lazy var personalRecordsLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .openSansSemiBold16
+        label.text = "Personal records"
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = .tertiaryColor
+        return label
+    }()
+    
+    private lazy var personalRecordsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .quaternaryColor.withAlphaComponent(0.2)
+        tableView.rowHeight = 80
+        tableView.register(PersonalRecordCell.self)
+        tableView.layer.cornerRadius = 16
+        tableView.showsVerticalScrollIndicator = true
+        tableView.indicatorStyle = .white
+        return tableView
+    }()
+
+    private lazy var startWorkoutButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .quaternaryColor
+        button.layer.cornerRadius = 8.0
+        button.setTitle("Start workout", for: .normal)
+        button.titleLabel?.font = .openSansSemiBold20
+        button.setTitleColor(.tertiaryColor, for: .normal)
+        return button
     }()
     
     init(presenter: HomeScreenPresenter) {
@@ -61,7 +111,7 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
@@ -76,42 +126,66 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     
     private func layoutView() {
         view.backgroundColor = .primaryColor
-        view.addSubview(plusButton)
-        view.addSubview(tableView)
+        view.addSubview(welcomeLabel)
+        view.addSubview(workoutsHistoryStackView)
+        view.addSubview(personalRecordsStackView)
+        view.addSubview(startWorkoutButton)
         
-        plusButton.addSubview(plusButtonImage)
-        
-        plusButton.snp.makeConstraints {
+        welcomeLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(200)
+            $0.left.right.equalToSuperview()
         }
         
-        plusButtonImage.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(plusButton.snp.bottom).offset(12)
+        workoutsHistoryStackView.snp.makeConstraints {
+            $0.top.equalTo(welcomeLabel.snp.bottom).offset(24)
             $0.left.right.equalToSuperview().inset(32)
-            $0.height.equalTo(160)
+        }
+        
+        workoutsHistoryTableView.snp.makeConstraints {
+            $0.height.equalTo(view.snp.height).multipliedBy(0.2)
+        }
+        
+        personalRecordsStackView.snp.makeConstraints {
+            $0.top.equalTo(workoutsHistoryTableView.snp.bottom).offset(24)
+            $0.left.right.equalToSuperview().inset(32)
+        }
+        
+        personalRecordsTableView.snp.makeConstraints {
+            $0.height.equalTo(view.snp.height).multipliedBy(0.2)
+        }
+        
+        startWorkoutButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-24)
+            $0.left.right.equalToSuperview().inset(64)
+            $0.height.equalTo(60)
         }
     }
     
     private func bindControls() {
         workoutsHistorySubject
-            .bind(to: tableView.rx.items(cellIdentifier: WorkoutsHistoryCell.reuseIdentifier, cellType: WorkoutsHistoryCell.self)) { _, item, cell in
+            .bind(to: workoutsHistoryTableView.rx.items(cellIdentifier: WorkoutsHistoryCell.reuseIdentifier, cellType: WorkoutsHistoryCell.self)) { _, item, cell in
                 cell.configure(with: WorkoutsHistoryCell.ViewModel(workoutName: item.workoutPlanName, workoutDate: item.startDate, finishDate: item.finishDate))
             }
             .disposed(by: bag)
         
-        let workoutSelectedIntent = tableView.rx.modelSelected(FinishedWorkout.self).map {
+        personalRecordsSubject
+            .map { personalRecords in
+                personalRecords.sorted { $0.value.date > $1.value.date }
+            }
+            .bind(to: personalRecordsTableView.rx.items(cellIdentifier: PersonalRecordCell.reuseIdentifier, cellType: PersonalRecordCell.self)) {  _, personalRecord, cell in
+                cell.configure(with: .init(exercise: personalRecord.key,
+                                           bestScore: personalRecord.value.score,
+                                           date: personalRecord.value.date))
+            }
+            .disposed(by: bag)
+        
+        let workoutSelectedIntent = workoutsHistoryTableView.rx.modelSelected(FinishedWorkout.self).map {
             return Intent.showWorkoutSummaryIntent(workout: $0)
         }
         
-        let plusButtonIntent = plusButton.rx.tap.map { Intent.plusButtonIntent }
-
-        Observable.merge(plusButtonIntent, workoutSelectedIntent)
+        let startWorkoutIntent = startWorkoutButton.rx.tap.map { Intent.startWorkoutButtonIntent }
+        
+        Observable.merge(startWorkoutIntent, workoutSelectedIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
@@ -123,7 +197,20 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         }
     }
     
+    private func configureWelcomeLabel(name: String) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: "")
+        attributedText.append(NSAttributedString(string: "Let's start training,", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]))
+        attributedText.append(NSAttributedString(string: "\n" + name, attributes: [NSAttributedString.Key.foregroundColor: UIColor.tertiaryColor]))
+        attributedText.append(NSAttributedString(string: " !", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]))
+        return attributedText
+    }
+    
     func render(state: ViewState) {
         workoutsHistorySubject.onNext(state.workoutsHistory)
+        if state.shouldUpdatePersonalRecords {
+            personalRecordsSubject.onNext(state.personalRecordsDictionary)
+        }
+        guard let userName = state.userInfo?.firstName else { return }
+        welcomeLabel.attributedText = configureWelcomeLabel(name: userName)
     }
 }

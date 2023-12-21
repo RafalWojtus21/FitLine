@@ -81,6 +81,9 @@ final class ScheduleWorkoutScreenViewController: BaseViewController, ScheduleWor
     
     func render(state: ViewState) {
         title = state.chosenWorkout.name
-        workoutPreviewButton.configure(with: WorkoutPreviewButton.ViewModel(workoutName: state.chosenWorkout.name, workoutTotalTime: state.totalWorkoutTimeInMinutes ?? 0, categories: state.categories))
+        workoutPreviewButton.configure(with: WorkoutPreviewButton.ViewModel(workoutName: state.chosenWorkout.name, 
+                                                                            workoutTotalTime: state.totalWorkoutTimeInMinutes ?? 0, 
+                                                                            numberOfSets: state.totalNumberOfSets ?? 0,
+                                                                            categories: state.categories))
     }
 }

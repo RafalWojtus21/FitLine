@@ -15,6 +15,7 @@ class WorkoutPreviewButton: UIButton {
     struct ViewModel {
         let workoutName: String
         let workoutTotalTime: Int
+        let numberOfSets: Int
         let categories: [Exercise.Category]
     }
     
@@ -31,7 +32,7 @@ class WorkoutPreviewButton: UIButton {
     }()
     
     private lazy var workoutInfoView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [workoutNameLabel, workoutTimeLabel])
+        let view = UIStackView(arrangedSubviews: [workoutNameLabel, workoutTimeLabel, numberOfSetsLabel])
         view.axis = .vertical
         view.distribution = .fillProportionally
         view.backgroundColor = .clear
@@ -49,6 +50,14 @@ class WorkoutPreviewButton: UIButton {
     }()
     
     private lazy var workoutTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .openSansSemiBold16
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var numberOfSetsLabel: UILabel = {
         let label = UILabel()
         label.font = .openSansSemiBold16
         label.textColor = .white
@@ -81,7 +90,8 @@ class WorkoutPreviewButton: UIButton {
 
     func configure(with viewModel: ViewModel) {
         workoutNameLabel.text = viewModel.workoutName
-        workoutTimeLabel.text = "\(viewModel.workoutTotalTime)" + " min"
+        workoutTimeLabel.text = viewModel.workoutTotalTime != 0 ? "Cardio: \(viewModel.workoutTotalTime)" + " min" : ""
+        numberOfSetsLabel.text = viewModel.numberOfSets != 0 ? "Total number of sets: \(viewModel.numberOfSets)" : ""
         
         let numberOfRows = (viewModel.categories.count + 1) / 2
         for rowIndex in 0 ..< numberOfRows {

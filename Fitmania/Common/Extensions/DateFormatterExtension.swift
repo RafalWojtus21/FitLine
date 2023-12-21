@@ -12,7 +12,7 @@ extension DateFormatter {
     enum DateFormat: String {
         case dayMonth = "dd.MM"
         case dayMonthString = "dd MMMM"
-        case hourMinute = "HH:mm"
+        case hourMinute = "HH:mm a"
         case dayMonthHourMinute = "dd.MM HH:mm"
         case monthStringYear = "MMMM yyyy"
     }

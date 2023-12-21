@@ -34,7 +34,7 @@ class WorkoutsHistoryCell: UITableViewCell, ReusableCell {
     private lazy var workoutNameLabel: UILabel = {
         let label = UILabel()
         label.font = .openSansSemiBold20
-        label.textColor = .white
+        label.textColor = .secondaryColor
         label.textAlignment = .center
         return label
     }()

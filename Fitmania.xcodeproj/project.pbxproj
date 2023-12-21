@@ -125,6 +125,7 @@
 		8B6FDC9029E69B770037A8B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */; };
 		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
+		8B793C422B4B5273005179D6 /* PersonalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
 		8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */; };
@@ -399,6 +400,7 @@
 		8B6FDC8F29E69B770037A8B8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordCell.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 		8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceMock.swift; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 				8B3224572A275961008ADA95 /* WorkoutSummaryCollectionViewCell.swift */,
 				8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */,
 				8B69D2322B078E9F007DD866 /* CalendarCell.swift */,
+				8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1529,6 +1532,7 @@
 				8B0235802A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift in Sources */,
 				8B0722822A248C6E00854F1B /* SettingsScreenMiddleware.swift in Sources */,
 				8BEF011C29FAB66F004B6B15 /* WorkoutsListScreenViewController.swift in Sources */,
+				8B793C422B4B5273005179D6 /* PersonalRecordCell.swift in Sources */,
 				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
 				8B5357D529FABC3C009EED68 /* ExerciseDetailsCell.swift in Sources */,
 				8B5357CF29FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift in Sources */,
@@ -1927,7 +1931,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1959,7 +1963,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1973,11 +1977,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1993,11 +1997,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2012,10 +2016,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2030,10 +2034,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2128,7 +2132,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2142,11 +2146,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2161,10 +2165,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2259,7 +2263,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2273,11 +2277,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2292,10 +2296,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2384,7 +2388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2398,11 +2402,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2417,10 +2421,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2509,7 +2513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitmania_provisioning_profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2523,11 +2527,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2542,10 +2546,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.FitmaniaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.FitmaniaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
