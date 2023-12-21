@@ -95,7 +95,6 @@
 		8B5FCC0B2A1BB23F0007D60C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */; };
 		8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */; };
 		8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */; };
-		8B69D2312B078A9E007DD866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */; };
 		8B69D2332B078EA0007DD866 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2322B078E9F007DD866 /* CalendarCell.swift */; };
 		8B69D2352B078EB6007DD866 /* CalendarDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2342B078EB6007DD866 /* CalendarDaysView.swift */; };
 		8B69D2392B078F0F007DD866 /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69D2372B078F0F007DD866 /* CalendarItem.swift */; };
@@ -136,6 +135,7 @@
 		8B876E5D2A1B75DF008AE1CE /* WorkoutsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */; };
 		8B876E5F2A1B82F7008AE1CE /* CloudServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */; };
 		8B876E612A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E602A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift */; };
+		8B8902752B344749008EDB4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B8902742B344749008EDB4C /* GoogleService-Info.plist */; };
 		8B9AE9CF29F162E6000E2743 /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */; };
 		8B9AE9D029F162E6000E2743 /* ValidationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */; };
 		8B9AE9D429F1767D000E2743 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9AE9D329F1767D000E2743 /* RxTest */; };
@@ -369,7 +369,6 @@
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
 		8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B69D2322B078E9F007DD866 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		8B69D2342B078EB6007DD866 /* CalendarDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDaysView.swift; sourceTree = "<group>"; };
 		8B69D2372B078F0F007DD866 /* CalendarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
@@ -410,6 +409,7 @@
 		8B876E5C2A1B75DF008AE1CE /* WorkoutsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceTests.swift; sourceTree = "<group>"; };
 		8B876E5E2A1B82F7008AE1CE /* CloudServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceTests.swift; sourceTree = "<group>"; };
 		8B876E602A1B830C008AE1CE /* RealtimeDatabaseServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseServiceMock.swift; sourceTree = "<group>"; };
+		8B8902742B344749008EDB4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B9AE9CC29F162E5000E2743 /* ValidationServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
 		8B9AE9CE29F162E6000E2743 /* ValidationServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationServiceMock.swift; sourceTree = "<group>"; };
 		8B9B5C372A0531D9000F7A6D /* AuthMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMock.swift; sourceTree = "<group>"; };
@@ -752,6 +752,7 @@
 		8B69D2422B079000007DD866 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				8B69D2432B07900E007DD866 /* CalendarService.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -922,7 +923,7 @@
 				8BE6447729DD7BBC00288DAB /* Common */,
 				8BE644ED29E0030200288DAB /* Localization */,
 				8BC151FB29DD6EA20007A372 /* Info.plist */,
-				8B69D2302B078A9E007DD866 /* GoogleService-Info.plist */,
+				8B8902742B344749008EDB4C /* GoogleService-Info.plist */,
 				8BC151F629DD6EA20007A372 /* Assets.xcassets */,
 				8BC151F829DD6EA20007A372 /* LaunchScreen.storyboard */,
 			);
@@ -1168,7 +1169,6 @@
 				8B69D23D2B078F5A007DD866 /* Authentication */,
 				8B69D23E2B078F67007DD866 /* Validation */,
 				8B69D2422B079000007DD866 /* Calendar */,
-				8B69D2432B07900E007DD866 /* CalendarService.swift */,
 				8B69D23F2B078F7A007DD866 /* Storages */,
 				8B69D2402B078FD4007DD866 /* DataStores */,
 				8B69D2412B078FF3007DD866 /* Workouts */,
@@ -1448,9 +1448,9 @@
 				8BE6448829DDB8D800288DAB /* SF-Pro-Text-Semibold.otf in Resources */,
 				8BC1523429DD75CF0007A372 /* Configuration-Development.plist in Resources */,
 				8BC151FA29DD6EA20007A372 /* LaunchScreen.storyboard in Resources */,
+				8B8902752B344749008EDB4C /* GoogleService-Info.plist in Resources */,
 				8BC151F729DD6EA20007A372 /* Assets.xcassets in Resources */,
 				8BC1523B29DD75F40007A372 /* generate-configuration.sh in Resources */,
-				8B69D2312B078A9E007DD866 /* GoogleService-Info.plist in Resources */,
 				8BC1523529DD75CF0007A372 /* Configuration-QA.plist in Resources */,
 				8BE644F029E0033900288DAB /* Localizable.strings in Resources */,
 				8BE6448729DDB8D800288DAB /* OpenSans-Regular.ttf in Resources */,
@@ -1909,7 +1909,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1922,7 +1922,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1937,7 +1937,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1950,7 +1950,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2102,7 +2102,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2115,7 +2115,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2229,7 +2229,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2242,7 +2242,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2350,7 +2350,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2363,7 +2363,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2471,7 +2471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EZ57PM2RP9;
+				DEVELOPMENT_TEAM = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2484,7 +2484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.untitledkingdom.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
