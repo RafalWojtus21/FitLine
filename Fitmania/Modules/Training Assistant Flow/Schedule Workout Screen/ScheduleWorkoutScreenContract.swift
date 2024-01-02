@@ -12,6 +12,8 @@ enum ScheduleWorkoutScreenIntent {
     case viewLoaded
     case startNowButtonIntent
     case workoutPreviewTapped
+    case scheduleWorkoutIntent(date: Date)
+    case showDateTimePickerIntent
 }
 
 struct ScheduleWorkoutScreenViewState: Equatable {
@@ -25,6 +27,9 @@ struct ScheduleWorkoutScreenViewState: Equatable {
 enum ScheduleWorkoutScreenEffect: Equatable {
     case startNowButtonPressed
     case showWorkoutPreview
+    case workoutScheduled
+    case workoutScheduleError
+    case showDateTimePicker(workoutName: String)
 }
 
 struct ScheduleWorkoutScreenBuilderInput {
@@ -74,6 +79,8 @@ protocol ScheduleWorkoutScreenPresenter: AnyObject, BasePresenter {
 
 protocol ScheduleWorkoutScreenInteractor: BaseInteractor {
     func calculateWorkoutDetails() -> Observable<ScheduleWorkoutScreenResult>
+    func scheduleWorkoutNotification(for date: Date) -> Observable<ScheduleWorkoutScreenResult>
+    func getAllScheduledNotifications() -> Observable<ScheduleWorkoutScreenResult>
 }
 
 protocol ScheduleWorkoutScreenMiddleware {

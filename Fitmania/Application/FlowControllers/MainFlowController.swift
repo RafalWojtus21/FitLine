@@ -22,16 +22,18 @@ protocol MainFlowNavigation: AnyObject {
 class MainFlowController: MainFlow, MainFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation
     
-    struct ExtendedDependencies: Dependencies, HasMainFlowNavigation {
+    struct ExtendedDependencies: Dependencies, HasMainFlowNavigation, HasNotificationService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         weak var mainFlowNavigation: MainFlowNavigation?
+        let notificationService: NotificationService
         
         init(dependencies: Dependencies, mainFlowNavigation: MainFlowNavigation) {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
             self.mainFlowNavigation = mainFlowNavigation
+            self.notificationService = NotificationServiceImpl()
         }
     }
     

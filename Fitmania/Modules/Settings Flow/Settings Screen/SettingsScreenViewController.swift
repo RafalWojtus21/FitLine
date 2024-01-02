@@ -24,7 +24,7 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
     private let presenter: SettingsScreenPresenter
     
     private lazy var signOutButton = UIButton().apply(style: .primary, title: L.signOutButtonTitle)
-
+    
     init(presenter: SettingsScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -59,8 +59,7 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
     
     private func bindControls() {
         let signOutButtonIntent = signOutButton.rx.tap.map { Intent.signOutButtonIntent }
-        
-        signOutButtonIntent
+        Observable.merge(signOutButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }

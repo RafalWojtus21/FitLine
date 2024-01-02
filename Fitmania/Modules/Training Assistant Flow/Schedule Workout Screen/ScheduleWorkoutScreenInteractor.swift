@@ -7,13 +7,16 @@
 
 import RxSwift
 import Foundation
+import UserNotifications
 
 final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor {
-    typealias Dependencies = Any
+    
+    typealias Dependencies = HasNotificationService
     typealias Result = ScheduleWorkoutScreenResult
     
     private let dependencies: Dependencies
     private let chosenWorkout: WorkoutPlan
+    private let notificationCenter = UNUserNotificationCenter.current()
     
     init(dependencies: Dependencies, chosenWorkout: WorkoutPlan) {
         self.dependencies = dependencies
@@ -31,5 +34,22 @@ final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor
                                                       totalWorkoutTimeInMinutes: totalWorkoutTimeInMinutes,
                                                       totalNumberOfSets: numberOfSets,
                                                       categories: categories)))
+    }
+    
+    func scheduleWorkoutNotification(for date: Date) -> Observable<ScheduleWorkoutScreenResult> {
+        let notificationContent = NotificationContent(title: chosenWorkout.name, body: "It's time to workout!", sound: .default)
+        return dependencies.notificationService.scheduleNewNotification(content: notificationContent, for: date)
+            .andThen(.just(.effect(.workoutScheduled)))
+            .catch { _ in
+                    .just(.effect(.workoutScheduleError))
+            }
+    }
+    
+    func getAllScheduledNotifications() -> Observable<ScheduleWorkoutScreenResult> {
+        dependencies.notificationService.getPendingNotifications()
+            .map { notificationRequests in
+                print(notificationRequests)
+            }
+        return .empty()
     }
 }

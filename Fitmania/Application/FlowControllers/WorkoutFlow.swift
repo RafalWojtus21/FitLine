@@ -30,7 +30,7 @@ protocol WorkoutFlowNavigation: AnyObject {
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     typealias Dependencies = HasNavigation & HasAppNavigation & HasMainFlowNavigation
     
-    struct ExtendedDependencies: Dependencies, HasWorkoutFlowNavigation, HasAuthManager, HasCloudService, HasRealtimeDatabaseService, HasWorkoutsService, HasWorkoutsHistoryService {
+    struct ExtendedDependencies: Dependencies, HasWorkoutFlowNavigation, HasAuthManager, HasCloudService, HasRealtimeDatabaseService, HasWorkoutsService, HasWorkoutsHistoryService, HasNotificationService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         weak var mainFlowNavigation: MainFlowNavigation?
@@ -42,6 +42,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
         let cloudService: CloudService
         let workoutsService: WorkoutsService
         let workoutsHistoryService: WorkoutsHistoryService
+        let notificationService: NotificationService
         
         init(dependencies: Dependencies, workoutFlowNavigation: WorkoutFlowNavigation) {
             self.dependencies = dependencies
@@ -52,6 +53,12 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
             self.cloudService = CloudServiceImpl(authManager: authManager, realtimeService: realtimeDatabaseService)
             self.workoutsService = WorkoutsServiceImpl(cloudService: cloudService)
             self.workoutsHistoryService = WorkoutsHistoryServiceImpl(cloudService: cloudService)
+            if let mainFlowDependencies = dependencies as? MainFlowController.ExtendedDependencies {
+                self.notificationService = mainFlowDependencies.notificationService
+            } else {
+                self.notificationService = NotificationServiceImpl()
+                return
+            }
         }
     }
     

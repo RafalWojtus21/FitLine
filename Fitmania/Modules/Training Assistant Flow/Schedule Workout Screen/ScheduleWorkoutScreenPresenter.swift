@@ -27,14 +27,20 @@ final class ScheduleWorkoutScreenPresenterImpl: ScheduleWorkoutScreenPresenter {
     }
     
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
-        let intentResults = view.intents.flatMap { intent -> Observable<Result> in
+        let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
             switch intent {
             case .startNowButtonIntent:
                 return .just(.effect(.startNowButtonPressed))
             case .workoutPreviewTapped:
                 return .just(.effect(.showWorkoutPreview))
             case .viewLoaded:
-                return self.interactor.calculateWorkoutDetails()
+                return .merge(interactor.calculateWorkoutDetails(),
+                              interactor.getAllScheduledNotifications())
+                return interactor.calculateWorkoutDetails()
+            case .scheduleWorkoutIntent(date: let date):
+                return interactor.scheduleWorkoutNotification(for: date)
+            case .showDateTimePickerIntent:
+                return .just(.effect(.showDateTimePicker(workoutName: initialViewState.chosenWorkout.name)))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

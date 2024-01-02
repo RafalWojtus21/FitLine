@@ -31,6 +31,12 @@ final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware
                 dependencies.trainingAssistantFlowNavigation?.showWorkoutExerciseScreen(plan: chosenWorkout)
             case .showWorkoutPreview:
                 dependencies.trainingAssistantFlowNavigation?.showWorkoutPreviewScreen(plan: chosenWorkout)
+            case .workoutScheduled:
+                break
+            case .workoutScheduleError:
+                break
+            case .showDateTimePicker:
+                break
             }
         }
         return .just(result)

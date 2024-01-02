@@ -58,6 +58,7 @@
 		8B3224582A275961008ADA95 /* WorkoutSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3224572A275961008ADA95 /* WorkoutSummaryCollectionViewCell.swift */; };
 		8B32245A2A276250008ADA95 /* UICollectionViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3224592A276250008ADA95 /* UICollectionViewCellExtension.swift */; };
 		8B32245C2A276844008ADA95 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32245B2A276844008ADA95 /* PaddingLabel.swift */; };
+		8B3918482B45A9330026E053 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3918472B45A9330026E053 /* NotificationViewController.swift */; };
 		8B3AA0C029F17E4500B6A327 /* LoginScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */; };
 		8B3AA0C229F17E8800B6A327 /* AuthManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */; };
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
@@ -126,6 +127,7 @@
 		8B6FDC9629E6E05D0037A8B8 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */; };
 		8B6FDC9E29E816190037A8B8 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDC9D29E816190037A8B8 /* ValidationService.swift */; };
 		8B793C422B4B5273005179D6 /* PersonalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */; };
+		8B793C3F2B48323D005179D6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B793C3E2B48323D005179D6 /* NotificationService.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
 		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
 		8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */; };
@@ -335,6 +337,7 @@
 		8B3224572A275961008ADA95 /* WorkoutSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B3224592A276250008ADA95 /* UICollectionViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtension.swift; sourceTree = "<group>"; };
 		8B32245B2A276844008ADA95 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		8B3918472B45A9330026E053 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		8B3AA0BD29F17E1F00B6A327 /* LoginScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B3AA0C129F17E8800B6A327 /* AuthManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerMock.swift; sourceTree = "<group>"; };
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -401,6 +404,7 @@
 		8B6FDC9529E6E05D0037A8B8 /* CloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
 		8B6FDC9D29E816190037A8B8 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordCell.swift; sourceTree = "<group>"; };
+		8B793C3E2B48323D005179D6 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
 		8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceMock.swift; sourceTree = "<group>"; };
@@ -829,6 +833,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8B793C3C2B482394005179D6 /* NotificationVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B3918472B45A9330026E053 /* NotificationViewController.swift */,
+			);
+			path = NotificationVC;
+			sourceTree = "<group>";
+		};
+		8B793C3D2B483226005179D6 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8B793C3E2B48323D005179D6 /* NotificationService.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		8B876E4E2A1B5311008AE1CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +942,7 @@
 				8BC1522D29DD75CF0007A372 /* Configurations */,
 				8BC1523E29DD769E0007A372 /* Application */,
 				8BE644AE29DEF18000288DAB /* Services */,
+				8B793C3D2B483226005179D6 /* Notifications */,
 				8BC1525529DD77150007A372 /* Modules */,
 				8BE6447729DD7BBC00288DAB /* Common */,
 				8BE644ED29E0030200288DAB /* Localization */,
@@ -1065,6 +1086,7 @@
 		8BCEB3E42A0B8085001F8F78 /* Schedule Workout Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8B793C3C2B482394005179D6 /* NotificationVC */,
 				8BCEB3D82A0B8080001F8F78 /* ScheduleWorkoutScreenContract.swift */,
 				8BCEB3D92A0B8080001F8F78 /* ScheduleWorkoutScreenPresenter.swift */,
 				8BCEB3DA2A0B8080001F8F78 /* ScheduleWorkoutScreenMiddleware.swift */,
@@ -1531,6 +1553,7 @@
 				8BF1ECC529EEE27300540E1D /* AccountCreatedScreenInteractor.swift in Sources */,
 				8B0235802A0CEB1A006B45A5 /* WorkoutExerciseScreenViewController.swift in Sources */,
 				8B0722822A248C6E00854F1B /* SettingsScreenMiddleware.swift in Sources */,
+				8B793C3F2B48323D005179D6 /* NotificationService.swift in Sources */,
 				8BEF011C29FAB66F004B6B15 /* WorkoutsListScreenViewController.swift in Sources */,
 				8B793C422B4B5273005179D6 /* PersonalRecordCell.swift in Sources */,
 				8B0C115129E852F10028DCCF /* LocalizationValidation.swift in Sources */,
@@ -1682,6 +1705,7 @@
 				8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */,
 				8B3224542A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift in Sources */,
 				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
+				8B3918482B45A9330026E053 /* NotificationViewController.swift in Sources */,
 				8B53581429FBA7A7009EED68 /* AddExerciseScreenInteractor.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8B0722832A248C6E00854F1B /* SettingsScreenViewController.swift in Sources */,
