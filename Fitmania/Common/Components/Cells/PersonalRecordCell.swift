@@ -24,18 +24,26 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
         let view = UIView()
         view.backgroundColor = .primaryColor
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderColor = UIColor.primaryColor.cgColor
         view.layer.cornerRadius = 12
         return view
     }()
     
     private lazy var mainView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [exerciseNameLabel, bestScoreLabel, dateLabel])
+        let view = UIStackView(arrangedSubviews: [dateLabel, exerciseNameLabel, bestScoreLabel])
         view.axis = .horizontal
         view.backgroundColor = .clear
         view.distribution = .fillProportionally
         view.spacing = 4
         return view
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = .openSansSemiBold14
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        return label
     }()
     
     private lazy var exerciseNameLabel: UILabel = {
@@ -48,16 +56,8 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
     
     private lazy var bestScoreLabel: UILabel = {
         let label = UILabel()
-        label.font = .openSansSemiBold14
+        label.font = .openSansSemiBold16
         label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = .openSansSemiBold12
-        label.textColor = .lightGray
         label.textAlignment = .right
         return label
     }()
@@ -99,6 +99,10 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
         mainView.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(6)
             $0.top.bottom.equalToSuperview()
+        }
+        
+        dateLabel.snp.makeConstraints {
+            $0.width.equalTo(42)
         }
     }
 }

@@ -35,21 +35,31 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     }()
     
     private lazy var workoutsHistoryStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [workoutsHistoryLabel, workoutsHistoryTableView])
+        let view = UIStackView(arrangedSubviews: [workoutsHistoryLabelWithIcon, workoutsHistoryTableView])
         view.axis = .vertical
         view.spacing = 8
         return view
     }()
+    
+    private lazy var workoutsHistoryLabelWithIcon = UIView()
     
     private lazy var workoutsHistoryLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 1
         label.font = .openSansSemiBold16
-        label.text = "Workouts history"
+        label.text = "Last workouts"
         label.adjustsFontSizeToFitWidth = true
         label.textColor = .tertiaryColor
         return label
+    }()
+    
+    private lazy var workoutImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage.systemImageName(.workoutIcon)
+        return imageView
     }()
     
     private lazy var workoutsHistoryTableView: UITableView = {
@@ -64,13 +74,14 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
     }()
     
     private lazy var personalRecordsStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [personalRecordsLabel, personalRecordsTableView])
+        let view = UIStackView(arrangedSubviews: [personalRecordsLabelWithIcon, personalRecordsTableView])
         view.axis = .vertical
         view.spacing = 8
-
         return view
     }()
     
+    private lazy var personalRecordsLabelWithIcon = UIView()
+
     private lazy var personalRecordsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -80,6 +91,14 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         label.adjustsFontSizeToFitWidth = true
         label.textColor = .tertiaryColor
         return label
+    }()
+    
+    private lazy var personalRecordsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage.systemImageName(.recordsIcon)
+        return imageView
     }()
     
     private lazy var personalRecordsTableView: UITableView = {
@@ -141,6 +160,20 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
             $0.left.right.equalToSuperview().inset(32)
         }
         
+        workoutsHistoryLabelWithIcon.addSubview(workoutsHistoryLabel)
+        workoutsHistoryLabelWithIcon.addSubview(workoutImageView)
+        
+        workoutsHistoryLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+        }
+        
+        workoutImageView.snp.makeConstraints {
+            $0.left.equalTo(workoutsHistoryLabel.snp.right).offset(12)
+            $0.height.equalToSuperview().multipliedBy(1.6)
+            $0.bottom.equalTo(workoutsHistoryLabel.snp.bottom).offset(4)
+        }
+        
         workoutsHistoryTableView.snp.makeConstraints {
             $0.height.equalTo(view.snp.height).multipliedBy(0.2)
         }
@@ -148,6 +181,20 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         personalRecordsStackView.snp.makeConstraints {
             $0.top.equalTo(workoutsHistoryTableView.snp.bottom).offset(24)
             $0.left.right.equalToSuperview().inset(32)
+        }
+        
+        personalRecordsLabelWithIcon.addSubview(personalRecordsLabel)
+        personalRecordsLabelWithIcon.addSubview(personalRecordsImageView)
+        
+        personalRecordsLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+        }
+        
+        personalRecordsImageView.snp.makeConstraints {
+            $0.left.equalTo(personalRecordsLabel.snp.right).offset(12)
+            $0.height.equalToSuperview().multipliedBy(1.6)
+            $0.bottom.equalTo(personalRecordsLabel.snp.bottom).offset(4)
         }
         
         personalRecordsTableView.snp.makeConstraints {

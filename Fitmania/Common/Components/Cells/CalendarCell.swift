@@ -10,6 +10,9 @@ import SnapKit
 
 class CalendarCell: UICollectionViewCell, CollectionViewReusableCell {
     
+    static let cardioWorkoutColor = UIColor.red
+    static let strengthWorkoutcolor = UIColor.green
+    
     struct ViewModel {
         let date: Date
         let calendar = Calendar.current
@@ -74,8 +77,8 @@ class CalendarCell: UICollectionViewCell, CollectionViewReusableCell {
             return
         }
         let workoutPresence = checkWorkoutsPresence(date: viewModel.date, workoutsHistory: workoutsHistory, calendar: viewModel.calendar)
-        cardioWorkoutBar.backgroundColor = workoutPresence.cardio ? .red : .clear
-        strengthWorkoutBar.backgroundColor = workoutPresence.strength ? .green : .clear
+        cardioWorkoutBar.backgroundColor = workoutPresence.cardio ? CalendarCell.cardioWorkoutColor : .clear
+        strengthWorkoutBar.backgroundColor = workoutPresence.strength ? CalendarCell.strengthWorkoutcolor : .clear
     }
     
     // MARK: Private Implementation

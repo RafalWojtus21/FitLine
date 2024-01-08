@@ -32,4 +32,6 @@ enum SystemImage: String {
     case rightArrow = "chevron.right"
     case flame = "flame"
     case bell = "bell"
+    case workoutIcon = "figure.highintensity.intervaltraining"
+    case recordsIcon = "medal"
 }
