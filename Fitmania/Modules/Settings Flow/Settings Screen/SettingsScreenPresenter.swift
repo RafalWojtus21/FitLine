@@ -31,6 +31,10 @@ final class SettingsScreenPresenterImpl: SettingsScreenPresenter {
             switch intent {
             case .signOutButtonIntent:
                 return interactor.signOut()
+            case .personalDetailsButtonIntent:
+                return .just(.effect(.showPersonalDetailsEdition))
+            case .scheduledTrainingsButtonIntent:
+                return .just(.effect(.showScheduledTrainings))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

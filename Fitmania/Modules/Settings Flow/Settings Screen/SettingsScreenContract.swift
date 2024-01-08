@@ -9,6 +9,8 @@ import RxSwift
 
 enum SettingsScreenIntent {
     case signOutButtonIntent
+    case personalDetailsButtonIntent
+    case scheduledTrainingsButtonIntent
 }
 
 struct SettingsScreenViewState: Equatable {
@@ -18,6 +20,8 @@ enum SettingsScreenEffect: Equatable {
     case showWelcomeScreen
     case somethingWentWrong
     case signOutErrorAlert(error: String)
+    case showPersonalDetailsEdition
+    case showScheduledTrainings
 }
 
 struct SettingsScreenBuilderInput {
@@ -33,9 +37,7 @@ enum SettingsScreenResult: Equatable {
 
 enum SettingsScreenPartialState: Equatable {
     func reduce(previousState: SettingsScreenViewState) -> SettingsScreenViewState {
-        var state = previousState
-        switch self {
-        }
+        let state = previousState
         return state
     }
 }

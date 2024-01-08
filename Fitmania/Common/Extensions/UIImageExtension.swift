@@ -23,6 +23,7 @@ enum AssetImage: String {
 
 enum SystemImage: String {
     case personCircleFill = "person.circle.fill"
+    case personCircle = "person.circle"
     case calendarIcon = "calendar"
     case homeIcon = "house"
     case settingsIcon = "gearshape"
@@ -30,4 +31,5 @@ enum SystemImage: String {
     case plusCircleIcon = "plus.circle"
     case rightArrow = "chevron.right"
     case flame = "flame"
+    case bell = "bell"
 }
