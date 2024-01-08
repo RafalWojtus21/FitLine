@@ -44,12 +44,5 @@ final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor
                     .just(.effect(.workoutScheduleError))
             }
     }
-    
-    func getAllScheduledNotifications() -> Observable<ScheduleWorkoutScreenResult> {
-        dependencies.notificationService.getPendingNotifications()
-            .map { notificationRequests in
-                print(notificationRequests)
-            }
-        return .empty()
-    }
+
 }

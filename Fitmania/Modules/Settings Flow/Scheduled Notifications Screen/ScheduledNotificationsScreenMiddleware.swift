@@ -1,15 +1,15 @@
 //
-//  SettingsScreenMiddleware.swift
+//  ScheduledNotificationsScreenMiddleware.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 29/05/2023.
+//  Created by Rafał Wojtuś on 08/01/2024.
 //
 
 import RxSwift
 
-final class SettingsScreenMiddlewareImpl: SettingsScreenMiddleware, SettingsScreenCallback {
-    typealias Dependencies = HasSettingsFlowNavigation
-    typealias Result = SettingsScreenResult
+final class ScheduledNotificationsScreenMiddlewareImpl: ScheduledNotificationsScreenMiddleware, ScheduledNotificationsScreenCallback {
+    typealias Dependencies = HasAppNavigation
+    typealias Result = ScheduledNotificationsScreenResult
     
     private let dependencies: Dependencies
 
@@ -25,11 +25,7 @@ final class SettingsScreenMiddlewareImpl: SettingsScreenMiddleware, SettingsScre
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
-            case .showWelcomeScreen:
-                dependencies.settingsFlowNavigation?.finishedSettingsFlow()
-            case .showScheduledTrainings:
-                dependencies.settingsFlowNavigation?.showScheduledNotifications()
-            default:
+            case .notificationRequestRemoved:
                 break
             }
         }

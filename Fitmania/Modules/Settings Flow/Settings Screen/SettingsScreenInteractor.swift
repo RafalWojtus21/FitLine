@@ -11,7 +11,7 @@ final class SettingsScreenInteractorImpl: SettingsScreenInteractor {
     
     // MARK: Properties
     
-    typealias Dependencies = HasAuthManager
+    typealias Dependencies = HasAuthManager & HasNotificationService
     typealias Result = SettingsScreenResult
     
     private let dependencies: Dependencies

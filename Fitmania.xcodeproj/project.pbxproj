@@ -66,6 +66,13 @@
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
 		8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */; };
 		8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */; };
+		8B4DBA7A2B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */; };
+		8B4DBA7B2B4C25B100024D2B /* ScheduledNotificationsScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA752B4C25B100024D2B /* ScheduledNotificationsScreenPresenter.swift */; };
+		8B4DBA7C2B4C25B100024D2B /* ScheduledNotificationsScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA762B4C25B100024D2B /* ScheduledNotificationsScreenMiddleware.swift */; };
+		8B4DBA7D2B4C25B100024D2B /* ScheduledNotificationsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA772B4C25B100024D2B /* ScheduledNotificationsScreenViewController.swift */; };
+		8B4DBA7E2B4C25B100024D2B /* ScheduledNotificationsScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA782B4C25B100024D2B /* ScheduledNotificationsScreenBuilder.swift */; };
+		8B4DBA7F2B4C25B100024D2B /* ScheduledNotificationsScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA792B4C25B100024D2B /* ScheduledNotificationsScreenInteractor.swift */; };
+		8B4DBA822B4C2C8300024D2B /* ScheduledTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA812B4C2C8300024D2B /* ScheduledTrainingCell.swift */; };
 		8B5357C629FAB818009EED68 /* WorkoutsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */; };
 		8B5357CE29FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */; };
 		8B5357CF29FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */; };
@@ -346,6 +353,13 @@
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
 		8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryModel.swift; sourceTree = "<group>"; };
 		8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionButton.swift; sourceTree = "<group>"; };
+		8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenContract.swift; sourceTree = "<group>"; };
+		8B4DBA752B4C25B100024D2B /* ScheduledNotificationsScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenPresenter.swift; sourceTree = "<group>"; };
+		8B4DBA762B4C25B100024D2B /* ScheduledNotificationsScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B4DBA772B4C25B100024D2B /* ScheduledNotificationsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenViewController.swift; sourceTree = "<group>"; };
+		8B4DBA782B4C25B100024D2B /* ScheduledNotificationsScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenBuilder.swift; sourceTree = "<group>"; };
+		8B4DBA792B4C25B100024D2B /* ScheduledNotificationsScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenInteractor.swift; sourceTree = "<group>"; };
+		8B4DBA812B4C2C8300024D2B /* ScheduledTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTrainingCell.swift; sourceTree = "<group>"; };
 		8B5357C529FAB818009EED68 /* WorkoutsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsListCell.swift; sourceTree = "<group>"; };
 		8B5357C829FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenPresenter.swift; sourceTree = "<group>"; };
 		8B5357C929FABB2B009EED68 /* WorkoutSetupScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenInteractor.swift; sourceTree = "<group>"; };
@@ -595,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				8B0722862A248C7400854F1B /* Settings Screen */,
+				8B4DBA732B4C259400024D2B /* Scheduled Notifications Screen */,
 			);
 			path = "Settings Flow";
 			sourceTree = "<group>";
@@ -632,6 +647,19 @@
 			path = "Create Workout Flow";
 			sourceTree = "<group>";
 		};
+		8B4DBA732B4C259400024D2B /* Scheduled Notifications Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */,
+				8B4DBA752B4C25B100024D2B /* ScheduledNotificationsScreenPresenter.swift */,
+				8B4DBA762B4C25B100024D2B /* ScheduledNotificationsScreenMiddleware.swift */,
+				8B4DBA772B4C25B100024D2B /* ScheduledNotificationsScreenViewController.swift */,
+				8B4DBA782B4C25B100024D2B /* ScheduledNotificationsScreenBuilder.swift */,
+				8B4DBA792B4C25B100024D2B /* ScheduledNotificationsScreenInteractor.swift */,
+			);
+			path = "Scheduled Notifications Screen";
+			sourceTree = "<group>";
+		};
 		8B5357C429FAB80F009EED68 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +672,7 @@
 				8BF48B982A17687400F84C6F /* WorkoutsHistoryCell.swift */,
 				8B69D2322B078E9F007DD866 /* CalendarCell.swift */,
 				8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */,
+				8B4DBA812B4C2C8300024D2B /* ScheduledTrainingCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1583,6 +1612,7 @@
 				8BCEB3E02A0B8080001F8F78 /* ScheduleWorkoutScreenMiddleware.swift in Sources */,
 				8BF1ECB529ED815400540E1D /* OnboardingFlow.swift in Sources */,
 				8BEF011829FAB66F004B6B15 /* WorkoutsListScreenInteractor.swift in Sources */,
+				8B4DBA7E2B4C25B100024D2B /* ScheduledNotificationsScreenBuilder.swift in Sources */,
 				8B5357D029FABB2B009EED68 /* WorkoutSetupScreenContract.swift in Sources */,
 				8BF48B912A175F8A00F84C6F /* WorkoutSummaryScreenPresenter.swift in Sources */,
 				8B0722802A248C6E00854F1B /* SettingsScreenContract.swift in Sources */,
@@ -1623,6 +1653,7 @@
 				8BF48B952A175FB700F84C6F /* DateFormatterExtension.swift in Sources */,
 				8BB5589329ED484F00E09F5D /* ValidationMessage.swift in Sources */,
 				8BE644D329DF06AF00288DAB /* RegisterScreenViewController.swift in Sources */,
+				8B4DBA7C2B4C25B100024D2B /* ScheduledNotificationsScreenMiddleware.swift in Sources */,
 				8B5FCC1B2A1CD0F10007D60C /* Exercise.swift in Sources */,
 				8B6FDC8029E412E30037A8B8 /* AccountSetupView.swift in Sources */,
 				8BE644F429E0047800288DAB /* LocalizationGeneral.swift in Sources */,
@@ -1640,6 +1671,7 @@
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8B2A4B8229F6D58C00B6B3F0 /* Configuration.swift in Sources */,
+				8B4DBA822B4C2C8300024D2B /* ScheduledTrainingCell.swift in Sources */,
 				8B02356D2A0BE881006B45A5 /* WorkoutPreviewScreenPresenter.swift in Sources */,
 				8B53581129FBA7A7009EED68 /* AddExerciseScreenMiddleware.swift in Sources */,
 				8B69D2552B07906C007DD866 /* CalendarPage.swift in Sources */,
@@ -1653,6 +1685,7 @@
 				8B6FDC7029E340D80037A8B8 /* ForgotPasswordScreenInteractor.swift in Sources */,
 				8B5357D729FABDB2009EED68 /* Localization.CreateWorkoutFlow.swift in Sources */,
 				8B07228A2A24A2D400854F1B /* Units.swift in Sources */,
+				8B4DBA7A2B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift in Sources */,
 				8BCEB3E32A0B8080001F8F78 /* ScheduleWorkoutScreenInteractor.swift in Sources */,
 				8B53580429FBA4AE009EED68 /* CategoryExercisesListInteractor.swift in Sources */,
 				8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */,
@@ -1668,6 +1701,7 @@
 				8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */,
 				8BEF011729FAB66F004B6B15 /* WorkoutsListScreenBuilder.swift in Sources */,
 				8BCEB3EE2A0B86C6001F8F78 /* WorkoutsCategoryListScreenViewController.swift in Sources */,
+				8B4DBA7F2B4C25B100024D2B /* ScheduledNotificationsScreenInteractor.swift in Sources */,
 				8B53580529FBA4AE009EED68 /* CategoryExercisesListContract.swift in Sources */,
 				8B6FDC7D29E40E690037A8B8 /* CreateAccountScreenInteractor.swift in Sources */,
 				8B2A4B7229F69BD200B6B3F0 /* AuthResponse.swift in Sources */,
@@ -1679,6 +1713,7 @@
 				8B53581529FBA7A7009EED68 /* AddExerciseScreenBuilder.swift in Sources */,
 				8BF48B922A175F8A00F84C6F /* WorkoutSummaryScreenViewController.swift in Sources */,
 				8B69D24E2B07905F007DD866 /* CalendarScreenContract.swift in Sources */,
+				8B4DBA7D2B4C25B100024D2B /* ScheduledNotificationsScreenViewController.swift in Sources */,
 				8B69D24C2B07905F007DD866 /* CalendarScreenMiddleware.swift in Sources */,
 				8BC1525229DD77030007A372 /* WelcomeScreenBuilder.swift in Sources */,
 				8B53581329FBA7A7009EED68 /* AddExerciseScreenContract.swift in Sources */,
@@ -1726,6 +1761,7 @@
 				8B53581029FBA7A7009EED68 /* AddExerciseScreenPresenter.swift in Sources */,
 				8BCEB3EC2A0B86C6001F8F78 /* WorkoutsCategoryListScreenMiddleware.swift in Sources */,
 				8B6FDC6B29E340D80037A8B8 /* ForgotPasswordScreenContract.swift in Sources */,
+				8B4DBA7B2B4C25B100024D2B /* ScheduledNotificationsScreenPresenter.swift in Sources */,
 				8BC151EE29DD6EA00007A372 /* AppDelegate.swift in Sources */,
 				8BE644D229DF06AF00288DAB /* RegisterScreenMiddleware.swift in Sources */,
 				8BE6450029E0585A00288DAB /* FitmaniaTextField.swift in Sources */,

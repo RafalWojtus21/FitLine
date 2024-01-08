@@ -1,19 +1,19 @@
 //
-//  ScheduleWorkoutScreenPresenter.swift
+//  ScheduledNotificationsScreenPresenter.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 10/05/2023.
+//  Created by Rafał Wojtuś on 08/01/2024.
 //
 
 import RxSwift
 
-final class ScheduleWorkoutScreenPresenterImpl: ScheduleWorkoutScreenPresenter {
-    typealias View = ScheduleWorkoutScreenView
-    typealias ViewState = ScheduleWorkoutScreenViewState
-    typealias Middleware = ScheduleWorkoutScreenMiddleware
-    typealias Interactor = ScheduleWorkoutScreenInteractor
-    typealias Effect = ScheduleWorkoutScreenEffect
-    typealias Result = ScheduleWorkoutScreenResult
+final class ScheduledNotificationsScreenPresenterImpl: ScheduledNotificationsScreenPresenter {
+    typealias View = ScheduledNotificationsScreenView
+    typealias ViewState = ScheduledNotificationsScreenViewState
+    typealias Middleware = ScheduledNotificationsScreenMiddleware
+    typealias Interactor = ScheduledNotificationsScreenInteractor
+    typealias Effect = ScheduledNotificationsScreenEffect
+    typealias Result = ScheduledNotificationsScreenResult
     
     private let interactor: Interactor
     private let middleware: Middleware
@@ -29,16 +29,10 @@ final class ScheduleWorkoutScreenPresenterImpl: ScheduleWorkoutScreenPresenter {
     func bindIntents(view: View, triggerEffect: PublishSubject<Effect>) -> Observable<ViewState> {
         let intentResults = view.intents.flatMap { [unowned self] intent -> Observable<Result> in
             switch intent {
-            case .startNowButtonIntent:
-                return .just(.effect(.startNowButtonPressed))
-            case .workoutPreviewTapped:
-                return .just(.effect(.showWorkoutPreview))
             case .viewLoaded:
-                return interactor.calculateWorkoutDetails()
-            case .scheduleWorkoutIntent(date: let date):
-                return interactor.scheduleWorkoutNotification(for: date)
-            case .showDateTimePickerIntent:
-                return .just(.effect(.showDateTimePicker(workoutName: initialViewState.chosenWorkout.name)))
+                return interactor.fetchPendingNotifications()
+            case .deletePendingNotification(let identifier):
+                return interactor.deletePendingNotification(identifier)
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

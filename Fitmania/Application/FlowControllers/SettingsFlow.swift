@@ -17,24 +17,33 @@ protocol SettingsFlow {
 }
 
 protocol SettingsFlowNavigation: AnyObject {
+    func showScheduledNotifications()
     func finishedSettingsFlow()
 }
 
 class SettingsFlowController: SettingsFlow, SettingsFlowNavigation {
+    
     typealias Dependencies = HasNavigation & HasAppNavigation & HasMainFlowNavigation
     
-    struct ExtendedDependencies: Dependencies, HasSettingsFlowNavigation, HasAuthManager {
+    struct ExtendedDependencies: Dependencies, HasSettingsFlowNavigation, HasAuthManager, HasNotificationService {
         private let dependencies: Dependencies
         weak var appNavigation: AppNavigation?
         var navigation: Navigation { dependencies.navigation }
         weak var settingsFlowNavigation: SettingsFlowNavigation?
         weak var mainFlowNavigation: MainFlowNavigation?
         let authManager: AuthManager = AuthManagerImpl(auth: Auth.auth())
+        let notificationService: NotificationService
 
         init(dependencies: Dependencies, settingsFlowNavigation: SettingsFlowNavigation?) {
             self.dependencies = dependencies
             self.appNavigation = dependencies.appNavigation
             self.settingsFlowNavigation = settingsFlowNavigation
+            if let mainFlowDependencies = dependencies as? MainFlowController.ExtendedDependencies {
+                self.notificationService = mainFlowDependencies.notificationService
+            } else {
+                self.notificationService = NotificationServiceImpl()
+                return
+            }
         }
     }
     
@@ -52,11 +61,17 @@ class SettingsFlowController: SettingsFlow, SettingsFlowNavigation {
     // MARK: - Builders
     
     private lazy var settingsScreenBuilder: SettingsScreenBuilder = SettingsScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var scheduledNotificationsScreenBuilder: ScheduledNotificationsScreenBuilder = ScheduledNotificationsScreenBuilderImpl(dependencies: extendedDependencies)
 
     // MARK: - AppNavigation
     
     func startSettingsFlow() -> BaseView {
         settingsScreenBuilder.build(with: .init()).view
+    }
+    
+    func showScheduledNotifications() {
+        let view = scheduledNotificationsScreenBuilder.build(with: .init()).view
+        dependencies.navigation.present(view: view, animated: false, completion: nil)
     }
     
     func finishedSettingsFlow() {

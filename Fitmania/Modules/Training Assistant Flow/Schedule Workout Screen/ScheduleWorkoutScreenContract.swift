@@ -80,7 +80,6 @@ protocol ScheduleWorkoutScreenPresenter: AnyObject, BasePresenter {
 protocol ScheduleWorkoutScreenInteractor: BaseInteractor {
     func calculateWorkoutDetails() -> Observable<ScheduleWorkoutScreenResult>
     func scheduleWorkoutNotification(for date: Date) -> Observable<ScheduleWorkoutScreenResult>
-    func getAllScheduledNotifications() -> Observable<ScheduleWorkoutScreenResult>
 }
 
 protocol ScheduleWorkoutScreenMiddleware {

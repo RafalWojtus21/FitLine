@@ -95,7 +95,7 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
     }
     
     private func layoutView() {
-        let buttonHeight = 42
+        let buttonHeight = 36
         let labelHeight = 36
         
         view.backgroundColor = .primaryColor
@@ -111,7 +111,7 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         settingsStackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(24).priority(.high)
             $0.bottom.equalTo(signOutButton.snp.top).offset(-36).priority(.medium)
-            $0.left.right.equalToSuperview().inset(24)
+            $0.left.right.equalToSuperview().inset(16)
         }
     
         accountLabel.snp.makeConstraints {

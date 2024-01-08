@@ -22,6 +22,7 @@ protocol HasNotificationService {
 protocol NotificationService {
     func scheduleNewNotification(content: NotificationContent, for date: Date) -> Completable
     func getPendingNotifications() -> Observable<[UNNotificationRequest]>
+    func deletePendingNotifications(withIdentifier identifier: String)
 }
 
 final class NotificationServiceImpl: NotificationService {
@@ -60,5 +61,9 @@ final class NotificationServiceImpl: NotificationService {
             self.notificationCenter.getPendingNotificationRequests { observer.onNext($0) }
             return Disposables.create()
         }
+    }
+    
+    func deletePendingNotifications(withIdentifier identifier: String) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 }
