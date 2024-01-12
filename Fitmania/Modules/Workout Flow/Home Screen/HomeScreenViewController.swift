@@ -208,6 +208,11 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func bindControls() {
         workoutsHistorySubject
             .bind(to: workoutsHistoryTableView.rx.items(cellIdentifier: WorkoutsHistoryCell.reuseIdentifier, cellType: WorkoutsHistoryCell.self)) { _, item, cell in
@@ -257,7 +262,11 @@ final class HomeScreenViewController: BaseViewController, HomeScreenView {
         if state.shouldUpdatePersonalRecords {
             personalRecordsSubject.onNext(state.personalRecordsDictionary)
         }
-        guard let userName = state.userInfo?.firstName else { return }
-        welcomeLabel.attributedText = configureWelcomeLabel(name: userName)
+        guard let userInfo = state.userInfo else { return }
+        for userInfoType in userInfo {
+            if case .firstName(let firstName) = userInfoType {
+                welcomeLabel.attributedText = configureWelcomeLabel(name: firstName)
+            }
+        }
     }
 }

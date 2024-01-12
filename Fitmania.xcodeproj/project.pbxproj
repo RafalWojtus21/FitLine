@@ -64,6 +64,14 @@
 		8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */; };
 		8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */; };
 		8B3AA0D029F28F7500B6A327 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */; };
+		8B4567152B516DE7001C024C /* EditPersonalDataScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45670F2B516DE7001C024C /* EditPersonalDataScreenContract.swift */; };
+		8B4567162B516DE7001C024C /* EditPersonalDataScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567102B516DE7001C024C /* EditPersonalDataScreenPresenter.swift */; };
+		8B4567172B516DE7001C024C /* EditPersonalDataScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567112B516DE7001C024C /* EditPersonalDataScreenMiddleware.swift */; };
+		8B4567182B516DE7001C024C /* EditPersonalDataScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567122B516DE7001C024C /* EditPersonalDataScreenViewController.swift */; };
+		8B4567192B516DE7001C024C /* EditPersonalDataScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567132B516DE7001C024C /* EditPersonalDataScreenBuilder.swift */; };
+		8B45671A2B516DE7001C024C /* EditPersonalDataScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */; };
+		8B45671C2B51736C001C024C /* PersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45671B2B51736C001C024C /* PersonalDataCell.swift */; };
+		8B4567212B602DAC001C024C /* EmptyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567202B602DAC001C024C /* EmptyContentView.swift */; };
 		8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */; };
 		8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */; };
 		8B4DBA7A2B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */; };
@@ -351,6 +359,14 @@
 		8B3AA0C929F28EC700B6A327 /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
 		8B3AA0CB29F28F6000B6A327 /* CalendarFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFlow.swift; sourceTree = "<group>"; };
 		8B3AA0CF29F28F7500B6A327 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
+		8B45670F2B516DE7001C024C /* EditPersonalDataScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenContract.swift; sourceTree = "<group>"; };
+		8B4567102B516DE7001C024C /* EditPersonalDataScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenPresenter.swift; sourceTree = "<group>"; };
+		8B4567112B516DE7001C024C /* EditPersonalDataScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B4567122B516DE7001C024C /* EditPersonalDataScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenViewController.swift; sourceTree = "<group>"; };
+		8B4567132B516DE7001C024C /* EditPersonalDataScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenBuilder.swift; sourceTree = "<group>"; };
+		8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenInteractor.swift; sourceTree = "<group>"; };
+		8B45671B2B51736C001C024C /* PersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataCell.swift; sourceTree = "<group>"; };
+		8B4567202B602DAC001C024C /* EmptyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentView.swift; sourceTree = "<group>"; };
 		8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryModel.swift; sourceTree = "<group>"; };
 		8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionButton.swift; sourceTree = "<group>"; };
 		8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenContract.swift; sourceTree = "<group>"; };
@@ -610,6 +626,7 @@
 			children = (
 				8B0722862A248C7400854F1B /* Settings Screen */,
 				8B4DBA732B4C259400024D2B /* Scheduled Notifications Screen */,
+				8B45670C2B516D9F001C024C /* EditPersonalDataScreen */,
 			);
 			path = "Settings Flow";
 			sourceTree = "<group>";
@@ -632,6 +649,7 @@
 			children = (
 				8B02061A2A1F7FDC00DC4AE2 /* StrengthExerciseView.swift */,
 				8B07228C2A24B0AB00854F1B /* WaveForm.swift */,
+				8B4567202B602DAC001C024C /* EmptyContentView.swift */,
 			);
 			path = "SwiftUI Views";
 			sourceTree = "<group>";
@@ -645,6 +663,19 @@
 				8B53580929FBA7A7009EED68 /* AddExercise Screen */,
 			);
 			path = "Create Workout Flow";
+			sourceTree = "<group>";
+		};
+		8B45670C2B516D9F001C024C /* EditPersonalDataScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B45670F2B516DE7001C024C /* EditPersonalDataScreenContract.swift */,
+				8B4567102B516DE7001C024C /* EditPersonalDataScreenPresenter.swift */,
+				8B4567112B516DE7001C024C /* EditPersonalDataScreenMiddleware.swift */,
+				8B4567122B516DE7001C024C /* EditPersonalDataScreenViewController.swift */,
+				8B4567132B516DE7001C024C /* EditPersonalDataScreenBuilder.swift */,
+				8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */,
+			);
+			path = EditPersonalDataScreen;
 			sourceTree = "<group>";
 		};
 		8B4DBA732B4C259400024D2B /* Scheduled Notifications Screen */ = {
@@ -673,6 +704,7 @@
 				8B69D2322B078E9F007DD866 /* CalendarCell.swift */,
 				8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */,
 				8B4DBA812B4C2C8300024D2B /* ScheduledTrainingCell.swift */,
+				8B45671B2B51736C001C024C /* PersonalDataCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1596,11 +1628,13 @@
 				8B5357CE29FABB2B009EED68 /* WorkoutSetupScreenPresenter.swift in Sources */,
 				8BF1ECC129EEE27200540E1D /* AccountCreatedScreenPresenter.swift in Sources */,
 				8BE6448A29DDB96E00288DAB /* UIFontExtension.swift in Sources */,
+				8B4567172B516DE7001C024C /* EditPersonalDataScreenMiddleware.swift in Sources */,
 				8BCEB3D42A0A40F7001F8F78 /* LoggerExtension.swift in Sources */,
 				8B3AA0CC29F28F6000B6A327 /* CalendarFlow.swift in Sources */,
 				8B02357E2A0CEB1A006B45A5 /* WorkoutExerciseScreenPresenter.swift in Sources */,
 				8B0235822A0CEB1A006B45A5 /* WorkoutExerciseScreenInteractor.swift in Sources */,
 				8BCEB3F32A0B9090001F8F78 /* WorkoutPreviewButton.swift in Sources */,
+				8B45671A2B516DE7001C024C /* EditPersonalDataScreenInteractor.swift in Sources */,
 				8B5358202A03D6A0009EED68 /* UITableViewCellExtension.swift in Sources */,
 				8B6FDC6F29E340D80037A8B8 /* ForgotPasswordScreenBuilder.swift in Sources */,
 				8B5357F929FACAA8009EED68 /* WorkoutCategoryListCell.swift in Sources */,
@@ -1668,6 +1702,7 @@
 				8BF1ECC029EEE27200540E1D /* AccountCreatedScreenContract.swift in Sources */,
 				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
 				8BF48B932A175F8A00F84C6F /* WorkoutSummaryScreenContract.swift in Sources */,
+				8B4567162B516DE7001C024C /* EditPersonalDataScreenPresenter.swift in Sources */,
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
 				8B2A4B8229F6D58C00B6B3F0 /* Configuration.swift in Sources */,
@@ -1678,6 +1713,7 @@
 				8BE644F829E004B600288DAB /* LocalizationAuthenticationFlow.swift in Sources */,
 				8BF48B862A1759A600F84C6F /* WorkoutsHistoryService.swift in Sources */,
 				8BF1ECFC29EFEA2F00540E1D /* HomeScreenViewController.swift in Sources */,
+				8B4567152B516DE7001C024C /* EditPersonalDataScreenContract.swift in Sources */,
 				8B6FDC8A29E5750C0037A8B8 /* UserInfo.swift in Sources */,
 				8BF1ECC329EEE27200540E1D /* AccountCreatedScreenViewController.swift in Sources */,
 				8B69D2562B07906C007DD866 /* CalendarPageViewController.swift in Sources */,
@@ -1687,6 +1723,7 @@
 				8B07228A2A24A2D400854F1B /* Units.swift in Sources */,
 				8B4DBA7A2B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift in Sources */,
 				8BCEB3E32A0B8080001F8F78 /* ScheduleWorkoutScreenInteractor.swift in Sources */,
+				8B4567192B516DE7001C024C /* EditPersonalDataScreenBuilder.swift in Sources */,
 				8B53580429FBA4AE009EED68 /* CategoryExercisesListInteractor.swift in Sources */,
 				8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */,
 				8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */,
@@ -1738,7 +1775,9 @@
 				8BF48B8E2A175F8A00F84C6F /* WorkoutSummaryScreenBuilder.swift in Sources */,
 				8B69D2332B078EA0007DD866 /* CalendarCell.swift in Sources */,
 				8BEF011929FAB66F004B6B15 /* WorkoutsListScreenPresenter.swift in Sources */,
+				8B4567212B602DAC001C024C /* EmptyContentView.swift in Sources */,
 				8B3AA0CA29F28EC700B6A327 /* MainFlowController.swift in Sources */,
+				8B4567182B516DE7001C024C /* EditPersonalDataScreenViewController.swift in Sources */,
 				8BF1ECFE29EFEA2F00540E1D /* HomeScreenInteractor.swift in Sources */,
 				8B5357D129FABB2B009EED68 /* WorkoutSetupScreenViewController.swift in Sources */,
 				8B5FCC192A1CD0E90007D60C /* WorkoutPart.swift in Sources */,
@@ -1780,6 +1819,7 @@
 				8B0722852A248C6E00854F1B /* SettingsScreenInteractor.swift in Sources */,
 				8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */,
 				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,
+				8B45671C2B51736C001C024C /* PersonalDataCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1977,7 +2017,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1987,6 +2027,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2009,7 +2050,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2019,6 +2060,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2178,7 +2220,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2188,6 +2230,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2309,7 +2352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2319,6 +2362,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2434,7 +2478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2444,6 +2488,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2559,7 +2604,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2569,6 +2614,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

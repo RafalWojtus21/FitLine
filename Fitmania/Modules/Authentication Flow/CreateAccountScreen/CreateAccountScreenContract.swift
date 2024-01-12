@@ -7,8 +7,17 @@
 
 import RxSwift
 
-struct SexDataModel: Equatable {
+struct SexDataModel: Codable, Equatable {
     var sex: String
+    
+    
+    static func generateSexesList() -> [SexDataModel] {
+        [
+            SexDataModel(sex: Localization.AuthenticationFlow.sexMale),
+            SexDataModel(sex: Localization.AuthenticationFlow.sexFemale),
+            SexDataModel(sex: Localization.AuthenticationFlow.sexOther)
+        ]
+    }
 }
 
 enum CreateAccountScreenIntent {
@@ -25,11 +34,7 @@ enum CreateAccountScreenIntent {
 struct CreateAccountScreenViewState: Equatable {
     typealias L = Localization.AuthenticationFlow
     
-    var sexDataModel: [SexDataModel] = [
-        SexDataModel(sex: L.sexMale),
-        SexDataModel(sex: L.sexFemale),
-        SexDataModel(sex: L.sexOther)
-    ]
+    var sexDataModel = SexDataModel.generateSexesList()
     var firstNameValidationMessage = ValidationMessage(message: "")
     var lastNameValidationMessage = ValidationMessage(message: "")
     var sexValidationMessage = ValidationMessage(message: "")

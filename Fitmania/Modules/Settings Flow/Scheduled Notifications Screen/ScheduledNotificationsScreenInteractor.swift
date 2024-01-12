@@ -27,16 +27,20 @@ final class ScheduledNotificationsScreenInteractorImpl: ScheduledNotificationsSc
     
     func fetchPendingNotifications() -> Observable<ScheduledNotificationsScreenResult> {
         dependencies.notificationService.getPendingNotifications()
-            .map { notificationRequests in
-                let scheduledNotifications: [ScheduledNotificationsScreen.Notification] = notificationRequests.compactMap { notificationRequest in
-                    let content = notificationRequest.content
-                    guard let notificationTrigger = notificationRequest.trigger as? UNCalendarNotificationTrigger, 
-                            let nextTriggerDate = notificationTrigger.nextTriggerDate() else {
-                        return .init(identifier: notificationRequest.identifier, title: content.title, body: content.body, scheduledDate: nil)
+            .map { notificationRequests -> ScheduledNotificationsScreenResult in
+                if notificationRequests.isEmpty {
+                    return .effect(.requestsListEmpty)
+                } else {
+                    let scheduledNotifications: [ScheduledNotificationsScreen.Notification] = notificationRequests.compactMap { notificationRequest in
+                        let content = notificationRequest.content
+                        guard let notificationTrigger = notificationRequest.trigger as? UNCalendarNotificationTrigger,
+                              let nextTriggerDate = notificationTrigger.nextTriggerDate() else {
+                            return .init(identifier: notificationRequest.identifier, title: content.title, body: content.body, scheduledDate: nil)
+                        }
+                        return .init(identifier: notificationRequest.identifier, title: content.title, body: content.body, scheduledDate: nextTriggerDate)
                     }
-                    return .init(identifier: notificationRequest.identifier, title: content.title, body: content.body, scheduledDate: nextTriggerDate)
+                    return .partialState(.fetchPendingNotifications(pendingNotifications: scheduledNotifications))
                 }
-                return .partialState(.fetchPendingNotifications(pendingNotifications: scheduledNotifications))
             }
     }
     

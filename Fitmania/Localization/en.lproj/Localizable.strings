@@ -56,7 +56,7 @@
 "AccountSetup.Sex" = "Sex";
 "AccountSetup.Age" = "Age";
 "AccountSetup.Height" = "Height [cm]";
-"AccountSetup.Weight" = "Weight [cm]";
+"AccountSetup.Weight" = "Weight [kg]";
 "AccountSetup.CreateAccountButton" = "Create account";
 
 // MARK: Validation

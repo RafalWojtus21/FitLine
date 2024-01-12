@@ -1,15 +1,15 @@
 //
-//  ScheduledNotificationsScreenMiddleware.swift
+//  EditPersonalDataScreenMiddleware.swift
 //  Fitmania
 //
-//  Created by Rafał Wojtuś on 08/01/2024.
+//  Created by Rafał Wojtuś on 12/01/2024.
 //
 
 import RxSwift
 
-final class ScheduledNotificationsScreenMiddlewareImpl: ScheduledNotificationsScreenMiddleware, ScheduledNotificationsScreenCallback {
+final class EditPersonalDataScreenMiddlewareImpl: EditPersonalDataScreenMiddleware, EditPersonalDataScreenCallback {
     typealias Dependencies = HasAppNavigation
-    typealias Result = ScheduledNotificationsScreenResult
+    typealias Result = EditPersonalDataScreenResult
     
     private let dependencies: Dependencies
 
@@ -25,6 +25,10 @@ final class ScheduledNotificationsScreenMiddlewareImpl: ScheduledNotificationsSc
         case .partialState(_): break
         case .effect(let effect):
             switch effect {
+            case .edit(_):
+                break
+            case .dismiss:
+                dependencies.appNavigation?.dismiss()
             default:
                 break
             }

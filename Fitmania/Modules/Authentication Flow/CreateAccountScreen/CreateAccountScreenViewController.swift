@@ -152,14 +152,18 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         
         let createAccountIntent = createAccountButton.rx.tap
             .map { [weak self] _ -> Intent in
-                guard let self else { return Intent.invalidCredentials }
-                let firstName = self.namesStackView.leftTextField.textField.text
-                let lastName = self.namesStackView.rightTextField.textField.text
-                let sex = self.sexAgeStackView.leftTextField.textField.text
-                let age = self.sexAgeStackView.rightTextField.textField.text.flatMap { Int($0) }
-                let height = self.heightWeightStackView.leftTextField.textField.text.flatMap { Int($0) }
-                let weight = self.heightWeightStackView.rightTextField.textField.text.flatMap { Int($0) }
-                let userInfo = UserInfo(firstName: firstName, lastName: lastName, sex: sex, age: age, height: height, weight: weight)
+                guard let self,
+                      let firstName = self.namesStackView.leftTextField.textField.text,
+                      let lastName = self.namesStackView.rightTextField.textField.text,
+                      let sex = self.sexAgeStackView.leftTextField.textField.text,
+                      let ageString = self.sexAgeStackView.rightTextField.textField.text,
+                      let age = Int(ageString),
+                      let heightString = self.heightWeightStackView.leftTextField.textField.text,
+                      let height = Int(heightString),
+                      let weightString = self.heightWeightStackView.rightTextField.textField.text,
+                      let weight = Int(weightString)
+                else { return Intent.invalidCredentials }
+                let userInfo = UserInfo(firstName: .firstName(firstName), lastName: .lastName(lastName), sex: .sex(.init(sex: sex)), age: .age(age), height: .height(height), weight: .weight(weight))
                 return Intent.createAccountButtonIntent(userInfo: userInfo)
             }
         

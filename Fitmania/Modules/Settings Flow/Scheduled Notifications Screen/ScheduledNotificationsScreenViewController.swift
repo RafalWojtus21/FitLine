@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import SwiftUI
 
 final class ScheduledNotificationsScreenViewController: BaseViewController, ScheduledNotificationsScreenView {
     typealias ViewState = ScheduledNotificationsScreenViewState
@@ -23,16 +24,19 @@ final class ScheduledNotificationsScreenViewController: BaseViewController, Sche
     
     private var scheduledTrainingsSubject = PublishSubject<[ScheduledNotificationsScreen.Notification]>()
     
+    private lazy var emptyContentViewController = UIHostingController(rootView: EmptyContentView())
+    private var emptyContentView: UIView { emptyContentViewController.view }
+        
     private lazy var containerStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [scheduledTrainingsTableView])
+        view.backgroundColor = .clear
         view.axis = .horizontal
         return view
     }()
-
+    
     private lazy var scheduledTrainingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
-//        tableView.rowHeight = 80
         tableView.register(ScheduledTrainingCell.self)
         tableView.layer.cornerRadius = 16
         tableView.showsVerticalScrollIndicator = true
@@ -78,6 +82,12 @@ final class ScheduledNotificationsScreenViewController: BaseViewController, Sche
         }
     }
     
+    private func layoutEmptyContentView() {
+        DispatchQueue.main.async {
+            self.containerStackView.addArrangedSubview(self.emptyContentView)
+        }
+    }
+    
     private func bindControls() {
         scheduledTrainingsSubject
             .bind(to: scheduledTrainingsTableView.rx.items(cellIdentifier: ScheduledTrainingCell.reuseIdentifier, cellType: ScheduledTrainingCell.self)) { _, item, cell in
@@ -99,7 +109,9 @@ final class ScheduledNotificationsScreenViewController: BaseViewController, Sche
     private func trigger(effect: Effect) {
         switch effect {
         case .notificationRequestRemoved:
-            print("notification removed")
+            Log.notificationCenter.info("Notification request removed")
+        case .requestsListEmpty:
+            layoutEmptyContentView()
         }
     }
     

@@ -137,6 +137,11 @@ final class CalendarScreenViewController: BaseViewController, CalendarScreenView
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func bindControls() {
         Observable.merge(actionSubject.skip(1), pagesActionSubject)
             .bind(to: _intents.subject)

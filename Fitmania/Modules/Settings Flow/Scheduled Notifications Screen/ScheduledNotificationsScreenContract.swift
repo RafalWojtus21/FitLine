@@ -28,6 +28,7 @@ struct ScheduledNotificationsScreenViewState: Equatable {
 
 enum ScheduledNotificationsScreenEffect: Equatable {
     case notificationRequestRemoved
+    case requestsListEmpty
 }
 
 struct ScheduledNotificationsScreenBuilderInput {

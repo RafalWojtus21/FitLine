@@ -17,7 +17,7 @@ class CalendarDaysView: UIView {
         view.distribution = .fillEqually
         
         let calendar = Calendar.current
-        var weekdaySymbols = calendar.weekdaySymbols
+        var weekdaySymbols = calendar.shortWeekdaySymbols
         weekdaySymbols.append(weekdaySymbols.removeFirst())
         
         weekdaySymbols.forEach { day in
@@ -53,7 +53,6 @@ class CalendarDaysView: UIView {
         label.textAlignment = .center
         label.text = day
         label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
         return label
     }
 }

@@ -15,12 +15,11 @@ final class HomeScreenInteractorImpl: HomeScreenInteractor {
     
     private let dependencies: Dependencies
     
-
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
     
-    func fetchUserInfo() -> RxSwift.Observable<HomeScreenResult> {
+    func fetchUserInfo() -> Observable<HomeScreenResult> {
         dependencies.cloudService.fetchPersonalDataSingle(type: UserInfo.self, endpoint: .userInfo)
             .map { userInfo in
                     .partialState(.setUserInfo(userInfo: userInfo))
