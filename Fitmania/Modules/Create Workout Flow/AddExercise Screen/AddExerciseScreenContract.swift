@@ -7,8 +7,16 @@
 
 import RxSwift
 
+struct AddExerciseScreen {
+    enum ExerciseType {
+        case new
+        case updated
+    }
+}
+
 enum AddExerciseScreenIntent {
-    case addExerciseIntent(sets: String, time: String, breakTime: String)
+    case viewLoaded
+    case saveExerciseIntent(sets: String, time: String, breakTime: String, type: AddExerciseScreen.ExerciseType)
     case validateExerciseTime(text: String)
     case validateExerciseBreakTime(text: String)
     case validateSets(text: String)
@@ -50,6 +58,13 @@ struct AddExerciseScreenViewState: Equatable {
     var isAddButtonEnabled: Bool {
         validationDictionary.values.allSatisfy { $0 == true }
     }
+    
+    var workoutPart: WorkoutPart?
+    var shouldLoadExerciseData = false
+    
+    var isSaveButtonVisible: Bool {
+        workoutPart != nil
+    }
 }
 
 enum AddExerciseScreenEffect: Equatable {
@@ -60,6 +75,7 @@ enum AddExerciseScreenEffect: Equatable {
 
 struct AddExerciseScreenBuilderInput {
     let chosenExercise: Exercise
+    let exerciseToEdit: WorkoutPart?
 }
 
 protocol AddExerciseScreenCallback {
@@ -74,9 +90,12 @@ enum AddExerciseScreenPartialState: Equatable {
     case exerciseTimeValidationResult(validationMessage: ValidationMessage)
     case exerciseBreakTimeValidationResult(validationMessage: ValidationMessage)
     case exerciseSetsValidationResult(validationMessage: ValidationMessage)
+    case loadWorkoutPart(workoutPart: WorkoutPart)
+    case idle
 
     func reduce(previousState: AddExerciseScreenViewState) -> AddExerciseScreenViewState {
         var state = previousState
+        state.shouldLoadExerciseData = false
         switch self {
         case .exerciseTimeValidationResult(validationMessage: let validationMessage):
             state.exerciseTimeValidationMessage = validationMessage
@@ -84,6 +103,11 @@ enum AddExerciseScreenPartialState: Equatable {
             state.exerciseBreakTimeValidationMessage = validationMessage
         case .exerciseSetsValidationResult(validationMessage: let validationMessage):
             state.exerciseSetsValidationMessage = validationMessage
+        case .loadWorkoutPart(workoutPart: let workoutPart):
+            state.workoutPart = workoutPart
+            state.shouldLoadExerciseData = true
+        case .idle:
+            break
         }
         return state
     }
@@ -108,10 +132,11 @@ protocol AddExerciseScreenPresenter: AnyObject, BasePresenter {
 }
 
 protocol AddExerciseScreenInteractor: BaseInteractor {
+    func loadExercise() -> Observable<AddExerciseScreenResult>
     func validateExerciseTime(time: String) -> Observable<AddExerciseScreenResult>
     func validateExerciseBreakTime(time: String) -> Observable<AddExerciseScreenResult>
     func validateSets(sets: String) -> Observable<AddExerciseScreenResult>
-    func addExercise(sets: String, time: String, breakTime: String) -> Observable<AddExerciseScreenResult>
+    func saveExercise(sets: String, time: String, breakTime: String, type: AddExerciseScreen.ExerciseType) -> Observable<AddExerciseScreenResult>
 }
 
 protocol AddExerciseScreenMiddleware {

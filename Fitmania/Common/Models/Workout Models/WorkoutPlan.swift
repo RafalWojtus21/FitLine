@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorkoutPlan: Codable, Equatable {
+struct WorkoutPlan: Codable, Equatable, Hashable {
     let name: String
     let id: WorkoutPlanID
     let parts: [WorkoutPart]

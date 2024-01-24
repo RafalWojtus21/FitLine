@@ -25,6 +25,7 @@ protocol WorkoutFlowNavigation: AnyObject {
     func startTrainingAssistantFlow(plan: WorkoutPlan)
     func showWorkoutSummaryScreen(workout: FinishedWorkout, shouldSaveWorkout: Bool) 
     func finishedTrainingAssistantFlow()
+    func editWorkoutPlan(_ workoutPlan: WorkoutPlan)
 }
 
 class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
@@ -117,5 +118,11 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     func finishedTrainingAssistantFlow() {
         trainingAssistantFlowController = nil
         dependencies.navigation.popToRootViewController(animated: true)
+    }
+    
+    func editWorkoutPlan(_ workoutPlan: WorkoutPlan) {
+        createWorkoutFlowController = nil
+        createWorkoutFlowController = CreateWorkoutFlowController(dependencies: extendedDependencies)
+        createWorkoutFlowController?.editWorkoutPlan(workoutPlan)
     }
 }

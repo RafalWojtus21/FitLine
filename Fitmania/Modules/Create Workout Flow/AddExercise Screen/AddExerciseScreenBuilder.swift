@@ -17,9 +17,9 @@ final class AddExerciseScreenBuilderImpl: AddExerciseScreenBuilder {
     }
         
     func build(with input: AddExerciseScreenBuilderInput) -> AddExerciseScreenModule {
-        let interactor = AddExerciseScreenInteractorImpl(dependencies: dependencies, input: input)
+        let interactor = AddExerciseScreenInteractorImpl(dependencies: dependencies, input: input, loadedExercise: input.exerciseToEdit)
         let middleware = AddExerciseScreenMiddlewareImpl(dependencies: dependencies)
-        let presenter = AddExerciseScreenPresenterImpl(interactor: interactor, middleware: middleware, initialViewState: AddExerciseScreenViewState(chosenExercise: input.chosenExercise))
+        let presenter = AddExerciseScreenPresenterImpl(interactor: interactor, middleware: middleware, initialViewState: AddExerciseScreenViewState(chosenExercise: input.chosenExercise), loadedExercise: input.exerciseToEdit)
         let view = AddExerciseScreenViewController(presenter: presenter)
         return AddExerciseScreenModule(view: view, callback: middleware)
     }

@@ -37,6 +37,8 @@ final class ScheduleWorkoutScreenMiddlewareImpl: ScheduleWorkoutScreenMiddleware
                 break
             case .showDateTimePicker:
                 break
+            case .editWorkout:
+                dependencies.trainingAssistantFlowNavigation?.editWorkoutPlan(chosenWorkout)
             }
         }
         return .just(result)

@@ -29,6 +29,8 @@ final class WorkoutSetupScreenMiddlewareImpl: WorkoutSetupScreenMiddleware, Work
                 dependencies.createWorkoutFlowNavigation?.showWorkoutCategoryListScreen()
             case .workoutSaved:
                 dependencies.createWorkoutFlowNavigation?.finishCreateWorkoutFlow()
+            case .editExercise(workoutPart: let workoutPart):
+                dependencies.createWorkoutFlowNavigation?.showEditExerciseScreen(workoutPart)
             default:
                 break
             }

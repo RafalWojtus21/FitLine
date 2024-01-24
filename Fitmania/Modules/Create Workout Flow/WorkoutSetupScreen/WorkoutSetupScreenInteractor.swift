@@ -8,6 +8,7 @@
 import RxSwift
 
 final class WorkoutSetupScreenInteractorImpl: WorkoutSetupScreenInteractor {
+
     typealias Dependencies = HasExercisesDataStore & HasWorkoutsService
     typealias Result = WorkoutSetupScreenResult
     
@@ -18,6 +19,8 @@ final class WorkoutSetupScreenInteractorImpl: WorkoutSetupScreenInteractor {
         self.dependencies = dependencies
         self.input = input
     }
+    
+    // MARK: - Public Implementation
     
     func setWorkoutData() -> Observable<WorkoutSetupScreenResult> {
         dependencies.exercisesDataStore.trainingPlanNameRelay.accept(input.trainingName)
@@ -31,8 +34,34 @@ final class WorkoutSetupScreenInteractorImpl: WorkoutSetupScreenInteractor {
             }
     }
     
+    func removeExercise(_ exercise: WorkoutPart) -> Observable<WorkoutSetupScreenResult> {
+        dependencies.exercisesDataStore.removeExercise(exercise)
+        return loadExercises()
+    }
+    
     func saveWorkoutToDatabase() -> Observable<WorkoutSetupScreenResult> {
-        return dependencies.workoutsService.saveNewPersonalTrainingPlan(exercises: dependencies.exercisesDataStore.exercisesRelay.value)
+        let exercises = dependencies.exercisesDataStore.exercisesRelay.value
+        if dependencies.exercisesDataStore.isDataLoaded {
+            return saveUpdatedWorkoutPlan(exercises)
+        } else {
+            return saveNewWorkoutPlan(exercises)
+        }
+    }
+    
+    // MARK: - Private Implementation
+    
+    private func saveNewWorkoutPlan(_ exercises: [WorkoutPart]) -> Observable<WorkoutSetupScreenResult> {
+        dependencies.workoutsService.saveNewPersonalTrainingPlan(exercises: exercises)
+            .andThen(.just(.effect(.workoutSaved)))
+            .catch { _ in
+                    .just(.effect(.somethingWentWrong))
+            }
+    }
+    
+    private func saveUpdatedWorkoutPlan(_ exercises: [WorkoutPart]) -> Observable<WorkoutSetupScreenResult> {
+        guard let workoutPlanID = exercises.first?.workoutPlanID else { return .just(.effect(.somethingWentWrong))}
+        return dependencies.workoutsService.deleteWorkoutPlan(id: workoutPlanID)
+            .andThen(dependencies.workoutsService.saveNewPersonalTrainingPlan(exercises: exercises))
             .andThen(.just(.effect(.workoutSaved)))
             .catch { _ in
                     .just(.effect(.somethingWentWrong))

@@ -19,7 +19,7 @@ class WorkoutPreviewButton: UIButton {
         let categories: [Exercise.Category]
     }
     
-    private lazy var mainView: UIStackView = {
+    lazy var mainView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [workoutInfoView, separatorView, workoutCategoriesView])
         view.axis = .vertical
         view.distribution = .fill
@@ -46,6 +46,7 @@ class WorkoutPreviewButton: UIButton {
         label.font = .openSansSemiBold20
         label.textColor = .white
         label.textAlignment = .center
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -54,6 +55,7 @@ class WorkoutPreviewButton: UIButton {
         label.font = .openSansSemiBold16
         label.textColor = .white
         label.textAlignment = .center
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -62,6 +64,7 @@ class WorkoutPreviewButton: UIButton {
         label.font = .openSansSemiBold16
         label.textColor = .white
         label.textAlignment = .center
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -96,6 +99,7 @@ class WorkoutPreviewButton: UIButton {
         let numberOfRows = (viewModel.categories.count + 1) / 2
         for rowIndex in 0 ..< numberOfRows {
             let rowStackView = UIStackView()
+            rowStackView.isUserInteractionEnabled = false
             rowStackView.axis = .horizontal
             rowStackView.distribution = .fillEqually
             
@@ -103,6 +107,7 @@ class WorkoutPreviewButton: UIButton {
             for elementIndex in 0 ..< numberOfElementsInRow {
                 let category = viewModel.categories[rowIndex * 2 + elementIndex]
                 let categoryView = CategoryWithIcon()
+                categoryView.isUserInteractionEnabled = false
                 categoryView.configure(categoryName: category)
                 rowStackView.addArrangedSubview(categoryView)
             }

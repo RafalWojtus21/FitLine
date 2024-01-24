@@ -64,7 +64,26 @@ final class WorkoutsServiceImpl: WorkoutsService {
                     return !deletedParts.contains(where: { $0.workoutPlanID == workoutPart.workoutPlanID })
                 }
             }
-        Observable.merge(addedWorkouts, removedWorkouts)
+        let changedWorkouts = cloudService.childChangedObservable(type: [WorkoutPart].self, endpoint: .workouts, decoder: nil)
+            .withLatestFrom(workoutsSubject) { changedParts, workouts -> [WorkoutPart] in
+                var updatedWorkouts = workouts
+                
+                changedParts.forEach { changedPart in
+                    if !updatedWorkouts.contains(where: { $0.id == changedPart.id }) {
+                        updatedWorkouts.append(changedPart)
+                    }
+                }
+                
+                changedParts.compactMap { changedPart in
+                    let isNewElement = !updatedWorkouts.contains(where: { $0.id == changedPart.id })
+                    return isNewElement ? changedPart : nil
+                }
+                .forEach { updatedWorkouts.append($0) }
+                
+                return updatedWorkouts
+            }
+        
+        Observable.merge(addedWorkouts, removedWorkouts, changedWorkouts)
             .subscribe(onNext: { [weak self] exercises in
                 guard let self else { return }
                 self.workoutsSubject.onNext(exercises)

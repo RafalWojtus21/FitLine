@@ -21,6 +21,7 @@ protocol RealtimeDatabaseService {
     func delete(from path: String) -> Completable
     func childRemovedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T>
     func childAddedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T>
+    func childChangedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> 
 }
 
 final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
@@ -129,6 +130,25 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
         return Observable.create { observer in
             let databaseReference = self.database.reference(withPath: path)
             databaseReference.observe(.childRemoved) { snapshot in
+                guard let value = snapshot.value else {
+                    observer.onError(DatabaseError.noData)
+                    return
+                }
+                do {
+                    let object = try self.decodeObject(objectType, from: value, decoder: decoder)
+                    observer.onNext(object)
+                } catch {
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func childChangedObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> {
+        return Observable.create { observer in
+            let databaseReference = self.database.reference(withPath: path)
+            databaseReference.observe(.childChanged) { snapshot in
                 guard let value = snapshot.value else {
                     observer.onError(DatabaseError.noData)
                     return

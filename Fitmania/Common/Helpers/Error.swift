@@ -47,6 +47,7 @@ enum DatabaseError: Error, Equatable {
     case somethingWentWrong
     case noData
     case invalidWorkoutPlan
+    case wrongPath
 }
 
 enum NotificationError: Error, Equatable {

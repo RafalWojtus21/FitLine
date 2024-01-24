@@ -138,7 +138,8 @@ class ExerciseDetailsCell: UITableViewCell, ReusableCell {
         addSubview(mainView)
         
         mainView.snp.makeConstraints {
-            $0.top.right.left.equalToSuperview()
+            $0.top.equalToSuperview().inset(4)
+            $0.right.left.equalToSuperview()
             $0.bottom.equalToSuperview().inset(10)
         }
         

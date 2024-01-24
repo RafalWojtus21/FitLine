@@ -33,7 +33,7 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .tertiaryColor
-        tableView.rowHeight = 80 
+        tableView.rowHeight = 90 
         tableView.register(ExerciseDetailsCell.self)
         return tableView
     }()
@@ -95,9 +95,13 @@ final class WorkoutSetupScreenViewController: BaseViewController, WorkoutSetupSc
         
         let saveButtonIntent = saveButton.rx.tap.map { Intent.saveButtonPressed }
         let addExerciseIntent = addExerciseButton?.tap.map { return Intent.addExerciseButtonIntent }
+        
+        let deleteExerciseIntent = tableView.rx.modelDeleted(WorkoutPart.self).map { Intent.removeExercise($0) }
+        let editExerciseIntent = tableView.rx.modelSelected(WorkoutPart.self).map { Intent.editExercise($0) }
+        
         guard let addExerciseIntent else { return }
         
-        Observable.merge(saveButtonIntent, addExerciseIntent)
+        Observable.merge(saveButtonIntent, addExerciseIntent, deleteExerciseIntent, editExerciseIntent)
             .subscribe(onNext: { [weak self] intent in
                 self?._intents.subject.onNext(intent)
             })

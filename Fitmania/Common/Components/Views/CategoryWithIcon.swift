@@ -18,6 +18,7 @@ class CategoryWithIcon: UIView {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.backgroundColor = .clear
+        stackView.isUserInteractionEnabled = false
         return stackView
     }()
     
@@ -26,6 +27,7 @@ class CategoryWithIcon: UIView {
         label.font = .openSansSemiBold20
         label.textColor = .white
         label.textAlignment = .left
+        label.isUserInteractionEnabled = false
         return label
     }()
     
@@ -34,6 +36,7 @@ class CategoryWithIcon: UIView {
         imageView.image = .systemImageName(.flame)
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = false
         return imageView
     }()
     

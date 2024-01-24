@@ -14,6 +14,7 @@ enum ScheduleWorkoutScreenIntent {
     case workoutPreviewTapped
     case scheduleWorkoutIntent(date: Date)
     case showDateTimePickerIntent
+    case editWorkout
 }
 
 struct ScheduleWorkoutScreenViewState: Equatable {
@@ -30,6 +31,7 @@ enum ScheduleWorkoutScreenEffect: Equatable {
     case workoutScheduled
     case workoutScheduleError
     case showDateTimePicker(workoutName: String)
+    case editWorkout
 }
 
 struct ScheduleWorkoutScreenBuilderInput {
@@ -46,6 +48,7 @@ enum ScheduleWorkoutScreenResult: Equatable {
 
 enum ScheduleWorkoutScreenPartialState: Equatable {
     case updateWorkoutInfo(totalWorkoutTimeInSeconds: Int, totalWorkoutTimeInMinutes: Int, totalNumberOfSets: Int, categories: [Exercise.Category])
+    case idle
     func reduce(previousState: ScheduleWorkoutScreenViewState) -> ScheduleWorkoutScreenViewState {
         var state = previousState
         switch self {
@@ -54,6 +57,8 @@ enum ScheduleWorkoutScreenPartialState: Equatable {
             state.totalWorkoutTimeInMinutes = totalWorkoutTimeInMinutes
             state.totalNumberOfSets = totalNumberOfSets
             state.categories = categories
+        case .idle:
+            break
         }
         return state
     }

@@ -26,7 +26,7 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
     
     // MARK: Public Implementation
     
-    func loadTrainingPlans() -> RxSwift.Observable<WorkoutsListScreenResult> {
+    func loadTrainingPlans() -> Observable<WorkoutsListScreenResult> {
         dependencies.workoutsService.workoutsObservable
             .map({ exercises in
                 let dictionary = exercises.reduce(into: [:]) { dict, part in
@@ -43,7 +43,7 @@ final class WorkoutsListScreenInteractorImpl: WorkoutsListScreenInteractor {
             .asObservable()
     }
     
-    func deleteTrainingPlan(id: WorkoutPlanID) -> RxSwift.Observable<WorkoutsListScreenResult> {
+    func deleteTrainingPlan(id: WorkoutPlanID) -> Observable<WorkoutsListScreenResult> {
         dependencies.workoutsService.deleteWorkoutPlan(id: id)
             .andThen(.just(.effect(.workoutPlanDeleted)))
             .catch { _ in

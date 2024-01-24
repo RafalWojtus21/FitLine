@@ -39,6 +39,8 @@ final class ScheduleWorkoutScreenPresenterImpl: ScheduleWorkoutScreenPresenter {
                 return interactor.scheduleWorkoutNotification(for: date)
             case .showDateTimePickerIntent:
                 return .just(.effect(.showDateTimePicker(workoutName: initialViewState.chosenWorkout.name)))
+            case .editWorkout:
+                return .just(.effect(.editWorkout))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

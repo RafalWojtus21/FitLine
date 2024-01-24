@@ -44,6 +44,7 @@ protocol CloudService {
     func fetchPersonalDataObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T>
     func childAddedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T>
     func childRemovedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T>
+    func childChangedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T>
 }
 
 final class CloudServiceImpl: CloudService {
@@ -130,6 +131,15 @@ final class CloudServiceImpl: CloudService {
         do {
             let reference = try getPrivateDestination(from: endpoint, dataID: nil)
             return realtimeService.childRemovedObservable(type, from: reference, decoder: decoder)
+        } catch {
+            return Observable.error(error)
+        }
+    }
+    
+    func childChangedObservable<T: Decodable>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> {
+        do {
+            let reference = try getPrivateDestination(from: endpoint, dataID: nil)
+            return realtimeService.childChangedObservable(type, from: reference, decoder: decoder)
         } catch {
             return Observable.error(error)
         }

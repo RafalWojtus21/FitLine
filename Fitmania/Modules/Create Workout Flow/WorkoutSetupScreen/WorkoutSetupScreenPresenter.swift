@@ -38,6 +38,10 @@ final class WorkoutSetupScreenPresenterImpl: WorkoutSetupScreenPresenter {
                 )
             case .saveButtonPressed:
                 return interactor.saveWorkoutToDatabase()
+            case .removeExercise(let exercise):
+                return interactor.removeExercise(exercise)
+            case .editExercise(let exercise):
+                return .just(.effect(.editExercise(workoutPart: exercise)))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

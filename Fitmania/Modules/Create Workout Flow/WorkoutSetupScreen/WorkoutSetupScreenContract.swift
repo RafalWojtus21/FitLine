@@ -11,6 +11,8 @@ enum WorkoutSetupScreenIntent {
     case viewLoaded
     case addExerciseButtonIntent
     case saveButtonPressed
+    case removeExercise(_ exercise: WorkoutPart)
+    case editExercise(_ exercise: WorkoutPart)
 }
 
 struct WorkoutSetupScreenViewState: Equatable {
@@ -23,6 +25,8 @@ enum WorkoutSetupScreenEffect: Equatable {
     case workoutNameSet
     case workoutSaved
     case somethingWentWrong
+    case exerciseDeleted
+    case editExercise(workoutPart: WorkoutPart)
 }
 
 struct WorkoutSetupScreenBuilderInput {
@@ -71,6 +75,7 @@ protocol WorkoutSetupScreenInteractor: BaseInteractor {
     func loadExercises() -> Observable<WorkoutSetupScreenResult>
     func setWorkoutData() -> Observable<WorkoutSetupScreenResult>
     func saveWorkoutToDatabase() -> Observable<WorkoutSetupScreenResult>
+    func removeExercise(_ exercise: WorkoutPart) -> Observable<WorkoutSetupScreenResult>
 }
 
 protocol WorkoutSetupScreenMiddleware {

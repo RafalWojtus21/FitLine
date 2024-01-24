@@ -21,7 +21,8 @@ protocol TrainingAssistantFlowNavigation: AnyObject {
     func showWorkoutPreviewScreen(plan: WorkoutPlan)
     func showWorkoutExerciseScreen(plan: WorkoutPlan)
     func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool)
-    func finishTrainingAssistantFlow() 
+    func editWorkoutPlan(_ plan: WorkoutPlan)
+    func finishTrainingAssistantFlow()
 }
 
 class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantFlowNavigation {
@@ -101,6 +102,10 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool) {
         let view = workoutSummaryScreenBuilder.build(with: .init(workoutDoneModel: workoutDoneModel, shouldSaveWorkout: shouldSaveWorkout)).view
         dependencies.navigation.show(view: view, animated: false)
+    }
+    
+    func editWorkoutPlan(_ plan: WorkoutPlan) {
+        dependencies.workoutFlowNavigation?.editWorkoutPlan(plan)
     }
     
     func finishTrainingAssistantFlow() {

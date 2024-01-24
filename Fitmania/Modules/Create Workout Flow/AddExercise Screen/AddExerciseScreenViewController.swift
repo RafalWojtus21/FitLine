@@ -22,6 +22,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     private let presenter: AddExerciseScreenPresenter
     
     private lazy var addExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: Localization.General.add)
+    private lazy var saveExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: "Save")
     private lazy var exerciseDetailsView = ExerciseDetailsView()
     
     init(presenter: AddExerciseScreenPresenter) {
@@ -42,10 +43,10 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
         presenter.bindIntents(view: self, triggerEffect: effectsSubject)
             .subscribe(onNext: { [weak self] state in self?.render(state: state) })
             .disposed(by: bag)
+        _intents.subject.onNext(.viewLoaded)
     }
     
     private func layoutView() {
-        self.navigationItem.rightBarButtonItem = addExerciseButton
         view.backgroundColor = .primaryColor
         
         view.addSubview(exerciseDetailsView)
@@ -60,15 +61,20 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     private func bindControls() {
         let addExerciseButtonIntent = addExerciseButton?.tap.map { [weak self] _ -> Intent in
             guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text, let setsNumber = self?.exerciseDetailsView.setsTextfield.text else { return Intent.invalidDataSet }
-            return Intent.addExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime)
+            return Intent.saveExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime, type: .new)
+        }
+        
+        let updateExerciseButtonIntent = saveExerciseButton?.tap.map { [weak self] _ -> Intent in
+            guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text, let setsNumber = self?.exerciseDetailsView.setsTextfield.text else { return Intent.invalidDataSet }
+            return Intent.saveExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime, type: .updated)
         }
         
         let exerciseTimeValidationIntent = exerciseDetailsView.timeTextField.rx.text.orEmpty.asObservable().map { Intent.validateExerciseTime(text: $0) }
         let exerciseSetsValidationIntent = exerciseDetailsView.setsTextfield.rx.text.orEmpty.asObservable().map { Intent.validateSets(text: $0) }
         let exerciseBreakTimeValidationIntent = exerciseDetailsView.breakTimeTextField.rx.text.orEmpty.asObservable().map { Intent.validateExerciseBreakTime(text: $0) }
         
-        guard let addExerciseButtonIntent else { return }
-        Observable.merge(addExerciseButtonIntent, exerciseTimeValidationIntent, exerciseBreakTimeValidationIntent, exerciseSetsValidationIntent)
+        guard let addExerciseButtonIntent, let updateExerciseButtonIntent else { return }
+        Observable.merge(addExerciseButtonIntent, exerciseTimeValidationIntent, exerciseBreakTimeValidationIntent, exerciseSetsValidationIntent, updateExerciseButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
@@ -81,8 +87,21 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     }
     
     func render(state: ViewState) {
+        navigationItem.rightBarButtonItem = state.isSaveButtonVisible ? saveExerciseButton : addExerciseButton
+
         title = state.chosenExercise.name
         exerciseDetailsView.setupView(category: state.chosenExercise.category)
         addExerciseButton?.isEnabled = state.isAddButtonEnabled
+        if state.shouldLoadExerciseData {
+            guard let exercise = state.workoutPart else { return }
+            
+            exerciseDetailsView.breakTimeTextField.text = "\(exercise.details.breakTime)"
+            if let time = exercise.details.time {
+                exerciseDetailsView.timeTextField.text = "\(time)"
+            }
+            if let sets = exercise.details.sets {
+                exerciseDetailsView.setsTextfield.text = "\(sets)"
+            }
+        }
     }
 }

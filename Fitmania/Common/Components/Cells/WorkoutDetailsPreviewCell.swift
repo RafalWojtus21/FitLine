@@ -84,12 +84,12 @@ class WorkoutDetailsPreviewCell: UITableViewCell, ReusableCell {
         switch viewModel.exercise.exercise.type {
         case .strength:
             guard let sets = viewModel.exercise.details.sets else { return }
-            exerciseSetsLabel.text = "\(sets)" + L.sets
+            exerciseSetsLabel.text = "\(sets) " + L.sets
         case .cardio:
             guard let time = viewModel.exercise.details.time else { return }
             exerciseTimeLabel.text = Int.calculateFormattedDuration(duration: time)
         }
-        exerciseBreakTimeLabel.text = Int.calculateFormattedDuration(duration: viewModel.exercise.details.breakTime)
+        exerciseBreakTimeLabel.text = "Break: " + Int.calculateFormattedDuration(duration: viewModel.exercise.details.breakTime)
     }
     
     // MARK: Private Implementation

@@ -44,5 +44,4 @@ final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor
                     .just(.effect(.workoutScheduleError))
             }
     }
-
 }

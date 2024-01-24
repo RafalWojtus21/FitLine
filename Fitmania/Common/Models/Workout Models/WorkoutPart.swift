@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct WorkoutPart: Codable, Equatable {
+struct WorkoutPart: Codable, Equatable, Hashable {
+    var id = UUID()
     let workoutPlanName: String
-    let workoutPlanID: WorkoutPlanID
+    var workoutPlanID: WorkoutPlanID
     let exercise: Exercise
     let details: Details
     
-    struct Details: Codable, Equatable {
+    struct Details: Codable, Equatable, Hashable {
         let sets: Int?
         let time: Int?
         let breakTime: Int
@@ -21,6 +22,15 @@ struct WorkoutPart: Codable, Equatable {
 }
 
 extension WorkoutPart {
+    
+    init(workoutPlanName: String, workoutPlanID: WorkoutPlanID, exercise: Exercise, details: Details, id: UUID) {
+        self.id = id
+        self.workoutPlanName = workoutPlanName
+        self.workoutPlanID = workoutPlanID
+        self.exercise = exercise
+        self.details = details
+    }
+    
     func generateWorkoutPartEvents() -> [WorkoutPartEvent] {
         var events: [WorkoutPartEvent] = []
         let exerciseEvent = WorkoutPartEvent(type: .exercise, name: exercise.name, duration: details.time, exercise: exercise)

@@ -14,6 +14,7 @@ protocol HasCreateWorkoutFlow {
 
 protocol CreateWorkoutFlow {
     func startCreateWorkoutFlow(trainingName: String)
+    func editWorkoutPlan(_ workoutPlan: WorkoutPlan)
 }
 
 protocol CreateWorkoutFlowNavigation: AnyObject {
@@ -21,6 +22,7 @@ protocol CreateWorkoutFlowNavigation: AnyObject {
     func showWorkoutCategoryListScreen()
     func showCategoryExercisesListScreen(category: Exercise.Category)
     func showAddExerciseScreen(exercise: Exercise)
+    func showEditExerciseScreen(_ workoutPart: WorkoutPart) 
     func popToRootViewController()
     func finishCreateWorkoutFlow()
 }
@@ -77,6 +79,11 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
         showWorkoutSetupScreen(trainingName: trainingName)
     }
     
+    func editWorkoutPlan(_ workoutPlan: WorkoutPlan) {
+        extendedDependencies.exercisesDataStore.loadWorkoutPlan(workoutPlan)
+        showWorkoutSetupScreen(trainingName: workoutPlan.name)
+    }
+    
     func showWorkoutSetupScreen(trainingName: String) {
         let view = workoutSetupBuilder.build(with: .init(trainingName: trainingName)).view
         dependencies.navigation.show(view: view, animated: false)
@@ -93,7 +100,12 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
     }
     
     func showAddExerciseScreen(exercise: Exercise) {
-        let view = addExerciseBuilder.build(with: .init(chosenExercise: exercise)).view
+        let view = addExerciseBuilder.build(with: .init(chosenExercise: exercise, exerciseToEdit: nil)).view
+        dependencies.navigation.show(view: view, animated: false)
+    }
+    
+    func showEditExerciseScreen(_ workoutPart: WorkoutPart) {
+        let view = addExerciseBuilder.build(with: .init(chosenExercise: workoutPart.exercise, exerciseToEdit: workoutPart)).view
         dependencies.navigation.show(view: view, animated: false)
     }
     

@@ -27,7 +27,34 @@ final class ScheduleWorkoutScreenViewController: BaseViewController, ScheduleWor
         super.init(nibName: nil, bundle: nil)
     }
     
+    private lazy var contentStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [workoutPreviewButton, buttonsStackView])
+        view.axis = .vertical
+        view.spacing = 8
+        view.distribution = .fill
+        return view
+    }()
+    
+    private lazy var buttonsStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [editButton, previewButton])
+        view.axis = .horizontal
+        view.spacing = 16
+        view.distribution = .fillEqually
+        return view
+    }()
+    
     private lazy var workoutPreviewButton = WorkoutPreviewButton()
+    private lazy var editButton: UIButton = {
+        let button = UIButton().apply(style: .secondary, title: "Edit")
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    private lazy var previewButton: UIButton = {
+        let button = UIButton().apply(style: .secondary, title: "Preview")
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
     private lazy var scheduleWorkoutButton = UIButton().apply(style: .quaternary, title: "Schedule notification")
     private lazy var startNowButton = UIButton().apply(style: .primary, title: L.startNowButtonTitle)
     
@@ -49,7 +76,7 @@ final class ScheduleWorkoutScreenViewController: BaseViewController, ScheduleWor
     
     private func layoutView() {
         view.backgroundColor = .primaryColor
-        view.addSubview(workoutPreviewButton)
+        view.addSubview(contentStackView)
         view.addSubview(startNowButton)
         view.addSubview(scheduleWorkoutButton)
         
@@ -65,18 +92,27 @@ final class ScheduleWorkoutScreenViewController: BaseViewController, ScheduleWor
             $0.left.right.equalToSuperview().inset(48)
         }
         
-        workoutPreviewButton.snp.makeConstraints {
+        contentStackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(64)
             $0.left.right.equalToSuperview().inset(32)
+        }
+        
+        workoutPreviewButton.snp.makeConstraints {
+            $0.height.equalTo(workoutPreviewButton.mainView.snp.height)
+        }
+        
+        buttonsStackView.snp.remakeConstraints {
+            $0.height.equalTo(30)
         }
     }
     
     private func bindControls() {
         let startNowButtonIntent = startNowButton.rx.tap.map { Intent.startNowButtonIntent }
-        let workoutPreviewIntent = workoutPreviewButton.rx.tap.map { Intent.workoutPreviewTapped }
+        let workoutPreviewIntent = previewButton.rx.tap.map { Intent.workoutPreviewTapped }
         let scheduleWorkoutIntent = scheduleWorkoutButton.rx.tap.map { Intent.showDateTimePickerIntent }
+        let editButtonIntent = editButton.rx.tap.map { Intent.editWorkout }
 
-        Observable.merge(startNowButtonIntent, workoutPreviewIntent, scheduleWorkoutIntent)
+        Observable.merge(startNowButtonIntent, workoutPreviewIntent, editButtonIntent, scheduleWorkoutIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
