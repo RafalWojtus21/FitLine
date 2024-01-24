@@ -144,9 +144,9 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     }
     
     func render(state: ViewState) {
-        emailView.fitmaniaTextField.errorLabel.text = state.emailValidationMessage.message
-        passwordView.fitmaniaTextField.errorLabel.text = state.passwordValidationMessage.message
-        repeatPasswordView.fitmaniaTextField.errorLabel.text = state.repeatPasswordValidationMessage.message
+        emailView.fitmaniaTextField.errorMessage(state.emailValidationMessage.message)
+        passwordView.fitmaniaTextField.errorMessage(state.passwordValidationMessage.message)
+        repeatPasswordView.fitmaniaTextField.errorMessage(state.repeatPasswordValidationMessage.message)
         registerButton.isEnabled = state.isRegisterButtonEnable
         registerButton.backgroundColor = state.isRegisterButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }

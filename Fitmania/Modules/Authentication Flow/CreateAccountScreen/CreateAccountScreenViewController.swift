@@ -47,6 +47,15 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
     
     private lazy var sexPicker = UIPickerView()
     
+    private lazy var accountSetupWithImageStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [personImage, accountSetupView])
+        view.axis = .vertical
+        view.distribution = .fill
+        view.alignment = .center
+        view.spacing = 0
+        return view
+    }()
+    
     private lazy var personImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .systemImageName(.personCircleFill)
@@ -95,29 +104,32 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         view.backgroundColor = .primaryColor
         
         view.addSubview(accountSetupTitle)
-        view.addSubview(accountSetupView)
-        view.addSubview(personImage)
+        view.addSubview(accountSetupWithImageStackView)
         view.addSubview(createAccountButton)
+        
+        let stackViewHeight = 110
         
         accountSetupTitle.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(4)
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(24)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(24)
             $0.height.equalTo(42)
         }
         
-        accountSetupView.snp.makeConstraints {
-            $0.top.equalTo(accountSetupTitle.snp.bottom).offset(46)
+        accountSetupWithImageStackView.snp.makeConstraints {
+            $0.top.equalTo(accountSetupTitle.snp.bottom).offset(8)
             $0.left.right.equalToSuperview().inset(16)
         }
         
+        accountSetupView.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+        }
+        
         personImage.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(accountSetupView.snp.top).offset(6)
-            $0.height.equalTo(48)
+            $0.height.equalTo(64)
         }
         
         namesStackView.snp.makeConstraints {
-            $0.height.equalTo(144)
+            $0.height.equalTo(stackViewHeight)
         }
         
         firstSeparator.snp.makeConstraints {
@@ -125,7 +137,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         }
         
         sexAgeStackView.snp.makeConstraints {
-            $0.height.equalTo(144)
+            $0.height.equalTo(stackViewHeight)
         }
         
         secondSeparator.snp.makeConstraints {
@@ -133,7 +145,7 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         }
         
         heightWeightStackView.snp.makeConstraints {
-            $0.height.equalTo(144)
+            $0.height.equalTo(stackViewHeight)
         }
         
         createAccountButton.snp.makeConstraints {
@@ -201,12 +213,12 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
     
     func render(state: ViewState) {
         sexSubject.onNext(state.sexDataModel)
-        namesStackView.leftTextField.errorLabel.text = state.firstNameValidationMessage.message
-        namesStackView.rightTextField.errorLabel.text = state.lastNameValidationMessage.message
-        sexAgeStackView.leftTextField.errorLabel.text = state.sexValidationMessage.message
-        sexAgeStackView.rightTextField.errorLabel.text = state.ageValidationMessage.message
-        heightWeightStackView.leftTextField.errorLabel.text = state.heightValidationMessage.message
-        heightWeightStackView.rightTextField.errorLabel.text = state.weightValidationMessage.message
+        namesStackView.leftTextField.errorMessage(state.firstNameValidationMessage.message)
+        namesStackView.rightTextField.errorMessage(state.lastNameValidationMessage.message)
+        sexAgeStackView.leftTextField.errorMessage(state.sexValidationMessage.message)
+        sexAgeStackView.rightTextField.errorMessage(state.ageValidationMessage.message)
+        heightWeightStackView.leftTextField.errorMessage(state.heightValidationMessage.message)
+        heightWeightStackView.rightTextField.errorMessage(state.weightValidationMessage.message)
         
         if state.isCreateAccountButtonEnable {
             createAccountButton.isEnabled = true

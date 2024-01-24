@@ -196,7 +196,7 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     }
     
     func render(state: ViewState) {
-        emailTextfield.errorLabel.text = state.emailValidationMessage.message
+        emailTextfield.errorMessage(state.emailValidationMessage.message)
         if state.isResetButtonEnable {
             resetButton.isEnabled = true
             resetButton.backgroundColor = .secondaryColor

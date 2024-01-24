@@ -23,6 +23,7 @@ class FitmaniaTextField: UIView {
         let stackView = UIStackView(arrangedSubviews: [textField, errorLabel])
         stackView.axis = .vertical
         stackView.spacing = 8
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -34,9 +35,10 @@ class FitmaniaTextField: UIView {
     
     lazy var errorLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.openSansRegular14
+        label.font = UIFont.openSansSemiBold12
         label.textColor = .red
         label.backgroundColor = .clear
+        label.text = ""
         return label
     }()
     
@@ -49,6 +51,14 @@ class FitmaniaTextField: UIView {
     func apply(style: TextFieldStyle, placeholder: String) {
         layoutView(style: style)
         configureView(style: style, placeholder: placeholder)
+    }
+    
+    func errorMessage(_ message: String?) {
+        guard let message else {
+            errorLabel.text = ""
+            return
+        }
+        errorLabel.text = message
     }
     
     private func layoutView(style: TextFieldStyle) {
@@ -81,8 +91,10 @@ class FitmaniaTextField: UIView {
             errorLabel.snp.makeConstraints {
                 $0.height.equalTo(16)
             }
-        default:
-            break
+        case .quaternary:
+            errorLabel.snp.makeConstraints {
+                $0.height.equalTo(16)
+            }
         }
     }
     

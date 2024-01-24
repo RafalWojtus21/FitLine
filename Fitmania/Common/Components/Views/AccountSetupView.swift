@@ -50,7 +50,7 @@ class AccountSetupView: UIView {
         }
         
         contentView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(30)
+            $0.top.bottom.equalToSuperview().inset(12)
             $0.left.right.equalToSuperview().inset(12)
         }
     }

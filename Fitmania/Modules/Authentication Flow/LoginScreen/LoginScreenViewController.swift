@@ -181,8 +181,8 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }
     
     func render(state: ViewState) {
-        emailView.fitmaniaTextField.errorLabel.text = state.emailValidationMessage.message
-        passwordView.fitmaniaTextField.errorLabel.text = state.passwordValidationMessage.message
+        emailView.fitmaniaTextField.errorMessage(state.emailValidationMessage.message)
+        passwordView.fitmaniaTextField.errorMessage(state.passwordValidationMessage.message)
         loginButton.isEnabled = state.isLoginButtonEnable
         loginButton.backgroundColor = state.isLoginButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }
