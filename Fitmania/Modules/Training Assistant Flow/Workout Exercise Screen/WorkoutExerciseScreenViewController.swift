@@ -175,7 +175,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         }
         
         circularProgressBar.snp.makeConstraints {
-            $0.height.equalToSuperview().multipliedBy(0.8)
+            $0.height.equalToSuperview().multipliedBy(0.9)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(0.6)
             $0.bottom.equalToSuperview()
@@ -276,7 +276,9 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
         }
         timeLeftLabel.text = "\(state.timeLeft)" + " s"
         if state.shouldChangeAnimation {
-            circularProgressBar.setProgress(duration: Float(state.animationDuration))
+            if let animationDuration = state.animationDuration {
+                circularProgressBar.setProgress(duration: Float(animationDuration))
+            }
         }
                 
         isAnimating = state.shouldTriggerAnimation

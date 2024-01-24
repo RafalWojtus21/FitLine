@@ -13,10 +13,11 @@ class CircularProgressBarView: UIView {
     // MARK: Properties
     
     private lazy var mainView = UIView(backgroundColor: .clear)
+    private let lineWidth: CGFloat = 20
     
     private lazy var progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.lineWidth = 20
+        layer.lineWidth = lineWidth
         layer.strokeStart = 0
         layer.strokeEnd = 0
         layer.strokeColor = UIColor.primaryColor.cgColor
@@ -26,7 +27,7 @@ class CircularProgressBarView: UIView {
     
     private lazy var trackLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.lineWidth = 20
+        layer.lineWidth = lineWidth
         layer.strokeStart = 0
         layer.strokeEnd = 1
         layer.strokeColor = UIColor.primaryColor.withAlphaComponent(0.4).cgColor

@@ -70,8 +70,8 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
                 case .initialExercise:
                     return .merge(
                         .just(.partialState(.updateIntervalState(intervalState: .running))),
-                        .just(.partialState(.updateCurrentEventIndex(currentEventIndex: 0))),
-                        self.handleInitialExercise()
+                        self.handleInitialExercise(),
+                        .just(.partialState(.updateCurrentEventIndex(currentEventIndex: 0)))
                     )
                 case .nextExercise:
                     return self.handleNextExercise()

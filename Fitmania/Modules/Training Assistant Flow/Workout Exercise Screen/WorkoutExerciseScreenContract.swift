@@ -55,7 +55,7 @@ struct WorkoutExerciseScreenViewState: Equatable {
     var possibleDetailsTypes: [Exercise.DetailsType] = []
     var shouldRefreshDetailsTextField = false
     var shouldChangeAnimation = false
-    var animationDuration = 0
+    var animationDuration: Int?
 }
 
 enum WorkoutExerciseScreenEffect: Equatable {
