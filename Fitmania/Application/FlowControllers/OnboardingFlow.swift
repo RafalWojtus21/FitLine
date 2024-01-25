@@ -1,6 +1,6 @@
 //
 //  OnboardingFlow.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 17/04/2023.
 //

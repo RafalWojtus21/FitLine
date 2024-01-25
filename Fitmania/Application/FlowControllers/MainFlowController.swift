@@ -1,6 +1,6 @@
 //
 //  MainFlowController.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 21/04/2023.
 //

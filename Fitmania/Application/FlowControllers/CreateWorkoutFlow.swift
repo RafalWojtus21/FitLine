@@ -1,6 +1,6 @@
 //
 //  CreateWorkoutFlow.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 26/04/2023.
 //

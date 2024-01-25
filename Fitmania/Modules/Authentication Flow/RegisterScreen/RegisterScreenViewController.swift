@@ -32,35 +32,35 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     }()
     
     private lazy var emailView: TextFieldWithTitleView = {
-        let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
-        let textField = fitmaniaTextField.fitmaniaTextField.textField
+        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
+        let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var passwordView: TextFieldWithTitleView = {
-        let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
-        let textField = fitmaniaTextField.fitmaniaTextField.textField
+        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
+        let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.keyboardType = .default
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var repeatPasswordView: TextFieldWithTitleView = {
-        let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: L.repeatPassword, placeholder: L.repeatPassword)
-        let textField = fitmaniaTextField.fitmaniaTextField.textField
+        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: L.repeatPassword, placeholder: L.repeatPassword)
+        let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.keyboardType = .default
         textField.autocapitalizationType = .none
         textField.returnKeyType = .done
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var registerButton: UIButton = {
@@ -110,13 +110,13 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     
     private func bindControls() {
         let registerButtonIntent = registerButton.rx.tap.map { [weak self] _ -> Intent in
-            guard let email = self?.emailView.fitmaniaTextField.textField.text, let password = self?.passwordView.fitmaniaTextField.textField.text else { return Intent.invalidCredentials }
+            guard let email = self?.emailView.fitLineTextField.textField.text, let password = self?.passwordView.fitLineTextField.textField.text else { return Intent.invalidCredentials }
             return Intent.registerButtonIntent(email: email, password: password)
         }
-        let emailValidationIntent = emailView.fitmaniaTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validateEmail(text: $0) }
-        let passwordText = passwordView.fitmaniaTextField.textField.rx.text.orEmpty
+        let emailValidationIntent = emailView.fitLineTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validateEmail(text: $0) }
+        let passwordText = passwordView.fitLineTextField.textField.rx.text.orEmpty
         let passwordValidationIntent = passwordText.asObservable().skip(3).map { Intent.validatePassword(text: $0) }
-        let repeatPasswordText = repeatPasswordView.fitmaniaTextField.textField.rx.text.orEmpty
+        let repeatPasswordText = repeatPasswordView.fitLineTextField.textField.rx.text.orEmpty
         let repeatPasswordValidationIntent = Observable.combineLatest(passwordText.asObservable(), repeatPasswordText.asObservable())
             .map { Intent.validateRepeatPassword(password: $0, repeatPassword: $1) }
         
@@ -144,9 +144,9 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     }
     
     func render(state: ViewState) {
-        emailView.fitmaniaTextField.errorMessage(state.emailValidationMessage.message)
-        passwordView.fitmaniaTextField.errorMessage(state.passwordValidationMessage.message)
-        repeatPasswordView.fitmaniaTextField.errorMessage(state.repeatPasswordValidationMessage.message)
+        emailView.fitLineTextField.errorMessage(state.emailValidationMessage.message)
+        passwordView.fitLineTextField.errorMessage(state.passwordValidationMessage.message)
+        repeatPasswordView.fitLineTextField.errorMessage(state.repeatPasswordValidationMessage.message)
         registerButton.isEnabled = state.isRegisterButtonEnable
         registerButton.backgroundColor = state.isRegisterButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }

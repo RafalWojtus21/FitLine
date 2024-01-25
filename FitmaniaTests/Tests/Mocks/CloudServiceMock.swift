@@ -12,22 +12,22 @@ import RxSwift
 final class CloudServiceMock: CloudService {
     
     var savePublicDataResponse: CompletableEvent = .completed
-    func savePublicData<T>(data: T, endpoint: Fitmania.DatabaseEndpoints, encoder: JSONEncoder?) -> RxSwift.Completable where T : Encodable {
+    func savePublicData<T>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable where T : Encodable {
         savePublicDataResponse.asCompletable()
     }
     
     var savePersonalDataResponse: CompletableEvent = .completed
-    func savePersonalData<T>(data: T, endpoint: Fitmania.DatabaseEndpoints, encoder: JSONEncoder?) -> RxSwift.Completable where T : Encodable {
+    func savePersonalData<T>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?) -> Completable where T : Encodable {
         savePersonalDataResponse.asCompletable()
     }
     
     var savePersonalDataWithIDResponse: CompletableEvent = .completed
-    func savePersonalDataWithID<T>(data: T, endpoint: Fitmania.DatabaseEndpoints, encoder: JSONEncoder?, dataID: UUID?) -> RxSwift.Completable where T : Encodable {
+    func savePersonalDataWithID<T>(data: T, endpoint: DatabaseEndpoints, encoder: JSONEncoder?, dataID: UUID?) -> Completable where T : Encodable {
         savePersonalDataWithIDResponse.asCompletable()
     }
     
     var fetchPublicDataSingleResponse: Single<Decodable> = Single.never()
-    func fetchPublicDataSingle<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Single<T> where T : Decodable {
+    func fetchPublicDataSingle<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Single<T> where T : Decodable {
         return fetchPublicDataSingleResponse
             .flatMap { object -> Single<T> in
                 if let typedObject = object as? T {
@@ -42,7 +42,7 @@ final class CloudServiceMock: CloudService {
     }
     
     var fetchPersonalDataSingleResponse: Single<Decodable> = Single.never()
-    func fetchPersonalDataSingle<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Single<T> where T : Decodable {
+    func fetchPersonalDataSingle<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Single<T> where T : Decodable {
         return fetchPersonalDataSingleResponse
             .flatMap { object -> Single<T> in
                 if let typedObject = object as? T {
@@ -57,7 +57,7 @@ final class CloudServiceMock: CloudService {
     }
     
     var fetchPersonalDataObservableResponse: Observable<Decodable> = Observable.never()
-    func fetchPersonalDataObservable<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Observable<T> where T : Decodable {
+    func fetchPersonalDataObservable<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> where T : Decodable {
         return fetchPersonalDataObservableResponse
             .compactMap { $0 as? T }
             .catch { error in
@@ -66,12 +66,12 @@ final class CloudServiceMock: CloudService {
     }
     
     var deletePersonalDataWithIDResponse: CompletableEvent = .completed
-    func deletePersonalDataWithID(endpoint: Fitmania.DatabaseEndpoints, dataID: UUID?) -> RxSwift.Completable {
+    func deletePersonalDataWithID(endpoint: DatabaseEndpoints, dataID: UUID?) -> Completable {
         deletePersonalDataWithIDResponse.asCompletable()
     }
     
     var childAddedObservableResponse: Observable<Decodable> = Observable.never()
-    func childAddedObservable<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Observable<T> where T : Decodable {
+    func childAddedObservable<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> where T : Decodable {
         return childAddedObservableResponse
             .compactMap { $0 as? T }
             .catch { error in
@@ -80,8 +80,17 @@ final class CloudServiceMock: CloudService {
     }
 
     var childRemovedObservableResponse: Observable<Decodable> = Observable.never()
-    func childRemovedObservable<T>(type: T.Type, endpoint: Fitmania.DatabaseEndpoints, decoder: JSONDecoder?) -> RxSwift.Observable<T> where T : Decodable {
+    func childRemovedObservable<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> where T : Decodable {
         return childRemovedObservableResponse
+            .compactMap { $0 as? T }
+            .catch { error in
+                Observable.error(error)
+            }
+    }
+    
+    var childChangedObservableResponse: Observable<Decodable> = Observable.never()
+    func childChangedObservable<T>(type: T.Type, endpoint: DatabaseEndpoints, decoder: JSONDecoder?) -> Observable<T> where T : Decodable {
+        return childChangedObservableResponse
             .compactMap { $0 as? T }
             .catch { error in
                 Observable.error(error)

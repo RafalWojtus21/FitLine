@@ -1,6 +1,6 @@
 //
 //  FitmaniaLogo.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 06/04/2023.
 //
@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-class FitmaniaLogoView: UIView {
+class FitLineLogoView: UIView {
     
     // MARK: Properties
     
     private let mainView = UIView(backgroundColor: .clear)
     
-    private let fitmaniaLabel: UILabel = {
+    private let fitLineLabel: UILabel = {
         let label = UILabel()
-        label.text = Localization.General.fitmania
+        label.text = Localization.General.fitLine
         label.font = .sfProTextBold52
         label.textColor = .secondaryColor
         label.textAlignment = .center
@@ -38,20 +38,20 @@ class FitmaniaLogoView: UIView {
     
     private func setupView() {
         addSubview(mainView)
-        mainView.addSubview(fitmaniaLabel)
+        mainView.addSubview(fitLineLabel)
         mainView.addSubview(line)
         
         mainView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        fitmaniaLabel.snp.makeConstraints {
+        fitLineLabel.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
             $0.height.equalTo(60)
         }
         
         line.snp.makeConstraints {
-            $0.top.equalTo(fitmaniaLabel.snp.bottom).offset(8)
+            $0.top.equalTo(fitLineLabel.snp.bottom).offset(8)
             $0.height.equalTo(2)
             $0.right.equalToSuperview()
             $0.width.equalTo(90)

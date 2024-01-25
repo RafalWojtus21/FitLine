@@ -12,7 +12,7 @@ class TextFieldWithTitleView: UIView {
     // MARK: Properties
     
     private lazy var contentView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [titleLabel, fitmaniaTextField])
+        let view = UIStackView(arrangedSubviews: [titleLabel, fitLineTextField])
         view.axis = .vertical
         view.spacing = 8
         return view
@@ -26,14 +26,14 @@ class TextFieldWithTitleView: UIView {
         return label
     }()
     
-    let fitmaniaTextField = FitmaniaTextField()
+    let fitLineTextField = FitLineTextField()
     
     // MARK: Public Implementation
     
     convenience init(style: TextFieldStyle, title: String, placeholder: String) {
         self.init()
         configureView(style: style, title: title, placeholder: placeholder)
-        fitmaniaTextField.apply(style: style, placeholder: placeholder)
+        fitLineTextField.apply(style: style, placeholder: placeholder)
     }
     
     private func configureView(style: TextFieldStyle, title: String, placeholder: String) {
@@ -49,7 +49,7 @@ class TextFieldWithTitleView: UIView {
                 $0.height.equalTo(16)
             }
             
-            fitmaniaTextField.snp.makeConstraints {
+            fitLineTextField.snp.makeConstraints {
                 $0.left.right.equalToSuperview()
             }
         default:

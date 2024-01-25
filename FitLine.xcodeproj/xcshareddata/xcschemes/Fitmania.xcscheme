@@ -15,23 +15,45 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-               BuildableName = "Fitmania.app"
-               BlueprintName = "Fitmania"
-               ReferencedContainer = "container:Fitmania.xcodeproj">
+               BuildableName = "FitLine.app"
+               BlueprintName = "FitLine"
+               ReferencedContainer = "container:FitLine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug QA"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8BC151FF29DD6EA20007A372"
+               BuildableName = "FitLineTests.xctest"
+               BlueprintName = "FitLineTests"
+               ReferencedContainer = "container:FitLine.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8BC1520929DD6EA20007A372"
+               BuildableName = "FitLineUITests.xctest"
+               BlueprintName = "FitLineUITests"
+               ReferencedContainer = "container:FitLine.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug QA"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -45,14 +67,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-            BuildableName = "Fitmania.app"
-            BlueprintName = "Fitmania"
-            ReferencedContainer = "container:Fitmania.xcodeproj">
+            BuildableName = "FitLine.app"
+            BlueprintName = "FitLine"
+            ReferencedContainer = "container:FitLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release QA"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -62,17 +84,17 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-            BuildableName = "Fitmania.app"
-            BlueprintName = "Fitmania"
-            ReferencedContainer = "container:Fitmania.xcodeproj">
+            BuildableName = "FitLine.app"
+            BlueprintName = "FitLine"
+            ReferencedContainer = "container:FitLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug QA">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release QA"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

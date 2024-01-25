@@ -145,7 +145,7 @@
 		8B793C3F2B48323D005179D6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B793C3E2B48323D005179D6 /* NotificationService.swift */; };
 		8B793C422B4B5273005179D6 /* PersonalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */; };
 		8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EE829E936A3007EA47C /* UIButtonExtension.swift */; };
-		8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */; };
+		8B815EEB29E9371E007EA47C /* FitLineLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B815EEA29E9371E007EA47C /* FitLineLogoView.swift */; };
 		8B876E4D2A1B52A6008AE1CE /* WorkoutsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */; };
 		8B876E532A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E522A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift */; };
 		8B876E552A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B876E542A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift */; };
@@ -438,7 +438,7 @@
 		8B793C3E2B48323D005179D6 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8B793C412B4B5273005179D6 /* PersonalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordCell.swift; sourceTree = "<group>"; };
 		8B815EE829E936A3007EA47C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitmaniaLogoView.swift; sourceTree = "<group>"; };
+		8B815EEA29E9371E007EA47C /* FitLineLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitLineLogoView.swift; sourceTree = "<group>"; };
 		8B876E4C2A1B52A6008AE1CE /* WorkoutsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsServiceMock.swift; sourceTree = "<group>"; };
 		8B876E522A1B5527008AE1CE /* WorkoutsListScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsListScreenInteractorTests.swift; sourceTree = "<group>"; };
 		8B876E542A1B5E35008AE1CE /* WorkoutSetupScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSetupScreenInteractorTests.swift; sourceTree = "<group>"; };
@@ -453,13 +453,13 @@
 		8B9B5C372A0531D9000F7A6D /* AuthMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMock.swift; sourceTree = "<group>"; };
 		8BB5589029ED43A100E09F5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8BB5589229ED484F00E09F5D /* ValidationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessage.swift; sourceTree = "<group>"; };
-		8BC151EA29DD6EA00007A372 /* Fitmania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitmania.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC151EA29DD6EA00007A372 /* FitLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC151ED29DD6EA00007A372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC151F629DD6EA20007A372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC151F929DD6EA20007A372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC151FB29DD6EA20007A372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitmaniaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC1520A29DD6EA20007A372 /* FitmaniaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitmaniaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC1520029DD6EA20007A372 /* FitLineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitLineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC1520A29DD6EA20007A372 /* FitLineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitLineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC1520E29DD6EA20007A372 /* FitmaniaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITests.swift; sourceTree = "<group>"; };
 		8BC1521029DD6EA20007A372 /* FitmaniaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitmaniaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8BC1522E29DD75CF0007A372 /* Configuration-Production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Configuration-Production.plist"; sourceTree = "<group>"; };
@@ -992,9 +992,9 @@
 		8BC151EB29DD6EA00007A372 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BC151EA29DD6EA00007A372 /* Fitmania.app */,
-				8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */,
-				8BC1520A29DD6EA20007A372 /* FitmaniaUITests.xctest */,
+				8BC151EA29DD6EA00007A372 /* FitLine.app */,
+				8BC1520029DD6EA20007A372 /* FitLineTests.xctest */,
+				8BC1520A29DD6EA20007A372 /* FitLineUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1234,7 +1234,7 @@
 		8BE6449A29DEE22200288DAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B815EEA29E9371E007EA47C /* FitmaniaLogoView.swift */,
+				8B815EEA29E9371E007EA47C /* FitLineLogoView.swift */,
 				8BE644D929DF101D00288DAB /* TextFieldWithTitleView.swift */,
 				8BE644FF29E0585A00288DAB /* FitmaniaTextField.swift */,
 				8B6FDC7F29E412E30037A8B8 /* AccountSetupView.swift */,
@@ -1402,9 +1402,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BC151E929DD6EA00007A372 /* Fitmania */ = {
+		8BC151E929DD6EA00007A372 /* FitLine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC1521429DD6EA20007A372 /* Build configuration list for PBXNativeTarget "Fitmania" */;
+			buildConfigurationList = 8BC1521429DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLine" */;
 			buildPhases = (
 				8BC1523D29DD76100007A372 /* Configuration */,
 				8BC151E629DD6EA00007A372 /* Sources */,
@@ -1416,7 +1416,7 @@
 			);
 			dependencies = (
 			);
-			name = Fitmania;
+			name = FitLine;
 			packageProductDependencies = (
 				8BC1526029DD79D00007A372 /* SnapKit */,
 				8BE6447129DD7B6000288DAB /* RxCocoa */,
@@ -1427,12 +1427,12 @@
 				8B2A4B7F29F6D55200B6B3F0 /* FirebaseDatabaseSwift */,
 			);
 			productName = Fitmania;
-			productReference = 8BC151EA29DD6EA00007A372 /* Fitmania.app */;
+			productReference = 8BC151EA29DD6EA00007A372 /* FitLine.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BC151FF29DD6EA20007A372 /* FitmaniaTests */ = {
+		8BC151FF29DD6EA20007A372 /* FitLineTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC1521729DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitmaniaTests" */;
+			buildConfigurationList = 8BC1521729DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLineTests" */;
 			buildPhases = (
 				8BC151FC29DD6EA20007A372 /* Sources */,
 				8BC151FD29DD6EA20007A372 /* Frameworks */,
@@ -1444,7 +1444,7 @@
 			dependencies = (
 				8BC1520229DD6EA20007A372 /* PBXTargetDependency */,
 			);
-			name = FitmaniaTests;
+			name = FitLineTests;
 			packageProductDependencies = (
 				8B9AE9D329F1767D000E2743 /* RxTest */,
 				8B9AE9D729F17732000E2743 /* RxBlocking */,
@@ -1453,12 +1453,12 @@
 				8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */,
 			);
 			productName = FitmaniaTests;
-			productReference = 8BC1520029DD6EA20007A372 /* FitmaniaTests.xctest */;
+			productReference = 8BC1520029DD6EA20007A372 /* FitLineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8BC1520929DD6EA20007A372 /* FitmaniaUITests */ = {
+		8BC1520929DD6EA20007A372 /* FitLineUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC1521A29DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitmaniaUITests" */;
+			buildConfigurationList = 8BC1521A29DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLineUITests" */;
 			buildPhases = (
 				8BC1520629DD6EA20007A372 /* Sources */,
 				8BC1520729DD6EA20007A372 /* Frameworks */,
@@ -1469,9 +1469,9 @@
 			dependencies = (
 				8BC1520C29DD6EA20007A372 /* PBXTargetDependency */,
 			);
-			name = FitmaniaUITests;
+			name = FitLineUITests;
 			productName = FitmaniaUITests;
-			productReference = 8BC1520A29DD6EA20007A372 /* FitmaniaUITests.xctest */;
+			productReference = 8BC1520A29DD6EA20007A372 /* FitLineUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1497,7 +1497,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8BC151E529DD6EA00007A372 /* Build configuration list for PBXProject "Fitmania" */;
+			buildConfigurationList = 8BC151E529DD6EA00007A372 /* Build configuration list for PBXProject "FitLine" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1515,9 +1515,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BC151E929DD6EA00007A372 /* Fitmania */,
-				8BC151FF29DD6EA20007A372 /* FitmaniaTests */,
-				8BC1520929DD6EA20007A372 /* FitmaniaUITests */,
+				8BC151E929DD6EA00007A372 /* FitLine */,
+				8BC151FF29DD6EA20007A372 /* FitLineTests */,
+				8BC1520929DD6EA20007A372 /* FitLineUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1817,7 +1817,7 @@
 				8B02358B2A0D1FC4006B45A5 /* ExercisePartInfoView.swift in Sources */,
 				8B69D2392B078F0F007DD866 /* CalendarItem.swift in Sources */,
 				8B0722852A248C6E00854F1B /* SettingsScreenInteractor.swift in Sources */,
-				8B815EEB29E9371E007EA47C /* FitmaniaLogoView.swift in Sources */,
+				8B815EEB29E9371E007EA47C /* FitLineLogoView.swift in Sources */,
 				8BE6449829DEDCD900288DAB /* UIImageExtension.swift in Sources */,
 				8B45671C2B51736C001C024C /* PersonalDataCell.swift in Sources */,
 			);
@@ -1864,12 +1864,12 @@
 /* Begin PBXTargetDependency section */
 		8BC1520229DD6EA20007A372 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BC151E929DD6EA00007A372 /* Fitmania */;
+			target = 8BC151E929DD6EA00007A372 /* FitLine */;
 			targetProxy = 8BC1520129DD6EA20007A372 /* PBXContainerItemProxy */;
 		};
 		8BC1520C29DD6EA20007A372 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BC151E929DD6EA00007A372 /* Fitmania */;
+			target = 8BC151E929DD6EA00007A372 /* FitLine */;
 			targetProxy = 8BC1520B29DD6EA20007A372 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2022,6 +2022,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2055,6 +2056,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2092,7 +2094,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = Debug;
 		};
@@ -2112,7 +2114,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = Release;
 		};
@@ -2225,6 +2227,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2262,7 +2265,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = "Debug QA";
 		};
@@ -2357,6 +2360,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2394,7 +2398,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = "Debug Dev";
 		};
@@ -2483,6 +2487,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2520,7 +2525,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = "Release QA";
 		};
@@ -2609,6 +2614,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fitmania/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FitLine;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2646,7 +2652,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fitmania.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fitmania";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitLine.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitLine";
 			};
 			name = "Release Dev";
 		};
@@ -2671,7 +2677,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8BC151E529DD6EA00007A372 /* Build configuration list for PBXProject "Fitmania" */ = {
+		8BC151E529DD6EA00007A372 /* Build configuration list for PBXProject "FitLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BC1521229DD6EA20007A372 /* Debug */,
@@ -2684,7 +2690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BC1521429DD6EA20007A372 /* Build configuration list for PBXNativeTarget "Fitmania" */ = {
+		8BC1521429DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BC1521529DD6EA20007A372 /* Debug */,
@@ -2697,7 +2703,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BC1521729DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitmaniaTests" */ = {
+		8BC1521729DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLineTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BC1521829DD6EA20007A372 /* Debug */,
@@ -2710,7 +2716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BC1521A29DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitmaniaUITests" */ = {
+		8BC1521A29DD6EA20007A372 /* Build configuration list for PBXNativeTarget "FitLineUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BC1521B29DD6EA20007A372 /* Debug */,

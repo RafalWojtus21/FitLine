@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 05/04/2023.
 //
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
         return navigationController
     }()
-    private lazy var fitmaniaDependencies = AppDependencies(navigationController: navigationController)
+    private lazy var fitlineDependencies = AppDependencies(navigationController: navigationController)
     
     // MARK: - UIApplicationDelegate
     
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private implementation
     
     private func setupInterface() {
-        mainFlowController = AppFlowController(dependencies: fitmaniaDependencies)
+        mainFlowController = AppFlowController(dependencies: fitlineDependencies)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

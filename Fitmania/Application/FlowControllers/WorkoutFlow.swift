@@ -1,6 +1,6 @@
 //
 //  HomeFlow.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 19/04/2023.
 //

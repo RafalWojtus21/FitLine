@@ -1,6 +1,6 @@
 //
 //  AuthManager.swift
-//  Fitmania
+//  FitLine
 //
 //  Created by Rafał Wojtuś on 06/04/2023.
 //

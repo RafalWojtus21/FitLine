@@ -25,8 +25,8 @@ class AccountSetupView: UIView {
         return view
     }()
     
-    let leftTextField = FitmaniaTextField()
-    let rightTextField = FitmaniaTextField()
+    let leftTextField = FitLineTextField()
+    let rightTextField = FitLineTextField()
 
     // MARK: Public Implementation
 

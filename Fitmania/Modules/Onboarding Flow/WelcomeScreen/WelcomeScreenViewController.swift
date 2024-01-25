@@ -29,7 +29,7 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
         return imageView
     }()
     
-    private lazy var fitmaniaLogo = FitmaniaLogoView()
+    private lazy var fitLineLogoView = FitLineLogoView()
     
     private lazy var loginButton: UIButton = {
         let button = UIButton().apply(style: .primary, title: L.welcomeScreenLogin)
@@ -65,7 +65,7 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
     
     private func layoutView() {
         view.addSubview(backgroundImageView)
-        view.addSubview(fitmaniaLogo)
+        view.addSubview(fitLineLogoView)
         view.addSubview(loginButton)
         view.addSubview(signupButton)
         
@@ -73,7 +73,7 @@ final class WelcomeScreenViewController: BaseViewController, WelcomeScreenView {
             $0.edges.equalToSuperview()
         }
         
-        fitmaniaLogo.snp.makeConstraints {
+        fitLineLogoView.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(70)
             $0.top.equalToSuperview().inset(110)
         }

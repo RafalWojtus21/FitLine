@@ -58,24 +58,24 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }()
     
     private lazy var emailView: TextFieldWithTitleView = {
-        let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
-        let textField = fitmaniaTextField.fitmaniaTextField.textField
+        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
+        let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .emailAddress
         textField.autocapitalizationType = .none
         textField.keyboardType = .emailAddress
         textField.returnKeyType = .next
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var passwordView: TextFieldWithTitleView = {
-        let fitmaniaTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
-        let textField = fitmaniaTextField.fitmaniaTextField.textField
+        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
+        let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
         textField.returnKeyType = .next
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var forgotPasswordButton = UIButton().apply(style: .tertiary, title: L.forgotPassword)
@@ -148,14 +148,14 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     
     private func bindControls() {
         let loginButtonIntent = loginButton.rx.tap.map { [weak self] _ -> Intent in
-            guard let email = self?.emailView.fitmaniaTextField.textField.text, let password = self?.passwordView.fitmaniaTextField.textField.text else { return Intent.invalidCredentials }
+            guard let email = self?.emailView.fitLineTextField.textField.text, let password = self?.passwordView.fitLineTextField.textField.text else { return Intent.invalidCredentials }
             return Intent.loginButtonIntent(email: email, password: password)
         }
         let forgotPasswordButtonIntent = forgotPasswordButton.rx.tap.map { Intent.forgotPasswordButtonIntent }
         let createAccountButtonIntent = createAccountButton.rx.tap.map { Intent.createAccountButtonIntent }
         
-        let emailValidationIntent = emailView.fitmaniaTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validateEmail(text: $0) }
-        let passwordValidationIntent = passwordView.fitmaniaTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validatePassword(text: $0) }
+        let emailValidationIntent = emailView.fitLineTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validateEmail(text: $0) }
+        let passwordValidationIntent = passwordView.fitLineTextField.textField.rx.text.orEmpty.asObservable().skip(3).map { Intent.validatePassword(text: $0) }
         
         Observable.merge(loginButtonIntent, forgotPasswordButtonIntent, createAccountButtonIntent, emailValidationIntent, passwordValidationIntent)
             .subscribe(onNext: { [weak self] intent in
@@ -181,8 +181,8 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }
     
     func render(state: ViewState) {
-        emailView.fitmaniaTextField.errorMessage(state.emailValidationMessage.message)
-        passwordView.fitmaniaTextField.errorMessage(state.passwordValidationMessage.message)
+        emailView.fitLineTextField.errorMessage(state.emailValidationMessage.message)
+        passwordView.fitLineTextField.errorMessage(state.passwordValidationMessage.message)
         loginButton.isEnabled = state.isLoginButtonEnable
         loginButton.backgroundColor = state.isLoginButtonEnable ? .tertiaryColor : .tertiaryColorDisabled
     }

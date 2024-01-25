@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-               BuildableName = "Fitmania.app"
-               BlueprintName = "Fitmania"
-               ReferencedContainer = "container:Fitmania.xcodeproj">
+               BuildableName = "FitLine.app"
+               BlueprintName = "FitLine"
+               ReferencedContainer = "container:FitLine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BC151FF29DD6EA20007A372"
-               BuildableName = "FitmaniaTests.xctest"
-               BlueprintName = "FitmaniaTests"
-               ReferencedContainer = "container:Fitmania.xcodeproj">
+               BuildableName = "FitLineTests.xctest"
+               BlueprintName = "FitLineTests"
+               ReferencedContainer = "container:FitLine.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-            BuildableName = "Fitmania.app"
-            BlueprintName = "Fitmania"
-            ReferencedContainer = "container:Fitmania.xcodeproj">
+            BuildableName = "FitLine.app"
+            BlueprintName = "FitLine"
+            ReferencedContainer = "container:FitLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BC151E929DD6EA00007A372"
-            BuildableName = "Fitmania.app"
-            BlueprintName = "Fitmania"
-            ReferencedContainer = "container:Fitmania.xcodeproj">
+            BuildableName = "FitLine.app"
+            BlueprintName = "FitLine"
+            ReferencedContainer = "container:FitLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

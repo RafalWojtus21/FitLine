@@ -49,16 +49,16 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
         return label
     }()
     
-    private lazy var emailTextfield: FitmaniaTextField = {
-        let fitmaniaTextField = FitmaniaTextField()
-        fitmaniaTextField.apply(style: .tertiary, placeholder: L.enterEmail)
-        fitmaniaTextField.layer.borderColor = UIColor.white.cgColor
-        let textField = fitmaniaTextField.textField
+    private lazy var emailTextfield: FitLineTextField = {
+        let fitLineTextField = FitLineTextField()
+        fitLineTextField.apply(style: .tertiary, placeholder: L.enterEmail)
+        fitLineTextField.layer.borderColor = UIColor.white.cgColor
+        let textField = fitLineTextField.textField
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
-        return fitmaniaTextField
+        return fitLineTextField
     }()
     
     private lazy var resetButton: UIButton = {

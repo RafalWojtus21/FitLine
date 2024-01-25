@@ -8,7 +8,7 @@
 import Foundation
 extension Localization {
     enum General {
-        static let fitmania = "General.Fitmania".localized
+        static let fitLine = "General.FitLine".localized
         static let email = "General.Email".localized
         static let password = "General.Password".localized
         static let error = "General.Error".localized

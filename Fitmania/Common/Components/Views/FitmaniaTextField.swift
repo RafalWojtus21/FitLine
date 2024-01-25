@@ -15,7 +15,7 @@ enum TextFieldStyle {
     case quaternary
 }
 
-class FitmaniaTextField: UIView {
+class FitLineTextField: UIView {
     
     // MARK: Properties
     

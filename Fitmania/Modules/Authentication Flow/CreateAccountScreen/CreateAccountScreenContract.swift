@@ -10,7 +10,6 @@ import RxSwift
 struct SexDataModel: Codable, Equatable {
     var sex: String
     
-    
     static func generateSexesList() -> [SexDataModel] {
         [
             SexDataModel(sex: Localization.AuthenticationFlow.sexMale),
