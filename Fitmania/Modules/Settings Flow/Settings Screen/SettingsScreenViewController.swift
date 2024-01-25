@@ -72,6 +72,8 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         return view
     }()
     
+    private lazy var fitLineLogoView = FitLineLogoView()
+    
     private lazy var signOutButton = UIButton().apply(style: .primary, title: L.signOutButtonTitle)
     
     init(presenter: SettingsScreenPresenter) {
@@ -100,6 +102,7 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         
         view.backgroundColor = .primaryColor
         view.addSubview(signOutButton)
+        view.addSubview(fitLineLogoView)
         view.addSubview(settingsStackView)
         
         signOutButton.snp.makeConstraints {
@@ -108,8 +111,14 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
             $0.height.equalTo(48)
         }
         
+        fitLineLogoView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(12).priority(.high)
+            $0.height.equalTo(36)
+            $0.left.right.equalToSuperview().inset(70)
+        }
+        
         settingsStackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(24).priority(.high)
+            $0.top.equalTo(fitLineLogoView.snp.bottom).offset(48).priority(.high)
             $0.bottom.equalTo(signOutButton.snp.top).offset(-36).priority(.medium)
             $0.left.right.equalToSuperview().inset(16)
         }
@@ -130,6 +139,11 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         scheduledTrainingsButton.snp.makeConstraints {
             $0.height.equalTo(buttonHeight)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func bindControls() {
