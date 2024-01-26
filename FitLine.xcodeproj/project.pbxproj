@@ -415,6 +415,7 @@
 		8B53581629FBA8BC009EED68 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		8B53581A2A03B1F2009EED68 /* RxBlockingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBlockingExtensions.swift; sourceTree = "<group>"; };
 		8B53581F2A03D6A0009EED68 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		8B59BDF82B642EA100D1C3C1 /* FitLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitLine.entitlements; sourceTree = "<group>"; };
 		8B5B2B7F29E97B520017E3C8 /* NSPredicateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtension.swift; sourceTree = "<group>"; };
 		8B5FCC182A1CD0E90007D60C /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
 		8B5FCC1A2A1CD0F10007D60C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -1007,6 +1008,7 @@
 		8BC151E129DD6EA00007A372 = {
 			isa = PBXGroup;
 			children = (
+				8B59BDF82B642EA100D1C3C1 /* FitLine.entitlements */,
 				8BC1523829DD75F40007A372 /* BuildScripts */,
 				8BC151EC29DD6EA00007A372 /* Fitmania */,
 				8BC1520329DD6EA20007A372 /* FitmaniaTests */,
@@ -2051,9 +2053,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2070,10 +2073,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2085,9 +2088,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2104,10 +2108,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2256,9 +2260,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2275,10 +2280,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2389,9 +2394,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2408,10 +2414,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2516,9 +2522,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2535,10 +2542,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2643,9 +2650,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitLine.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 837YZH6K58;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2662,10 +2670,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.Fitmania.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafalwojtus.fitline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = provisioning_profile_fitmania;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = fitline_provisioning_profile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
