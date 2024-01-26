@@ -26,6 +26,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     private lazy var saveExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: "Save")
     private lazy var exerciseDetailsView = ExerciseDetailsView()
     private lazy var ytPlayerView = YTPlayerView()
+    private var didLoadVideo = false
     
     init(presenter: AddExerciseScreenPresenter) {
         self.presenter = presenter
@@ -102,8 +103,9 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
         title = state.chosenExercise.name
         exerciseDetailsView.setupView(exerciseType: state.chosenExercise.type)
         addExerciseButton?.isEnabled = state.isAddButtonEnabled
-        if let videoID = state.chosenExercise.videoID {
+        if let videoID = state.chosenExercise.videoID, !didLoadVideo {
             ytPlayerView.load(withVideoId: videoID)
+            didLoadVideo.toggle()
         }
         if state.shouldLoadExerciseData {
             guard let exercise = state.workoutPart else { return }
