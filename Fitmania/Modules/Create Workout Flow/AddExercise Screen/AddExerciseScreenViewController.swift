@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import YouTubeiOSPlayerHelper
 
 final class AddExerciseScreenViewController: BaseViewController, AddExerciseScreenView {
     typealias ViewState = AddExerciseScreenViewState
@@ -24,6 +25,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
     private lazy var addExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: Localization.General.add)
     private lazy var saveExerciseButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemWhite, imageName: nil, title: "Save")
     private lazy var exerciseDetailsView = ExerciseDetailsView()
+    private lazy var ytPlayerView = YTPlayerView()
     
     init(presenter: AddExerciseScreenPresenter) {
         self.presenter = presenter
@@ -50,24 +52,30 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
         view.backgroundColor = .primaryColor
         
         view.addSubview(exerciseDetailsView)
+        view.addSubview(ytPlayerView)
         
         exerciseDetailsView.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(64)
             $0.height.equalTo(120)
             $0.left.right.equalToSuperview().inset(15)
         }
+        
+        ytPlayerView.snp.makeConstraints {
+            $0.top.equalTo(exerciseDetailsView.snp.bottom).offset(48).priority(.high)
+            $0.left.right.equalToSuperview().inset(16)
+            $0.height.equalTo(240).priority(.high)
+            $0.bottom.equalToSuperview().priority(.medium)
+        }
     }
     
     private func bindControls() {
         let addExerciseButtonIntent = addExerciseButton?.tap.map { [weak self] _ -> Intent in
             guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text, let setsNumber = self?.exerciseDetailsView.setsTextfield.text else { return Intent.invalidDataSet }
-            print("Add")
             return Intent.saveExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime, type: .new)
         }
         
         let updateExerciseButtonIntent = saveExerciseButton?.tap.map { [weak self] _ -> Intent in
             guard let exerciseTime = self?.exerciseDetailsView.timeTextField.text, let exerciseBreakTime = self?.exerciseDetailsView.breakTimeTextField.text, let setsNumber = self?.exerciseDetailsView.setsTextfield.text else { return Intent.invalidDataSet }
-            print("update")
             return Intent.saveExerciseIntent(sets: setsNumber, time: exerciseTime, breakTime: exerciseBreakTime, type: .updated)
         }
         
@@ -75,9 +83,7 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
         let exerciseSetsValidationIntent = exerciseDetailsView.setsTextfield.rx.text.orEmpty.asObservable().map { Intent.validateSets(text: $0) }
         let exerciseBreakTimeValidationIntent = exerciseDetailsView.breakTimeTextField.rx.text.orEmpty.asObservable().map { Intent.validateExerciseBreakTime(text: $0) }
         
-        guard let addExerciseButtonIntent, let updateExerciseButtonIntent else {
-            return
-        }
+        guard let addExerciseButtonIntent, let updateExerciseButtonIntent else { return }
         Observable.merge(addExerciseButtonIntent, exerciseTimeValidationIntent, exerciseBreakTimeValidationIntent, exerciseSetsValidationIntent, updateExerciseButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
@@ -96,7 +102,9 @@ final class AddExerciseScreenViewController: BaseViewController, AddExerciseScre
         title = state.chosenExercise.name
         exerciseDetailsView.setupView(exerciseType: state.chosenExercise.type)
         addExerciseButton?.isEnabled = state.isAddButtonEnabled
-        print("Add button enabled: \(state.isAddButtonEnabled)")
+        if let videoID = state.chosenExercise.videoID {
+            ytPlayerView.load(withVideoId: videoID)
+        }
         if state.shouldLoadExerciseData {
             guard let exercise = state.workoutPart else { return }
             
