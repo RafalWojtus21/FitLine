@@ -7,7 +7,7 @@
 
 import RxSwift
 
-struct AddExerciseScreen {
+enum AddExerciseScreen {
     enum ExerciseType {
         case new
         case updated

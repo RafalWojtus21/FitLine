@@ -72,6 +72,13 @@
 		8B45671A2B516DE7001C024C /* EditPersonalDataScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */; };
 		8B45671C2B51736C001C024C /* PersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45671B2B51736C001C024C /* PersonalDataCell.swift */; };
 		8B4567212B602DAC001C024C /* EmptyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567202B602DAC001C024C /* EmptyContentView.swift */; };
+		8B45672A2B63C8AF001C024C /* YoutubePreviewScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567242B63C8AF001C024C /* YoutubePreviewScreenContract.swift */; };
+		8B45672B2B63C8AF001C024C /* YoutubePreviewScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567252B63C8AF001C024C /* YoutubePreviewScreenPresenter.swift */; };
+		8B45672C2B63C8AF001C024C /* YoutubePreviewScreenMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567262B63C8AF001C024C /* YoutubePreviewScreenMiddleware.swift */; };
+		8B45672D2B63C8AF001C024C /* YoutubePreviewScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567272B63C8AF001C024C /* YoutubePreviewScreenViewController.swift */; };
+		8B45672E2B63C8AF001C024C /* YoutubePreviewScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567282B63C8AF001C024C /* YoutubePreviewScreenBuilder.swift */; };
+		8B45672F2B63C8AF001C024C /* YoutubePreviewScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4567292B63C8AF001C024C /* YoutubePreviewScreenInteractor.swift */; };
+		8B4567332B63EE1D001C024C /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4567322B63EE1D001C024C /* YouTubeiOSPlayerHelper */; };
 		8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */; };
 		8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */; };
 		8B4DBA7A2B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */; };
@@ -367,6 +374,12 @@
 		8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDataScreenInteractor.swift; sourceTree = "<group>"; };
 		8B45671B2B51736C001C024C /* PersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataCell.swift; sourceTree = "<group>"; };
 		8B4567202B602DAC001C024C /* EmptyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentView.swift; sourceTree = "<group>"; };
+		8B4567242B63C8AF001C024C /* YoutubePreviewScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenContract.swift; sourceTree = "<group>"; };
+		8B4567252B63C8AF001C024C /* YoutubePreviewScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenPresenter.swift; sourceTree = "<group>"; };
+		8B4567262B63C8AF001C024C /* YoutubePreviewScreenMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenMiddleware.swift; sourceTree = "<group>"; };
+		8B4567272B63C8AF001C024C /* YoutubePreviewScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenViewController.swift; sourceTree = "<group>"; };
+		8B4567282B63C8AF001C024C /* YoutubePreviewScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenBuilder.swift; sourceTree = "<group>"; };
+		8B4567292B63C8AF001C024C /* YoutubePreviewScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewScreenInteractor.swift; sourceTree = "<group>"; };
 		8B4C56E52A29DD07007FB66F /* WorkoutSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryModel.swift; sourceTree = "<group>"; };
 		8B4DBA712B4BEAC500024D2B /* SettingsSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionButton.swift; sourceTree = "<group>"; };
 		8B4DBA742B4C25B100024D2B /* ScheduledNotificationsScreenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledNotificationsScreenContract.swift; sourceTree = "<group>"; };
@@ -566,6 +579,7 @@
 				8BE6447429DD7B6000288DAB /* RxRelay in Frameworks */,
 				8BE6447229DD7B6000288DAB /* RxCocoa in Frameworks */,
 				8BE6447629DD7B6000288DAB /* RxSwift in Frameworks */,
+				8B4567332B63EE1D001C024C /* YouTubeiOSPlayerHelper in Frameworks */,
 				8B2A4B8029F6D55200B6B3F0 /* FirebaseDatabaseSwift in Frameworks */,
 				8BE644A529DEEE2300288DAB /* FirebaseAuth in Frameworks */,
 				8BC1526129DD79D00007A372 /* SnapKit in Frameworks */,
@@ -676,6 +690,19 @@
 				8B4567142B516DE7001C024C /* EditPersonalDataScreenInteractor.swift */,
 			);
 			path = EditPersonalDataScreen;
+			sourceTree = "<group>";
+		};
+		8B4567302B63C8B3001C024C /* YoutubePreviewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8B4567242B63C8AF001C024C /* YoutubePreviewScreenContract.swift */,
+				8B4567252B63C8AF001C024C /* YoutubePreviewScreenPresenter.swift */,
+				8B4567262B63C8AF001C024C /* YoutubePreviewScreenMiddleware.swift */,
+				8B4567272B63C8AF001C024C /* YoutubePreviewScreenViewController.swift */,
+				8B4567282B63C8AF001C024C /* YoutubePreviewScreenBuilder.swift */,
+				8B4567292B63C8AF001C024C /* YoutubePreviewScreenInteractor.swift */,
+			);
+			path = YoutubePreviewScreen;
 			sourceTree = "<group>";
 		};
 		8B4DBA732B4C259400024D2B /* Scheduled Notifications Screen */ = {
@@ -1141,6 +1168,7 @@
 				8B0235722A0BE884006B45A5 /* WorkoutPreviewScreen */,
 				8B0235832A0CEB1D006B45A5 /* Workout Exercise Screen */,
 				8BF48B872A175F8A00F84C6F /* Workout Summary Screen */,
+				8B4567302B63C8B3001C024C /* YoutubePreviewScreen */,
 			);
 			path = "Training Assistant Flow";
 			sourceTree = "<group>";
@@ -1425,6 +1453,7 @@
 				8BE644A429DEEE2300288DAB /* FirebaseAuth */,
 				8B2A4B7D29F6D55200B6B3F0 /* FirebaseDatabase */,
 				8B2A4B7F29F6D55200B6B3F0 /* FirebaseDatabaseSwift */,
+				8B4567322B63EE1D001C024C /* YouTubeiOSPlayerHelper */,
 			);
 			productName = Fitmania;
 			productReference = 8BC151EA29DD6EA00007A372 /* FitLine.app */;
@@ -1510,6 +1539,7 @@
 				8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				8BE6447029DD7B6000288DAB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8B4567312B63EE1D001C024C /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = 8BC151EB29DD6EA00007A372 /* Products */;
 			projectDirPath = "";
@@ -1657,6 +1687,7 @@
 				8B10656B29FAB047005A1521 /* CreateWorkoutFlow.swift in Sources */,
 				8B69D2502B07905F007DD866 /* CalendarScreenViewController.swift in Sources */,
 				8BEF011E29FAB691004B6B15 /* WorkoutsService.swift in Sources */,
+				8B45672C2B63C8AF001C024C /* YoutubePreviewScreenMiddleware.swift in Sources */,
 				8B0235762A0CD20A006B45A5 /* WorkoutDetailsPreviewCell.swift in Sources */,
 				8B0235582A0BCA3E006B45A5 /* Localization.TrainingAssistantFlow.swift in Sources */,
 				8BE6449229DED21600288DAB /* UIColorExtension.swift in Sources */,
@@ -1702,6 +1733,7 @@
 				8BF1ECC029EEE27200540E1D /* AccountCreatedScreenContract.swift in Sources */,
 				8BB5589129ED43A100E09F5D /* UIViewExtension.swift in Sources */,
 				8BF48B932A175F8A00F84C6F /* WorkoutSummaryScreenContract.swift in Sources */,
+				8B45672B2B63C8AF001C024C /* YoutubePreviewScreenPresenter.swift in Sources */,
 				8B4567162B516DE7001C024C /* EditPersonalDataScreenPresenter.swift in Sources */,
 				8BE644D429DF06AF00288DAB /* RegisterScreenBuilder.swift in Sources */,
 				8B6FDC7929E40E690037A8B8 /* CreateAccountScreenPresenter.swift in Sources */,
@@ -1725,6 +1757,7 @@
 				8BCEB3E32A0B8080001F8F78 /* ScheduleWorkoutScreenInteractor.swift in Sources */,
 				8B4567192B516DE7001C024C /* EditPersonalDataScreenBuilder.swift in Sources */,
 				8B53580429FBA4AE009EED68 /* CategoryExercisesListInteractor.swift in Sources */,
+				8B45672E2B63C8AF001C024C /* YoutubePreviewScreenBuilder.swift in Sources */,
 				8B4DBA722B4BEAC500024D2B /* SettingsSectionButton.swift in Sources */,
 				8B4C56E62A29DD07007FB66F /* WorkoutSummaryModel.swift in Sources */,
 				8BC1526629DD7AAD0007A372 /* IntentSubject.swift in Sources */,
@@ -1784,6 +1817,7 @@
 				8B3224542A25FB9B008ADA95 /* ExerciseAssistantDetailsTextfieldsView.swift in Sources */,
 				8BC1524729DD769F0007A372 /* AppFlowController.swift in Sources */,
 				8B3918482B45A9330026E053 /* NotificationViewController.swift in Sources */,
+				8B45672D2B63C8AF001C024C /* YoutubePreviewScreenViewController.swift in Sources */,
 				8B53581429FBA7A7009EED68 /* AddExerciseScreenInteractor.swift in Sources */,
 				8BE644EA29DFFDEC00288DAB /* LoginScreenViewController.swift in Sources */,
 				8B0722832A248C6E00854F1B /* SettingsScreenViewController.swift in Sources */,
@@ -1795,6 +1829,7 @@
 				8BE644E929DFFDEC00288DAB /* LoginScreenMiddleware.swift in Sources */,
 				8BF1ECB729ED82B700540E1D /* AuthenticationFlow.swift in Sources */,
 				8BF48B8F2A175F8A00F84C6F /* WorkoutSummaryScreenMiddleware.swift in Sources */,
+				8B45672A2B63C8AF001C024C /* YoutubePreviewScreenContract.swift in Sources */,
 				8BC1524E29DD77030007A372 /* WelcomeScreenContract.swift in Sources */,
 				8BCEB3DF2A0B8080001F8F78 /* ScheduleWorkoutScreenPresenter.swift in Sources */,
 				8B53581029FBA7A7009EED68 /* AddExerciseScreenPresenter.swift in Sources */,
@@ -1809,6 +1844,7 @@
 				8BF1ECFD29EFEA2F00540E1D /* HomeScreenBuilder.swift in Sources */,
 				8B0235562A0BAE9B006B45A5 /* CategoryWithIcon.swift in Sources */,
 				8B815EE929E936A3007EA47C /* UIButtonExtension.swift in Sources */,
+				8B45672F2B63C8AF001C024C /* YoutubePreviewScreenInteractor.swift in Sources */,
 				8BCEB3F12A0B86C6001F8F78 /* WorkoutsCategoryListScreenBuilder.swift in Sources */,
 				8BC1526329DD7A380007A372 /* Base.swift in Sources */,
 				8BCEB3E22A0B8080001F8F78 /* ScheduleWorkoutScreenBuilder.swift in Sources */,
@@ -2732,6 +2768,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B4567312B63EE1D001C024C /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		8BC1525F29DD79D00007A372 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -2768,6 +2812,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8BE6449F29DEEE2300288DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		8B4567322B63EE1D001C024C /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4567312B63EE1D001C024C /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
 		};
 		8B5FCC0A2A1BB23F0007D60C /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;

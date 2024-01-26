@@ -179,6 +179,10 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
         return .just(.partialState(.updateIntervalState(intervalState: .running)))
     }
     
+    func openYoutubePreview() -> Observable<WorkoutExerciseScreenResult> {
+        .just(.effect(.showYoutubePreview(id: workoutEvents[currentEventIndex].exercise.videoID)))
+    }
+    
     // MARK: Private Implementation
     
     private func handleInitialExercise() -> Observable<WorkoutExerciseScreenResult> {

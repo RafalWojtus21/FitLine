@@ -22,6 +22,7 @@ protocol TrainingAssistantFlowNavigation: AnyObject {
     func showWorkoutExerciseScreen(plan: WorkoutPlan)
     func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool)
     func editWorkoutPlan(_ plan: WorkoutPlan)
+    func showYoutubePreview(videoID: String?)
     func finishTrainingAssistantFlow()
 }
 
@@ -77,6 +78,7 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     private lazy var workoutPreviewScreenBuilder: WorkoutPreviewScreenBuilder = WorkoutPreviewScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var workoutExerciseScreenBuilder: WorkoutExerciseScreenBuilder = WorkoutExerciseScreenBuilderImpl(dependencies: extendedDependencies)
     private lazy var workoutSummaryScreenBuilder: WorkoutSummaryScreenBuilder = WorkoutSummaryScreenBuilderImpl(dependencies: extendedDependencies)
+    private lazy var youtubePreviewScreenBuilder: YoutubePreviewScreenBuilder = YoutubePreviewScreenBuilderImpl(dependencies: extendedDependencies)
     
     // MARK: - AppNavigation
     
@@ -106,6 +108,11 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     
     func editWorkoutPlan(_ plan: WorkoutPlan) {
         dependencies.workoutFlowNavigation?.editWorkoutPlan(plan)
+    }
+    
+    func showYoutubePreview(videoID: String?) {
+        let view = youtubePreviewScreenBuilder.build(with: .init(videoID: videoID)).view
+        dependencies.navigation.present(view: view, animated: true, completion: nil)
     }
     
     func finishTrainingAssistantFlow() {

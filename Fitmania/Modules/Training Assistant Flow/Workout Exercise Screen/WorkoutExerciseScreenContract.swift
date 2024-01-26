@@ -30,6 +30,7 @@ enum WorkoutExerciseScreenIntent {
     case resumeButtonIntent
     case nextEventButtonIntent
     case nextButtonIntent(details: [String])
+    case youtubePreviewButtonIntent
 }
 
 struct WorkoutExerciseScreenViewState: Equatable {
@@ -56,11 +57,15 @@ struct WorkoutExerciseScreenViewState: Equatable {
     var shouldRefreshDetailsTextField = false
     var shouldChangeAnimation = false
     var animationDuration: Int?
+    var shouldShowYoutubePreviewButton: Bool {
+        !workoutEvents.isEmpty ? workoutEvents[currentEventIndex].event.type == .exercise : false
+    }
 }
 
 enum WorkoutExerciseScreenEffect: Equatable {
     case workoutFinished(finishedWorkout: FinishedWorkout)
     case somethingWentWrong
+    case showYoutubePreview(id: String?)
 }
 
 struct WorkoutExerciseScreenBuilderInput {
@@ -161,6 +166,7 @@ protocol WorkoutExerciseScreenInteractor: BaseInteractor {
     func resumeTimer() -> Observable<WorkoutExerciseScreenResult>
     func getCurrentExercise() -> Observable<WorkoutExerciseScreenResult>
     func saveDetailOfCurrentExercise(details: [String]) -> Observable<WorkoutExerciseScreenResult>
+    func openYoutubePreview() -> Observable<WorkoutExerciseScreenResult>
 }
 
 protocol WorkoutExerciseScreenMiddleware {

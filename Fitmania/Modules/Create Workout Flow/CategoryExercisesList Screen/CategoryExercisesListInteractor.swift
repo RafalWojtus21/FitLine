@@ -20,7 +20,7 @@ final class CategoryExercisesListInteractorImpl: CategoryExercisesListInteractor
         self.input = input
     }
     
-    func loadExercises() -> RxSwift.Observable<CategoryExercisesListResult> {
+    func loadExercises() -> Observable<CategoryExercisesListResult> {
         guard let fileLocation = Bundle.main.url(forResource: "exercises", withExtension: "json") else { return .just(.effect(.somethingWentWrong)) }
         do {
             let data = try Data(contentsOf: fileLocation)

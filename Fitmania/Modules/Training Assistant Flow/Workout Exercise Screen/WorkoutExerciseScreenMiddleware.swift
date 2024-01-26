@@ -28,6 +28,8 @@ final class WorkoutExerciseScreenMiddlewareImpl: WorkoutExerciseScreenMiddleware
             switch effect {
             case .workoutFinished(finishedWorkout: let finishedWorkout):
                 dependencies.trainingAssistantFlowNavigation?.showWorkoutSummaryScreen(workoutDoneModel: finishedWorkout, shouldSaveWorkout: true)
+            case .showYoutubePreview(let videoID):
+                dependencies.trainingAssistantFlowNavigation?.showYoutubePreview(videoID: videoID)
             default:
                 break
             }

@@ -64,7 +64,6 @@ final class AddExerciseScreenInteractorImpl: AddExerciseScreenInteractor {
     private func processExercise(sets: String, time: String, breakTime: String, type: AddExerciseScreen.ExerciseType) -> Observable<AddExerciseScreenResult> {
         let planName = dependencies.exercisesDataStore.trainingPlanNameRelay.value
         let planID = dependencies.exercisesDataStore.trainingPlanId
-        // swiftlint:disable force_unwrapping
         let setsNumber: Int?
         let timeValue: Int?
         if !sets.isEmpty && time.isEmpty {
@@ -79,7 +78,8 @@ final class AddExerciseScreenInteractorImpl: AddExerciseScreenInteractor {
         }
         
         var workouts = dependencies.exercisesDataStore.exercisesRelay.value
-        var workoutPart = WorkoutPart(workoutPlanName: planName, workoutPlanID: WorkoutPlanID(workoutPlanID: planID), exercise: Exercise(category: input.chosenExercise.category, name: input.chosenExercise.name), details: WorkoutPart.Details(sets: setsNumber, time: timeValue, breakTime: Int(breakTime)!), id: loadedExercise?.id ?? .init())
+        // swiftlint:disable:next force_unwrapping
+        let workoutPart = WorkoutPart(workoutPlanName: planName, workoutPlanID: WorkoutPlanID(workoutPlanID: planID), exercise: input.chosenExercise, details: WorkoutPart.Details(sets: setsNumber, time: timeValue, breakTime: Int(breakTime)!), id: loadedExercise?.id ?? .init())
         switch type {
         case .new:
             workouts.append(workoutPart)

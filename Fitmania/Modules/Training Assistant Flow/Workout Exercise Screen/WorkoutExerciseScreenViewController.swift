@@ -26,7 +26,9 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     private var exerciseTrackerSubject = PublishSubject<[WorkoutExerciseScreen.Row]>()
     private var currentEventIndexSubject = BehaviorSubject<Int>(value: 0)
     @Published var isAnimating = false
-        
+    
+    private lazy var youtubePreviewButton = UIBarButtonItem.init().apply(style: .rightStringButtonItemBlack, imageName: nil, title: "See correct technique")
+    
     private lazy var workoutDetailsView: UIView = {
         let view = UIView(backgroundColor: .secondaryColor)
         view.layer.cornerRadius = 20
@@ -130,6 +132,7 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
     
     private func layoutView() {
         view.backgroundColor = .primaryColor
+        navigationItem.rightBarButtonItem = youtubePreviewButton
         view.addSubview(workoutDetailsView)
         workoutDetailsView.addSubview(workoutDetailsStackView)
         workoutDetailsView.addSubview(tableView)
@@ -242,8 +245,14 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
             self.circularProgressBar.resumeAnimation()
             return Intent.resumeButtonIntent
         }
+        
+        let youtubePreviewButtonIntent = youtubePreviewButton?.tap.map {
+            Intent.youtubePreviewButtonIntent
+        }
+        
+        guard let youtubePreviewButtonIntent else { return }
 
-        Observable.merge(startButtonIntent, nextEventButtonIntent, pauseButtonIntent, resumeButtonIntent)
+        Observable.merge(startButtonIntent, nextEventButtonIntent, pauseButtonIntent, resumeButtonIntent, youtubePreviewButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
@@ -301,5 +310,6 @@ final class WorkoutExerciseScreenViewController: BaseViewController, WorkoutExer
 
         model.isAnimating = state.shouldTriggerAnimation
         state.shouldRefreshDetailsTextField == true ? setDetailsView.configure(with: ExerciseAssistantDetailsTextfieldsView.ViewModel(detailsTypes: state.possibleDetailsTypes)) : ()
+        youtubePreviewButton?.isHidden = !state.shouldShowYoutubePreviewButton
     }
 }

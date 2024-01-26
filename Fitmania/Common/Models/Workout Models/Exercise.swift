@@ -8,8 +8,10 @@
 import Foundation
 
 struct Exercise: Codable, Equatable, Hashable {
+    let id: String
     let category: Category
     let name: String
+    let videoID: String?
 }
 
 extension Exercise {

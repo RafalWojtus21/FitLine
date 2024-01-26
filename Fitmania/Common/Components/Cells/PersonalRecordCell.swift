@@ -78,7 +78,7 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
 
     func configure(with viewModel: ViewModel) {
         exerciseNameLabel.text = viewModel.exerciseName
-        var unit: String = viewModel.exerciseCategory == .cardio ? "km" : "kg"
+        let unit: String = viewModel.exerciseCategory == .cardio ? "km" : "kg"
         bestScoreLabel.text = "\(viewModel.bestScore)" + " " + unit
         let dateFormatter = DateFormatter.dayMonthDateFormatter
         dateLabel.text = dateFormatter.string(from: viewModel.date)
