@@ -102,17 +102,17 @@ class CalendarCell: UICollectionViewCell, CollectionViewReusableCell {
         let startOfDay = calendar.startOfDay(for: date)
         guard let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) else { return (cardio: false, strength: false) }
         
-        let cardioWorkout = findWorkout(in: workoutsHistory, condition: { $0 == .cardio }, startOfDay: startOfDay, endOfDay: endOfDay)
-        let strengthWorkout = findWorkout(in: workoutsHistory, condition: { $0 != .cardio }, startOfDay: startOfDay, endOfDay: endOfDay)
+        let cardioWorkout = findWorkout(in: workoutsHistory, condition: { $0.contains(.cardio) }, startOfDay: startOfDay, endOfDay: endOfDay)
+        let strengthWorkout = findWorkout(in: workoutsHistory, condition: { !$0.contains(.cardio) }, startOfDay: startOfDay, endOfDay: endOfDay)
         
         return (cardio: cardioWorkout != nil, strength: strengthWorkout != nil)
     }
     
-    private func findWorkout(in workouts: [FinishedWorkout], condition: (Exercise.Category) -> Bool, startOfDay: Date, endOfDay: Date) -> FinishedWorkout? {
+    private func findWorkout(in workouts: [FinishedWorkout], condition: ([Exercise.Category]) -> Bool, startOfDay: Date, endOfDay: Date) -> FinishedWorkout? {
         return workouts.first { workout in
             startOfDay <= workout.finishDate && workout.startDate <= endOfDay &&
             workout.exercisesDetails.contains { detail in
-                condition(detail.exercise.category)
+                condition(detail.exercise.categories)
             }
         }
     }

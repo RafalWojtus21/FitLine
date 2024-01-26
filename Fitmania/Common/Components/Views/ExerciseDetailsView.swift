@@ -97,7 +97,7 @@ class ExerciseDetailsView: UIView {
         self.init()
     }
     
-    func setupView(category: Exercise.Category) {
+    func setupView(exerciseType: Exercise.ExerciseType) {
         addSubview(mainView)
         
         mainView.snp.makeConstraints {
@@ -147,7 +147,7 @@ class ExerciseDetailsView: UIView {
             $0.left.equalTo(breakTimeLabel.snp.right).offset(20)
         }
         
-        timeView.isHidden = !category.isTimeVisible
-        setsView.isHidden = !category.areSetsVisible
+        timeView.isHidden = exerciseType == .strength
+        setsView.isHidden = exerciseType == .cardio
     }
 }

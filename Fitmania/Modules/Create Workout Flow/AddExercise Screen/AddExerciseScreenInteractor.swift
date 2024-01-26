@@ -46,7 +46,7 @@ final class AddExerciseScreenInteractorImpl: AddExerciseScreenInteractor {
     }
     
     func validateExerciseTime(time: String) -> RxSwift.Observable<AddExerciseScreenResult> {
-        return dependencies.validationService.validate(.workoutTime, input: time)
+        dependencies.validationService.validate(.workoutTime, input: time)
             .andThen(.just(.partialState(.exerciseTimeValidationResult(validationMessage: ValidationMessage(message: nil)))))
             .catch { error -> Observable<AddExerciseScreenResult> in
                 return .just(.partialState(.exerciseTimeValidationResult(validationMessage: ValidationMessage(message: error.localizedDescription))))
@@ -54,7 +54,7 @@ final class AddExerciseScreenInteractorImpl: AddExerciseScreenInteractor {
     }
     
     func validateExerciseBreakTime(time: String) -> RxSwift.Observable<AddExerciseScreenResult> {
-        return dependencies.validationService.validate(.workoutTime, input: time)
+        dependencies.validationService.validate(.workoutTime, input: time)
             .andThen(.just(.partialState(.exerciseBreakTimeValidationResult(validationMessage: ValidationMessage(message: nil)))))
             .catch { error -> Observable<AddExerciseScreenResult> in
                 return .just(.partialState(.exerciseBreakTimeValidationResult(validationMessage: ValidationMessage(message: error.localizedDescription))))

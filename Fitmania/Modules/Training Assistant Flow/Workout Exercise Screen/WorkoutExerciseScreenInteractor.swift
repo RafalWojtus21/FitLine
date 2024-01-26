@@ -56,7 +56,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     
     // MARK: Public Implementation
     
-    func loadEvents() -> RxSwift.Observable<WorkoutExerciseScreenResult> {
+    func loadEvents() -> Observable<WorkoutExerciseScreenResult> {
         return .just(.partialState(.loadWorkoutEvents(workoutEvents: workoutEvents)))
     }
     
@@ -80,12 +80,12 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     }
     
     func getCurrentExercise() -> Observable<WorkoutExerciseScreenResult> {
-        let detailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
+        let detailsTypes = workoutEvents[currentEventIndex].exercise.type.generatePossibleDetails()
         return .just(.partialState(.updateAvailableDetailsTypes(detailsTypes: detailsTypes)))
     }
     
     func saveDetailOfCurrentExercise(details: [String]) -> Observable<WorkoutExerciseScreenResult> {
-        let possibleDetailsTypes = workoutEvents[currentEventIndex].exercise.category.generatePossibleDetails()
+        let possibleDetailsTypes = workoutEvents[currentEventIndex].exercise.type.generatePossibleDetails()
         var exerciseDetails: [DetailedExercise.Details] = []
         let currentEvent = workoutEvents[currentEventIndex]
          
@@ -193,7 +193,7 @@ final class WorkoutExerciseScreenInteractorImpl: WorkoutExerciseScreenInteractor
     private func checkTypeOfExercise() -> Observable<WorkoutExerciseScreenResult> {
         let currentEvent = workoutEvents[currentEventIndex]
         
-        if currentEvent.exercise.category.shouldMeasureTime {
+        if currentEvent.exercise.type.shouldMeasureTime {
             return handleCardioExercise()
         } else {
             return handlePhysicalExercise()

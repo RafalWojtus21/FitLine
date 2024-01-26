@@ -26,7 +26,7 @@ final class ScheduleWorkoutScreenInteractorImpl: ScheduleWorkoutScreenInteractor
     func calculateWorkoutDetails() -> Observable<ScheduleWorkoutScreenResult> {
         let totalWorkoutTimeInSeconds: Int = chosenWorkout.parts.reduce(0) { $0 + ($1.details.time ?? 0) + $1.details.breakTime }
         let totalWorkoutTimeInMinutes = Int(ceil(Double(totalWorkoutTimeInSeconds) / 60.0))
-        let categories = Array(Set(chosenWorkout.parts.map { $0.exercise.category }))
+        let categories = Array(Set(chosenWorkout.parts.flatMap { $0.exercise.categories }))
         let numberOfSets = chosenWorkout.parts.compactMap { workoutPart in
             workoutPart.details.sets
         }.reduce(0, +)

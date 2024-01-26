@@ -25,7 +25,7 @@ final class CategoryExercisesListInteractorImpl: CategoryExercisesListInteractor
         do {
             let data = try Data(contentsOf: fileLocation)
             let dataFromJson = try JSONDecoder().decode([Exercise].self, from: data)
-            let exercises = dataFromJson.filter { $0.category == input.chosenCategory }
+            let exercises = dataFromJson.filter { $0.categories.contains(input.chosenCategory) }
             return .just(.partialState(.loadExercises(exercises: exercises)))
         } catch {
             return .just(.effect(.somethingWentWrong))

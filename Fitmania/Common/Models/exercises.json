@@ -1,128 +1,236 @@
 [
     {
         "id": "ab2991f0-5607-4d28-a6d5-9038e76b02e1",
-        "category": "cardio",
+        "categories": ["cardio"],
         "name": "Running",
         "videoID": "_kGESn8ArrU"
     },
     {
         "id": "f9a8b5a3-cb4d-4f35-bafe-b8930a8e61bf",
-        "category": "cardio",
+        "categories": ["cardio"],
         "name": "Cycling",
         "videoID": "pSemMp0hj8M"
     },
     {
         "id": "e1ad1e35-5d3b-47a4-b5b3-3a39f41a1f14",
-        "category": "cardio",
+        "categories": ["cardio"],
         "name": "Jumping Jacks",
         "videoID": "nGaXj3kkmrU"
     },
     {
         "id": "d087e4b5-43e4-44f0-a51e-1d16e7fd1557",
-        "category": "legs",
+        "categories": ["legs"],
         "name": "Squats",
         "videoID": "gcNh17Ckjgg"
     },
     {
         "id": "b51cb897-6d3e-4ee1-ba6d-fa60444c681d",
-        "category": "legs",
+        "categories": ["legs"],
         "name": "Lunges",
         "videoID": "wrwwXE_x-pQ"
     },
     {
         "id": "a4b5ab62-7bc0-47a6-83a5-7c9469f5fc77",
-        "category": "legs",
+        "categories": ["legs"],
         "name": "Deadlifts",
         "videoID": "SrIcAp3vM"
     },
     {
         "id": "7d4a3c9e-ef69-4b5c-8302-863d5070e8cb",
-        "category": "biceps",
+        "categories": ["biceps"],
         "name": "Bicep Curls",
         "videoID": "pqr404"
     },
     {
         "id": "79c82f1d-21c7-4aef-97cb-34ed4b3d0c8e",
-        "category": "biceps",
+        "categories": ["biceps"],
         "name": "Hammer Curls",
         "videoID": "stu505"
     },
     {
         "id": "53c6b89b-3f6a-4b15-83a6-1b70e90086e1",
-        "category": "biceps",
+        "categories": ["biceps"],
         "name": "Chin-Ups",
         "videoID": "vwx606"
     },
     {
         "id": "64e309f3-02df-482f-9a7c-681ab8f14ed5",
-        "category": "triceps",
+        "categories": ["triceps"],
         "name": "Tricep Extensions",
         "videoID": "yza707"
     },
     {
         "id": "df9fbd95-8c94-4a95-9292-81f8c2a345fe",
-        "category": "triceps",
+        "categories": ["triceps"],
         "name": "Close-Grip Bench Press",
         "videoID": "bcd808"
     },
     {
         "id": "f217a0dc-f03a-4da4-80f6-1e89612030d3",
-        "category": "triceps",
+        "categories": ["triceps"],
         "name": "Dips",
         "videoID": "efg909"
     },
     {
         "id": "81b9fd7d-6486-47f8-bd53-15f319c6437f",
-        "category": "chest",
+        "categories": ["chest"],
         "name": "Bench Press",
         "videoID": "hij010"
     },
     {
         "id": "2b8897f2-1c35-4c82-80ef-4d4fdaa3671b",
-        "category": "chest",
+        "categories": ["chest"],
         "name": "Push-Ups",
         "videoID": "klm111"
     },
     {
         "id": "6ab75992-51aa-46d8-bb83-745178b26b6c",
-        "category": "chest",
+        "categories": ["chest"],
         "name": "Dumbbell Flyes",
         "videoID": "nop212"
     },
     {
         "id": "db5a2029-c11e-4a59-b65d-2a96396a30f1",
-        "category": "shoulders",
+        "categories": ["shoulders"],
         "name": "Military Press",
         "videoID": "qrs313"
     },
     {
         "id": "79e1f7e2-2b4f-4c10-9768-ee195a98a9d0",
-        "category": "shoulders",
+        "categories": ["shoulders"],
         "name": "Arnold Press",
         "videoID": "tuv414"
     },
     {
         "id": "c459907f-9206-41d8-861f-94076cd9d156",
-        "category": "shoulders",
+        "categories": ["shoulders"],
         "name": "Lateral Raises",
         "videoID": "wxy515"
     },
     {
         "id": "1f13f261-4b49-4f43-b0bb-5c49d07917d8",
-        "category": "back",
+        "categories": ["back"],
         "name": "Deadlifts",
         "videoID": "zab616"
     },
     {
         "id": "f4c0782f-5c42-4f0c-9e2d-d0ec2509e497",
-        "category": "back",
+        "categories": ["back"],
         "name": "Pull-Ups",
         "videoID": "bcd717"
     },
     {
         "id": "e903b23a-8960-4191-a272-b9d9d4f4da8b",
-        "category": "back",
+        "categories": ["back"],
         "name": "Bent-Over Rows",
         "videoID": "efg818"
+    },
+    {
+        "id": "f3a92c17-747e-4d5f-9b0e-2c03e9a3263b",
+        "categories": ["chest", "triceps", "shoulders"],
+        "name": "Machine Chest Press Neutral Grip",
+        "videoID": "lZCmd2IlW-Q"
+    },
+    {
+        "id": "69db9b3f-c43b-4b48-bf3a-8ad6db536d80",
+        "categories": ["shoulders"],
+        "name": "Lateral raise Dumbbell Single Arm Decline",
+        "videoID": "-MmnQU87y_4"
+    },
+    {
+        "id": "3d11d5c5-0468-48d8-a4e7-19a64e7c6d1a",
+        "categories": ["back", "biceps"],
+        "name": "Wide-Grip Lat Pull-Down",
+        "videoID": "UWhyxvCCzhw"
+    },
+    {
+        "id": "e0c69f27-10c8-4c15-b99f-289eb1b4000b",
+        "categories": ["biceps"],
+        "name": "Incline Dumbbell Curl",
+        "videoID": "0B0fP_3YEk0&list=PL2QqYOeVNaBT39bUsEDhULUyB_5VzMrdl&index=77"
+    },
+    {
+        "id": "fa8c4259-d7ad-4d5a-8ab6-11e64f29b5d8",
+        "categories": ["legs"],
+        "name": "Leg Extensions",
+        "videoID": "YpGimJ5NiV8&list=PL2QqYOeVNaBT39bUsEDhULUyB_5VzMrdl&index=92"
+    },
+    {
+        "id": "a8a5ef50-2e17-4a29-b4cd-45c5e0a5c0eb",
+        "categories": ["core"],
+        "name": "Plank",
+        "videoID": "y1hXARQhHZM"
+    },
+    {
+        "id": "06b254c7-f7d7-4511-85e7-f453c70a083f",
+        "categories": ["legs"],
+        "name": "Seated Leg Curl",
+        "videoID": "kDSUKX2owPs&list=PL2QqYOeVNaBT39bUsEDhULUyB_5VzMrdl&index=130"
+    },
+    {
+        "id": "875e396d-94a1-4c38-85b3-88b3054c287b",
+        "categories": ["butt", "legs"],
+        "name": "Split Squat Smith",
+        "videoID": "YWrYW3xD3Hw&t=144s"
+    },
+    {
+        "id": "58b2684f-f5c5-4e1a-8b6b-fd4ad8c8e69d",
+        "categories": ["back", "biceps"],
+        "name": "Seated Cable Row Wide Grip",
+        "videoID": "FXo1YuL1XeM"
+    },
+    {
+        "id": "3bb201c3-4315-4d8a-97c3-5420f7a91ae1",
+        "categories": ["shoulders", "triceps"],
+        "name": "Kettle Overhead Press",
+        "videoID": "gNxNI6ltByQ"
+    },
+    {
+        "id": "c6a8255d-f52c-4841-b50f-08313e0437aa",
+        "categories": ["back", "biceps"],
+        "name": "Seated Cable Row",
+        "videoID": "UCXxvVItLoM"
+    },
+    {
+        "id": "38171cb7-ae84-47aa-b892-6b9cbf8478d2",
+        "categories": ["chest"],
+        "name": "Unilateral Machine Fly",
+        "videoID": "2Cc_D8STdhI"
+    },
+    {
+        "id": "2be70f51-2588-499b-97b3-818b63063b5c",
+        "categories": ["butt", "legs"],
+        "name": "Trap Bar Deadlift",
+        "videoID": "v-SrIcAp3vM"
+    },
+    {
+        "id": "f6cf40d7-f5e0-4f86-b953-8a29b2a66c74",
+        "categories": ["back", "biceps"],
+        "name": "Reverse Grip Lat Pulldown",
+        "videoID": "SNiwpA13ZLU"
+    },
+    {
+        "id": "1f53eb63-493d-4c8b-b384-fbf1cfe7036d",
+        "categories": ["chest", "shoulders", "triceps"],
+        "name": "Dumbbell Close Grip Bench Press",
+        "videoID": "JABJfsNrJkE"
+    },
+    {
+        "id": "36aa1962-e1c8-41e2-ae53-063fe3b240d2",
+        "categories": ["rotators"],
+        "name": "Facepull rotators",
+        "videoID": "8QF3IYXXIAo"
+    },
+    {
+        "id": "b4fa62a5-6d56-4957-a3c4-d0f93e88a41a",
+        "categories": ["triceps"],
+        "name": "Cable Pushdown",
+        "videoID": "s1ams9_vMtI&list=PL2QqYOeVNaBT39bUsEDhULUyB_5VzMrdl&index=40"
+    },
+    {
+        "id": "8d3c7951-2749-4a8e-86f5-b59543f5b56b",
+        "categories": ["core"],
+        "name": "Abdominal Crunch Machine",
+        "videoID": "fuPFq2EYswE"
     }
 ]

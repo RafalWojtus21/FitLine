@@ -9,7 +9,7 @@ import Foundation
 
 struct Exercise: Codable, Equatable, Hashable {
     let id: String
-    let category: Category
+    let categories: [Category]
     let name: String
     let videoID: String?
 }
@@ -23,15 +23,9 @@ extension Exercise {
         case chest
         case shoulders
         case back
-        
-        var shouldMeasureTime: Bool {
-            switch self {
-            case .cardio:
-                return true
-            default:
-                return false
-            }
-        }
+        case core
+        case butt
+        case rotators
         
         var isTimeVisible: Bool {
             switch self {
@@ -50,15 +44,19 @@ extension Exercise {
     enum ExerciseType {
         case strength
         case cardio
+        
+        var shouldMeasureTime: Bool {
+            switch self {
+            case .cardio:
+                return true
+            default:
+                return false
+            }
+        }
     }
     
     var type: ExerciseType {
-        switch category {
-        case .cardio:
-            return .cardio
-        default:
-            return .strength
-        }
+        categories.contains(.cardio) ? .cardio : .strength
     }
     
     enum DetailsType: String, Codable, Equatable {
@@ -68,7 +66,7 @@ extension Exercise {
     }
 }
 
-extension Exercise.Category {
+extension Exercise.ExerciseType {
     func generatePossibleDetails() -> [Exercise.DetailsType] {
         switch self {
         case .cardio:

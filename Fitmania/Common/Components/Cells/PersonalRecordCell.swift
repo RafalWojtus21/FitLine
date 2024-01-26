@@ -13,7 +13,7 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
     struct ViewModel {
         let exercise: Exercise
         var exerciseName: String { exercise.name }
-        var exerciseCategory: Exercise.Category { exercise.category}
+        var exerciseType: Exercise.ExerciseType { exercise.type }
         let bestScore: Float
         let date: Date
     }
@@ -78,7 +78,7 @@ class PersonalRecordCell: UITableViewCell, ReusableCell {
 
     func configure(with viewModel: ViewModel) {
         exerciseNameLabel.text = viewModel.exerciseName
-        let unit: String = viewModel.exerciseCategory == .cardio ? "km" : "kg"
+        let unit: String = viewModel.exerciseType == .cardio ? "km" : "kg"
         bestScoreLabel.text = "\(viewModel.bestScore)" + " " + unit
         let dateFormatter = DateFormatter.dayMonthDateFormatter
         dateLabel.text = dateFormatter.string(from: viewModel.date)
