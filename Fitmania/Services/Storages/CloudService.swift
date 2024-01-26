@@ -108,7 +108,7 @@ final class CloudServiceImpl: CloudService {
             return Observable.error(error)
         }
     }
-    
+
     func deletePersonalDataWithID(endpoint: DatabaseEndpoints, dataID: UUID?) -> Completable {
         do {
             let reference = try getPrivateDestination(from: endpoint, dataID: dataID)

@@ -20,18 +20,17 @@ final class HomeScreenInteractorImpl: HomeScreenInteractor {
     }
     
     func fetchUserInfo() -> Observable<HomeScreenResult> {
-        dependencies.cloudService.fetchPersonalDataSingle(type: UserInfo.self, endpoint: .userInfo)
+        dependencies.cloudService.fetchPersonalDataObservable(type: UserInfo.self, endpoint: .userInfo)
             .map { userInfo in
                     .partialState(.setUserInfo(userInfo: userInfo))
             }
-            .asObservable()
     }
     
     func subscribeForWorkoutsHistory() -> Observable<HomeScreenResult> {
         dependencies.workoutsHistoryService.workoutsHistoryObservable
-            .map({ workoutsHistory in
+            .map { workoutsHistory in
                 return .partialState(.updateWorkoutsHistory(workouts: workoutsHistory.sorted { $0.startDate > $1.startDate }))
-            })
+            }
     }
     
     func setPersonalRecords() -> Observable<HomeScreenResult> {

@@ -91,8 +91,8 @@ final class RealtimeDatabaseServiceImpl: RealtimeDatabaseService {
     func fetchDataObservable<T: Decodable>(_ objectType: T.Type, from path: String, decoder: JSONDecoder?) -> Observable<T> {
         return Observable.create { observer in
             let databaseReference = self.database.reference(withPath: path)
-            databaseReference.observe(.childAdded) { snapshot in
-                guard let value = snapshot.value else {
+            databaseReference.observe(.value) { snapshot in
+                guard let value = snapshot.value as? [String: Any] else {
                     observer.onError(DatabaseError.noData)
                     return
                 }
