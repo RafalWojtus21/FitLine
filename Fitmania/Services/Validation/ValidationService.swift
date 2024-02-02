@@ -28,7 +28,7 @@ enum Validation {
             case passwordDigit = ".*[0-9].*"
             case passwordCharacter = ".*[^a-zA-Z0-9].*"
             case passwordLength = ".{8,256}"
-            case name = "^[a-zA-Z]{3,40}$"
+            case name = "^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{3,40}$"
             case age = "^(1[0-2][0-9]|[1-9][0-9]|[1-9])$"
             case height = "^(2[0-2][0-9]|23[0-9]|[1][0-9][0-9]|[2-9][0-9]|[2-9])$"
             case weight = "^(2[3-4][0-9]|25[0-9]|[3-9][0-9]|[1-2][0-4][0-9]|250|[3-9][0-9]|[1-2][0-9]|30)$"
