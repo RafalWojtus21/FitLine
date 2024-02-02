@@ -16,5 +16,6 @@ extension UIColor {
     static let tertiaryColorDisabled = UIColor.lightGray
     static let quaternaryColor = UIColor(named: "quaternaryColor")!
     static let quinaryColor = UIColor(named: "quinaryColor")!
+    static let lightBlue = UIColor(named: "lightBlue")!
     // swiftlint:enable force_unwrapping
 }

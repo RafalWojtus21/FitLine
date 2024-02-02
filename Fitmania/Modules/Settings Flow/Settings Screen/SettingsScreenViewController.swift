@@ -23,21 +23,23 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
     private let bag = DisposeBag()
     private let presenter: SettingsScreenPresenter
     
-    private lazy var accountLabel: UILabel = {
+    private lazy var fitLineLogoView = FitLineLogoView()
+    
+    private lazy var personalDataLabel: UILabel = {
         let label = UILabel()
         label.font = .openSansSemiBold16
-        label.text = "Accounts Center"
+        label.text = "Settings and privacy"
         label.textColor = .lightGray
         label.textAlignment = .left
         return label
     }()
     
-    private lazy var personalDetailsButton = SettingsSectionButton(title: "About", icon: .personCircle)
+    private lazy var personalDetailsButton = SettingsSectionButton(viewModel: .init(title: "About", icon: .personCircle, buttonType: .normal))
     
     private lazy var accountStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [accountLabel, personalDetailsButton])
+        let view = UIStackView(arrangedSubviews: [personalDataLabel, personalDetailsButton])
         view.axis = .vertical
-        view.spacing = 4
+        view.spacing = 8
         view.distribution = .fillProportionally
         view.isUserInteractionEnabled = true
         return view
@@ -52,30 +54,47 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         return label
     }()
     
-    private lazy var scheduledTrainingsButton = SettingsSectionButton(title: "Scheduled trainings", icon: .bell)
+    private lazy var scheduledTrainingsButton = SettingsSectionButton(viewModel: .init(title: "Scheduled trainings", icon: .bell, buttonType: .normal))
     
     private lazy var activitiesStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [activitiesLabel, scheduledTrainingsButton])
         view.axis = .vertical
-        view.spacing = 4
+        view.spacing = 8
+        view.distribution = .fillProportionally
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    private lazy var accountCenterLabel: UILabel = {
+        let label = UILabel()
+        label.font = .openSansSemiBold16
+        label.text = "Account Center"
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private lazy var deleteAccountButton = SettingsSectionButton(viewModel: .init(title: "Delete account", icon: .trashIcon, buttonType: .delete))
+    private lazy var signOutButton = SettingsSectionButton(viewModel: .init(title: "Sign out", icon: .signOut, buttonType: .logOut))
+    
+    private lazy var accountCenterStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [accountCenterLabel, signOutButton, deleteAccountButton])
+        view.axis = .vertical
+        view.spacing = 8
         view.distribution = .fillProportionally
         view.isUserInteractionEnabled = true
         return view
     }()
     
     private lazy var settingsStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [accountStackView, activitiesStackView])
+        let view = UIStackView(arrangedSubviews: [accountStackView, activitiesStackView, accountCenterStackView])
         view.axis = .vertical
-        view.spacing = 16
+        view.spacing = 32
         view.distribution = .fill
         view.isUserInteractionEnabled = true
         return view
     }()
-    
-    private lazy var fitLineLogoView = FitLineLogoView()
-    
-    private lazy var signOutButton = UIButton().apply(style: .primary, title: L.signOutButtonTitle)
-    
+            
     init(presenter: SettingsScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -101,16 +120,9 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         let labelHeight = 36
         
         view.backgroundColor = .primaryColor
-        view.addSubview(signOutButton)
         view.addSubview(fitLineLogoView)
         view.addSubview(settingsStackView)
-        
-        signOutButton.snp.makeConstraints {
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
-            $0.left.right.equalToSuperview().inset(48)
-            $0.height.equalTo(48)
-        }
-        
+
         fitLineLogoView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(12).priority(.high)
             $0.height.equalTo(36)
@@ -119,11 +131,11 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         
         settingsStackView.snp.makeConstraints {
             $0.top.equalTo(fitLineLogoView.snp.bottom).offset(48).priority(.high)
-            $0.bottom.equalTo(signOutButton.snp.top).offset(-36).priority(.medium)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-36).priority(.medium)
             $0.left.right.equalToSuperview().inset(16)
         }
     
-        accountLabel.snp.makeConstraints {
+        personalDataLabel.snp.makeConstraints {
             $0.height.equalTo(labelHeight)
         }
         
@@ -139,6 +151,18 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         scheduledTrainingsButton.snp.makeConstraints {
             $0.height.equalTo(buttonHeight)
         }
+        
+        accountCenterLabel.snp.makeConstraints {
+            $0.height.equalTo(labelHeight)
+        }
+        
+        deleteAccountButton.snp.makeConstraints {
+            $0.height.equalTo(buttonHeight)
+        }
+        
+        signOutButton.snp.makeConstraints {
+            $0.height.equalTo(buttonHeight)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -150,8 +174,9 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         let signOutButtonIntent = signOutButton.rx.tap.map { Intent.signOutButtonIntent }
         let personalDetailsButtonIntent = personalDetailsButton.rx.tap.map { Intent.personalDetailsButtonIntent }
         let scheduledTrainingsButtonIntent = scheduledTrainingsButton.rx.tap.map { Intent.scheduledTrainingsButtonIntent }
+        let deleteAccountButtonIntent = deleteAccountButton.rx.tap.map { Intent.showDeleteAccountAlert }
 
-        Observable.merge(signOutButtonIntent, personalDetailsButtonIntent, scheduledTrainingsButtonIntent)
+        Observable.merge(signOutButtonIntent, personalDetailsButtonIntent, scheduledTrainingsButtonIntent, deleteAccountButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }
@@ -161,6 +186,13 @@ final class SettingsScreenViewController: BaseViewController, SettingsScreenView
         case .signOutErrorAlert(error: let error):
             let alert = UIAlertController(title: G.error, message: error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: G.okMessage, style: .default))
+            present(alert, animated: true, completion: nil)
+        case .showDeleteAccountWarning:
+            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete your account? This action cannot be reverted", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { _ in
+                self._intents.subject.onNext(.deleteAccountButtonIntent)
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(alert, animated: true, completion: nil)
         default:
             break

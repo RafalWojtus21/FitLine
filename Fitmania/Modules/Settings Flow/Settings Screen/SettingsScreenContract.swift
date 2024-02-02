@@ -11,6 +11,8 @@ enum SettingsScreenIntent {
     case signOutButtonIntent
     case personalDetailsButtonIntent
     case scheduledTrainingsButtonIntent
+    case showDeleteAccountAlert
+    case deleteAccountButtonIntent
 }
 
 struct SettingsScreenViewState: Equatable {
@@ -22,6 +24,9 @@ enum SettingsScreenEffect: Equatable {
     case signOutErrorAlert(error: String)
     case showPersonalDetailsEdition
     case showScheduledTrainings
+    case showDeleteAccountWarning
+    case accountDeleted
+    case deleteAccountErrorAlert(error: String)
 }
 
 struct SettingsScreenBuilderInput {
@@ -62,6 +67,7 @@ protocol SettingsScreenPresenter: AnyObject, BasePresenter {
 
 protocol SettingsScreenInteractor: BaseInteractor {
     func signOut() -> Observable<SettingsScreenResult>
+    func deleteAccount() -> Observable<SettingsScreenResult>
 }
 
 protocol SettingsScreenMiddleware {

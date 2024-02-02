@@ -35,6 +35,10 @@ final class SettingsScreenPresenterImpl: SettingsScreenPresenter {
                 return .just(.effect(.showPersonalDetailsEdition))
             case .scheduledTrainingsButtonIntent:
                 return .just(.effect(.showScheduledTrainings))
+            case .showDeleteAccountAlert:
+                return .just(.effect(.showDeleteAccountWarning))
+            case .deleteAccountButtonIntent:
+                return interactor.deleteAccount()
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

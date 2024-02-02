@@ -31,6 +31,8 @@ final class SettingsScreenMiddlewareImpl: SettingsScreenMiddleware, SettingsScre
                 dependencies.settingsFlowNavigation?.showScheduledNotifications()
             case .showPersonalDetailsEdition:
                 dependencies.settingsFlowNavigation?.showEditPersonalDataScreen()
+            case .accountDeleted:
+                dependencies.settingsFlowNavigation?.finishedSettingsFlow()
             default:
                 break
             }

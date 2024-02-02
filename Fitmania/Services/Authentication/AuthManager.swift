@@ -20,6 +20,7 @@ protocol AuthManager {
     func login(email: String, password: String) -> Single<AuthResponse>
     func signOut() -> Completable
     func resetPassword(email: String) -> Completable
+    func deleteAccount() -> Completable
 }
 
 protocol Authentication {
@@ -124,6 +125,16 @@ final class AuthManagerImpl: AuthManager {
     func resetPassword(email: String) -> Completable {
         return Completable.create { completable in
             self.auth.sendPasswordReset(withEmail: email) { error in
+                guard let error else { return completable(.completed) }
+                completable(.error(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func deleteAccount() -> Completable {
+        return Completable.create { completable in
+            self.auth.currentUser?.delete { error in
                 guard let error else { return completable(.completed) }
                 completable(.error(error))
             }

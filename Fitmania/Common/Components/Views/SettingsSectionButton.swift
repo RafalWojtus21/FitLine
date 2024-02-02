@@ -9,18 +9,29 @@ import UIKit
 
 class SettingsSectionButton: UIButton {
     
+    enum ButtonType {
+        case normal
+        case delete
+        case logOut
+    }
+    
+    struct ViewModel {
+        let title: String
+        let icon: SystemImage
+        let buttonType: ButtonType
+    }
+    
     private lazy var mainView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [iconImageView, buttonTitleLabel, arrowImageView])
         view.distribution = .fillProportionally
         view.axis = .horizontal
-        view.spacing = 24
+        view.spacing = 16
         return view
     }()
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -28,7 +39,6 @@ class SettingsSectionButton: UIButton {
         let label = UILabel()
         label.numberOfLines = 1
         label.backgroundColor = .clear
-        label.textColor = .white
         label.font = .openSansRegular16
         return label
     }()
@@ -41,12 +51,13 @@ class SettingsSectionButton: UIButton {
         return imageView
     }()
     
-    convenience init(title: String, icon: SystemImage) {
+    convenience init(viewModel: ViewModel) {
         self.init()
-        setTitleLabel(title)
-        setIcon(icon)
+        setTitleLabel(viewModel.title)
+        setIcon(viewModel.icon)
         layoutView()
         customize()
+        configure(with: viewModel.buttonType)
     }
     
     private func layoutView() {
@@ -54,16 +65,30 @@ class SettingsSectionButton: UIButton {
         
         mainView.snp.makeConstraints {
             $0.top.right.bottom.equalToSuperview().inset(4)
-            $0.left.equalToSuperview().inset(24)
+            $0.left.equalToSuperview().inset(16)
         }
         
         iconImageView.snp.makeConstraints {
-            $0.width.equalTo(16)
+            $0.width.equalTo(24)
         }
         
         arrowImageView.snp.makeConstraints {
-            $0.width.equalTo(24)
+            $0.width.equalTo(16)
         }
+    }
+    
+    private func configure(with buttonType: ButtonType) {
+        let tintColor: UIColor = switch buttonType {
+        case .normal:
+                .white
+        case .delete:
+                .red
+        case .logOut:
+                .lightBlue
+        }
+        iconImageView.tintColor = tintColor
+        buttonTitleLabel.textColor = tintColor
+        arrowImageView.tintColor = tintColor
     }
     
     private func customize() {
@@ -71,7 +96,6 @@ class SettingsSectionButton: UIButton {
         mainView.isUserInteractionEnabled = false
         buttonTitleLabel.isUserInteractionEnabled = false
         arrowImageView.isUserInteractionEnabled = false
-        backgroundColor = .quaternaryColor.withAlphaComponent(0.2)
         layer.cornerRadius = 8
     }
     

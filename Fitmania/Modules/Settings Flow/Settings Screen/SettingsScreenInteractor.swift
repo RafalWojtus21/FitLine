@@ -34,4 +34,15 @@ final class SettingsScreenInteractorImpl: SettingsScreenInteractor {
                 return .just(.effect(.signOutErrorAlert(error: authError.errorDescription)))
             })
     }
+    
+    func deleteAccount() -> Observable<SettingsScreenResult> {
+        dependencies.authManager.deleteAccount()
+            .andThen(.just(.effect(.accountDeleted)))
+            .catch({ error -> Observable<SettingsScreenResult> in
+                guard let authError = error as? AuthError else {
+                    return .just(.effect(.somethingWentWrong))
+                }
+                return .just(.effect(.signOutErrorAlert(error: authError.errorDescription)))
+            })
+    }
 }
