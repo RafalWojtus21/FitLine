@@ -9,6 +9,13 @@ import UIKit
 
 class TextFieldWithTitleView: UIView {
     
+    struct Config {
+        let style: TextFieldStyle
+        let title: String
+        let placeHolder: String
+        let keyboardType: UIKeyboardType?
+    }
+    
     // MARK: Properties
     
     private lazy var contentView: UIStackView = {
@@ -30,10 +37,10 @@ class TextFieldWithTitleView: UIView {
     
     // MARK: Public Implementation
     
-    convenience init(style: TextFieldStyle, title: String, placeholder: String) {
+    convenience init(config: Config) {
         self.init()
-        configureView(style: style, title: title, placeholder: placeholder)
-        fitLineTextField.apply(style: style, placeholder: placeholder)
+        configureView(style: config.style, title: config.title, placeholder: config.placeHolder)
+        fitLineTextField.apply(config: .init(style: config.style, placeHolder: config.placeHolder, keyboardType: config.keyboardType))
     }
     
     private func configureView(style: TextFieldStyle, title: String, placeholder: String) {

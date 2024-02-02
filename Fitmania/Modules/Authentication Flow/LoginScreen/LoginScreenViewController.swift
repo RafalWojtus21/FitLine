@@ -58,7 +58,7 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }()
     
     private lazy var emailView: TextFieldWithTitleView = {
-        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
+        let fitLineTextField = TextFieldWithTitleView(config: .init(style: .primary, title: G.email, placeHolder: G.email, keyboardType: .emailAddress))
         let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .emailAddress
         textField.autocapitalizationType = .none
@@ -68,12 +68,11 @@ final class LoginScreenViewController: BaseViewController, LoginScreenView {
     }()
     
     private lazy var passwordView: TextFieldWithTitleView = {
-        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
+        let fitLineTextField = TextFieldWithTitleView(config: .init(style: .primary, title: G.password, placeHolder: G.password, keyboardType: .default))
         let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
-        textField.keyboardType = .default
         textField.returnKeyType = .next
         return fitLineTextField
     }()

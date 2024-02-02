@@ -32,32 +32,29 @@ final class RegisterScreenViewController: BaseViewController, RegisterScreenView
     }()
     
     private lazy var emailView: TextFieldWithTitleView = {
-        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.email, placeholder: G.email)
+        let fitLineTextField = TextFieldWithTitleView(config: .init(style: .primary, title: G.email, placeHolder: G.email, keyboardType: .emailAddress))
         let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .emailAddress
-        textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitLineTextField
     }()
     
     private lazy var passwordView: TextFieldWithTitleView = {
-        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: G.password, placeholder: G.password)
+        let fitLineTextField = TextFieldWithTitleView(config: .init(style: .primary, title: G.password, placeHolder: G.password, keyboardType: .default))
         let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
-        textField.keyboardType = .default
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitLineTextField
     }()
     
     private lazy var repeatPasswordView: TextFieldWithTitleView = {
-        let fitLineTextField = TextFieldWithTitleView(style: .primary, title: L.repeatPassword, placeholder: L.repeatPassword)
+        let fitLineTextField = TextFieldWithTitleView(config: .init(style: .primary, title: L.repeatPassword, placeHolder: L.repeatPassword, keyboardType: .default))
         let textField = fitLineTextField.fitLineTextField.textField
         textField.textContentType = .password
         textField.isSecureTextEntry = true
-        textField.keyboardType = .default
         textField.autocapitalizationType = .none
         textField.returnKeyType = .done
         return fitLineTextField

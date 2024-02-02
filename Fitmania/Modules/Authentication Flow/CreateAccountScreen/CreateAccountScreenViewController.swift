@@ -33,17 +33,20 @@ final class CreateAccountScreenViewController: BaseViewController, CreateAccount
         return label
     }()
     
-    private lazy var namesStackView = AccountSetupView(leftPlaceholder: L.firstName, rightPlacerholder: L.lastName)
-    
+    private lazy var namesStackView = AccountSetupView(leftTextFieldConfig: .init(keyboardType: .default, placeHolder: L.firstName),
+                                                       rightTextFieldConfig: .init(keyboardType: .default, placeHolder: L.lastName))
+            
     private lazy var sexAgeStackView: AccountSetupView = {
-        let view = AccountSetupView(leftPlaceholder: L.sex, rightPlacerholder: L.age)
+        let view = AccountSetupView(leftTextFieldConfig: .init(keyboardType: nil, placeHolder: L.sex),
+                                    rightTextFieldConfig: .init(keyboardType: .numberPad, placeHolder: L.age))
         let textField = view.leftTextField.textField
         textField.inputView = sexPicker
         textField.delegate = self
         return view
     }()
     
-    private lazy var heightWeightStackView = AccountSetupView(leftPlaceholder: L.height, rightPlacerholder: L.weight)
+    private lazy var heightWeightStackView = AccountSetupView(leftTextFieldConfig: .init(keyboardType: .numberPad, placeHolder: L.height),
+                                                              rightTextFieldConfig: .init(keyboardType: .numberPad, placeHolder: L.weight))
     
     private lazy var sexPicker = UIPickerView()
     

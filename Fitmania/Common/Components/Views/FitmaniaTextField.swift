@@ -17,6 +17,12 @@ enum TextFieldStyle {
 
 class FitLineTextField: UIView {
     
+    struct Config {
+        let style: TextFieldStyle
+        let placeHolder: String
+        let keyboardType: UIKeyboardType?
+    }
+    
     // MARK: Properties
     
     private lazy var contentView: UIStackView = {
@@ -48,9 +54,10 @@ class FitLineTextField: UIView {
         self.init()
     }
     
-    func apply(style: TextFieldStyle, placeholder: String) {
-        layoutView(style: style)
-        configureView(style: style, placeholder: placeholder)
+    func apply(config: Config) {
+        layoutView(style: config.style)
+        configureView(style: config.style, placeholder: config.placeHolder)
+        textField.keyboardType = config.keyboardType ?? .default
     }
     
     func errorMessage(_ message: String?) {

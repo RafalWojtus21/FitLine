@@ -12,6 +12,11 @@ import SnapKit
 
 class AccountSetupView: UIView {
     
+    struct Config {
+        let keyboardType: UIKeyboardType?
+        let placeHolder: String
+    }
+    
     // MARK: Properties
 
     private let mainView = UIView(backgroundColor: .clear)
@@ -30,15 +35,15 @@ class AccountSetupView: UIView {
 
     // MARK: Public Implementation
 
-    convenience init(leftPlaceholder: String, rightPlacerholder: String) {
+    convenience init(leftTextFieldConfig: Config, rightTextFieldConfig: Config) {
         self.init()
-        configureTextFields(leftPlaceholder: leftPlaceholder, rightPlacerholder: rightPlacerholder)
+        configureTextFields(leftTextFieldConfig: leftTextFieldConfig, rightTextFieldConfig: rightTextFieldConfig)
         setupView()
     }
     
-    private func configureTextFields(leftPlaceholder: String, rightPlacerholder: String) {
-        leftTextField.apply(style: .quaternary, placeholder: leftPlaceholder)
-        rightTextField.apply(style: .quaternary, placeholder: rightPlacerholder)
+    private func configureTextFields(leftTextFieldConfig: Config, rightTextFieldConfig: Config) {
+        leftTextField.apply(config: .init(style: .quaternary, placeHolder: leftTextFieldConfig.placeHolder, keyboardType: leftTextFieldConfig.keyboardType))
+        rightTextField.apply(config: .init(style: .quaternary, placeHolder: rightTextFieldConfig.placeHolder, keyboardType: rightTextFieldConfig.keyboardType))
     }
     
     private func setupView() {

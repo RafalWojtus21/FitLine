@@ -51,11 +51,10 @@ final class ForgotPasswordScreenViewController: BaseViewController, ForgotPasswo
     
     private lazy var emailTextfield: FitLineTextField = {
         let fitLineTextField = FitLineTextField()
-        fitLineTextField.apply(style: .tertiary, placeholder: L.enterEmail)
+        fitLineTextField.apply(config: .init(style: .tertiary, placeHolder: L.enterEmail, keyboardType: .emailAddress))
         fitLineTextField.layer.borderColor = UIColor.white.cgColor
         let textField = fitLineTextField.textField
         textField.textContentType = .emailAddress
-        textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
         return fitLineTextField
