@@ -73,12 +73,12 @@ class SettingsFlowController: SettingsFlow, SettingsFlowNavigation {
     
     func showScheduledNotifications() {
         let view = scheduledNotificationsScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.present(view: view, animated: true, completion: nil)
     }
     
     func showEditPersonalDataScreen() {
         let view = editPersonalDataScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.present(view: view, animated: true, completion: nil)
     }
     
     func finishedSettingsFlow() {

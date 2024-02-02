@@ -86,31 +86,31 @@ class CreateWorkoutFlowController: CreateWorkoutFlow, CreateWorkoutFlowNavigatio
     
     func showWorkoutSetupScreen(trainingName: String) {
         let view = workoutSetupBuilder.build(with: .init(trainingName: trainingName)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showWorkoutCategoryListScreen() {
         let view = workoutsCategoryListBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showCategoryExercisesListScreen(category: Exercise.Category) {
         let view = categoryExercisesListBuilder.build(with: .init(chosenCategory: category)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showAddExerciseScreen(exercise: Exercise) {
         let view = addExerciseBuilder.build(with: .init(chosenExercise: exercise, exerciseToEdit: nil)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showEditExerciseScreen(_ workoutPart: WorkoutPart) {
         let view = addExerciseBuilder.build(with: .init(chosenExercise: workoutPart.exercise, exerciseToEdit: workoutPart)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func popToRootViewController() {
-        dependencies.navigation.popToTargetViewController(controllerType: WorkoutSetupScreenViewController.self, animated: false)
+        dependencies.navigation.popToTargetViewController(controllerType: WorkoutSetupScreenViewController.self, animated: true)
     }
     
     func finishCreateWorkoutFlow() {

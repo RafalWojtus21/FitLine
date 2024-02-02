@@ -66,7 +66,7 @@ class OnboardingFlowController: OnboardingFlow, OnboardingFlowNavigation {
     
     func showWelcomeScreen() {
         let view = welcomeScreenBuilder.build(with: .init()).view
-        dependencies.navigation.set(view: view, animated: false)
+        dependencies.navigation.set(view: view, animated: true)
     }
     
     func showLoginScreen() {

@@ -92,7 +92,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     
     func showWorkoutsListScreen() {
         let view = workoutsListBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func startCreateWorkoutFlow(trainingName: String) {
@@ -102,7 +102,7 @@ class WorkoutFlowController: WorkoutFlow, WorkoutFlowNavigation {
     
     func finishedCreateWorkoutFlow() {
         createWorkoutFlowController = nil
-        dependencies.navigation.popToTargetViewController(controllerType: WorkoutsListScreenViewController.self, animated: false)
+        dependencies.navigation.popToTargetViewController(controllerType: WorkoutsListScreenViewController.self, animated: true)
     }
     
     func startTrainingAssistantFlow(plan: WorkoutPlan) {

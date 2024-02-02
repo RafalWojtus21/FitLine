@@ -88,22 +88,22 @@ class TrainingAssistantFlowController: TrainingAssistantFlow, TrainingAssistantF
     
     func showScheduleWorkoutScreen(plan: WorkoutPlan) {
         let view = scheduleWorkoutScreenBuilder.build(with: .init(chosenWorkout: plan)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showWorkoutPreviewScreen(plan: WorkoutPlan) {
         let view = workoutPreviewScreenBuilder.build(with: .init(chosenWorkout: plan)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showWorkoutExerciseScreen(plan: WorkoutPlan) {
         let view = workoutExerciseScreenBuilder.build(with: .init(chosenPlan: plan)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showWorkoutSummaryScreen(workoutDoneModel: FinishedWorkout, shouldSaveWorkout: Bool) {
         let view = workoutSummaryScreenBuilder.build(with: .init(workoutDoneModel: workoutDoneModel, shouldSaveWorkout: shouldSaveWorkout)).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func editWorkoutPlan(_ plan: WorkoutPlan) {

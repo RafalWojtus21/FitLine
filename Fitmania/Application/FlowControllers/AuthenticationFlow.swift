@@ -81,27 +81,27 @@ class AuthenticationFlowController: AuthenticationFlow, AuthFlowNavigation {
     
     func showLoginScreen() {
         let view = loginScreenBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showRegisterScreen() {
         let view = registerScreenBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showForgotPasswordScreen() {
         let view = forgotPasswordScreenBuilder.build(with: .init()).view
-        dependencies.navigation.present(view: view, animated: false, completion: nil)
+        dependencies.navigation.present(view: view, animated: true, completion: nil)
     }
     
     func showCreateAccountScreen() {
         let view = createAccountScreenBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func showAccountCreatedScreen() {
         let view = accountCreatedScreenBuilder.build(with: .init()).view
-        dependencies.navigation.show(view: view, animated: false)
+        dependencies.navigation.show(view: view, animated: true)
     }
     
     func dismiss() {
