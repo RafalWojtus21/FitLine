@@ -37,4 +37,6 @@ enum SystemImage: String {
     case gearIcon = "gear"
     case trashIcon = "trash"
     case signOut = "rectangle.portrait.and.arrow.right"
+    case ellipsis = "ellipsis"
+    case info = "info.circle"
 }

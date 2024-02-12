@@ -45,7 +45,7 @@ final class WorkoutSummaryScreenInteractorImpl: WorkoutSummaryScreenInteractor {
         
         _ = exerciseGroups.map { groupedExercises in
             guard let exercise = groupedExercises.first?.exercise else { return }
-            var summaryModel = WorkoutSummaryModel(exerciseName: exercise.name, exerciseType: exercise.type, setsNumber: groupedExercises.count, totalTime: nil, maxWeight: nil, maxRepetitions: nil, distance: nil)
+            var summaryModel = WorkoutSummaryModel(exerciseName: exercise.name, exerciseType: exercise.type, setsNumber: groupedExercises.count, totalTime: nil, weightReps: [], distance: nil)
             _ = groupedExercises.map { detailedExercise in
                 switch detailedExercise.exercise.type {
                 case .cardio:
@@ -96,20 +96,19 @@ final class WorkoutSummaryScreenInteractorImpl: WorkoutSummaryScreenInteractor {
     private func handlePhysicalExercise(detailedExercise: DetailedExercise, summaryModel: WorkoutSummaryModel) -> WorkoutSummaryModel {
         var summary = summaryModel
         if let details = detailedExercise.details {
+            var finalWeight: Float?
+            var finalRepetitions: Int?
             for detail in details {
                 switch detail {
                 case .repetitions(let repetitions):
-                    if repetitions >= summaryModel.maxRepetitions ?? 0 {
-                        summary.maxRepetitions = repetitions
-                    }
+                    finalRepetitions = repetitions
                 case .weight(let weight):
-                    if weight >= summaryModel.maxWeight ?? 0.0 {
-                        summary.maxWeight = weight
-                    }
+                    finalWeight = weight
                 default:
                     break
                 }
             }
+            summary.weightReps.append(.init(weight: finalWeight, repetitions: finalRepetitions))
         }
         return summary
     }

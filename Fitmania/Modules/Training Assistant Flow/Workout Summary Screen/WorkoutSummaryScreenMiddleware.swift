@@ -27,6 +27,8 @@ final class WorkoutSummaryScreenMiddlewareImpl: WorkoutSummaryScreenMiddleware, 
             switch effect {
             case .doneButtonEffect:
                 dependencies.trainingAssistantFlowNavigation?.finishTrainingAssistantFlow()
+            case .showWorkoutDetails:
+                Log.trainingAssistant.debug("Show workout details button tapped")
             default: break
             }
         }

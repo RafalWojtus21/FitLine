@@ -24,6 +24,23 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
     
     private var workoutSummarySubject = PublishSubject<[WorkoutSummaryModel]>()
     
+    private lazy var detailsButton: UIBarButtonItem = {
+        var menuItems: [UIAction] {
+            return [
+                UIAction(title: "Workout details", image: UIImage.systemImageName(.info),
+                         handler: { _ in
+                             self._intents.subject.onNext(.detailsButtonSelected)
+                })
+            ]
+        }
+        
+        var demoMenu: UIMenu {
+            return UIMenu(title: "", image: UIImage.systemImageName(.info), identifier: nil, options: [], children: menuItems)
+        }
+        let button = UIBarButtonItem(title: "My menu", image: UIImage.systemImageName(.ellipsis), primaryAction: nil, menu: demoMenu)
+        return button
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.openSansSemiBold32
@@ -93,6 +110,7 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
     }
     
     private func layoutView() {
+        navigationItem.rightBarButtonItem = detailsButton
         navigationItem.setHidesBackButton(true, animated: true)
         view.backgroundColor = .primaryColor
         view.addSubview(titleLabel)
@@ -137,13 +155,18 @@ final class WorkoutSummaryScreenViewController: BaseViewController, WorkoutSumma
     private func bindControls() {
         workoutSummarySubject
             .bind(to: collectionView.rx.items(cellIdentifier: WorkoutSummaryCollectionViewCell.reuseIdentifier, cellType: WorkoutSummaryCollectionViewCell.self)) { _, item, cell in
-                cell.configure(with: WorkoutSummaryCollectionViewCell.ViewModel(exerciseName: item.exerciseName, exerciseType: item.exerciseType, numberOfSets: item.setsNumber, maxRepetitions: item.maxRepetitions, totalTime: item.totalTime, maxWeight: item.maxWeight, distance: item.distance))
+                cell.configure(with: WorkoutSummaryCollectionViewCell.ViewModel(exerciseName: item.exerciseName, 
+                                                                                exerciseType: item.exerciseType,
+                                                                                numberOfSets: item.setsNumber,
+                                                                                weightRepetitionsModel: item.weightReps,
+                                                                                totalTime: item.totalTime,
+                                                                                distance: item.distance))
             }
             .disposed(by: bag)
         
         let doneButtonIntent = doneButton.rx.tap.map { Intent.doneButtonPressed }
-        
-        doneButtonIntent
+                
+        Observable.merge(doneButtonIntent)
             .bind(to: _intents.subject)
             .disposed(by: bag)
     }

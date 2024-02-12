@@ -15,19 +15,27 @@ class WorkoutSummaryCollectionViewCell: UICollectionViewCell, CollectionViewReus
         let exerciseName: String
         let exerciseType: Exercise.ExerciseType
         let numberOfSets: Int?
-        let maxRepetitions: Int?
+        let weightRepetitionsModel: [WorkoutSummaryModel.WeightRepetitionsModel]
+        var maxRepetitions: Int? { weightRepetitionsModel.compactMap { $0.repetitions }.max() }
         let totalTime: Int?
-        let maxWeight: Float?
+        var maxWeight: Float? { weightRepetitionsModel.compactMap { $0.weight }.max() }
         let distance: Float?
     }
     
     // MARK: Properties
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.isScrollEnabled = true
+        scrollView.indicatorStyle = .white
+        scrollView.backgroundColor = .quaternaryColor
+        scrollView.layer.cornerRadius = 12
+        return scrollView
+    }()
+    
     private lazy var mainView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [exerciseNameLabel, setsNumberLabel, totalTimeLabel, distanceLabel, maxWeightLabel, maxRepetitionsLabel])
         view.axis = .vertical
-        view.backgroundColor = .quaternaryColor
-        view.layer.cornerRadius = 12
         view.spacing = 4
         return view
     }()
@@ -37,6 +45,7 @@ class WorkoutSummaryCollectionViewCell: UICollectionViewCell, CollectionViewReus
         label.font = .openSansSemiBold20
         label.textColor = .white
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
@@ -50,7 +59,7 @@ class WorkoutSummaryCollectionViewCell: UICollectionViewCell, CollectionViewReus
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(mainView)
+        contentView.addSubview(scrollView)
         layoutViews()
     }
     
@@ -87,9 +96,15 @@ class WorkoutSummaryCollectionViewCell: UICollectionViewCell, CollectionViewReus
     
     private func layoutViews() {
         backgroundColor = .clear
-        mainView.snp.makeConstraints {
+        scrollView.snp.remakeConstraints {
             $0.left.right.equalToSuperview().inset(4)
             $0.top.bottom.equalToSuperview().inset(12)
+        }
+        
+        scrollView.addSubview(mainView)
+        mainView.snp.remakeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
         }
     }
     

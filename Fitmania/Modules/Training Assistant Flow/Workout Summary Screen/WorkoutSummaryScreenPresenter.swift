@@ -35,6 +35,10 @@ final class WorkoutSummaryScreenPresenterImpl: WorkoutSummaryScreenPresenter {
                 return .merge(interactor.saveWorkoutToHistory(),
                               interactor.calculateWorkoutSummaryModels()
                 )
+            case .cellSelected(let model):
+                return .just(.effect(.showExerciseDetails(model: model)))
+            case .detailsButtonSelected:
+                return .just(.effect(.showWorkoutDetails))
             }
         }
         return Observable.merge(middleware.middlewareObservable, intentResults)

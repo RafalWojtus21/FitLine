@@ -12,7 +12,11 @@ struct WorkoutSummaryModel: Equatable {
     let exerciseType: Exercise.ExerciseType
     let setsNumber: Int?
     var totalTime: Int?
-    var maxWeight: Float?
-    var maxRepetitions: Int?
+    var weightReps: [WeightRepetitionsModel]
     var distance: Float?
+    
+    struct WeightRepetitionsModel: Equatable {
+        let weight: Float?
+        let repetitions: Int?
+    }
 }

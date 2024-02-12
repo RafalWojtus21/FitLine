@@ -30,6 +30,8 @@ enum WorkoutSummaryScreen {
 enum WorkoutSummaryScreenIntent {
     case viewLoaded
     case doneButtonPressed
+    case cellSelected(_ model: WorkoutSummaryModel)
+    case detailsButtonSelected
 }
 
 struct WorkoutSummaryScreenViewState: Equatable {
@@ -61,6 +63,8 @@ enum WorkoutSummaryScreenEffect: Equatable {
     case doneButtonEffect
     case workoutSaved
     case somethingWentWrong
+    case showExerciseDetails(model: WorkoutSummaryModel)
+    case showWorkoutDetails
 }
 
 struct WorkoutSummaryScreenBuilderInput {
